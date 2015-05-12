@@ -11,14 +11,14 @@
 |
 */
 
-// Route::get('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@index');
 
-// Route::get('home', 'HomeController@index');
+Route::get('home', 'HomeController@index');
 
-// Route::controllers([
-// 	'auth' => 'Auth\AuthController',
-// 	'password' => 'Auth\PasswordController',
-// ]);
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
 
 Route::get('/halo', function()
 {
@@ -26,3 +26,7 @@ Route::get('/halo', function()
 });
 
 // Route::get(‘/helloworld’, ‘HelloWorldController@index’);
+
+/* Universities controller*/
+
+Route::get('univ', 'UniversitiesController@index');

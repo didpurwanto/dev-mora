@@ -7,6 +7,7 @@ composer global require "laravel/installer=~1.1"
 if any problem create new project, that might you need to change the folder owner:
 sudo chown <user-name> /var/www/html
 
+run the larevel: enter the project directory and put command: php -S localhost:8888 -t public
 
 usefull link:
 
@@ -16,17 +17,29 @@ https://www.atlassian.com/git/tutorials/setting-up-a-repository
 http://stackoverflow.com/questions/4658606/import-existing-source-code-to-github
 
 migration:
+
+create database:
 php artisan make:migration create_universities
 php artisan migrate
 
+create a controller:
+php artisan make:controller UniversitiesController
+
 git add . => add all changes/adds
 git commit -m => commit all changes
-
 git pull origin master => get from server
-git pust origin master => sent to server
+git push origin master => sent to server
 
 
 sql:
 -----
 restart phpmyadmin passwor:
 http://askubuntu.com/questions/321903/resetting-forgotten-phpmyadmin-password
+
+
+bypass vimeo:
+ add the ip on /etc/hosts
+
+ ref:
+ http://michaelhartomo.com/profile/332-how-to-open-blocked-sites-part-ii
+
