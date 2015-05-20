@@ -43,3 +43,7 @@ bypass vimeo:
  ref:
  http://michaelhartomo.com/profile/332-how-to-open-blocked-sites-part-ii
 
+
+paket tambahan :
+code : composer require Illuminate/Html
+
