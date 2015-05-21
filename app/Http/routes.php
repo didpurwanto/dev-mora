@@ -31,3 +31,4 @@ Route::get('/halo', function()
 
 Route::get('univ', 'UniversitiesController@index');
 Route::get('univ/create', 'UniversitiesController@create');
+Route::post('univ','UniversitiesController@store');
