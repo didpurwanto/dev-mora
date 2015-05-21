@@ -6,7 +6,7 @@
 <head>
        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
        <title>Page Title</title>
-       <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8"/>
+       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8"/>
 </head>
 
 <body>
