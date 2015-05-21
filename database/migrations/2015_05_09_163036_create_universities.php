@@ -17,6 +17,7 @@ class CreateUniversities extends Migration {
 		{
 			$table->increments('id');
 			$table->string('university_name', 100);
+			$table->timestamps();
 		});
 	}
 
