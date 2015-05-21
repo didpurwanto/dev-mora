@@ -1,10 +1,11 @@
 <?php namespace App\Http\Controllers;
 
 use App\University;
+use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 
 class UniversitiesController extends Controller {
 
@@ -37,7 +38,10 @@ class UniversitiesController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		//$input = Request::all();
+		//return $input;
+		University::create(Request::all());
+		return redirect('univ');
 	}
 
 	/**
