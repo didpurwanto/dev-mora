@@ -14,7 +14,8 @@ class UniversitiesController extends Controller {
 	 */
 	public function index()
 	{
-		return view('university.univ');
+		$university = University::all();
+		return view('university.univ', compact('university'));
 	}
 
 	/**
