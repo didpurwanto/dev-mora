@@ -1,11 +1,10 @@
 <?php namespace App\Http\Controllers;
 
-use App\University;
-use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
+use App\University;
 
 class UniversitiesController extends Controller {
 
@@ -36,11 +35,13 @@ class UniversitiesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
 		//$input = Request::all();
 		//return $input;
-		University::create(Request::all());
+		$this->validate($request, ['university_name' => 'required']);
+		University::create($request->all());
+		
 		return redirect('univ');
 	}
 
@@ -53,6 +54,9 @@ class UniversitiesController extends Controller {
 	public function show($id)
 	{
 		//
+		$univ = University::findOrFail($id);
+		
+		return view('university.show', compact('univ'));
 	}
 
 	/**
