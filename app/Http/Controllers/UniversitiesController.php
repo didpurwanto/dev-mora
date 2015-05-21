@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\University;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -14,8 +15,8 @@ class UniversitiesController extends Controller {
 	 */
 	public function index()
 	{
-		$university = University::all();
-		return view('university.univ', compact('university'));
+		$univ = University::all();
+		return view('university.univ', compact('univ'));
 	}
 
 	/**

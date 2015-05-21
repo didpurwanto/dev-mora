@@ -1,11 +1,10 @@
-<!doctype html>
+@extends('layout')
 
-<html lang="en">
-<head>
-	<title>Hi this is univesities page</title>
-</head>
-
-<body>
-	<h1>Universities list </h1>
-</body>
-</html>
+@section('content')
+	@foreach ($univ as $university)
+	<h1>Ini adalah Halaman Universitas</h1
+	<article>
+		<h3>{{ $university->university_name }}</h3>
+	</article>
+	@endforeach
+@stop
