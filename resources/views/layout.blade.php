@@ -5,12 +5,16 @@
 
 <head>
        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-       <title>Page Title</title>
+       <title>PBSB ONLINE</title>
        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8"/>
 </head>
 
 <body>
 	<div class="container">
+		@if(Session::has('flash_text'))
+			<div class="alert alert-success">{{Session::get('flash_text')}}</div>
+		@endif
+		
 		@yield('content')
 	</div>
 </body>

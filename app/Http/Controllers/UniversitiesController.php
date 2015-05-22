@@ -42,7 +42,8 @@ class UniversitiesController extends Controller {
 		$this->validate($request, ['university_name' => 'required']);
 		University::create($request->all());
 		
-		return redirect('univ');
+		\Session::flash('flash_text','A New University has been created!');
+		return redirect('universities');
 	}
 
 	/**
@@ -53,9 +54,9 @@ class UniversitiesController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		//Find or Fail to get ID
 		$univ = University::findOrFail($id);
-		
+		//Sent data to view
 		return view('university.show', compact('univ'));
 	}
 
@@ -67,18 +68,27 @@ class UniversitiesController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$univ = University::findOrFail($id);
+		return view('university.edit', compact('univ'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
 	 * @param  int  $id
+	 * @param  Request  $request
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
-		//
+		//Find or Fail to get ID
+		$univ = University::findOrFail($id);
+		// Validate with the parameters
+		$this->validate($request, ['university_name' => 'required']);
+		//Save record to the database
+		$univ->update($request->all());
+		//Return to universities controller
+		return redirect('universities');
 	}
 
 	/**
@@ -89,7 +99,7 @@ class UniversitiesController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		University::destroy($id);
 	}
 
 }

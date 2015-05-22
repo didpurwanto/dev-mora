@@ -29,7 +29,9 @@ Route::get('/halo', function()
 
 /* Universities controller*/
 
-Route::get('univ', 'UniversitiesController@index');
-Route::get('univ/create', 'UniversitiesController@create');
-Route::get('univ/{id}', 'UniversitiesController@show');
-Route::post('univ','UniversitiesController@store');
+// Route::get('univ', 'UniversitiesController@index');
+// Route::get('univ/create', 'UniversitiesController@create');
+// Route::get('univ/{id}', 'UniversitiesController@show');
+// Route::post('univ','UniversitiesController@store');
+// Route::post('univ/{id}/edit','UniversitiesController@edit');
+Route::resource('universities','UniversitiesController');
