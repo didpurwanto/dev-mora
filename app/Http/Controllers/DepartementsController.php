@@ -4,6 +4,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Departement;
+use App\University;
 
 class DepartementsController extends Controller {
 
@@ -14,7 +16,8 @@ class DepartementsController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$dep = Departement::all();
+		return view('departement.dep', compact('dep'));
 	}
 
 	/**
@@ -24,7 +27,8 @@ class DepartementsController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$univ_list= University::lists('university_name');
+		return view('departement.create', compact('univ_list'));
 	}
 
 	/**
@@ -32,9 +36,19 @@ class DepartementsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		//dd($request->input('univ_name'));
+		$univ = $request->input('univ_name');
+		$dept = $this->validate($request, ['departement_name' => 'required']);
+		$dept->save($request->all());
+		
+		//$dept->university()->save($univ);
+		University->departements()->save($univ);
+		//$this->save();
+		
+		\Session::flash('flash_text','A New Departement has been created!');
+		return redirect('departements');
 	}
 
 	/**
@@ -45,7 +59,10 @@ class DepartementsController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		//Find or Fail to get ID
+		$dep = Departement::findOrFail($id);
+		//Sent data to view
+		return view('departement.show', compact('dep'));
 	}
 
 	/**
@@ -56,7 +73,8 @@ class DepartementsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$dep = Departement::findOrFail($id);
+		return view('departement.edit', compact('dep'));
 	}
 
 	/**
@@ -65,10 +83,16 @@ class DepartementsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
-	{
-		//
-	}
+	public function update($id, Request $request)
+	{	
+		//Find or Fail to get ID
+		$dep = Departement::findOrFail($id);
+		// Validate with the parameters
+		$this->validate($request, ['departement' => 'required']);
+		//Save record to the database
+		$dep->update($request->all());
+		//Return to universities controller
+		return redirect('departements');	}
 
 	/**
 	 * Remove the specified resource from storage.
@@ -78,7 +102,7 @@ class DepartementsController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		Departement::destroy($id);
 	}
 
 }

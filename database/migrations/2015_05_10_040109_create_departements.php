@@ -15,9 +15,10 @@ class CreateDepartements extends Migration {
 		Schema::create('Departements', function($table)
 		{
 			$table->increments('id');
-			$table->integer('university_id');
+			$table->integer('university_id')->unsigned();
 			$table->string('departement_name', '100');
 			$table->timestamps();
+			$table->foreign('university_id')->references('id')->on('universities')->onDelete('cascade');
 		});
 	}
 

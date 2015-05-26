@@ -11,12 +11,9 @@
 |
 */
 
-//create index 
 Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
-
-
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -38,3 +35,4 @@ Route::get('/halo', function()
 // Route::post('univ','UniversitiesController@store');
 // Route::post('univ/{id}/edit','UniversitiesController@edit');
 Route::resource('universities','UniversitiesController');
+Route::resource('departements','DepartementsController');

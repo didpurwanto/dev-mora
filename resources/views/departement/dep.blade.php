@@ -1,0 +1,10 @@
+@extends('layout')
+
+@section('content')
+	<h2>Daftar Departemen</h2>
+	@foreach ($dep as $depart)
+		<article>
+			<h3>{{ $depart->departement_name }}</h3>
+		</article>
+	@endforeach
+@stop
