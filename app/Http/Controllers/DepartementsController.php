@@ -17,6 +17,8 @@ class DepartementsController extends Controller {
 	public function index()
 	{
 		$dep = Departement::all();
+		//dd($dep['university_name'] = University::getUniversityName($dep->university_id));
+		
 		return view('departement.dep', compact('dep'));
 	}
 
@@ -38,14 +40,29 @@ class DepartementsController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+		//dd($request->all());
 		//dd($request->input('univ_name'));
-		$univ = $request->input('univ_name');
-		$dept = $this->validate($request, ['departement_name' => 'required']);
-		$dept->save($request->all());
+		//$univ = $request->input('univ_name');
+		//$dept = $this->validate($request, ['departement_name' => 'required']);
+		//$dept->save($request->all());
 		
 		//$dept->university()->save($univ);
-		University->departements()->save($univ);
+		//University->departements()->save($univ);
 		//$this->save();
+		
+		//$departemen = new Departement(['departement_name' => 'Teknologi Informasi']);
+		
+		$univ = University::findOrFail($request->input('univ_name'));
+		
+		$departemen = $this->validate($request, ['departement_name' => 'required']);
+		
+		//dd($departemen = $request->input('departement_name'));
+		
+		$departemen = new Departement(['departement_name' => $request['departement_name']]);
+		
+		//dd($departemen);
+				
+		$departemen = $univ->departement()->save($departemen);
 		
 		\Session::flash('flash_text','A New Departement has been created!');
 		return redirect('departements');
@@ -61,6 +78,9 @@ class DepartementsController extends Controller {
 	{
 		//Find or Fail to get ID
 		$dep = Departement::findOrFail($id);
+		$dep['university_name'] = University::where('id',$dep['university_id'])->select('university_name')->first()->university_name;
+		//$dep['university_name'] = $univ->university_name;
+		
 		//Sent data to view
 		return view('departement.show', compact('dep'));
 	}
@@ -74,7 +94,11 @@ class DepartementsController extends Controller {
 	public function edit($id)
 	{
 		$dep = Departement::findOrFail($id);
-		return view('departement.edit', compact('dep'));
+		$univ_list= University::lists('university_name');
+		$univ = University::where('id',$dep['university_id'])->first()->id;
+		//$univ = $univ->id;
+		//dd($univ);
+		return view('departement.edit', compact('dep','univ_list','univ'));
 	}
 
 	/**
@@ -88,7 +112,7 @@ class DepartementsController extends Controller {
 		//Find or Fail to get ID
 		$dep = Departement::findOrFail($id);
 		// Validate with the parameters
-		$this->validate($request, ['departement' => 'required']);
+		$this->validate($request, ['departement_name' => 'required']);
 		//Save record to the database
 		$dep->update($request->all());
 		//Return to universities controller

@@ -5,7 +5,7 @@
 	<hr />
 	
 	{!! Form::model($dep,['method' => 'PATCH','url' => ['/departements',$dep->id]]) !!}
-		@include ('departement.form', ['text' => 'Update'])
+		@include ('departement.formedit', ['text' => 'Update'])
 	{!! Form::close() !!}
 	
 	@include('errors.list')

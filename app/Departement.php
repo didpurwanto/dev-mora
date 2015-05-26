@@ -15,4 +15,9 @@ class Departement extends Model {
 	{
 		return $this->belongsTo('App\University');
 	}
+	
+	public function getUniversityName()
+	{
+		return University::where('id',$this->university_id)->first()->university_name;
+	}
 }

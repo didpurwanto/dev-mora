@@ -3,5 +3,6 @@
 @section('content')
 	<h2>Daftar Departement</h2>
 	<hr />
-	<article>{{ $univ->departement_name }}</article>
+	<article>{{ $dep->university_name }}</article>
+	<article>{{ $dep->departement_name }}</article>
 @stop
