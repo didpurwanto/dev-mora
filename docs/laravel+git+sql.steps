@@ -47,3 +47,7 @@ bypass vimeo:
 paket tambahan :
 code : composer require Illuminate/Html
 
+check mysql version:
+C:\>mysqladmin -uroot -p -hlocalhost version
+
+

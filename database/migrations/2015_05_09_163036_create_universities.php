@@ -13,7 +13,7 @@ class CreateUniversities extends Migration {
 	public function up()
 	{
 		//
-		Schema::create('Universities', function($table)
+		Schema::create('universities', function($table)
 		{
 			$table->increments('id');
 			$table->string('university_name', 100);
