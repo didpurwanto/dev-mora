@@ -12,7 +12,7 @@ class CreateFamilies extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Families', function($table)
+		Schema::create('families', function($table)
 		{
 			$table->increments('id');
 			$table->string('familiy_name', '50');

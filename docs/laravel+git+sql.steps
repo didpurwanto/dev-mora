@@ -48,3 +48,7 @@ paket tambahan :
 code : composer require Illuminate/Html
 code : composer require nesbot/carbon
 
+check mysql version:
+C:\>mysqladmin -uroot -p -hlocalhost version
+
+

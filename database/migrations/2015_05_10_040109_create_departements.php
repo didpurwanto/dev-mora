@@ -12,7 +12,7 @@ class CreateDepartements extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Departements', function($table)
+		Schema::create('departements', function($table)
 		{
 			$table->increments('id');
 			$table->integer('university_id')->unsigned();

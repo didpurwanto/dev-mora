@@ -12,7 +12,7 @@ class CreateInitTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Applicants', function($table)
+		Schema::create('applicants', function($table)
 		{
 			$table->increments('id');
 			$table->string('full_name', 100);
