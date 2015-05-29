@@ -1,7 +1,7 @@
 # dev-mora
 mora scholarship application development.
 
-#@ Use
+## Use
 Make sure you installed and configured : Composer, Git, Mysql, PHP (XAMPP).
 1. Clone this Project to local machine 1
 2. Go to project directory with your CLI (Powershell) 2

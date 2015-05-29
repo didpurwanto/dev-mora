@@ -26,7 +26,6 @@ class UniversitiesController extends Controller {
 	 */
 	public function create()
 	{
-		//
 		return view('university.create');
 	}
 

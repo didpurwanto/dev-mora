@@ -36,3 +36,4 @@ Route::get('/halo', function()
 // Route::post('univ/{id}/edit','UniversitiesController@edit');
 Route::resource('universities','UniversitiesController');
 Route::resource('departements','DepartementsController');
+Route::resource('applicants','ApplicantsController');
