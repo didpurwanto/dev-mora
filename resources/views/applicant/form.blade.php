@@ -32,11 +32,7 @@
 	{!! Form::select('mental_disorder', array('Y' => 'Ya', 'T' => 'Tidak'), ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-	{!! Form::label('mental_disorder', 'Riwayat Gangguan Mental :') !!}
-	{!! Form::select('mental_disorder', array('Y' => 'Ya', 'T' => 'Tidak'),['class' => 'form-control']) !!}
-</div>
-<div class="form-group">
-	{!! Form::label('illness', 'Penyakit yang diderita :') !!}
+	{!! Form::label('illness', 'Penyakit yang sedang/pernah diderita :') !!}
 	{!! Form::textarea('illness', 'penyakit yang diderita',['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
@@ -45,13 +41,18 @@
 </div>
 <div class="form-group">
 	{!! Form::label('weight', 'Berat Badan :') !!}
-	{!! Form::text('weight', null ,['class' => 'form-control']) !!}
+	{!! Form::text('weight', null ,['class' => 'form-control']) !!} KG
 </div>
 <div class="form-group">
-	{!! Form::label('height', 'Berat Badan :') !!}
-	{!! Form::text('height', null ,['class' => 'form-control']) !!}
+	{!! Form::label('height', 'Tinggi Badan :') !!}
+	{!! Form::text('height', null ,['class' => 'form-control']) !!} CM
+</div>
+<div class="form-group">
+	{!! Form::label('contact', 'Telepon yang bisa dihubungi :') !!}
+	{!! Form::text('contact', null ,['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-	{!! Form::submit($text, ['class' => 'btn btn-primary form-control']) !!}
+	{!! Form::submit($text, ['class' => 'btn btn-primary form-button']) !!}
+	{!! Form::reset('Cancel', ['class' => 'btn btn-primary form-button']) !!}
 </div>

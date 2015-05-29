@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Applicant;
 
 class ApplicantsController extends Controller {
 
@@ -32,9 +33,10 @@ class ApplicantsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		//dd($request->all());
+		Applicant::create($request->all());
 	}
 
 	/**
