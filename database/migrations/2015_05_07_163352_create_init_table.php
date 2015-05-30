@@ -30,7 +30,9 @@ class CreateInitTable extends Migration {
 			$table->string('contact', 100);
 			$table->string('marriage_status', 20);
 			$table->string('address', 255);
-			$table->string('province_id', 100);
+			$table->integer('province_id');
+			$table->string('profile_photo', 100);
+
 			$table->timestamps();
 
 		});
