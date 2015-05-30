@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Departement;
 use App\University;
+use App\Http\Requests\DepartementRequest;
 
 class DepartementsController extends Controller {
 
@@ -38,7 +39,7 @@ class DepartementsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(DepartementRequest $request)
 	{
 		//dd($request->all());
 		//dd($request->input('univ_name'));
@@ -107,12 +108,12 @@ class DepartementsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id, Request $request)
+	public function update($id, DepartementRequest $request)
 	{	
 		//Find or Fail to get ID
 		$dep = Departement::findOrFail($id);
 		// Validate with the parameters
-		$this->validate($request, ['departement_name' => 'required']);
+		//$this->validate($request, ['departement_name' => 'required']);
 		//Save record to the database
 		$dep->update($request->all());
 		//Return to universities controller

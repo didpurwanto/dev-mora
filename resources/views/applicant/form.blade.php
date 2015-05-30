@@ -1,8 +1,4 @@
 <div class="form-group">
-	{!! Form::label('id', 'No. Peserta :') !!}
-	{!! Form::text('id','No Peserta', ['class' => 'form-control']) !!}
-</div>
-<div class="form-group">
 	{!! Form::label('full_name', 'Nama Lengkap :') !!}
 	{!! Form::text('full_name','Nama Lengkap' ,['class' => 'form-control']) !!}
 </div>

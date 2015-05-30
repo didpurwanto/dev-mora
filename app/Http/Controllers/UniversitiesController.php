@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\University;
+use App\Http\Requests\UniversityRequest;
 
 class UniversitiesController extends Controller {
 
@@ -34,11 +35,11 @@ class UniversitiesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(UniversityRequest $request)
 	{
 		//$input = Request::all();
 		//return $input;
-		$this->validate($request, ['university_name' => 'required']);
+		//$this->validate($request, ['university_name' => 'required']);
 		University::create($request->all());
 		
 		\Session::flash('flash_text','A New University has been created!');
@@ -78,12 +79,12 @@ class UniversitiesController extends Controller {
 	 * @param  Request  $request
 	 * @return Response
 	 */
-	public function update($id, Request $request)
+	public function update($id, UniversityRequest $request)
 	{
 		//Find or Fail to get ID
 		$univ = University::findOrFail($id);
 		// Validate with the parameters
-		$this->validate($request, ['university_name' => 'required']);
+		//$this->validate($request, ['university_name' => 'required']);
 		//Save record to the database
 		$univ->update($request->all());
 		//Return to universities controller

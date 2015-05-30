@@ -1,0 +1,7 @@
+- user bisa mendaftar, edit, update dan final data
+- cetak form bisa setelah finalisasi data
+- nomor peserta di generate dari universitas ID dan Jurusan ID + Urut
+- Pas Foto 4X6 (ukuran makx. 500kB)
+
+
+- silahkan edit
