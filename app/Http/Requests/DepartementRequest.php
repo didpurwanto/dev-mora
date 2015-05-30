@@ -25,5 +25,12 @@ class DepartementRequest extends Request {
 			'departement_name' => 'required'
 		];
 	}
+	
+	public function messages()
+	{
+		return [
+			'departement_name.required' => 'Nama Departemen tidak boleh kosong'
+		];
+	}
 
 }

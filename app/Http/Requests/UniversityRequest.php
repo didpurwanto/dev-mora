@@ -26,4 +26,10 @@ class UniversityRequest extends Request {
 		];
 	}
 
+	public function messages()
+	{
+		return [
+			'university_name.required' => 'Nama Universitas tidak boleh kosong'
+		];
+	}
 }
