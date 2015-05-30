@@ -15,8 +15,8 @@ class CreateKabupatensTable extends Migration {
 		Schema::create('kabupatens', function(Blueprint $table)
 		{
 			$table->integer('id');
+			$table->string('kabupaten_name');			
 			$table->string('province_id');
-			$table->string('kabupaten_name');
 		});
 	}
 

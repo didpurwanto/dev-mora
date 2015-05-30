@@ -11,6 +11,11 @@
 	{!! Form::label('place_birth', 'Tempat Lahir :') !!}
 	{!! Form::text('place_birth',null, ['class' => 'form-control']) !!}
 </div>
+
+/**
+*
+* Form ini seharusnya menggunakan date picker dari jquery/
+*/
 <div class="form-group">
 	{!! Form::label('date_birth', 'Tanggal Lahir :') !!}
 	{!! Form::input('date','date_birth', null, ['class' => 'form-control']) !!}

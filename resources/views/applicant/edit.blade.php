@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-	<h2>Edit University Name</h2>
+	<h2>Biodata Pribadi</h2>
 	<hr />
 	
 	{!! Form::model($app,['method' => 'PATCH','url' => ['/applicants',$app->id]]) !!}
