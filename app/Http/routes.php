@@ -37,5 +37,5 @@ Route::get('/halo', function()
 Route::resource('universities','UniversitiesController');
 Route::resource('departements','DepartementsController');
 Route::resource('applicants','ApplicantsController');
-
 Route::resource('families','FamiliesController');
+Route::resource('applications','ApplicationsController');
