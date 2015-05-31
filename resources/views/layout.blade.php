@@ -6,7 +6,8 @@
 <head>
        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
        <title>PBSB ONLINE</title>
-       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8"/>
+	   {!! Html::style('css/bootstrap.min.css') !!}
+	   @yield('css')
 </head>
 
 <body>
@@ -18,5 +19,7 @@
 		@yield('content')
 	</div>
 </body>
-
+	{!! Html::script('js/jquery-1.11.1.min.js', array('type' => 'text/javascript')) !!}
+	{!! Html::script('js/bootstrap.min.js', array('type' => 'text/javascript')) !!}
+	@yield('script')
 </html>

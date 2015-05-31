@@ -39,3 +39,6 @@ Route::resource('departements','DepartementsController');
 Route::resource('applicants','ApplicantsController');
 Route::resource('families','FamiliesController');
 Route::resource('applications','ApplicationsController');
+
+Route::get('families/provinces/{id}', 'FamiliesController@getKabupatens');
+Route::get('families/kabupatens/{id}', 'FamiliesController@getKecamatans');

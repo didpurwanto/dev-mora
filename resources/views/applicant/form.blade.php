@@ -1,6 +1,6 @@
 <div class="form-group">
 	{!! Form::label('full_name', 'Nama Lengkap :') !!}
-	{!! Form::text('full_name','Nama Lengkap' ,['class' => 'form-control']) !!}
+	{!! Form::text('full_name',null ,['class' => 'form-control', 'placeholder' => 'Henri Sekeladi']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('gender', 'Jenis Kelamin :') !!}
@@ -12,13 +12,9 @@
 	{!! Form::text('place_birth',null, ['class' => 'form-control']) !!}
 </div>
 
-/**
-*
-* Form ini seharusnya menggunakan date picker dari jquery/
-*/
 <div class="form-group">
 	{!! Form::label('date_birth', 'Tanggal Lahir :') !!}
-	{!! Form::input('date','date_birth', null, ['class' => 'form-control']) !!}
+	{!! Form::text('date', 'date_birth', array('id' => 'datepicker', 'class' => 'form-control', 'data-date-format' => 'dd-mm-yyyy', 'data-date-viewmode' => 'years')) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('recitation', 'Jumlah Hafalan :') !!}

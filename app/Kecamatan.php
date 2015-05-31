@@ -8,4 +8,8 @@ class Kecamatan extends Model {
 	
 	public $timestamps = false;
 
+	public function kabupaten()
+	{
+		return $this->belongsTo('App\Kabupaten');
+	}
 }

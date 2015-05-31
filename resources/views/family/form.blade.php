@@ -18,15 +18,15 @@
 	</div>
 	<div class="form-group">
 		{!! Form::label('father_province_id', 'Provinsi :') !!}
-		{!! Form::select('father_province_id', array('1' => 'Ya', '1' => 'Tidak'), ['class' => 'form-control']) !!}
+		{!! Form::select('father_province_id', $prov, ['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('father_kabupaten_id', 'Kabupaten :') !!}
-		{!! Form::select('father_kabupaten_id', array('1' => 'Ya', '1' => 'Tidak'), ['class' => 'form-control']) !!}
+		{!! Form::select('father_kabupaten_id', ['1' => 'Kabupaten'], ['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('father_kecamatan_id', 'Kecamatan :') !!}
-		{!! Form::select('father_kecamatan_id', array('1' => 'Ya', '1' => 'Tidak'), ['class' => 'form-control']) !!}
+		{!! Form::select('father_kecamatan_id', ['1' => 'Kabupaten'], ['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('father_education_id', 'Pendidikan Terakhir :') !!}
