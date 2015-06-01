@@ -9,7 +9,7 @@
 	<h2>Biodata Pribadi</h2>
 	<hr />
 	
-	{!! Form::model($app,['method' => 'PATCH','url' => ['/applicants',$app->id]]) !!}
+	{!! Form::model($app,['method' => 'PATCH','url' => ['/applicants',$app->id], 'files' => true]) !!}
 		@include ('applicant.form', ['text' => 'Next'])
 	{!! Form::close() !!}
 	

@@ -9,7 +9,7 @@
 	<h2>Biodata Pribadi</h2>
 	<hr />
 	
-	{!! Form::open(['url' => '/applicants']) !!}
+	{!! Form::open(['url' => '/applicants','files' => true]) !!}
 		@include('applicant.form', ['text' => 'Next'])
 	{!! Form::close() !!}
 	@include('errors.list')

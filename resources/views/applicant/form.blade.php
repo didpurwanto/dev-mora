@@ -4,8 +4,8 @@
 </div>
 <div class="form-group">
 	{!! Form::label('gender', 'Jenis Kelamin :') !!}
-	{!! Form::radio('gender', 'Laki-Laki',['class' => 'form-control']) !!} Laki-Laki 
-	{!! Form::radio('gender', 'Perempuan',['class' => 'form-control']) !!} Perempuan
+	{!! Form::radio('gender', 'L',['class' => 'form-control']) !!} Laki-Laki 
+	{!! Form::radio('gender', 'P',['class' => 'form-control']) !!} Perempuan
 </div> 
 <div class="form-group">
 	{!! Form::label('place_birth', 'Tempat Lahir :') !!}
@@ -47,6 +47,10 @@
 <div class="form-group">
 	{!! Form::label('contact', 'Telepon yang bisa dihubungi :') !!}
 	{!! Form::text('contact', null ,['class' => 'form-control']) !!}
+</div>
+<div class="form-group">
+    {!! Form::label('Pas Photo') !!}
+    {!! Form::file('profile_photo', null, ['id' => 'picture']) !!}
 </div>
 
 <div class="form-group">
