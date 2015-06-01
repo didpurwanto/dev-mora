@@ -24,6 +24,7 @@ class FamilyRequest extends Request {
 	{
 		return [
 			'father_name' => 'required',
+			'father_age' => 'required|integer|min:20|max:100',
 			'father_address' => 'required',
 			'mother_name' => 'required',
 			'mother_address' => 'required',

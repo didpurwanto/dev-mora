@@ -6,11 +6,11 @@
 	</div>
 	<div class="form-group">
 		{!! Form::label('father_age', 'Usia :') !!}
-		{!! Form::select('father_age', array('1' => 'Ya', '1' => 'Tidak'),['class' => 'form-control']) !!}
+		{!! Form::text('father_age', null,['class' => 'form-control']) !!} Tahun
 	</div> 
 	<div class="form-group">
 		{!! Form::label('father_deceased', 'Hidup/ Almarhum :') !!}
-		{!! Form::select('father_deceased', array('1' => 'Ya', '1' => 'Tidak'), ['class' => 'form-control']) !!}
+		{!! Form::select('father_deceased', array('1' => 'Ya', '0' => 'Tidak'), ['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('father_address', 'Alamat :') !!}
@@ -18,19 +18,19 @@
 	</div>
 	<div class="form-group">
 		{!! Form::label('father_province_id', 'Provinsi :') !!}
-		{!! Form::select('father_province_id', $prov, ['class' => 'form-control']) !!}
+		{!! Form::select('father_province_id', $prov, 'Provinsi',['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('father_kabupaten_id', 'Kabupaten :') !!}
-		{!! Form::select('father_kabupaten_id', ['1' => 'Kabupaten'], ['class' => 'form-control']) !!}
+		{!! Form::select('father_kabupaten_id', ['1' => 'Kabupaten'], 'Kabupaten',['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('father_kecamatan_id', 'Kecamatan :') !!}
-		{!! Form::select('father_kecamatan_id', ['1' => 'Kabupaten'], ['class' => 'form-control']) !!}
+		{!! Form::select('father_kecamatan_id', ['1' => 'Kecamatan'], 'Kecamatan',['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('father_education_id', 'Pendidikan Terakhir :') !!}
-		{!! Form::select('father_education_id', array('1' => 'Ya', '1' => 'Tidak'), ['class' => 'form-control']) !!}
+		{!! Form::select('father_education_id', array('SD' => 'SD', 'SMP/MTs' => 'SMP/MTs', 'SMA/SMK/MA' => 'SMA/SMK/MA', 'S1' => 'S1', 'S2' => 'S2', 'S3' => 'S3'), ['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('father_job_id', 'Pekerjaan :') !!}
@@ -52,27 +52,33 @@
 	</div>
 	<div class="form-group">
 		{!! Form::label('mother_age', 'Usia :') !!}
-		{!! Form::selectRange('mother_age', array('1' => 'Ya', '1' => 'Tidak'),['class' => 'form-control']) !!}
+		{!! Form::text('father_age', null,['class' => 'form-control']) !!} Tahun
 	</div> 
 	<div class="form-group">
-		{!! Form::label('mother_deceased', 'Hidup/ Almarhum :') !!}
-		{!! Form::select('mother_deceased', array('1' => 'Ya', '1' => 'Tidak'), ['class' => 'form-control']) !!}
+		{!! Form::label('mother_deceased', 'Hidup/ Almarhumah :') !!}
+		{!! Form::select('mother_deceased', array('1' => 'Ya', '0' => 'Tidak'), 'Pilih', ['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
-		{!! Form::label('mother_address', 'Alamat :') !!}
-		{!! Form::textarea('mother_address', null, ['class' => 'form-control']) !!}
+		{!! Form::checkbox('alamat', 1, 'alamat', ['id' => 'alamat'])!!}
+		{!! Form::label('alamat', 'Sama dengan Alamat Ayah.') !!}
 	</div>
-	<div class="form-group">
-		{!! Form::label('mother_province_id', 'Provinsi :') !!}
-		{!! Form::select('mother_province_id', array('1' => 'Ya', '1' => 'Tidak'), ['class' => 'form-control']) !!}
-	</div>
-	<div class="form-group">
-		{!! Form::label('mother_kabupaten_id', 'Kabupaten :') !!}
-		{!! Form::select('mother_kabupaten_id', array('1' => 'Ya', '1' => 'Tidak'), ['class' => 'form-control']) !!}
-	</div>
-	<div class="form-group">
-		{!! Form::label('mother_kecamatan_id', 'Kecamatan :') !!}
-		{!! Form::select('mother_kecamatan_id', array('1' => 'Ya', '1' => 'Tidak'), ['class' => 'form-control']) !!}
+	<div id="alamat_ibu">
+		<div class="form-group">
+			{!! Form::label('mother_address', 'Alamat :') !!}
+			{!! Form::textarea('mother_address', null, ['class' => 'form-control']) !!}
+		</div>
+		<div class="form-group">
+			{!! Form::label('mother_province_id', 'Provinsi :') !!}
+			{!! Form::select('mother_province_id', $prov, 'Provinsi',['class' => 'form-control']) !!}
+		</div>
+		<div class="form-group">
+			{!! Form::label('mother_kabupaten_id', 'Kabupaten :') !!}
+			{!! Form::select('mother_kabupaten_id', ['1' => 'Kabupaten'], 'Kabupaten',['class' => 'form-control']) !!}
+		</div>
+		<div class="form-group">
+			{!! Form::label('mother_kecamatan_id', 'Kecamatan :') !!}
+			{!! Form::select('mother_kecamatan_id', ['1' => 'Kecamatan'], 'Kecamatan',['class' => 'form-control']) !!}
+		</div>
 	</div>
 	<div class="form-group">
 		{!! Form::label('mother_education_id', 'Pendidikan Terakhir :') !!}

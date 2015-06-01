@@ -16,8 +16,7 @@ class FamiliesController extends Controller {
 	{
 		$prov = Province::lists('province_name','id');
 		//dd($prov);
-		$kabupatens = array();
-		return view('family.create', compact('prov','kabupatens'));
+		return view('family.create', compact('prov'));
 	}
 
 	
@@ -43,9 +42,9 @@ class FamiliesController extends Controller {
 	{
 		$fam = Family::findOrFail($id);
 		//Save record to the database
-		$univ->update($request->all());
+		$fam->update($request->all());
 		//Return to universities controller
-		return redirect('families');
+		return redirect('educations');
 	}
 
 	/**

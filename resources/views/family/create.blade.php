@@ -5,7 +5,7 @@
 	<hr />
 	
 	{!! Form::open(['url' => '/families']) !!}
-		@include('family.form', ['text' => 'Save'])
+		@include('family.form', ['text' => 'Next'])
 	{!! Form::close() !!}
 	@include('errors.list')
 @stop
@@ -39,5 +39,19 @@
             });
         });
     });
+	</script>
+	
+	<script>
+	$(document).ready(function(){
+			$('input[type="checkbox"]').click(function(){
+			    var samaBox = document.getElementById('alamat');
+				if(samaBox.checked){
+					$("#alamat_ibu").hide();
+				}
+				else{
+					$("#alamat_ibu").show();
+				}
+			});
+	});
 	</script>
 @stop

@@ -32,7 +32,7 @@ class ApplicantsController extends Controller {
 	{
 		$app = Applicant::findOrFail($id);
 		//Save record to the database
-		$univ->update($request->all());
+		$app->update($request->all());
 		//Return to universities controller
 		return redirect('applicants');
 	}

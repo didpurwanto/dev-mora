@@ -4,8 +4,8 @@
 </div>
 <div class="form-group">
 	{!! Form::label('gender', 'Jenis Kelamin :') !!}
-	{!! Form::radio('gender', 'male',['class' => 'form-control']) !!} Laki-Laki 
-	{!! Form::radio('gender', 'female',['class' => 'form-control']) !!} Perempuan
+	{!! Form::radio('gender', 'Laki-Laki',['class' => 'form-control']) !!} Laki-Laki 
+	{!! Form::radio('gender', 'Perempuan',['class' => 'form-control']) !!} Perempuan
 </div> 
 <div class="form-group">
 	{!! Form::label('place_birth', 'Tempat Lahir :') !!}
@@ -14,23 +14,23 @@
 
 <div class="form-group">
 	{!! Form::label('date_birth', 'Tanggal Lahir :') !!}
-	{!! Form::text('date', 'date_birth', array('id' => 'datepicker', 'class' => 'form-control', 'data-date-format' => 'dd-mm-yyyy', 'data-date-viewmode' => 'years')) !!}
+	{!! Form::text('date_birth', null, array('id' => 'datepicker', 'class' => 'form-control', 'data-date-format' => 'yyyy-mm-dd', 'data-date-viewmode' => 'years')) !!}
 </div>
 <div class="form-group">
-	{!! Form::label('recitation', 'Jumlah Hafalan :') !!}
+	{!! Form::label('recitation', 'Jumlah Hafalan Al-Quran :') !!}
 	{!! Form::text('recitation', null, ['class' => 'form-control']) !!} Juz
 </div>
 <div class="form-group">
 	{!! Form::label('color_blind', 'Buta Warna :') !!}
-	{!! Form::select('color_blind', array('Y' => 'Ya', 'T' => 'Tidak'),['class' => 'form-control']) !!}
+	{!! Form::select('color_blind', array('1' => 'Ya', '0' => 'Tidak'),['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('mental_disorder', 'Riwayat Gangguan Mental :') !!}
-	{!! Form::select('mental_disorder', array('Y' => 'Ya', 'T' => 'Tidak'), ['class' => 'form-control']) !!}
+	{!! Form::select('mental_disorder', array('1' => 'Ya', '0' => 'Tidak'), ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('illness', 'Penyakit yang sedang/pernah diderita :') !!}
-	{!! Form::textarea('illness', 'penyakit yang diderita',['class' => 'form-control']) !!}
+	{!! Form::textarea('illness', null,['class' => 'form-control', 'placeholder' => 'Pisahkan dengan koma']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('blood_type', 'Golongan Darah :') !!}

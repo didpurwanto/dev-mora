@@ -24,8 +24,8 @@ class ApplicantRequest extends Request {
 		return [
 			'full_name' => 'required|min:3',
 			'place_birth' => 'required|min:3',
-			'date_birth' => 'required|date',
-			'recitation' => 'required',
+			'date_birth' => 'date',
+			'recitation' => 'required|integer|min:0|max:30',
 			'weight' => 'required',
 			'height'=> 'required',
 			'contact' => 'required'
@@ -35,16 +35,19 @@ class ApplicantRequest extends Request {
 	public function messages()
 	{
 		return [
-			'full_name.required' => 'Nama Lengkap harus diisi',
+			'full_name.required' => 'Nama Lengkap tidak boleh kosong',
 			'full_name.min' => 'Nama lengkap harus lebih dari 3 huruf',
-			'place_birth.required' => 'Tempat Lahir harus diisi',
+			'place_birth.required' => 'Tempat Lahir tidak boleh kosong',
 			'place_birth.min' => 'Tempat Lahir harus lebih dari 3 huruf',
-			'date_birth.required' => 'Tanggal Lahir harus diisi',
+			'date_birth.required' => 'Tanggal Lahir tidak boleh kosong',
 			'date_birth.date' => 'Tanggal lahir harus menggunakan format tanggal',
-			'recitation.required' => 'Jumlah Hafalan Al-Quran harus diisi',
-			'weight.required' => 'Berat Badan harus diisi',
-			'height.required'=> 'Tinggi Badan harus diisi',
-			'contact' => 'required'
+			'recitation.required' => 'Jumlah Hafalan Al-Quran tidak boleh kosong',
+			'recitation.integer' => 'Jumlah Hafalan Al-Quran tidak boleh selain angka integer',
+			'recitation.min' => 'Jumlah Hafalan Al-Quran tidak boleh dibawah 0',
+			'recitation.max' => 'Jumlah Hafalan Al-Quran tidak boleh diatas 30',
+			'weight.required' => 'Berat Badan tidak boleh kosong',
+			'height.required'=> 'Tinggi Badan tidak boleh kosong',
+			'contact' => 'Nomor yang bisa dihungi tidak boleh kosong'
 		];
 	}
 
