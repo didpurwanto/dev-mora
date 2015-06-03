@@ -7,7 +7,7 @@ mora scholarship application development.
 - Go to project directory with your CLI (Powershell)
 - Run "composer install", to install it's dependencies (vendor)
 - Edit .env file (in the main project folder) to meet your database setting
-- Run "php artisan migrate:fresh", to make database tables from migration
+- Run "php artisan migrate:refresh", to make database tables from migration
 - Run "php artisan serve", to serve application (http://localhost:8000)
 - Open your IDE and have a look
 
@@ -17,3 +17,4 @@ mora scholarship application development.
 - Clone project ke htdocs XAMPP
 - Buka cmd/powershell di folder project
 - Run "composer install"
+- Run "php artisan migrate:refresh"
