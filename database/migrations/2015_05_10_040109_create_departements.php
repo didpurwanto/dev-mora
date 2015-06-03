@@ -17,8 +17,9 @@ class CreateDepartements extends Migration {
 			$table->increments('id');
 			$table->integer('university_id')->unsigned();
 			$table->string('departement_name', '100');
-			$table->timestamps();
+			$table->integer('study_program_id');
 			$table->foreign('university_id')->references('id')->on('universities')->onDelete('cascade');
+			$table->timestamps();
 		});
 	}
 

@@ -16,7 +16,6 @@ class CreateApplicants extends Migration {
 		{
 			$table->increments('id');
 			$table->string('full_name', 100);
-			$table->string('citizen_number', 50);
 			$table->string('email', 50);
 			$table->string('gender', 1);
 			$table->string('place_birth', 100);
@@ -32,8 +31,9 @@ class CreateApplicants extends Migration {
 			$table->string('marriage_status', 20);
 			$table->string('address', 255);
 			$table->integer('province_id');
+			$table->integer('kabupaten_id');
+			$table->integer('kecamatan_id');
 			$table->string('profile_photo', 100);
-
 			$table->timestamps();
 
 		});

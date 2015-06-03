@@ -15,13 +15,12 @@ class CreateApplications extends Migration {
 		Schema::create('applications', function($table)
 		{
 			$table->increments('id');
-			$table->string('applicant_number',20);
+			$table->integer('applicant_id');
 			$table->integer('university_id');
-			$table->integer('faculty_id');
 			$table->integer('major_1_id');
 			$table->integer('major_2_id');
 			$table->integer('aggree_to_auto_move');
-			$table->unique('applicant_number');
+			$table->timestamps();			
 		});
 	}
 
