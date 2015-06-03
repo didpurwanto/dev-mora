@@ -14,8 +14,8 @@ class CreateRangeSalaries extends Migration {
 	{
 		Schema::create('range_salaries', function($table)
 		{
-			$table->increment('id');
-			$table->string('range_name',100)
+			$table->increments('id');
+			$table->string('range_name',100);
 		});	
 	}
 

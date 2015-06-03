@@ -14,8 +14,8 @@ class CreateJobTypes extends Migration {
 	{
 		Schema::create('job_types', function($table)
 		{
-			$table->increment('id');
-			$table->string('job_name',50)
+			$table->increments('id');
+			$table->string('job_name',50);
 		});	
 	}
 

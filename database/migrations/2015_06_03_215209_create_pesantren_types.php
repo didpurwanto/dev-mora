@@ -14,8 +14,8 @@ class CreatePesantrenTypes extends Migration {
 	{
 		Schema::create('pesantren_types', function($table)
 		{
-			$table->increment('id');
-			$table->string('type_name',100)
+			$table->increments('id');
+			$table->string('type_name',100);
 		});	
 	}
 

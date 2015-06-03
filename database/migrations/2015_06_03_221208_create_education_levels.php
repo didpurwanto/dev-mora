@@ -14,8 +14,8 @@ class CreateEducationLevels extends Migration {
 	{
 		Schema::create('education_levels', function($table)
 		{
-			$table->increment('id');
-			$table->string('level_name',100)
+			$table->increments('id');
+			$table->string('level_name',100);
 		});	
 	}
 

@@ -14,8 +14,8 @@ class CreateProgramStudies extends Migration {
 	{
 		Schema::create('program_studies', function($table)
 		{
-			$table->increment('id');
-			$table->string('program_name',100)
+			$table->increments('id');
+			$table->string('program_name',100);
 		});
 	}
 
