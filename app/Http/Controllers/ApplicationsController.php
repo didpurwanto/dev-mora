@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ApplicationRequest;
+use App\Application;
 
 class ApplicationsController extends Controller {
 
@@ -16,6 +17,7 @@ class ApplicationsController extends Controller {
 
 	public function store(ApplicationRequest $request)
 	{
+		dd($request->all());
 		Application::create($request->all());
 	}
 
@@ -34,10 +36,10 @@ class ApplicationsController extends Controller {
 	 */
 	public function update($id, ApplicationRequest $request)
 	{
-		$fam = Application::findOrFail($id);
+		$appl = Application::findOrFail($id);
 		//Save record to the database
-		$univ->update($request->all());
-		//Return to universities controller
+		$appl->update($request->all());
+		//
 		return redirect('applications');
 	}
 

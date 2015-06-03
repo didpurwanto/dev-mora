@@ -139,9 +139,10 @@ return [
 		|
 		| Henri
 		| - menambahkan HTML function
-		|
+		| - menambahkan Image library
 		*/
 		'Illuminate\Html\HtmlServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -203,10 +204,11 @@ return [
 		|
 		| Henri
 		| - menambahkan HTML function
-		|
+		| - menambahkan Image library
 		*/
 		'Form'      => 'Illuminate\Html\FormFacade',
 		'Html'      => 'Illuminate\Html\HtmlFacade',
+		'Image' => 'Intervention\Image\Facades\Image'
 
 	],
 

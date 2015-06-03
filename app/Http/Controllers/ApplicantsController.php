@@ -9,25 +9,57 @@ use App\Http\Requests\ApplicantRequest;
 
 class ApplicantsController extends Controller {
 
+	/**
+	 * Create view for create data.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
 	public function create()
 	{
 		return view('applicant.create');
 	}
 
-
+	/**
+	 * Insert data into database.
+	 *
+	 * @param  ApplicantRequest  $request
+	 * @return Response
+	 */
 	public function store(ApplicantRequest $request)
 	{
 		//dd($request->all());
-		Applicant::create($request->all());
+		//Applicant::create($request->except('profile_photo'));
+		
+		$imageName = $request->full_name . '.' . $request->file('photo')->getClientOriginalExtension();
+		//dd($imageName);
+		$request->file('photo')->move(base_path() . '/public/images/photos/', $imageName);
+		
+		$request['profile_photo'] = $imageName;
+		//dd($request['profile_photo']);
+		
+		//dd($request->all());
+		Applicant::create($request->except('photo'));
 	}
 
-
+	/**
+	 * Edit data from Applicant.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
 	public function edit($id)
 	{
 		$app = Applicant::findOrFail($id);
 		return view('applicant.edit', compact('app'));
 	}
 
+	/**
+	 * Update data from Applicant.
+	 *
+	 * @param  int  $id, ApplicantRequest $request
+	 * @return Redirect
+	 */
 	public function update($id, ApplicantRequest $request)
 	{
 		$app = Applicant::findOrFail($id);

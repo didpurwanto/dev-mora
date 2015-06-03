@@ -62,6 +62,7 @@
 					<div class="navmenu"style="text-align: center;">
 						<ul id="menu">
 							<li class="active" ><a href="#home">Home</a></li>
+							<li><a href="/applicants/create">Biodata Pribadi</a></li>
 							<li><a href="#about">Tentang PBSB</a></li>
 							<li><a href="#project">Persyaratan pendaftar</a></li>
 							<li><a href="#news">Berita</a></li>

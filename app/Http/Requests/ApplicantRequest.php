@@ -29,7 +29,7 @@ class ApplicantRequest extends Request {
 			'weight' => 'required',
 			'height'=> 'required',
 			'contact' => 'required',
-			'profile_photo' => 'required|image|mimes:jpeg,jpg,bmp,png,gif|max:1000'
+			'photo' => 'required|image|mimes:jpeg,jpg,bmp,png,gif|max:1000'
 		];
 	}
 	
@@ -53,7 +53,7 @@ class ApplicantRequest extends Request {
 			'recitation.max' => 'Jumlah Hafalan Al-Quran tidak boleh diatas 30',
 			'weight.required' => 'Berat Badan tidak boleh kosong',
 			'height.required'=> 'Tinggi Badan tidak boleh kosong',
-			'contact.required' => 'Nomor yang bisa dihungi tidak boleh kosong',
+			'contact.required' => 'Nomor yang bisa dihubungi tidak boleh kosong',
 			'profile_photo.required' => 'Gambar harus dimasukan',
 			'profile_photo.max' => 'Gambar harus lebih kecil dari 1000KB',
 			'profile_photo.mimes' => 'Gambar harus menggunakan format gambar (jpeg, jpg, png, bmp, dan gif)'

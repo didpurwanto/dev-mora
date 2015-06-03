@@ -5,7 +5,7 @@
 	<hr />
 	
 	{!! Form::open(['url' => '/applications']) !!}
-		@include('application.form', ['text' => 'Save'])
+		@include('application.form', ['text' => 'Next'])
 	{!! Form::close() !!}
 	@include('errors.list')
 @stop

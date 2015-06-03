@@ -3,18 +3,22 @@
 	{!! Form::text('full_name',null ,['class' => 'form-control', 'placeholder' => 'Henri Sekeladi']) !!}
 </div>
 <div class="form-group">
+	{!! Form::label('nisn', 'NISN :') !!}
+	{!! Form::text('nisn',null ,['class' => 'form-control', 'placeholder' => 'Nomor Induk Siswa Nasional']) !!}
+</div>
+<div class="form-group">
 	{!! Form::label('gender', 'Jenis Kelamin :') !!}
 	{!! Form::radio('gender', 'L',['class' => 'form-control']) !!} Laki-Laki 
 	{!! Form::radio('gender', 'P',['class' => 'form-control']) !!} Perempuan
 </div> 
 <div class="form-group">
 	{!! Form::label('place_birth', 'Tempat Lahir :') !!}
-	{!! Form::text('place_birth',null, ['class' => 'form-control']) !!}
+	{!! Form::text('place_birth',null, ['class' => 'form-control' ]) !!}
 </div>
 
 <div class="form-group">
 	{!! Form::label('date_birth', 'Tanggal Lahir :') !!}
-	{!! Form::text('date_birth', null, array('id' => 'datepicker', 'class' => 'form-control', 'data-date-format' => 'yyyy-mm-dd', 'data-date-viewmode' => 'years')) !!}
+	{!! Form::text('date_birth', null, ['placeholder' => 'YYYY-MM-DD', 'id' => 'datepicker', 'class' => 'form-control', 'data-date-format' => 'yyyy-mm-dd', 'data-date-viewmode' => 'years']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('recitation', 'Jumlah Hafalan Al-Quran :') !!}
@@ -50,10 +54,10 @@
 </div>
 <div class="form-group">
     {!! Form::label('Pas Photo') !!}
-    {!! Form::file('profile_photo', null, ['id' => 'picture']) !!}
+    {!! Form::file('photo', null, ['id' => 'picture']) !!}
 </div>
 
 <div class="form-group">
 	{!! Form::submit($text, ['class' => 'btn btn-primary form-button']) !!}
-	{!! Form::reset('Cancel', ['class' => 'btn btn-primary form-button']) !!}
+	{!! Form::reset('Batal', ['class' => 'btn btn-primary form-button']) !!}
 </div>

@@ -10,7 +10,7 @@
 	<hr />
 	
 	{!! Form::open(['url' => '/applicants','files' => true]) !!}
-		@include('applicant.form', ['text' => 'Next'])
+		@include('applicant.form', ['text' => 'Lanjutkan'])
 	{!! Form::close() !!}
 	@include('errors.list')
 @stop

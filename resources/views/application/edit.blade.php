@@ -5,7 +5,7 @@
 	<hr />
 	
 	{!! Form::model($appl,['method' => 'PATCH','url' => ['/applications',$appl->id]]) !!}
-		@include ('application.form', ['text' => 'Update'])
+		@include ('application.form', ['text' => 'Next'])
 	{!! Form::close() !!}
 	
 	@include('errors.list')

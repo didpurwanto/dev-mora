@@ -10,7 +10,7 @@
 	<hr />
 	
 	{!! Form::model($app,['method' => 'PATCH','url' => ['/applicants',$app->id], 'files' => true]) !!}
-		@include ('applicant.form', ['text' => 'Next'])
+		@include ('applicant.form', ['text' => 'Lanjutkan'])
 	{!! Form::close() !!}
 	
 	@include('errors.list')
