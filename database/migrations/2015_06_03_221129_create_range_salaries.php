@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePesantrenTypes extends Migration {
+class CreateRangeSalaries extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreatePesantrenTypes extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('pesantren_types', function($table)
+		Schema::create('range_salaries', function($table)
 		{
 			$table->increment('id');
-			$table->string('type_name',100)
+			$table->string('range_name',100)
 		});	
 	}
 
@@ -26,7 +26,7 @@ class CreatePesantrenTypes extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('pesantren_types');
+		Schema::drop('range_salaries');
 	}
 
 }
