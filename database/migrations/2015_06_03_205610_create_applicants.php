@@ -34,6 +34,7 @@ class CreateApplicants extends Migration {
 			$table->integer('kabupaten_id');
 			$table->integer('kecamatan_id');
 			$table->string('profile_photo', 100);
+			$table->string('registration_number', 20);
 			$table->timestamps();
 
 		});

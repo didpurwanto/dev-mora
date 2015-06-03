@@ -20,6 +20,7 @@ class CreateApplications extends Migration {
 			$table->integer('major_1_id');
 			$table->integer('major_2_id');
 			$table->integer('aggree_to_auto_move');
+			$table->string('test_number', 20)->nullable();			
 			$table->timestamps();			
 		});
 	}
