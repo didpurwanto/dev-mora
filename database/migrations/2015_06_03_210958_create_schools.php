@@ -22,7 +22,7 @@ class CreateSchools extends Migration {
 			$table->string('school_status', 20);
 			$table->string('graduate_year',4);
 			$table->integer('school_type_id');
-			$table->integer('study_program_id');
+			$table->integer('program_study_id');
 			$table->boolean('inside_pondok');
 			$table->string('school_address',255);
 			$table->integer('province_id');
