@@ -8,6 +8,7 @@ class Applicant extends Model {
 
 	protected $fillable = [
 		'full_name',
+		'email',
 		'gender',
 		'place_birth',
 		'date_birth',
@@ -18,6 +19,9 @@ class Applicant extends Model {
 		'blood_type',
 		'weight',
 		'height',
-		'contact'	
+		'contact',
+		'marriage_status',
+		'address',
+		'profile_photo',
 	];
 }

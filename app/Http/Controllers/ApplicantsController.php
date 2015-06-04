@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Applicant;
+use App\Province;
 use App\Http\Requests\ApplicantRequest;
 
 class ApplicantsController extends Controller {
@@ -17,7 +18,8 @@ class ApplicantsController extends Controller {
 	 */
 	public function create()
 	{
-		return view('applicant.create');
+		$prov = Province::lists('province_name','id');
+		return view('applicant.create', compact('prov'));
 	}
 
 	/**

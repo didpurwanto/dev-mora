@@ -3,8 +3,8 @@
 	{!! Form::text('full_name',null ,['class' => 'form-control', 'placeholder' => 'Henri Sekeladi']) !!}
 </div>
 <div class="form-group">
-	{!! Form::label('nisn', 'NISN :') !!}
-	{!! Form::text('nisn',null ,['class' => 'form-control', 'placeholder' => 'Nomor Induk Siswa Nasional']) !!}
+	{!! Form::label('email', 'Alamat E-mail :') !!}
+	{!! Form::email('email',null ,['class' => 'form-control', 'placeholder' => 'E-mail']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('gender', 'Jenis Kelamin :') !!}
@@ -51,6 +51,26 @@
 <div class="form-group">
 	{!! Form::label('contact', 'Telepon yang bisa dihubungi :') !!}
 	{!! Form::text('contact', null ,['class' => 'form-control']) !!}
+</div>
+<div class="form-group">
+	{!! Form::label('marriage_status', 'Sudah Menikah :') !!}
+	{!! Form::select('marriage_status', array('1' => 'Ya', '0' => 'Tidak'), ['class' => 'form-control']) !!}
+</div>
+<div class="form-group">
+		{!! Form::label('address', 'Alamat :') !!}
+		{!! Form::textarea('address', null, ['class' => 'form-control']) !!}
+</div>
+<div class="form-group">
+	{!! Form::label('province_id', 'Provinsi :') !!}
+	{!! Form::select('province_id', $prov, 'Provinsi',['class' => 'form-control']) !!}
+</div>
+<div class="form-group">
+	{!! Form::label('kabupaten_id', 'Kabupaten :') !!}
+	{!! Form::select('kabupaten_id', ['1' => 'Kabupaten'], 'Kabupaten',['class' => 'form-control']) !!}
+</div>
+<div class="form-group">
+	{!! Form::label('kecamatan_id', 'Kecamatan :') !!}
+	{!! Form::select('kecamatan_id', ['1' => 'Kecamatan'], 'Kecamatan',['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('Pas Photo') !!}

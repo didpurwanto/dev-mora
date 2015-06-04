@@ -23,12 +23,14 @@ class ApplicantRequest extends Request {
 	{
 		return [
 			'full_name' => 'required|min:3',
+			'email' => 'required|email',
 			'place_birth' => 'required|min:3',
 			'date_birth' => 'date',
 			'recitation' => 'required|integer|min:0|max:30',
 			'weight' => 'required',
 			'height'=> 'required',
 			'contact' => 'required',
+			'address' => 'required',
 			'photo' => 'required|image|mimes:jpeg,jpg,bmp,png,gif|max:1000'
 		];
 	}
@@ -43,6 +45,8 @@ class ApplicantRequest extends Request {
 		return [
 			'full_name.required' => 'Nama Lengkap tidak boleh kosong',
 			'full_name.min' => 'Nama lengkap harus lebih dari 3 huruf',
+			'email.required' => 'Alamat E-mail tidak boleh kosong',
+			'email.email' => 'Alamat E-mail tidak valid',
 			'place_birth.required' => 'Tempat Lahir tidak boleh kosong',
 			'place_birth.min' => 'Tempat Lahir harus lebih dari 3 huruf',
 			'date_birth.required' => 'Tanggal Lahir tidak boleh kosong',
@@ -54,9 +58,10 @@ class ApplicantRequest extends Request {
 			'weight.required' => 'Berat Badan tidak boleh kosong',
 			'height.required'=> 'Tinggi Badan tidak boleh kosong',
 			'contact.required' => 'Nomor yang bisa dihubungi tidak boleh kosong',
-			'profile_photo.required' => 'Gambar harus dimasukan',
-			'profile_photo.max' => 'Gambar harus lebih kecil dari 1000KB',
-			'profile_photo.mimes' => 'Gambar harus menggunakan format gambar (jpeg, jpg, png, bmp, dan gif)'
+			'address.required' => 'Alamat tidak boleh kosong',
+			'photo.required' => 'Pas Photo harus dimasukan',
+			'photo.max' => 'Pas Photo harus lebih kecil dari 1000KB',
+			'photo.mimes' => 'Pas Photo harus menggunakan format gambar (jpeg, jpg, png, bmp, dan gif)'
 		];
 	}
 
