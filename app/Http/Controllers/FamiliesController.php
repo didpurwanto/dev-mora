@@ -9,14 +9,21 @@ use App\Http\Requests\FamilyRequest;
 use App\Province;
 use App\Kabupaten;
 use App\Kecamatan;
+use App\EducationLevel;
+use App\JobType;
+use App\RangeSalary;
 
 class FamiliesController extends Controller {
 
 	public function create()
 	{
 		$prov = Province::lists('province_name','id');
+		$edu_level = EducationLevel::lists('level_name','id');
+		$jobs = JobType::lists('job_name','id');
+		$salary = RangeSalary::lists('range_name','id');
+		
 		//dd($prov);
-		return view('family.create', compact('prov'));
+		return view('family.create', compact('prov','edu_level','jobs','salary'));
 	}
 
 	

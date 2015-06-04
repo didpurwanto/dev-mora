@@ -29,16 +29,16 @@
 		{!! Form::select('father_kecamatan_id', ['1' => 'Kecamatan'], 'Kecamatan',['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
-		{!! Form::label('father_education_id', 'Pendidikan Terakhir :') !!}
-		{!! Form::select('father_education_id', array('SD' => 'SD', 'SMP/MTs' => 'SMP/MTs', 'SMA/SMK/MA' => 'SMA/SMK/MA', 'S1' => 'S1', 'S2' => 'S2', 'S3' => 'S3'), ['class' => 'form-control']) !!}
+		{!! Form::label('father_education_id', 'Pendidikan Terakhir Ayah :') !!}
+		{!! Form::select('father_education_id', $edu_level, ['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
-		{!! Form::label('father_job_id', 'Pekerjaan :') !!}
-		{!! Form::select('father_job_id', array('1' => 'Ya', '1' => 'Tidak'), ['class' => 'form-control']) !!}
+		{!! Form::label('father_job_id', 'Pekerjaan Ayah :') !!}
+		{!! Form::select('father_job_id', $jobs, ['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
-		{!! Form::label('father_income_id', 'Penghasilan perbulan :') !!}
-		{!! Form::select('father_income_id', array('1' => 'Ya', '1' => 'Tidak'), ['class' => 'form-control']) !!}
+		{!! Form::label('father_income_id', 'Penghasilan perbulan Ayah :') !!}
+		{!! Form::select('father_income_id', $salary, ['class' => 'form-control']) !!}
 	</div>
  </div>
 </div>
@@ -52,14 +52,14 @@
 	</div>
 	<div class="form-group">
 		{!! Form::label('mother_age', 'Usia :') !!}
-		{!! Form::text('father_age', null,['class' => 'form-control']) !!} Tahun
+		{!! Form::text('mother_age', null,['class' => 'form-control']) !!} Tahun
 	</div> 
 	<div class="form-group">
 		{!! Form::label('mother_deceased', 'Hidup/ Almarhumah :') !!}
 		{!! Form::select('mother_deceased', array('1' => 'Ya', '0' => 'Tidak'), 'Pilih', ['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
-		{!! Form::checkbox('alamat', 1, 'alamat', ['id' => 'alamat'])!!}
+		{!! Form::checkbox('alamat', 0, false, ['id' => 'alamat'])!!}
 		{!! Form::label('alamat', 'Sama dengan Alamat Ayah.') !!}
 	</div>
 	<div id="alamat_ibu">
@@ -81,21 +81,21 @@
 		</div>
 	</div>
 	<div class="form-group">
-		{!! Form::label('mother_education_id', 'Pendidikan Terakhir :') !!}
-		{!! Form::select('mother_education_id', array('1' => 'Ya', '1' => 'Tidak'), ['class' => 'form-control']) !!}
+		{!! Form::label('mother_education_id', 'Pendidikan Terakhir Ibu :') !!}
+		{!! Form::select('mother_education_id', $edu_level, ['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
-		{!! Form::label('mother_job_id', 'Pekerjaan :') !!}
-		{!! Form::select('mother_job_id', array('1' => 'Ya', '1' => 'Tidak'), ['class' => 'form-control']) !!}
+		{!! Form::label('mother_job_id', 'Pekerjaan Ibu :') !!}
+		{!! Form::select('mother_job_id', $jobs, ['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
-		{!! Form::label('mother_income_id', 'Penghasilan perbulan :') !!}
-		{!! Form::select('mother_income_id', array('1' => 'Ya', '1' => 'Tidak'), ['class' => 'form-control']) !!}
+		{!! Form::label('mother_income_id', 'Penghasilan perbulan Ibu :') !!}
+		{!! Form::select('mother_income_id', $salary, ['class' => 'form-control']) !!}
 	</div>
  </div>
 </div>
 
 <div class="form-group">
 	{!! Form::submit($text, ['class' => 'btn btn-primary form-button']) !!}
-	{!! Form::reset('Cancel', ['class' => 'btn btn-primary form-button']) !!}
+	{!! Form::reset('Batal', ['class' => 'btn btn-primary form-button']) !!}
 </div>

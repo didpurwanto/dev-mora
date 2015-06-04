@@ -41,4 +41,18 @@
         });
     });
 	</script>
+	
+	<script>
+	$(document).ready(function(){
+		$('input[type="checkbox"]').click(function(){
+			var samaBox = document.getElementById('alamat');
+			if(!samaBox.checked){
+				$("#alamat_ibu").show();
+			}
+			else{
+				$("#alamat_ibu").hide();
+			}
+		});
+	});
+	</script>
 @stop
