@@ -39,6 +39,13 @@ Route::resource('departements','DepartementsController');
 Route::resource('applicants','ApplicantsController');
 Route::resource('families','FamiliesController');
 Route::resource('applications','ApplicationsController');
+Route::resource('pesantrens','PesantrensController');
 
+/*
+|
+| Route for dynamic drop down kabupaten and kecamatan
+| Henri
+|
+*/
 Route::get('families/provinces/{id}', 'FamiliesController@getKabupatens');
 Route::get('families/kabupatens/{id}', 'FamiliesController@getKecamatans');

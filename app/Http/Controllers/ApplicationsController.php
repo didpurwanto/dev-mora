@@ -17,7 +17,7 @@ class ApplicationsController extends Controller {
 
 	public function store(ApplicationRequest $request)
 	{
-		dd($request->all());
+		//dd($request->all());
 		Application::create($request->all());
 	}
 

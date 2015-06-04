@@ -29,8 +29,8 @@
 		{!! Form::select('father_kecamatan_id', ['1' => 'Kecamatan'], 'Kecamatan',['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
-		{!! Form::label('father_education_id', 'Pendidikan Terakhir Ayah :') !!}
-		{!! Form::select('father_education_id', $edu_level, ['class' => 'form-control']) !!}
+		{!! Form::label('father_education', 'Pendidikan Terakhir Ayah :') !!}
+		{!! Form::select('father_education', $edu_level, ['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('father_job_id', 'Pekerjaan Ayah :') !!}
@@ -81,8 +81,8 @@
 		</div>
 	</div>
 	<div class="form-group">
-		{!! Form::label('mother_education_id', 'Pendidikan Terakhir Ibu :') !!}
-		{!! Form::select('mother_education_id', $edu_level, ['class' => 'form-control']) !!}
+		{!! Form::label('mother_education', 'Pendidikan Terakhir Ibu :') !!}
+		{!! Form::select('mother_education', $edu_level, ['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
 		{!! Form::label('mother_job_id', 'Pekerjaan Ibu :') !!}
