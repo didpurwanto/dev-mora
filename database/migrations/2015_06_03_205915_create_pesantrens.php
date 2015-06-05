@@ -18,7 +18,7 @@ class CreatePesantrens extends Migration {
 			$table->integer('applicant_id');			
 			$table->string('pesantren_name', 150);
 			$table->string('kiai_name', 100);
-			$table->string('nipp', 20);
+			$table->string('nspp', 20);
 			$table->string('pesantren_type', 20);
 			$table->string('pesantren_address',255);
 			$table->integer('province_id');
