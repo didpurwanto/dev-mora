@@ -40,7 +40,7 @@ Route::resource('applicants','ApplicantsController');
 Route::resource('families','FamiliesController');
 Route::resource('applications','ApplicationsController');
 Route::resource('pesantrens','PesantrensController');
-
+Route::resource('schools','SchoolsController');
 /*
 |
 | Route for dynamic drop down kabupaten and kecamatan

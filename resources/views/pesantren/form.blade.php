@@ -16,7 +16,7 @@
 </div>
 <div class="form-group">
 	{!! Form::label('pesantren_address', 'Alamat Pesantren :') !!}
-	{!! Form::textarea('pesantren_address', null,['class' => 'form-control', 'placeholder' => 'Jl. Keramat Jati, No. 5, RT/RW 05/05, Kel. Sukajadi']) !!}
+	{!! Form::textarea('pesantren_address', null,['class' => 'form-control', 'placeholder' => 'Jl. Keramat Jati, No. 5, RT/RW 05/05, Kel. Sukajadi', 'cols' => '50', 'rows' => '2']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('province_id', 'Provinsi :') !!}
