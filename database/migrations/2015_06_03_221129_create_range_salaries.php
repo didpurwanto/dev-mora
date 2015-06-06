@@ -12,7 +12,7 @@ class CreateRangeSalaries extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('range_salaries', function($table)
+		Schema::create('range_salaries', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('range_name',100);

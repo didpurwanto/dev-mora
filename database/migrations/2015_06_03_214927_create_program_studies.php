@@ -12,11 +12,11 @@ class CreateProgramStudies extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('program_studies', function($table)
+		Schema::create('program_studies', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('program_name',100);
-			$table->integer('list_subject_id')			
+			$table->integer('list_subject_id');			
 		});
 	}
 

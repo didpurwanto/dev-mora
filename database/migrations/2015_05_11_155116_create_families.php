@@ -12,7 +12,7 @@ class CreateFamilies extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('families', function($table)
+		Schema::create('families', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('applicant_id');

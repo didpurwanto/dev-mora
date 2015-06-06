@@ -12,7 +12,7 @@ class CreateRaports extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('raports', function($table)
+		Schema::create('raports', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('applicant_id');

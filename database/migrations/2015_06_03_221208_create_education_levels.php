@@ -12,7 +12,7 @@ class CreateEducationLevels extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('education_levels', function($table)
+		Schema::create('education_levels', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('level_name',100);

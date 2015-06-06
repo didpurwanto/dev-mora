@@ -12,11 +12,11 @@ class CreateApplicants extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('applicants', function($table)
+		Schema::create('applicants', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('full_name', 100);
-			$table->int('user_id');			
+			$table->integer('user_id');			
 			$table->string('email', 50);
 			$table->string('gender', 1);
 			$table->string('place_birth', 100);

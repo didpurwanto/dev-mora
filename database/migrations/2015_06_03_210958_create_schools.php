@@ -12,7 +12,7 @@ class CreateSchools extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('schools', function($table)
+		Schema::create('schools', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('applicant_id');
