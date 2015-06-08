@@ -30,12 +30,20 @@ class FamiliesController extends Controller {
 	public function store(FamilyRequest $request)
 	{
 		Family::create($request->all());
+		
+		return redirect('pesantrens/create');
 	}
 
 
 	public function edit($id)
 	{
 		$fam = Family::findOrFail($id);
+		
+		$prov = Province::lists('province_name','id');
+		$edu_level = EducationLevel::lists('level_name','id');
+		$jobs = JobType::lists('job_name','id');
+		$salary = RangeSalary::lists('range_name','id');
+		
 		return view('family.edit', compact('fam'));
 	}
 
@@ -51,7 +59,7 @@ class FamiliesController extends Controller {
 		//Save record to the database
 		$fam->update($request->all());
 		//Return to universities controller
-		return redirect('educations');
+		return redirect('pesantrens/create');
 	}
 
 	/**

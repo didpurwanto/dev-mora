@@ -27,19 +27,19 @@ class RaportRequest extends Request {
 			'subject_3' => 'required',
 			'subject_4' => 'required',
 			'subject_5' => 'required',
-			'ranking' => 'required'
+			//'ranking' => 'required'
 		];
 	}
 	
 	public function messages()
 	{
 		return [
-			'subject_1.required' => 'required',
-			'subject_2.required' => 'required',
-			'subject_3.required' => 'required',
-			'subject_4.required' => 'required',
-			'subject_5.required' => 'required',
-			'ranking.required' => 'required'
+			'subject_1.required' => 'Nilai pelajaran tidak boleh kosong',
+			'subject_2.required' => 'Nilai pelajaran tidak boleh kosong',
+			'subject_3.required' => 'Nilai pelajaran tidak boleh kosong',
+			'subject_4.required' => 'Nilai pelajaran tidak boleh kosong',
+			'subject_5.required' => 'Nilai pelajaran tidak boleh kosong',
+			//'ranking.required' => 'Nilai pelajaran tidak boleh kosong'
 		];
 	}
 

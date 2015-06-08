@@ -22,6 +22,10 @@ class Applicant extends Model {
 		'contact',
 		'marriage_status',
 		'address',
+		'province_id',
+		'kabupaten_id',
+		'kecamatan_id',
 		'profile_photo',
+		
 	];
 }

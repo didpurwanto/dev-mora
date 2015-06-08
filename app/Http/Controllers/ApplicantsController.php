@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Applicant;
 use App\Province;
 use App\Http\Requests\ApplicantRequest;
+use App\Family;
 
 class ApplicantsController extends Controller {
 
@@ -41,7 +42,21 @@ class ApplicantsController extends Controller {
 		//dd($request['profile_photo']);
 		
 		//dd($request->all());
-		Applicant::create($request->except('photo'));
+		$form = Applicant::create($request->except('photo'));
+		
+		//$data = $form->id;
+		
+		//dd($data);
+		
+		//Family::create(array('applicant_id' => $data));
+		\DB::table('families')->insert(array('applicant_id' => $form->id));
+		\DB::table('pesantrens')->insert(array('applicant_id' => $form->id));
+		\DB::table('schools')->insert(array('applicant_id' => $form->id));
+		\DB::table('raports')->insert(array('applicant_id' => $form->id));
+		\DB::table('applications')->insert(array('applicant_id' => $form->id));
+		
+		
+		return redirect('families/create');
 	}
 
 	/**
@@ -53,7 +68,10 @@ class ApplicantsController extends Controller {
 	public function edit($id)
 	{
 		$app = Applicant::findOrFail($id);
-		return view('applicant.edit', compact('app'));
+		
+		$prov = Province::lists('province_name','id');
+		
+		return view('applicant.edit', compact('app','prov'));
 	}
 
 	/**
@@ -67,8 +85,9 @@ class ApplicantsController extends Controller {
 		$app = Applicant::findOrFail($id);
 		//Save record to the database
 		$app->update($request->all());
-		//Return to universities controller
-		return redirect('applicants');
+		
+		//Return
+		return redirect('families/create');
 	}
 
 	/**
