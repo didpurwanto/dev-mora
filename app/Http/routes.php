@@ -15,6 +15,7 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
+//auth
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
@@ -34,13 +35,20 @@ Route::get('/halo', function()
 // Route::get('univ/{id}', 'UniversitiesController@show');
 // Route::post('univ','UniversitiesController@store');
 // Route::post('univ/{id}/edit','UniversitiesController@edit');
+
+//Administrator route
 Route::resource('universities','UniversitiesController');
 Route::resource('departements','DepartementsController');
-Route::resource('applicants','ApplicantsController');
-Route::resource('families','FamiliesController');
-Route::resource('applications','ApplicationsController');
-Route::resource('pesantrens','PesantrensController');
-Route::resource('schools','SchoolsController');
+
+//applicant route
+Route::resource('applicants','ApplicantsController',['except' => ['index', 'show']]);
+Route::resource('families','FamiliesController',['except' => ['index', 'show']]);
+Route::resource('pesantrens','PesantrensController',['except' => ['index', 'show']]);
+Route::resource('schools','SchoolsController',['except' => ['index', 'show']]);
+Route::resource('raports','RaportsController',['except' => ['index', 'show']]);
+Route::resource('applications','ApplicationsController',['except' => ['index', 'show']]);
+
+
 /*
 |
 | Route for dynamic drop down kabupaten and kecamatan
