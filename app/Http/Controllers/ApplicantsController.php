@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Applicant;
 use App\Province;
 use App\Http\Requests\ApplicantRequest;
+use App\Http\Requests\UpdateApplicantRequest;
 use App\Family;
 
 class ApplicantsController extends Controller {
@@ -39,11 +40,11 @@ class ApplicantsController extends Controller {
 		//dd($imageName);
 		$request->file('photo')->move(base_path() . '/public/images/photos/', $imageName);
 		
-		$request['profile_photo'] = $imageName;
+		$request['photo'] = $imageName;
 		//dd($request['profile_photo']);
 		
 		//dd($request->all());
-		$form = Applicant::create($request->except('photo'));
+		$form = Applicant::create($request->all());
 		
 		//$data = $form->id;
 		
@@ -82,14 +83,14 @@ class ApplicantsController extends Controller {
 	 * @param  int  $id, ApplicantRequest $request
 	 * @return Redirect
 	 */
-	public function update($id, ApplicantRequest $request)
+	public function update($id, UpdateApplicantRequest $request)
 	{
 		$app = Applicant::findOrFail($id);
 		//Save record to the database
 		$form = $app->update($request->all());
 		
 		//Return
-		return redirect('families/'. $form->id);
+		return redirect('families/'. $app->id);
 	}
 
 	/**

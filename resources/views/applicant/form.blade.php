@@ -7,13 +7,11 @@
 	{!! Form::email('email',null ,['class' => 'form-control', 'placeholder' => 'E-mail']) !!}
 </div>
 <div class="form-group">
-	{!! Form::label('gender', 'Jenis Kelamin :') !!}
-	<label class="radio-inline">
-		<input type="radio" name="gender" id="gender" value="L" > Laki-Laki
-	</label>
-	<label class="radio-inline">
-		<input type="radio" name="gender" id="gender" value="P"> Perempuan
-	</label>
+	{!! Form::label('gender', 'Jenis Kelamin :') !!}&nbsp;&nbsp;
+	{!! Form::radio('gender', 1, 1) !!}
+    {!! Form::label('Laki-laki','Laki-laki')!!}&nbsp;&nbsp;&nbsp;&nbsp;
+    {!! Form::radio('gender', 0, 0) !!}
+    {!! Form::label('Perampuan','Perempuan') !!}&nbsp;&nbsp;&nbsp;&nbsp;
 </div> 
 <div class="form-group">
 	{!! Form::label('place_birth', 'Tempat Lahir :') !!}
@@ -75,10 +73,6 @@
 <div class="form-group">
 	{!! Form::label('kecamatan_id', 'Kecamatan :') !!}
 	{!! Form::select('kecamatan_id', ['1' => 'Kecamatan'], 'Kecamatan',['class' => 'form-control']) !!}
-</div>
-<div class="form-group">
-    {!! Form::label('Pas Photo') !!}
-    {!! Form::file('photo', null, ['id' => 'picture']) !!}
 </div>
 
 <div class="form-group">
