@@ -11,56 +11,32 @@ use App\PesantrenType;
 class PesantrensController extends Controller {
 
 	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		$prov = Province::lists('province_name','id');
-		$pes_type = PesantrenType::lists('type_name','id');
-		
-		return view('pesantren.create', compact('prov','pes_type'));
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store(PesantrenRequest $request)
-	{
-		//dd($request->all());
-		Pesantren::create($request->all());
-	}
-
-
-	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  int  $applicant_id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($applicant_id)
 	{
 		$prov = Province::lists('province_name','id');
-		$pes = Pesantren::findOrFail($id);
+		$pes = Pesantren::findOrFail($applicant_id);
+		
 		return view('pesantren.edit', compact('pes','prov'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
+	 * @param  int  $applicant_id
 	 * @return Response
 	 */
-	public function update($id, PesantrenRequest $request)
+	public function update($applicant_id, PesantrenRequest $request)
 	{
-		$pes = Pesantren::findOrFail($id);
+		$pes = Pesantren::findOrFail($applicant_id);
 		//Save record to the database
-		$pes->update($request->all());
+		$form = $pes->update($request->all());
 		//
-		return redirect('schools');
+		return redirect('schools/', $form->applicant_id);
 	}
 
 	/**

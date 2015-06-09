@@ -97,5 +97,4 @@
 
 <div class="form-group">
 	{!! Form::submit($text, ['class' => 'btn btn-primary form-button']) !!}
-	{!! Form::reset('Batal', ['class' => 'btn btn-primary form-button']) !!}
 </div>

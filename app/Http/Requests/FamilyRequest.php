@@ -27,8 +27,7 @@ class FamilyRequest extends Request {
 			'father_age' => 'required|integer|min:20|max:100',
 			'father_address' => 'required',
 			'mother_name' => 'required',
-			'mother_age' => 'required|integer|min:20|max:100',
-			'mother_address' => 'required'
+			'mother_age' => 'required|integer|min:20|max:100'
 			
 		];
 	}
@@ -46,8 +45,7 @@ class FamilyRequest extends Request {
 			'mother_age.required' => 'Umur Ibu tidak boleh kosong',
 			'mother_age.integer' => 'Umur Ibu harus angka integer (angka tanpa koma)',
 			'mother_age.min' => 'Umur Ibu minimal 20 tahun',
-			'mother_age.max' => 'Umur Ibu maksimal 100 tahun',
-			'mother_address.required' => 'Alamat Ibu tidak boleh kosong'
+			'mother_age.max' => 'Umur Ibu maksimal 100 tahun'
 		];
 	}
 }

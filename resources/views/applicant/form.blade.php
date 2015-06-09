@@ -8,8 +8,12 @@
 </div>
 <div class="form-group">
 	{!! Form::label('gender', 'Jenis Kelamin :') !!}
-	{!! Form::radio('gender', 'L',['class' => 'form-control']) !!} Laki-Laki 
-	{!! Form::radio('gender', 'P',['class' => 'form-control']) !!} Perempuan
+	<label class="radio-inline">
+		<input type="radio" name="gender" id="gender" value="L" > Laki-Laki
+	</label>
+	<label class="radio-inline">
+		<input type="radio" name="gender" id="gender" value="P"> Perempuan
+	</label>
 </div> 
 <div class="form-group">
 	{!! Form::label('place_birth', 'Tempat Lahir :') !!}

@@ -12,66 +12,38 @@ use App\Kecamatan;
 use App\EducationLevel;
 use App\JobType;
 use App\RangeSalary;
+use App\Family;
 
 class FamiliesController extends Controller {
 
-	public function create()
+	public function edit($applicant_id)
 	{
-		$prov = Province::lists('province_name','id');
-		$edu_level = EducationLevel::lists('level_name','id');
-		$jobs = JobType::lists('job_name','id');
-		$salary = RangeSalary::lists('range_name','id');
-		
-		//dd($prov);
-		return view('family.create', compact('prov','edu_level','jobs','salary'));
-	}
-
-	
-	public function store(FamilyRequest $request)
-	{
-		Family::create($request->all());
-		
-		return redirect('pesantrens/create');
-	}
-
-
-	public function edit($id)
-	{
-		$fam = Family::findOrFail($id);
+		$fam = Family::findOrFail($applicant_id);
 		
 		$prov = Province::lists('province_name','id');
 		$edu_level = EducationLevel::lists('level_name','id');
 		$jobs = JobType::lists('job_name','id');
 		$salary = RangeSalary::lists('range_name','id');
 		
-		return view('family.edit', compact('fam'));
+		return view('family.edit', compact('fam','prov','edu_level','jobs','salary'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
+	 * @param  int  $applicant_id
 	 * @return Response
 	 */
-	public function update($id, FamilyRequest $request)
+	public function update($applicant_id, FamilyRequest $request)
 	{
-		$fam = Family::findOrFail($id);
+		$fam = Family::findOrFail($applicant_id);
 		//Save record to the database
-		$fam->update($request->all());
+		$form = $fam->update($request->all());
+		
 		//Return to universities controller
-		return redirect('pesantrens/create');
+		return redirect('pesantrens/', $form->applicant_id);
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
 	
 	public function getKabupatens($id)
     {

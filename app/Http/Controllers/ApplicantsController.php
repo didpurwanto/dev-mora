@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use DB;
 use Illuminate\Http\Request;
 use App\Applicant;
 use App\Province;
@@ -49,14 +50,15 @@ class ApplicantsController extends Controller {
 		//dd($data);
 		
 		//Family::create(array('applicant_id' => $data));
-		\DB::table('families')->insert(array('applicant_id' => $form->id));
-		\DB::table('pesantrens')->insert(array('applicant_id' => $form->id));
-		\DB::table('schools')->insert(array('applicant_id' => $form->id));
-		\DB::table('raports')->insert(array('applicant_id' => $form->id));
-		\DB::table('applications')->insert(array('applicant_id' => $form->id));
+		DB::table('families')->insert(array('applicant_id' => $form->id));
+		DB::table('pesantrens')->insert(array('applicant_id' => $form->id));
+		DB::table('schools')->insert(array('applicant_id' => $form->id));
+		DB::table('raports')->insert(array('applicant_id' => $form->id));
+		DB::table('applications')->insert(array('applicant_id' => $form->id));
 		
 		
-		return redirect('families/create');
+		//return redirect('families/create');
+		return redirect('families/'. $form->id);
 	}
 
 	/**
@@ -84,10 +86,10 @@ class ApplicantsController extends Controller {
 	{
 		$app = Applicant::findOrFail($id);
 		//Save record to the database
-		$app->update($request->all());
+		$form = $app->update($request->all());
 		
 		//Return
-		return redirect('families/create');
+		return redirect('families/'. $form->id);
 	}
 
 	/**

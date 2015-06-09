@@ -18,7 +18,7 @@ class CreateSchools extends Migration {
 			$table->integer('applicant_id');
 			$table->string('school_name', 150);
 			$table->string('school_principal_name');
-			$table->string('nisn', 20)->unique();
+			$table->string('nisn', 20);
 			$table->string('school_status', 20);
 			$table->string('graduate_year',4);
 			$table->integer('school_type_id');
