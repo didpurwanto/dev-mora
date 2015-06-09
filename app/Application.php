@@ -6,5 +6,5 @@ class Application extends Model {
 
 	protected $table = 'applications';
 
-	public $fillable = [];
+	public $guarded = ['id','applicant'];
 }

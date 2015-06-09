@@ -31,7 +31,7 @@ class FamiliesController extends Controller {
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $applicant_id
+	 * @param  int  $id
 	 * @return Response
 	 */
 	public function update($applicant_id, FamilyRequest $request)
@@ -41,7 +41,7 @@ class FamiliesController extends Controller {
 		$form = $fam->update($request->all());
 		
 		//Return to universities controller
-		return redirect('pesantrens/', $form->applicant_id);
+		return redirect('pesantrens/'. $fam->applicant_id);
 	}
 
 	

@@ -4,8 +4,8 @@
 	<h2>Data Pesantren</h2>
 	<hr />
 	
-	{!! Form::model($sch,['method' => 'PATCH','url' => ['/applicants',$sch->id]]) !!}
-		@include ('school.form', ['text' => 'Lanjutkan'])
+	{!! Form::model($sch,['method' => 'PATCH','url' => ['/schools',$sch->id]]) !!}
+		@include ('school.form', ['text' => 'Simpan'])
 	{!! Form::close() !!}
 	
 	@include('errors.list')

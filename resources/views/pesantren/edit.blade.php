@@ -4,7 +4,7 @@
 	<h2>Data Pesantren</h2>
 	<hr />
 	
-	{!! Form::model($app,['method' => 'PATCH','url' => ['/applicants',$app->id]]) !!}
+	{!! Form::model($pes,['method' => 'PATCH','url' => ['/pesantrens',$pes->id]]) !!}
 		@include ('pesantren.form', ['text' => 'Simpan'])
 	{!! Form::close() !!}
 	

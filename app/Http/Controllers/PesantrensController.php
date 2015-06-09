@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PesantrenRequest;
 use App\Province;
 use App\PesantrenType;
+use App\Pesantren;
 
 class PesantrensController extends Controller {
 
@@ -20,8 +21,9 @@ class PesantrensController extends Controller {
 	{
 		$prov = Province::lists('province_name','id');
 		$pes = Pesantren::findOrFail($applicant_id);
+		$pes_type = PesantrenType::lists('type_name','id');
 		
-		return view('pesantren.edit', compact('pes','prov'));
+		return view('pesantren.edit', compact('pes','prov','pes_type'));
 	}
 
 	/**
@@ -36,7 +38,7 @@ class PesantrensController extends Controller {
 		//Save record to the database
 		$form = $pes->update($request->all());
 		//
-		return redirect('schools/', $form->applicant_id);
+		return redirect('schools/'. $pes->applicant_id);
 	}
 
 	/**

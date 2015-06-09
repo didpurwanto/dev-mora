@@ -40,7 +40,7 @@ class SchoolsController extends Controller {
 		//Save record to the database
 		$form = $sch->update($request->all());
 		//
-		return redirect('applications/', $form->applicant_id);
+		return redirect('applications/'. $sch->applicant_id);
 	}
 
 	/**

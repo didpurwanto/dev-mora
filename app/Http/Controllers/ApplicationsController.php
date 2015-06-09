@@ -8,14 +8,23 @@ use App\Http\Requests\ApplicationRequest;
 use App\Application;
 use App\University;
 use App\Departement;
+use App\School;
+use App\ProgramStudy;
 
 class ApplicationsController extends Controller {
 
+	private $program_study_id;
 
 	public function edit($applicant_id)
 	{
+		$program_study_id = School::where('applicant_id', $applicant_id)->pluck('program_study_id');
+		//dd($program_study_id);
+		//$program_study = ProgramStudy::
+		$univ = University::lists('university_name','id');
+		//$departemen = Departement::where('program_study_id', $program_study_id)->lists('departement_name','id');
+		
 		$appl = Application::findOrFail($applicant_id);
-		return view('application.edit', compact('appl'));
+		return view('application.edit', compact('appl','univ'));
 	}
 
 	/**
@@ -30,7 +39,7 @@ class ApplicationsController extends Controller {
 		//Save record to the database
 		$form = $appl->update($request->all());
 		//
-		return redirect('raports/', $form->applicant_id);
+		return redirect('raports/'. $appl->applicant_id);
 	}
 
 	/**
@@ -46,12 +55,12 @@ class ApplicationsController extends Controller {
 	
 	public function getDepartements($university_id)
     {
-        $departs = University::where('university_id', '=', $university_id)->get();
+        $departs = Departement::where('university_id',$university_id)->get();
         //dd($kabupatens);
 		$options = array();
 
         foreach ($departs as $depart) {
-            $options += array($depart->id => $depart->departemen_name);
+            $options += array($depart->id => $depart->departement_name);
         }
 		
 		//dd($options);

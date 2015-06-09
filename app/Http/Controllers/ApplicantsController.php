@@ -87,7 +87,7 @@ class ApplicantsController extends Controller {
 	{
 		$app = Applicant::findOrFail($id);
 		//Save record to the database
-		$form = $app->update($request->all());
+		$form = $app->update($request->except('photo'));
 		
 		//Return
 		return redirect('families/'. $app->id);

@@ -1,14 +1,14 @@
 <div class="form-group">
 	{!! Form::label('pesantren_name', 'Nama Pesantren :') !!}
-	{!! Form::text('pesantren_name',null ,['class' => 'form-control', 'placeholder' => 'Hubbul Wathan']) !!}
+	{!! Form::text('pesantren_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Pesantren']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('kiai_name', 'Nama Pimpinan :') !!}
-	{!! Form::text('kiai_name',null ,['class' => 'form-control', 'placeholder' => 'Agung Laksono']) !!}
+	{!! Form::text('kiai_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Kiyai']) !!}
 </div>
 <div class="form-group">
-	{!! Form::label('nipp', 'NSPP :') !!}
-	{!! Form::text('nipp', null,['class' => 'form-control', 'placeholder' => 'Nomor Statistik Pondok Pesantren']) !!}
+	{!! Form::label('nspp', 'NSPP :') !!}
+	{!! Form::text('nspp', null,['class' => 'form-control', 'placeholder' => 'Nomor Statistik Pondok Pesantren']) !!}
 </div> 
 <div class="form-group">
 	{!! Form::label('pesantren_type', 'Jenis Pesantren :') !!}
@@ -32,5 +32,4 @@
 </div>
 <div class="form-group">
 	{!! Form::submit($text, ['class' => 'btn btn-primary form-button']) !!}
-	{!! Form::reset('Batal', ['class' => 'btn btn-primary form-button']) !!}
 </div>

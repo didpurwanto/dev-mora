@@ -24,7 +24,8 @@ class PesantrenRequest extends Request {
 		return [
 			//'applicant_id',		
 			'pesantren_name' => 'required',
-			'nipp' => 'required|integer|max:12',
+			'kiai_name' => 'required',
+			'nspp' => 'required|numeric',
 			'pesantren_type' => 'required',
 			'pesantren_address' => 'required',
 			'province_id' => 'required',
@@ -37,9 +38,8 @@ class PesantrenRequest extends Request {
 	{
 		return [
 			'pesantren_name.required' => 'Nama Pesantren tidak boleh kosong',
-			'nipp.required' => 'Nomor Statistik Pondok Pesantren (NSPP) tidak boleh kosong',
-			'nipp.integer' => 'Nomor Statistik Pondok Pesantren (NSPP) harus angka',
-			'nipp.max' => 'Nomor Statistik Pondok Pesantren (NSPP) hanya 12 Digit',
+			'nspp.required' => 'Nomor Statistik Pondok Pesantren (NSPP) tidak boleh kosong',
+			'nspp.numeric' => 'Nomor Statistik Pondok Pesantren (NSPP) harus angka',
 			'pesantren_type.required' => 'Jenis Pesantren tidak boleh kosong',
 			'pesantren_address.required' => 'Alamat Pesantren tidak boleh kosong',
 			'province_id.required' => 'Provinsi tidak boleh kosong',
