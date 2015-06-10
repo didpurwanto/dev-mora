@@ -16,6 +16,7 @@ class CreateListSubjects extends Migration {
 		{
 			$table->increments('id');
 			$table->string('list', 100);
+			$table->integer('program_study_id');
 		});
 	}
 
