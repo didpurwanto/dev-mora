@@ -1,10 +1,10 @@
 <div class="form-group">
-	{!! Form::label('school_name', 'Nama Asal Sekolah :') !!}
-	{!! Form::text('school_name',null ,['class' => 'form-control', 'placeholder' => 'Hubbul Wathan']) !!}
+	{!! Form::label('school_name', 'Nama Sekolah Asal:') !!}
+	{!! Form::text('school_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Sekolah / Madrasah']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('school_principal_name', 'Nama Kepala Sekolah :') !!}
-	{!! Form::text('school_principal_name',null ,['class' => 'form-control', 'placeholder' => 'Agung Laksono']) !!}
+	{!! Form::text('school_principal_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Kepala Sekolah / Madrasah']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('nisn', 'NISN :') !!}
@@ -12,7 +12,7 @@
 </div> 
 <div class="form-group">
 	{!! Form::label('school_status', 'Status Sekolah :') !!}
-	{!! Form::select('school_status', ['1'=>'Negeri', '2'=>'Swasta'],['class' => 'form-control']) !!}
+	{!! Form::select('school_status', ['1'=>'Negeri', '0'=>'Swasta'],['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('graduate_year', 'Tahun Lulus Sekolah :') !!}
@@ -28,7 +28,7 @@
 </div>
 <div class="form-group">
 	{!! Form::label('inside_pondok', 'Lokasi Sekolah :') !!}
-	{!! Form::select('inside_pondok', ['1'=>'Didalam', '2'=>'Diluar'],['class' => 'form-control']) !!} Pondok Pesantren
+	{!! Form::select('inside_pondok', ['1'=>'Didalam', '0'=>'Diluar'],['class' => 'form-control']) !!} Pondok Pesantren
 </div>
 <div class="form-group">
 	{!! Form::label('school_address', 'Alamat :') !!}
@@ -48,5 +48,4 @@
 </div>
 <div class="form-group">
 	{!! Form::submit($text, ['class' => 'btn btn-primary form-button']) !!}
-	{!! Form::reset('Batal', ['class' => 'btn btn-primary form-button']) !!}
 </div>

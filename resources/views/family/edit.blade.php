@@ -5,7 +5,7 @@
 	<hr />
 	
 	{!! Form::model($fam,['method' => 'PATCH','url' => ['/families',$fam->id]]) !!}
-		@include ('family.form', ['text' => 'Next'])
+		@include ('family.form', ['text' => 'Simpan'])
 	{!! Form::close() !!}
 	
 	@include('errors.list')
@@ -14,14 +14,14 @@
 @section('script')
 	<script type="text/javascript">
     $(document).ready(function() {
-        $("#father_province_id").change(function() {
-            $.getJSON("/families/provinces/" + $("#father_province_id").val(), function(data) {
-                var $stations = $("#father_kabupaten_id");
+        $("#province_id").change(function() {
+            $.getJSON("/families/provinces/" + $("#province_id").val(), function(data) {
+                var $stations = $("#kabupaten_id");
                 $stations.empty();
                 $.each(data, function(index, value) {
                     $stations.append('<option value="' + index +'">' + value + '</option>');
                 });
-            $("#father_kabupaten_id").trigger("change"); /* trigger next drop down list not in the example */
+            $("#kabupaten_id").trigger("change"); /* trigger next drop down list not in the example */
             });
         });
     });
@@ -29,30 +29,17 @@
 	
 	<script type="text/javascript">
     $(document).ready(function() {
-        $("#father_kabupaten_id").change(function() {
-            $.getJSON("/families/kabupatens/" + $("#father_kabupaten_id").val(), function(data) {
-                var $stations = $("#father_kecamatan_id");
+        $("#kabupaten_id").change(function() {
+            $.getJSON("/families/kabupatens/" + $("#kabupaten_id").val(), function(data) {
+                var $stations = $("#kecamatan_id");
                 $stations.empty();
                 $.each(data, function(index, value) {
                     $stations.append('<option value="' + index +'">' + value + '</option>');
                 });
-            $("#father_kecamatan_id").trigger("change"); /* trigger next drop down list not in the example */
+            $("#kecamatan_id").trigger("change"); /* trigger next drop down list not in the example */
             });
         });
     });
 	</script>
-	
-	<script>
-	$(document).ready(function(){
-		$('input[type="checkbox"]').click(function(){
-			var samaBox = document.getElementById('alamat');
-			if(!samaBox.checked){
-				$("#alamat_ibu").show();
-			}
-			else{
-				$("#alamat_ibu").hide();
-			}
-		});
-	});
-	</script>
+
 @stop

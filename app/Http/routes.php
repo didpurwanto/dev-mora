@@ -41,13 +41,36 @@ Route::resource('universities','UniversitiesController');
 Route::resource('departements','DepartementsController');
 
 //applicant route
-Route::resource('applicants','ApplicantsController',['except' => ['index', 'show']]);
-Route::resource('families','FamiliesController',['except' => ['index', 'show']]);
-Route::resource('pesantrens','PesantrensController',['except' => ['index', 'show']]);
-Route::resource('schools','SchoolsController',['except' => ['index', 'show']]);
-Route::resource('raports','RaportsController',['except' => ['index', 'show']]);
-Route::resource('applications','ApplicationsController',['except' => ['index', 'show']]);
+//Route::resource('applicants','ApplicantsController',['except' => ['index', 'show']]);
+Route::get('applicants', 'ApplicantsController@create');
+Route::post('applicants', 'ApplicantsController@store');
+Route::get('applicants/{id}', 'ApplicantsController@edit');
+Route::patch('applicants/{id}', 'ApplicantsController@update');
 
+//Family Route
+//Route::resource('families','FamiliesController',['except' => ['index', 'show', 'create']]);
+Route::get('families/{id}', 'FamiliesController@edit');
+Route::patch('families/{id}', 'FamiliesController@update');
+
+//Pesantren Route
+//Route::resource('pesantrens','PesantrensController',['except' => ['index', 'show', 'create']]);
+Route::get('pesantrens/{id}', 'PesantrensController@edit');
+Route::patch('pesantrens/{id}', 'PesantrensController@update');
+
+//School Route
+//Route::resource('schools','SchoolsController',['except' => ['index', 'show', 'create']]);
+Route::get('schools/{id}', 'SchoolsController@edit');
+Route::patch('schools/{id}', 'SchoolsController@update');
+
+//Raports Route
+//Route::resource('raports','RaportsController',['except' => ['index', 'show', 'create']]);
+Route::get('raports/{id}', 'RaportsController@edit');
+Route::patch('raports/{id}', 'RaportsController@update');
+
+//Application Route
+//Route::resource('applications','ApplicationsController',['except' => ['index', 'show', 'create']]);
+Route::get('applications/{id}', 'ApplicationsController@edit');
+Route::patch('applications/{id}', 'ApplicationsController@update');
 
 /*
 |
@@ -57,3 +80,10 @@ Route::resource('applications','ApplicationsController',['except' => ['index', '
 */
 Route::get('families/provinces/{id}', 'FamiliesController@getKabupatens');
 Route::get('families/kabupatens/{id}', 'FamiliesController@getKecamatans');
+
+/*
+|
+| Route for dynamic drop down departemen
+|
+*/
+Route::get('applications/universities/{id}', 'ApplicationsController@getDepartements');

@@ -6,41 +6,40 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ApplicationRequest;
 use App\Application;
+use App\University;
+use App\Departement;
+use App\School;
+use App\ProgramStudy;
 
 class ApplicationsController extends Controller {
 
+	private $program_study_id;
 
-	public function create()
+	public function edit($applicant_id)
 	{
-		return view('application.create');
-	}
-
-	public function store(ApplicationRequest $request)
-	{
-		//dd($request->all());
-		Application::create($request->all());
-	}
-
-
-	public function edit($id)
-	{
-		$appl = Application::findOrFail($id);
-		return view('application.edit', compact('appl'));
+		$program_study_id = School::where('applicant_id', $applicant_id)->pluck('program_study_id');
+		//dd($program_study_id);
+		//$program_study = ProgramStudy::
+		$univ = University::lists('university_name','id');
+		//$departemen = Departement::where('program_study_id', $program_study_id)->lists('departement_name','id');
+		
+		$appl = Application::findOrFail($applicant_id);
+		return view('application.edit', compact('appl','univ'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
+	 * @param  int  $applicant_id
 	 * @return Response
 	 */
-	public function update($id, ApplicationRequest $request)
+	public function update($applicant_id, ApplicationRequest $request)
 	{
-		$appl = Application::findOrFail($id);
+		$appl = Application::findOrFail($applicant_id);
 		//Save record to the database
-		$appl->update($request->all());
+		$form = $appl->update($request->all());
 		//
-		return redirect('applications');
+		return redirect('raports/'. $appl->applicant_id);
 	}
 
 	/**
@@ -53,5 +52,19 @@ class ApplicationsController extends Controller {
 	{
 		//
 	}
+	
+	public function getDepartements($university_id)
+    {
+        $departs = Departement::where('university_id',$university_id)->get();
+        //dd($kabupatens);
+		$options = array();
+
+        foreach ($departs as $depart) {
+            $options += array($depart->id => $depart->departement_name);
+        }
+		
+		//dd($options);
+        return $options;
+    }
 
 }

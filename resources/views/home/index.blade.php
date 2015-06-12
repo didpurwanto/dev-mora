@@ -1,7 +1,7 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<!DOCTYPE html>
-<html lang="en">
-
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
     <meta charset="utf-8">
@@ -25,7 +25,10 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="homepage/css/creative.css" type="text/css">
-
+	
+	<!-- Include other spesific CSS -->
+	@yield('css')
+	
     <!-- VALIDATION SCRIPT-->
     <script language="JavaScript" src="js/gen_validatorv4.js"
       type="text/javascript" xml:space="preserve">
@@ -34,8 +37,7 @@
 </head>
 
 <body id="page-top">
-
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -91,8 +93,9 @@
                     <h1>Login</h1>
                     <h3 class="section-heading">Silahkan isi username dan password Anda!</h3>
                     <br />
-                    <form role="form" action="#" method="post" name="myform" id="myform" enctype="multipart/form-data">
-                      <table align="center">
+                    <form role="form" action="{!! url('/auth/login') !!}" method="post" name="myform" id="myform" enctype="multipart/form-data">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+					  <table align="center">
                         <tr>
                           <td>
                             <font color = "white" size="2px"><div id='myform_username_login_errorloc' class="error_strings"></div></font>
@@ -126,8 +129,9 @@
                   <h1>Daftar</h1>
                     <h3 class="section-heading">Silahkan isi data Anda di bawah ini!</h3>
                     <br />
-                    <form role="form" action="#" method="post" name="myform" id="myform" enctype="multipart/form-data">
-                      <table align="center">
+                    <form role="form" action="#" method="POST" name="myform" id="myform" enctype="multipart/form-data">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+					  <table align="center">
                         <tr>
                           <td>
                             <font color = "white" size="2px"><div id='myform_username_errorloc' class="error_strings"></div></font>
@@ -255,6 +259,10 @@
     <!-- Custom Theme JavaScript -->
     <script src="homepage/js/creative.js"></script>
 
+	
+	<!-- Include another specific JavaScript  -->
+	@yield('script')
+	
     <!-- VALIDATION SCRIPT-->
     	<script language="JavaScript" type="text/javascript"
     			xml:space="preserve">//<![CDATA[

@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class ApplicantRequest extends Request {
+class UpdateApplicantRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -26,12 +26,11 @@ class ApplicantRequest extends Request {
 			'email' => 'required|email',
 			'place_birth' => 'required|min:3',
 			'date_birth' => 'date',
-			'recitation' => 'required|min:0|max:30',
+			'recitation' => 'required|integer|min:0|max:30',
 			'weight' => 'required',
 			'height'=> 'required',
 			'contact' => 'required',
-			'address' => 'required',
-			'photo' => 'required|image|mimes:jpeg,jpg,bmp,png,gif|max:1000'
+			'address' => 'required'
 		];
 	}
 	
@@ -52,15 +51,13 @@ class ApplicantRequest extends Request {
 			'date_birth.required' => 'Tanggal Lahir tidak boleh kosong',
 			'date_birth.date' => 'Tanggal lahir harus menggunakan format tanggal',
 			'recitation.required' => 'Jumlah Hafalan Al-Quran tidak boleh kosong',
+			'recitation.integer' => 'Jumlah Hafalan Al-Quran tidak boleh selain angka integer',
 			'recitation.min' => 'Jumlah Hafalan Al-Quran tidak boleh dibawah 0',
 			'recitation.max' => 'Jumlah Hafalan Al-Quran tidak boleh diatas 30',
 			'weight.required' => 'Berat Badan tidak boleh kosong',
 			'height.required'=> 'Tinggi Badan tidak boleh kosong',
 			'contact.required' => 'Nomor yang bisa dihubungi tidak boleh kosong',
-			'address.required' => 'Alamat tidak boleh kosong',
-			'photo.required' => 'Pas Photo harus dimasukan',
-			'photo.max' => 'Pas Photo harus lebih kecil dari 1000KB',
-			'photo.mimes' => 'Pas Photo harus menggunakan format gambar (jpeg, jpg, png, bmp, dan gif)'
+			'address.required' => 'Alamat tidak boleh kosong'
 		];
 	}
 

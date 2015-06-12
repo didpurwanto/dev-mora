@@ -10,17 +10,19 @@ class Family extends Model {
 		'father_name',
 		'father_age',
 		'father_deceased',
-		'father_address',
-		'father_province_id',
+		'father_education',
 		'father_job_id',
-		'father_income_id',
+		'father_salary_id',
 		'mother_name',
 		'mother_age',
 		'mother_deceased',
-		'mother_address',
-		'mother_province_id',
+		'mother_education',
 		'mother_job_id',
-		'mother_income_id'	
+		'mother_income_id',
+		'address',
+		'province_id',
+		'kabupaten_id',
+		'kecamatan_id'
 	];
 
 }
