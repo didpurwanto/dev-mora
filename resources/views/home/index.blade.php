@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>DEVMORA</title>
+    <title>PBSB Online -Dev</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="homepage/css/bootstrap.min.css" type="text/css">
@@ -47,7 +47,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">DEVMORA</a>
+                <a class="navbar-brand page-scroll" href="#page-top">PBSB Online</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -278,11 +278,6 @@
 
           frmvalidator.addValidation("username_login","req","Username harus diisi!");
           frmvalidator.addValidation("password_login","req","Passwordharus diisi!");
-
-
-
-
-    		//]]>
     	</script>
 
 </body>
