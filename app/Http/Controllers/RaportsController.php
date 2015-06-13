@@ -6,31 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\RaportRequest;
 use App\Raport;
+use App\ProgramStudy;
+
 
 class RaportsController extends Controller {
-
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return view('raport.create', compact('prov'));
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store(RaportRequest $request)
-	{		
-		//dd($request->all());
-		Raport::create($request->all());
-	}
-
 	
 	/**
 	 * Show the form for editing the specified resource.
@@ -38,10 +17,12 @@ class RaportsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($applicant_id)
 	{
-		$raport = Raport::findOrFail($id);
-		return view('raport.edit', compact('raport'));
+		$getListSubjects = 
+		$raports = Raport::findOrFail($applicant_id);
+		
+		return view('raport.edit', compact('raports'));
 	}
 
 	/**
@@ -52,6 +33,7 @@ class RaportsController extends Controller {
 	 */
 	public function update($id, RaportRequest $request)
 	{
+		dd($request->all());
 		$raport = Raport::findOrFail($id);
 		//Save record to the database
 		$raport->update($request->all());

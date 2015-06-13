@@ -16,7 +16,7 @@ class CreateProgramStudies extends Migration {
 		{
 			$table->increments('id');
 			$table->string('program_name',100);
-			$table->integer('list_subject_id');			
+			$table->string('list_subject',255);			
 		});
 	}
 
