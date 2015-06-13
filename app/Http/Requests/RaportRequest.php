@@ -22,24 +22,19 @@ class RaportRequest extends Request {
 	public function rules()
 	{
 		return [
-			// 'subject_1' => 'required',
-			// 'subject_2' => 'required',
-			// 'subject_3' => 'required',
-			// 'subject_4' => 'required',
-			// 'subject_5' => 'required',
-			//'ranking' => 'required'
+			'p1s1' => 'required','p1s2' => 'required','p1s3' => 'required','p1s4' => 'required','p1s5' => 'required','p1s6' => 'required',
+			'p2s1' => 'required','p2s2' => 'required','p2s3' => 'required','p2s4' => 'required','p2s5' => 'required','p2s6' => 'required',
+			'p3s1' => 'required','p3s2' => 'required','p3s3' => 'required','p3s4' => 'required','p3s5' => 'required','p3s6' => 'required',
+			'p4s1' => 'required','p4s2' => 'required','p4s3' => 'required','p4s4' => 'required','p4s5' => 'required','p4s6' => 'required',
+			'p5s1' => 'required','p5s2' => 'required','p5s3' => 'required','p5s4' => 'required','p5s5' => 'required','p5s6' => 'required',
+			'r1' => 'required','r2' => 'required','r3' => 'required','r4' => 'required','r5' => 'required','r6' => 'required'
 		];
 	}
 	
 	public function messages()
 	{
 		return [
-			// 'subject_1.required' => 'Nilai pelajaran tidak boleh kosong',
-			// 'subject_2.required' => 'Nilai pelajaran tidak boleh kosong',
-			// 'subject_3.required' => 'Nilai pelajaran tidak boleh kosong',
-			// 'subject_4.required' => 'Nilai pelajaran tidak boleh kosong',
-			// 'subject_5.required' => 'Nilai pelajaran tidak boleh kosong',
-			//'ranking.required' => 'Nilai pelajaran tidak boleh kosong'
+			'required' => 'Semua Nilai dan Ranking harus di risi dengan benar',
 		];
 	}
 

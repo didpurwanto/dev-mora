@@ -8,5 +8,9 @@
 		@include ('raport.form', ['text' => 'Simpan'])
 	{!! Form::close() !!}
 	
-	@include('errors.list')
+	@if ($errors->any())
+		<ul class="alert alert-danger">
+				<li>{{ $errors->first() }}</li>
+		</ul>
+	@endif
 @stop
