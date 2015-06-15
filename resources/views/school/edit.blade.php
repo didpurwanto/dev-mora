@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('register.index')
 
 @section('content')
 	<h2>Data Pesantren</h2>

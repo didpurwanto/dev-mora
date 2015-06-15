@@ -83,22 +83,22 @@
                         <a href="{!! URL::to('/families',1) !!}"><i class="fa fa-fw fa-edit"></i> Data Keluarga</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Data Pesantren</a>
+                        <a href="{!! URL::to('/pesantrens',1) !!}"><i class="fa fa-fw fa-edit"></i> Data Pesantren</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Data Sekolah</a>
+                        <a href="{!! URL::to('/schools',1) !!}"><i class="fa fa-fw fa-edit"></i> Data Sekolah</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Data Raport</a>
+                        <a href="{!! URL::to('/raports',1) !!}"><i class="fa fa-fw fa-edit"></i> Data Raport</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Pilih Studi</a>
+                        <a href="{!! URL::to('/applications',1) !!}"><i class="fa fa-fw fa-edit"></i> Pilih Studi</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-desktop"></i> Summary</a>
+                        <a href="{!! URL::to('/summary',1) !!}"><i class="fa fa-fw fa-desktop"></i> Summary</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-file"></i> Cetak Kartu</a>
+                        <a href="{!! URL::to('/prints',1) !!}"><i class="fa fa-fw fa-file"></i> Cetak Kartu</a>
                     </li>
                 </ul>
             </div>
