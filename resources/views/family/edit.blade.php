@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('register.index')
 
 @section('content')
 	<h2>Biodata Keluarga</h2>

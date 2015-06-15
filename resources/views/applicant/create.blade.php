@@ -11,14 +11,20 @@
 	
 	{!! Form::open(['url' => '/applicants','files' => true]) !!}
 		<div class="form-group">
-			{!! Form::label('full_name', 'Nama Lengkap :') !!}
+		 <div class="row">
+		   <div class="col-xs-2">
+			{!! Form::label('full_name', 'Nama Lengkap') !!}
+		   </div>
+		   <div class="col-xs-4">
 			{!! Form::text('full_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Lengkap']) !!}
+		   </div>
+		 </div>
 		</div>
-		<div class="form-group">
+		<div class="form-group form-inline">
 			{!! Form::label('email', 'Alamat E-mail :') !!}
 			{!! Form::email('email',null ,['class' => 'form-control', 'placeholder' => 'Alamat E-mail']) !!}
 		</div>
-		<div class="form-group">
+		<div class="form-group form-inline">
 			{!! Form::label('gender', 'Jenis Kelamin :') !!}&nbsp;&nbsp;
 			{!! Form::radio('gender', 1, 1) !!}
 			{!! Form::label('Laki-laki','Laki-laki')!!}&nbsp;&nbsp;&nbsp;&nbsp;
