@@ -54,7 +54,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#daftar">Daftar</a>
+                        <a class="page-scroll" href="#daftar">Buat Akun</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#login">Login</a>
@@ -78,7 +78,7 @@
                 <h1>PORTAL PENDAFTARAN BEASISWA PBSB</h1>
                 <br /><br />
 
-                <a href="#daftar" class="btn btn-success btn-xl page-scroll">Daftar Sekarang</a>
+                <a href="#daftar" class="btn btn-success btn-xl page-scroll">Buat Akun Sekarang</a>
                 <a href="#login" class="btn btn-success btn-xl page-scroll">&nbsp&nbsp Login &nbsp Aplikasi &nbsp</a>
             </div>
         </div>
@@ -126,7 +126,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                  <h1>Daftar</h1>
+                  <h1>Buat Akun</h1>
                     <h3 class="section-heading">Silahkan isi data Anda di bawah ini!</h3>
                     <br />
                     <form role="form" action="#" method="POST" name="myform" id="myform" enctype="multipart/form-data">
@@ -158,7 +158,7 @@
                         </tr>
                       </table>
                       <br />
-                      <button href="#" class="btn btn-default btn-xl wow tada">Daftar Sekarang</button>
+                      <button href="#" class="btn btn-default btn-xl wow tada">Buat Akun Sekarang</button>
 
                   </form>
                 </div>
@@ -183,7 +183,24 @@
                         <p class="text-muted">Institut Teknologi Sepuluh Nopember</p>
                     </div>
                 </div>
-
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="/logo/kampus/its.png" alt="" />
+                        <p class="text-muted">Institut Teknologi Sepuluh Nopember</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="/logo/kampus/its.png" alt="" />
+                        <p class="text-muted">Institut Teknologi Sepuluh Nopember</p>
+                    </div>
+                </div>     
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="/logo/kampus/its.png" alt="" />
+                        <p class="text-muted">Institut Teknologi Sepuluh Nopember</p>
+                    </div>
+                </div>                           
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="logo/kampus/itb.png" alt="" />
@@ -224,7 +241,7 @@
                 </div>
                 <div class="col-lg-4 col-lg-offset-2 text-center">
                     <i class="fa fa-phone fa-3x wow bounceIn"></i>
-                    <p>081615116327</p>
+                    <p>085648077379</p>
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>

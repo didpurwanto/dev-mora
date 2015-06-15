@@ -21,11 +21,6 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('/halo', function()
-{
-    return "Halo, bro";
-});
-
 // Route::get(‘/helloworld’, ‘HelloWorldController@index’);
 
 /* Universities controller*/
