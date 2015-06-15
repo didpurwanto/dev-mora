@@ -13,7 +13,7 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
+Route::get('register', 'HomeController@index');
 
 //auth
 Route::controllers([

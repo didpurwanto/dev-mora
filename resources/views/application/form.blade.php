@@ -1,8 +1,4 @@
 <div class="form-group">
-		{!! Form::label('applicant_number', 'Nomor Peserta :') !!}
-		{!! Form::text('applicant_number', null,['class' => 'form-control', 'placeholder' => 'Nomor Peserta', 'disabled']) !!}
-</div> 
-<div class="form-group">
 	{!! Form::label('university_id', 'Nama Universitas :') !!}
 	{!! Form::select('university_id', $univ, 'Universitas', ['class' => 'form-control']) !!}
 </div>

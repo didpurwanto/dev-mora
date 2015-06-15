@@ -35,7 +35,7 @@
 </div>
 <div class="form-group">
 	{!! Form::label('illness', 'Penyakit yang sedang/pernah diderita :') !!}
-	{!! Form::textarea('illness', null,['class' => 'form-control', 'placeholder' => 'DBD, Tipus, ']) !!}
+	{!! Form::textarea('illness', null,['class' => 'form-control', 'placeholder' => 'DBD, Tipus, ','cols' => '50', 'rows' => '2']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('blood_type', 'Golongan Darah :') !!}
@@ -63,15 +63,15 @@
 </div>
 <div class="form-group">
 	{!! Form::label('province_id', 'Provinsi :') !!}
-	{!! Form::select('province_id', $prov, 'Provinsi',['class' => 'form-control']) !!}
+	{!! Form::select('province_id', $prov, $app->province_id ,['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('kabupaten_id', 'Kabupaten :') !!}
-	{!! Form::select('kabupaten_id', ['1' => 'Kabupaten'], 'Kabupaten',['class' => 'form-control']) !!}
+	{!! Form::select('kabupaten_id', [$app->kabupaten_id => 'Kabupaten'], $app->kabupaten_id,['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('kecamatan_id', 'Kecamatan :') !!}
-	{!! Form::select('kecamatan_id', ['1' => 'Kecamatan'], 'Kecamatan',['class' => 'form-control']) !!}
+	{!! Form::select('kecamatan_id', [$app->kecamatan_id => 'Kecamatan'], $app->kecamatan_id,['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

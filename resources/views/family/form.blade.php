@@ -22,6 +22,10 @@
 		{!! Form::label('father_salary_id', 'Penghasilan perbulan Ayah :') !!}
 		{!! Form::select('father_salary_id', $salary, ['class' => 'form-control']) !!}
 	</div>
+	<div class="form-group">
+		{!! Form::label('father_contact', 'No. Handphone Ayah :') !!}
+		{!! Form::text('father_contact', null ,['class' => 'form-control','placeholder' => '08XXXXXXXXXX']) !!}
+	</div>
 
 	<div class="form-group">
 		{!! Form::label('mother_name', 'Nama Ibu :') !!}
@@ -47,23 +51,25 @@
 		{!! Form::label('mother_income_id', 'Penghasilan perbulan Ibu :') !!}
 		{!! Form::select('mother_income_id', $salary, ['class' => 'form-control']) !!}
 	</div>
-	<div id="alamat_ibu">
-		<div class="form-group">
-			{!! Form::label('address', 'Alamat :') !!}
-			{!! Form::textarea('address', null, ['class' => 'form-control', 'cols' => '50', 'rows' => '2']) !!}
-		</div>
-		<div class="form-group">
-			{!! Form::label('province_id', 'Provinsi :') !!}
-			{!! Form::select('province_id', $prov, 'Provinsi',['class' => 'form-control']) !!}
-		</div>
-		<div class="form-group">
-			{!! Form::label('kabupaten_id', 'Kabupaten :') !!}
-			{!! Form::select('kabupaten_id', ['1' => 'Kabupaten'], 'Kabupaten',['class' => 'form-control']) !!}
-		</div>
-		<div class="form-group">
-			{!! Form::label('kecamatan_id', 'Kecamatan :') !!}
-			{!! Form::select('kecamatan_id', ['1' => 'Kecamatan'], 'Kecamatan',['class' => 'form-control']) !!}
-		</div>
+	<div class="form-group">
+		{!! Form::label('mother_contact', 'No. Handphone Ibu :') !!}
+		{!! Form::text('mother_contact', null ,['class' => 'form-control','placeholder' => '08XXXXXXXXXX']) !!}
+	</div>
+	<div class="form-group">
+		{!! Form::label('address', 'Alamat :') !!}
+		{!! Form::textarea('address', null, ['class' => 'form-control', 'cols' => '50', 'rows' => '2']) !!}
+	</div>
+	<div class="form-group">
+		{!! Form::label('province_id', 'Provinsi :') !!}
+		{!! Form::select('province_id', $prov, 'Provinsi',['class' => 'form-control']) !!}
+	</div>
+	<div class="form-group">
+		{!! Form::label('kabupaten_id', 'Kabupaten :') !!}
+		{!! Form::select('kabupaten_id', ['1' => 'Kabupaten'], 'Kabupaten',['class' => 'form-control']) !!}
+	</div>
+	<div class="form-group">
+		{!! Form::label('kecamatan_id', 'Kecamatan :') !!}
+		{!! Form::select('kecamatan_id', ['1' => 'Kecamatan'], 'Kecamatan',['class' => 'form-control']) !!}
 	</div>
 	
 

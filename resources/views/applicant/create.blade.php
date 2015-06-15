@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('register.index')
 
 
 @section('css')
@@ -79,11 +79,11 @@
 		</div>
 		<div class="form-group">
 			{!! Form::label('kabupaten_id', 'Kabupaten :') !!}
-			{!! Form::select('kabupaten_id', ['1' => 'Kabupaten'], 'Kabupaten',['class' => 'form-control']) !!}
+			{!! Form::select('kabupaten_id', ['0' => 'Kabupaten'], 'Kabupaten',['class' => 'form-control']) !!}
 		</div>
 		<div class="form-group">
 			{!! Form::label('kecamatan_id', 'Kecamatan :') !!}
-			{!! Form::select('kecamatan_id', ['1' => 'Kecamatan'], 'Kecamatan',['class' => 'form-control']) !!}
+			{!! Form::select('kecamatan_id', ['0' => 'Kecamatan'], 'Kecamatan',['class' => 'form-control']) !!}
 		</div>
 			<div class="form-group">
 			{!! Form::label('Pas Photo') !!}
