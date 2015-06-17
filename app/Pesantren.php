@@ -6,7 +6,11 @@ class Pesantren extends Model {
 
 	protected $table = 'pesantrens';
 	
-	protected $guarded = ['id', 'applicant_id'
-	];
+	protected $guarded = ['id', 'applicant_id'];
+	
+	public function pesantrenType()
+	{
+		return $this->belongsTo('PesantrenType');
+	}
 
 }

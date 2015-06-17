@@ -12,4 +12,24 @@ class Kecamatan extends Model {
 	{
 		return $this->belongsTo('App\Kabupaten');
 	}
+	
+	public function schools()
+	{
+         return $this->hasMany('School');
+    }
+	
+	public function pesantrens()
+	{
+         return $this->hasMany('Pesantren');
+    }
+	
+	public function families()
+	{
+         return $this->hasMany('Family');
+    }
+	
+	public function applicants()
+	{
+         return $this->hasMany('Applicant');
+    }
 }
