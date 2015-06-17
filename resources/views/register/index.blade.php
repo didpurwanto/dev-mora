@@ -108,13 +108,39 @@
         <!--load  isi -->
         <div id="page-wrapper">
 			<div class="container-fluid">
-				@yield('content')
+				<br />
+				<ol class="breadcrumb">
+                  <li>
+                     <b><font color="{!! Request::is('applicants*') ? 'red' : 'grey' !!}"> Langkah 1</font></b>
+                  </li>
+                  <li>
+                    <b><font color="{!! Request::is('families/*') ? 'red' : 'grey' !!}">Langkah 2</font></b>
+                  </li>
+                  <li>
+                    <b><font color="{!! Request::is('pesantrens/*') ? 'red' : 'grey' !!}">Langkah 3</font></b>
+                  </li>
+                  <li>
+                    <b><font color="{!! Request::is('schools/*') ? 'red' : 'grey' !!}">Langkah 4</font></b>
+                  </li>
+                  <li>
+                    <b><font color="{!! Request::is('raports/*') ? 'red' : 'grey' !!}">Langkah 5</font></b>
+                  </li>
+                  <li>
+                    <b><font color="{!! Request::is('applications/*') ? 'red' : 'grey' !!}">Langkah 6</font></b>
+                  </li>
+                  <li>
+                    <b><font color="{!! Request::is('summary/*') ? 'red' : 'grey' !!}">Summary</font></b>
+                  </li>
+              </ol>
+				<div class="alert alert-success">
+					<font color="black">
+						@yield('content')
+					</font>
+				</div>
 			</div>
-        </div>
-        <!-- end load isi -->
+		</div>
 
     </div>
-    <!-- /#wrapper -->
 
 
     <!-- jQuery -->

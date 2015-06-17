@@ -36,11 +36,11 @@ class ApplicantsController extends Controller {
 		//dd($request->all());
 		//Applicant::create($request->except('profile_photo'));
 		
-		$imageName = $request->full_name . '.' . $request->file('photo')->getClientOriginalExtension();
+		//$imageName = $request->full_name . '.' . $request->file('photo')->getClientOriginalExtension();
 		//dd($imageName);
-		$request->file('photo')->move(base_path() . '/public/images/photos/', $imageName);
+		//$request->file('photo')->move(base_path() . '/public/images/photos/', $imageName);
 		
-		$request['photo'] = $imageName;
+		//$request['photo'] = $imageName;
 		//dd($request['profile_photo']);
 		
 		//dd($request->all());
@@ -87,7 +87,7 @@ class ApplicantsController extends Controller {
 	{
 		$app = Applicant::findOrFail($id);
 		//Save record to the database
-		$form = $app->update($request->except('photo'));
+		$form = $app->update($request->all());
 		
 		//Return
 		return redirect('families/'. $app->id);
@@ -103,5 +103,39 @@ class ApplicantsController extends Controller {
 	{
 		//
 	}
+	
+	public function getUploadForm()
+	{
+		return view('applicant.upload');
+	}
 
+	public function postUpload() 
+	{
+		//echo 'henri';
+		//dd($request->all());
+		//Applicant::create($request->except('profile_photo'));
+		
+		//$imageName = $request->full_name . '.' . $request->file('photo')->getClientOriginalExtension();
+		//dd($imageName);
+		//$request->file('photo')->move(base_path() . '/public/images/photos/', $imageName);
+		
+		//$request['photo'] = $imageName;
+		//dd('henri');
+		 $file = \Input::file('image');
+		 $input = array('image' => $file);
+		 $rules = array('image' => 'image');
+		 $validator = \Validator::make($input, $rules);
+		 
+		 if ( $validator->fails() )
+		 {
+			return ['success' => false, 'errors' => $validator->getMessageBag()->toArray()];
+		 }
+		 else {
+			 $destinationPath = 'images/photos/';
+			 $filename = $file->getClientOriginalName();
+			 \Input::file('image')->move($destinationPath, $filename);
+			 return ['success' => true, 'file' => asset($destinationPath.$filename)];
+		 }
+	 
+	}
 }
