@@ -84,7 +84,7 @@
 				{!! Form::label('recitation', 'Jumlah Hafalan Al-Quran') !!}
 				</div>
 				<div class="col-md-3 form-inline">
-				{!! Form::text('recitation', null, ['class' => 'form-control', 'placeholder' => '00']) !!} &nbsp;Juz
+				{!! Form::select('recitation', null, ['class' => 'form-control', 'placeholder' => '00']) !!} &nbsp;Juz
 				</div>
 				@if( $errors->first('recitation') )
 					<span class="help-block text-danger">{{ $errors->first('recitation') }}</span>

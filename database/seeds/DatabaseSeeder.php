@@ -7,6 +7,7 @@ use App\PesantrenType;
 use App\ProgramStudy;
 use App\RangeSalary;
 use app\SchoolType;
+use App\Family;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('ProgramStudySeeder');
 		$this->call('RangeSalarySeeder');
 		$this->call('SchoolTypeSeeder');
+		$this->call('FamilyTableSeeder');
 	}
 
 }
@@ -58,6 +60,31 @@ class ApplicationTableSeeder extends Seeder {
 			'kecamatan_id' => 1,
 			'profile_photo' => 'url photo',
 			'registration_number' => '1212121212'
+		]);
+	}
+}
+
+class FamilyTableSeeder extends Seeder {
+	public function run()
+	{
+		DB::table('families')->delete();
+		Family::create([ 
+			'applicant_id'=>'1',
+			'father_name'=>'Drajat sudrajat',
+			'father_age'=>'30',
+			'father_deceased'=>1,
+			'father_education'=>4,
+			'father_job_id'=>4,
+			'father_salary_id'=>2,
+			'mother_name'=>'Sumiati',
+			'mother_age'=>'23',
+			'mother_deceased'=>1,
+			'mother_education'=>1,
+			'mother_job_id'=>2,
+			'mother_income_id'=>2,
+			'address'=>'Alamat',
+			'province_id'=>1,
+			'kecamatan_id'=>2
 		]);
 	}
 }
@@ -109,11 +136,14 @@ class PesantrenTypeSeeder extends Seeder {
 		DB::table('pesantren_types')->delete();
 
 		$types = [
-			['pesantren_type' => 'Muadalah'],
-			['pesantren_type' => 'SalafiyahMuadalah'],
-			['pesantren_type' => 'Kombinasi'],
-			['pesantren_type' => 'Lain-lain']
+			['type_name' => 'Muadalah'],
+			['type_name' => 'SalafiyahMuadalah'],
+			['type_name' => 'Kombinasi'],
+			['type_name' => 'Lain-lain']
 		];
+
+
+		PesantrenType::insert($types);
 	}
 }
 
@@ -124,12 +154,14 @@ class ProgramStudySeeder extends Seeder {
 		DB::table('program_studies')->delete();
 
 		$programs = [
-			['program_name' => 'IPA', 'list_study' 		=>  'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\n'],
-			['program_name' => 'IPS', 'list_study' 		=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\n'],
-			['program_name' => 'BAHASA', 'list_study' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\n'],
-			['program_name' => 'AGAMA', 'list_study' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\n'],
-			['program_name' => 'Paket C', 'list_study' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\r\n']
+			['program_name' => 'IPA', 'list_subject' 		=>  'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\n'],
+			['program_name' => 'IPS', 'list_subject' 		=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\n'],
+			['program_name' => 'BAHASA', 'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\n'],
+			['program_name' => 'AGAMA', 'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\n'],
+			['program_name' => 'Paket C', 'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\r\n']
 		];
+
+		ProgramStudy::insert($programs);
 	}
 }
 
@@ -144,6 +176,8 @@ class RangeSalarySeeder extends Seeder {
 			['range_name' => '1.000.000-3.000.000'],
 			['range_name' => 'Lebih besar dari 3.000.000']
 		];
+
+		RangeSalary::insert($salaries);
 	}
 }
 

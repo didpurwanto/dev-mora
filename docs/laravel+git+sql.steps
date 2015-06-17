@@ -11,15 +11,9 @@ run the larevel:
 1. enter the project directory and put command: php -S localhost:8888 -t public
 2. php artisan serve
 
+show route: php artisan routes
+
 usefull link:
-
-github:
-------
-https://www.atlassian.com/git/tutorials/setting-up-a-repository
-http://stackoverflow.com/questions/4658606/import-existing-source-code-to-github
-
-migration:
-
 create database:
 php artisan make:migration create_universities
 php artisan migrate
@@ -32,12 +26,15 @@ git commit -m => commit all changes
 git pull origin master => get from server
 git push origin master => sent to server
 
+github:
+------
+https://www.atlassian.com/git/tutorials/setting-up-a-repository
+http://stackoverflow.com/questions/4658606/import-existing-source-code-to-github
 
 sql:
 -----
 restart phpmyadmin password:
 http://askubuntu.com/questions/321903/resetting-forgotten-phpmyadmin-password
-
 
 bypass vimeo:
  add the ip on /etc/hosts
