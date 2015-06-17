@@ -43,7 +43,7 @@ Route::get('applicants/{id}', 'ApplicantsController@edit');
 Route::patch('applicants/{id}', 'ApplicantsController@update');
 
 //Family Route
-//Route::resource('families','FamiliesController',['except' => ['index', 'show', 'create']]);
+//Route::resource('families','FamiliesController',['except' => ['index', 'show']]);
 Route::get('families/{id}', 'FamiliesController@edit');
 Route::patch('families/{id}', 'FamiliesController@update');
 
@@ -82,3 +82,7 @@ Route::get('families/kabupatens/{id}', 'FamiliesController@getKecamatans');
 |
 */
 Route::get('applications/universities/{id}', 'ApplicationsController@getDepartements');
+
+
+Route::get('upload','ApplicantsController@getUploadForm');	
+Route::post('upload/image','ApplicantsController@postUpload');

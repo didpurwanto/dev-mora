@@ -73,31 +73,31 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-left side-nav">
-                    <li >
-                        <a href="{!! URL::to('/register') !!}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    <li class="{!! Request::is('register') ? 'active' : '' !!}">
+                        <a href="{!! URL::to('/register') !!}"><i class="fa fa-fw fa-dashboard"></i> Beranda</a>
                     </li>
-                    <li>
+                    <li class="{!! Request::is('applicants/*') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/applicants',1) !!}"><i class="fa fa-fw fa-edit"></i> Biodata</a>
                     </li>
-                    <li>
+                    <li class="{!! Request::is('families/*') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/families',1) !!}"><i class="fa fa-fw fa-edit"></i> Data Keluarga</a>
                     </li>
-                    <li>
+                    <li class="{!! Request::is('pesantrens/*') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/pesantrens',1) !!}"><i class="fa fa-fw fa-edit"></i> Data Pesantren</a>
                     </li>
-                    <li>
+                    <li class="{!! Request::is('schools/*') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/schools',1) !!}"><i class="fa fa-fw fa-edit"></i> Data Sekolah</a>
                     </li>
-                    <li>
+                    <li class="{!! Request::is('raports/*') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/raports',1) !!}"><i class="fa fa-fw fa-edit"></i> Data Raport</a>
                     </li>
-                    <li>
+                    <li class="{!! Request::is('applications/*') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/applications',1) !!}"><i class="fa fa-fw fa-edit"></i> Pilih Studi</a>
                     </li>
-                    <li>
+                    <li class="{!! Request::is('summary/*') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/summary',1) !!}"><i class="fa fa-fw fa-desktop"></i> Summary</a>
                     </li>
-                    <li>
+                    <li class="{!! Request::is('prints/*') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/prints',1) !!}"><i class="fa fa-fw fa-file"></i> Cetak Kartu</a>
                     </li>
                 </ul>
@@ -108,13 +108,39 @@
         <!--load  isi -->
         <div id="page-wrapper">
 			<div class="container-fluid">
-				@yield('content')
+				<br />
+				<ol class="breadcrumb">
+                  <li>
+                     <b><font color="{!! Request::is('applicants*') ? 'red' : 'grey' !!}"> Langkah 1</font></b>
+                  </li>
+                  <li>
+                    <b><font color="{!! Request::is('families/*') ? 'red' : 'grey' !!}">Langkah 2</font></b>
+                  </li>
+                  <li>
+                    <b><font color="{!! Request::is('pesantrens/*') ? 'red' : 'grey' !!}">Langkah 3</font></b>
+                  </li>
+                  <li>
+                    <b><font color="{!! Request::is('schools/*') ? 'red' : 'grey' !!}">Langkah 4</font></b>
+                  </li>
+                  <li>
+                    <b><font color="{!! Request::is('raports/*') ? 'red' : 'grey' !!}">Langkah 5</font></b>
+                  </li>
+                  <li>
+                    <b><font color="{!! Request::is('applications/*') ? 'red' : 'grey' !!}">Langkah 6</font></b>
+                  </li>
+                  <li>
+                    <b><font color="{!! Request::is('summary/*') ? 'red' : 'grey' !!}">Summary</font></b>
+                  </li>
+              </ol>
+				<div class="alert alert-success">
+					<font color="black">
+						@yield('content')
+					</font>
+				</div>
 			</div>
-        </div>
-        <!-- end load isi -->
+		</div>
 
     </div>
-    <!-- /#wrapper -->
 
 
     <!-- jQuery -->
