@@ -7,7 +7,9 @@ composer global require "laravel/installer=~1.1"
 if any problem create new project, that might you need to change the folder owner:
 sudo chown <user-name> /var/www/html
 
-run the larevel: enter the project directory and put command: php -S localhost:8888 -t public
+run the larevel: 
+1. enter the project directory and put command: php -S localhost:8888 -t public
+2. php artisan serve
 
 usefull link:
 
@@ -33,7 +35,7 @@ git push origin master => sent to server
 
 sql:
 -----
-restart phpmyadmin passwor:
+restart phpmyadmin password:
 http://askubuntu.com/questions/321903/resetting-forgotten-phpmyadmin-password
 
 
