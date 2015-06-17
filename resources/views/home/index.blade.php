@@ -93,7 +93,7 @@
                     <h1>Login</h1>
                     <h3 class="section-heading">Silahkan isi username dan password Anda!</h3>
                     <br />
-                    <form role="form" action="{!! url('/auth/login') !!}" method="post" name="myform" id="myform" enctype="multipart/form-data">
+                    <form role="form" action="{!! url('applicanthome') !!}" method="post" name="myform" id="myform" enctype="multipart/form-data">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 					  <table align="center">
                         <tr>

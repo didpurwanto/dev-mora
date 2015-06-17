@@ -1,50 +1,143 @@
-<div class="form-group">
-	{!! Form::label('school_name', 'Nama Sekolah Asal:') !!}
-	{!! Form::text('school_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Sekolah / Madrasah']) !!}
+<div class="form-group {{ ! $errors->first('school_name') ? '': 'has-error' }}">
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('school_name', 'Nama Sekolah Asal') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::text('school_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Sekolah / Madrasah']) !!}
+		</div>
+		@if( $errors->first('school_name') )
+			<span class="help-block text-danger">{{ $errors->first('school_name') }}</span>
+		@endif
+	</div>
 </div>
-<div class="form-group">
-	{!! Form::label('school_principal_name', 'Nama Kepala Sekolah :') !!}
-	{!! Form::text('school_principal_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Kepala Sekolah / Madrasah']) !!}
+<div class="form-group {{ ! $errors->first('school_principal_name') ? '': 'has-error' }}">
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('school_principal_name', 'Nama Kepala Sekolah') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::text('school_principal_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Kepala Sekolah / Madrasah']) !!}
+		</div>
+		@if( $errors->first('school_principal_name') )
+			<span class="help-block text-danger">{{ $errors->first('school_principal_name') }}</span>
+		@endif
+	</div>
 </div>
-<div class="form-group">
-	{!! Form::label('nisn', 'NISN :') !!}
-	{!! Form::text('nisn', null,['class' => 'form-control', 'placeholder' => 'Nomor Induk Siswa Nasional']) !!}
+<div class="form-group {{ ! $errors->first('nisn') ? '': 'has-error' }}">
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('nisn', 'NISN') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::text('nisn', null,['class' => 'form-control', 'placeholder' => 'Nomor Induk Siswa Nasional']) !!}
+		</div>
+		@if( $errors->first('nisn') )
+			<span class="help-block text-danger">{{ $errors->first('nisn') }}</span>
+		@endif
+	</div>
 </div> 
 <div class="form-group">
-	{!! Form::label('school_status', 'Status Sekolah :') !!}
-	{!! Form::select('school_status', ['1'=>'Negeri', '0'=>'Swasta'],['class' => 'form-control']) !!}
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('school_status', 'Status Sekolah') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::select('school_status', ['1'=>'Negeri', '0'=>'Swasta'],0,['class' => 'form-control']) !!}
+		</div>
+	</div>
+</div>
+<div class="form-group {{ ! $errors->first('nisn') ? '': 'has-error' }}">
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('graduate_year', 'Tahun Lulus Sekolah') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::text('graduate_year',null ,['class' => 'form-control', 'placeholder' => '2020']) !!}
+		</div>
+	</div>
 </div>
 <div class="form-group">
-	{!! Form::label('graduate_year', 'Tahun Lulus Sekolah :') !!}
-	{!! Form::text('graduate_year',null ,['class' => 'form-control', 'placeholder' => '2020']) !!}
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('school_type_id', 'Jenis Sekolah') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::select('school_type_id', $sch_type,1,['class' => 'form-control']) !!}
+		</div>
+	</div>
 </div>
 <div class="form-group">
-	{!! Form::label('school_type_id', 'Jenis Sekolah :') !!}
-	{!! Form::select('school_type_id', $sch_type,['class' => 'form-control']) !!}
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('program_study_id', 'Program Studi') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::select('program_study_id', $prog_stud,1,['class' => 'form-control']) !!}
+		</div>
+	</div>
 </div>
 <div class="form-group">
-	{!! Form::label('program_study_id', 'Program Studi :') !!}
-	{!! Form::select('program_study_id', $prog_stud,['class' => 'form-control']) !!}
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('inside_pondok', 'Lokasi Sekolah') !!}
+		</div>
+		<div class="col-md-4 form-inline">
+		{!! Form::select('inside_pondok', ['1'=>'Didalam', '0'=>'Diluar'],1,['class' => 'form-control']) !!} Pondok Pesantren
+		</div>
+	</div>
 </div>
-<div class="form-group">
-	{!! Form::label('inside_pondok', 'Lokasi Sekolah :') !!}
-	{!! Form::select('inside_pondok', ['1'=>'Didalam', '0'=>'Diluar'],['class' => 'form-control']) !!} Pondok Pesantren
+<div class="form-group {{ ! $errors->first('school_address') ? '': 'has-error' }}">
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('school_address', 'Alamat') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::textarea('school_address', null,['class' => 'form-control', 'placeholder' => 'Jl. Keramat Jati, No. 5, RT/RW 05/05, Kel. Sukajadi', 'cols' => '50', 'rows' => '2']) !!}
+		</div>
+		@if( $errors->first('school_address') )
+			<span class="help-block text-danger">{{ $errors->first('school_address') }}</span>
+		@endif
+	</div>
 </div>
-<div class="form-group">
-	{!! Form::label('school_address', 'Alamat :') !!}
-	{!! Form::textarea('school_address', null,['class' => 'form-control', 'placeholder' => 'Jl. Keramat Jati, No. 5, RT/RW 05/05, Kel. Sukajadi', 'cols' => '50', 'rows' => '2']) !!}
+<div class="form-group {{ ! $errors->first('province_id') ? '': 'has-error' }}">
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('province_id', 'Provinsi') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::select('province_id', $prov, 'Provinsi',['class' => 'form-control']) !!}
+		</div>
+		@if( $errors->first('province_id') )
+			<span class="help-block text-danger">{{ $errors->first('province_id') }}</span>
+		@endif
+	</div>
 </div>
-<div class="form-group">
-	{!! Form::label('province_id', 'Provinsi :') !!}
-	{!! Form::select('province_id', $prov, 'Provinsi',['class' => 'form-control']) !!}
+<div class="form-group {{ ! $errors->first('kabupaten_id') ? '': 'has-error' }}">
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('kabupaten_id', 'Kabupaten') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::select('kabupaten_id', ['1' => 'Kabupaten'], 'Kabupaten',['class' => 'form-control']) !!}
+		</div>
+		@if( $errors->first('kabupaten_id') )
+			<span class="help-block text-danger">{{ $errors->first('kabupaten_id') }}</span>
+		@endif
+	</div>
 </div>
-<div class="form-group">
-	{!! Form::label('kabupaten_id', 'Kabupaten :') !!}
-	{!! Form::select('kabupaten_id', ['1' => 'Kabupaten'], 'Kabupaten',['class' => 'form-control']) !!}
-</div>
-<div class="form-group">
-	{!! Form::label('kecamatan_id', 'Kecamatan :') !!}
-	{!! Form::select('kecamatan_id', ['1' => 'Kecamatan'], 'Kecamatan',['class' => 'form-control']) !!}
+<div class="form-group {{ ! $errors->first('kecamatan_id') ? '': 'has-error' }}">
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('kecamatan_id', 'Kecamatan') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::select('kecamatan_id', ['1' => 'Kecamatan'], 'Kecamatan',['class' => 'form-control']) !!}
+		</div>
+		@if( $errors->first('kecamatan_id') )
+			<span class="help-block text-danger">{{ $errors->first('kecamatan_id') }}</span>
+		@endif
+	</div>
 </div>
 <div class="form-group">
 	{!! Form::submit($text, ['class' => 'btn btn-primary form-button']) !!}

@@ -73,8 +73,8 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-left side-nav">
-                    <li class="{!! Request::is('register') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/register') !!}"><i class="fa fa-fw fa-dashboard"></i> Beranda</a>
+                    <li class="{!! Request::is('applicanthome') ? 'active' : '' !!}">
+                        <a href="{!! URL::to('/applicanthome') !!}"><i class="fa fa-fw fa-dashboard"></i> Beranda</a>
                     </li>
                     <li class="{!! Request::is('applicants/*') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/applicants',1) !!}"><i class="fa fa-fw fa-edit"></i> Biodata</a>
