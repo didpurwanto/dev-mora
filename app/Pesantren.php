@@ -6,8 +6,7 @@ class Pesantren extends Model {
 
 	protected $table = 'pesantrens';
 	
-	protected $guarded = [
-			'applicant_id'
+	protected $guarded = ['id', 'applicant_id'
 	];
 
 }
