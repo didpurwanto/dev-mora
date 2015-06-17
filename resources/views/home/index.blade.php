@@ -114,7 +114,7 @@
                       </table>
 
                       <br />
-                      <button href="{{action('applicantHomeController@index')}}" class="btn btn-default btn-xl wow tada">Login Aplikasi</button>
+                      <button href="{!! URL::to('applicanthome') !!}" class="btn btn-default btn-xl wow tada">Login Aplikasi</button>
 
                   </form>
                 </div>
