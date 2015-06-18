@@ -8,8 +8,28 @@ class Province extends Model {
 	
 	public $timestamps = false;
 	
-	public function kabupaten()
+	public function kabupatens()
 	{
          return $this->hasMany('App\Kabupaten');
+    }
+	
+	public function schools()
+	{
+         return $this->hasMany('App\School');
+    }
+	
+	public function pesantrens()
+	{
+         return $this->hasMany('App\Pesantren');
+    }
+	
+	public function families()
+	{
+         return $this->hasMany('App\Family');
+    }
+	
+	public function applicants()
+	{
+         return $this->hasMany('App\Applicant');
     }
 }

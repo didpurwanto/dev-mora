@@ -17,14 +17,31 @@ class ApplicationsController extends Controller {
 
 	public function edit($applicant_id)
 	{
+		$dep1 = "";
+		$dep2 = "";
+		
 		$program_study_id = School::where('applicant_id', $applicant_id)->pluck('program_study_id');
 		//dd($program_study_id);
 		//$program_study = ProgramStudy::
 		$univ = University::lists('university_name','id');
-		//$departemen = Departement::where('program_study_id', $program_study_id)->lists('departement_name','id');
 		
+		//$dep = Departement::where(['program_study_id' => $program_study_id, 'university_id' => $univ->])->get();
+		
+		//$appl_univ = Application::with('university')->get();
+		//$departemen = Departement::where('program_study_id', $program_study_id)->lists('departement_name','id');
 		$appl = Application::findOrFail($applicant_id);
-		return view('application.edit', compact('appl','univ'));
+		
+		if (! $appl->major_1_id == 0)
+		{ 
+			$dep1 = Departement::where('id',$appl->major_1_id)->pluck('departement_name');
+		}
+		
+		if (! $appl->major_2_id == 0)
+		{ 
+			$dep2 = Departement::where('id',$appl->major_2_id)->pluck('departement_name');
+		}
+		
+		return view('application.edit', compact('appl','univ','dep1','dep2'));
 	}
 
 	/**
@@ -39,7 +56,7 @@ class ApplicationsController extends Controller {
 		//Save record to the database
 		$form = $appl->update($request->all());
 		//
-		return redirect('raports/'. $appl->applicant_id);
+		return redirect('summary/'. $appl->applicant_id);
 	}
 
 	/**
@@ -55,7 +72,7 @@ class ApplicationsController extends Controller {
 	
 	public function getDepartements($university_id)
     {
-        $departs = Departement::where('university_id',$university_id)->get();
+        $departs = Departement::where('university_id', $university_id)->get();
         //dd($kabupatens);
 		$options = array();
 

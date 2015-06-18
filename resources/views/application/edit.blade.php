@@ -14,7 +14,7 @@
 @section('script')
 	<script type="text/javascript">
     $(document).ready(function() {
-        $("#university_id").change(function() {
+        $("#university_id").change(function(){
             $.getJSON("/applications/universities/" + $("#university_id").val(), function(data) {
                 var $stations = $("#major_1_id");
                 $stations.empty();
@@ -29,7 +29,7 @@
 	
 	<script type="text/javascript">
     $(document).ready(function() {
-        $("#university_id").change(function() {
+        $("#university_id").change(function(){
             $.getJSON("/applications/universities/" + $("#university_id").val(), function(data) {
                 var $stations = $("#major_2_id");
                 $stations.empty();

@@ -6,26 +6,30 @@ class Applicant extends Model {
 
 	protected $table = "applicants";
 
-	protected $fillable = [
-		'full_name',
-		'email',
-		'gender',
-		'place_birth',
-		'date_birth',
-		'recitation',
-		'color_blind',
-		'mental_disorder',
-		'illness',
-		'blood_type',
-		'weight',
-		'height',
-		'contact',
-		'marriage_status',
-		'address',
-		'province_id',
-		'kabupaten_id',
-		'kecamatan_id',
-		'profile_photo',
-		
-	];
+	protected $guraded = ['id'];
+	
+	public function family()
+	{
+		return $this->hasOne('App\Family');
+	}
+	
+	public function pesantren()
+	{
+		return $this->hasOne('App\Pesantren');
+	}
+	
+	public function school()
+	{
+		return $this->hasOne('App\School');
+	}
+	
+	public function raport()
+	{
+		return $this->hasOne('App\Raport');
+	}
+	
+	public function application()
+	{
+		return $this->hasOne('App\Application');
+	}
 }
