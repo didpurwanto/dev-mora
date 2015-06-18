@@ -13,10 +13,7 @@
 
 Route::get('/', 'WelcomeController@index');
 
-<<<<<<< HEAD
-=======
 Route::get('applicanthome', 'HomeController@index');
->>>>>>> 67dab09ca6d0e0fd95aa432df85bfbc972d0c774
 Route::post('applicanthome', 'HomeController@index');
 
 //auth
