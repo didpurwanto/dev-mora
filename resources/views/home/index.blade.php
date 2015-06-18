@@ -93,7 +93,11 @@
                     <h1>Login</h1>
                     <h3 class="section-heading">Silahkan isi username dan password Anda!</h3>
                     <br />
+<<<<<<< HEAD
                     <form role="form" action="{!! URL::to('applicanthome') !!}" method="post" name="myform" id="myform" enctype="multipart/form-data">
+=======
+                    <form role="form" action="{!! url('applicanthome') !!}" method="post" name="myform" id="myform" enctype="multipart/form-data">
+>>>>>>> 67dab09ca6d0e0fd95aa432df85bfbc972d0c774
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 					  <table align="center">
                         <tr>

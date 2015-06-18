@@ -30,6 +30,7 @@ github:
 ------
 https://www.atlassian.com/git/tutorials/setting-up-a-repository
 http://stackoverflow.com/questions/4658606/import-existing-source-code-to-github
+setup ssh: https://help.github.com/articles/generating-ssh-keys/#platform-windows
 
 sql:
 -----
