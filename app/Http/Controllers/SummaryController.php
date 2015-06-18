@@ -13,10 +13,12 @@ use App\Application;
 
 class SummaryController extends Controller {
 
-	public function index($applicant_id)
+	public function index($id)
 	{
-		$app = Applicant::findOrFail($applicant_id);
+		$app = Applicant::find($id);
+		
+		//$fam = Family::where('applicant_id',$id)->get();
 				
-		return view('summary',compact('app'));
+		return view('summary',compact('app','fam'));
 	}
 }

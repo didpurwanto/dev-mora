@@ -15,21 +15,21 @@ class Kecamatan extends Model {
 	
 	public function schools()
 	{
-         return $this->hasMany('School');
+         return $this->hasMany('App\School');
     }
 	
 	public function pesantrens()
 	{
-         return $this->hasMany('Pesantren');
+         return $this->hasMany('App\Pesantren');
     }
 	
 	public function families()
 	{
-         return $this->hasMany('Family');
+         return $this->hasMany('App\Family');
     }
 	
 	public function applicants()
 	{
-         return $this->hasMany('Applicant');
+         return $this->hasMany('App\Applicant');
     }
 }

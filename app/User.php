@@ -33,7 +33,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	
 	public function applicant()
 	{
-		return $this->hasOne('Applicant');
+		return $this->hasOne('App\Applicant');
 	}
 
 }

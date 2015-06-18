@@ -4,7 +4,7 @@
 		{!! Form::label('university_id', 'Nama Universitas :') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('university_id', $univ, 'Universitas', ['class' => 'form-control']) !!}
+		{!! Form::select('university_id', $univ, [$appl->university_id => 'Henri'], ['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>
@@ -14,7 +14,7 @@
 		{!! Form::label('major_1_id', 'Pilihan Jurusan I :') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('major_1_id', ['1' => 'Jurusan 1'],1, ['class' => 'form-control']) !!}
+		{!! Form::select('major_1_id', ['1' => 'Jurusan 1'],[ $appl->major_1_id => 'Henri 2'], ['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>
@@ -24,7 +24,7 @@
 		{!! Form::label('major_2_id', 'Pilihan Jurusan II :') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('major_2_id', ['1' => 'Jurusan 2'],1, ['class' => 'form-control']) !!}
+		{!! Form::select('major_2_id', ['1' => 'Jurusan 2'],[$appl->major_2_id => 'Henri3'], ['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>

@@ -68,6 +68,10 @@ Route::patch('raports/{id}', 'RaportsController@update');
 Route::get('applications/{id}', 'ApplicationsController@edit');
 Route::patch('applications/{id}', 'ApplicationsController@update');
 
+
+//Summary Route
+Route::get('summary/{id}', 'SummaryController@index');
+
 /*
 |
 | Route for dynamic drop down kabupaten and kecamatan

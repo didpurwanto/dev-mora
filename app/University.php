@@ -11,8 +11,13 @@ class University extends Model {
 		'university_name'
 	];
 	
-	public function departement()
+	public function departements()
 	{
 		return $this->hasMany('App\Departement');
+	}
+	
+	public function applications()
+	{
+		return $this->hasMany('App\Application');
 	}
 }

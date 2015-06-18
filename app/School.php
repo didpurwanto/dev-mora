@@ -10,27 +10,27 @@ class School extends Model {
 	
 	public function schoolType()
 	{
-		return $this->belongsTo('SchoolType');
+		return $this->belongsTo('App\SchoolType');
 	}
 	
 	public function programStudy()
 	{
-		return $this->belongsTo('ProgramStudy');
+		return $this->belongsTo('App\ProgramStudy');
 	}
 	
 	public function province()
 	{
-		return $this->belongsTo('Province');
+		return $this->belongsTo('App\Province');
 	}
 	
 	public function kabupaten()
 	{
-		return $this->belongsTo('Kabupaten');
+		return $this->belongsTo('App\Kabupaten');
 	}
 	
 	public function kecamatan()
 	{
-		return $this->belongsTo('Kecamatan');
+		return $this->belongsTo('App\Kecamatan');
 	}
 	
 

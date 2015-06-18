@@ -10,7 +10,7 @@ class Pesantren extends Model {
 	
 	public function pesantrenType()
 	{
-		return $this->belongsTo('PesantrenType');
+		return $this->belongsTo('App\PesantrenType');
 	}
 
 }

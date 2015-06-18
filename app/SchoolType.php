@@ -8,7 +8,7 @@ class SchoolType extends Model {
 	
 	public function schools()
 	{
-		return $this->hasMany('School');
+		return $this->hasMany('App\School');
 	}
 
 }

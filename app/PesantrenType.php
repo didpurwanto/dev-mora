@@ -8,7 +8,7 @@ class PesantrenType extends Model {
 	
 	public function pesantrens()
 	{
-		return $this->hasMany('Pesantren');
+		return $this->hasMany('App\Pesantren');
 	}
 
 }

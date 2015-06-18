@@ -10,32 +10,32 @@ class Kabupaten extends Model {
 	
 	public function province()
 	{
-         return $this->belongsTo('Province');
+         return $this->belongsTo('App\Province');
     }
 	
 	public function kecamatans()
 	{
-		return $this->hasMany('Kecamatan');
+		return $this->hasMany('App\Kecamatan');
 	}
 	
 	public function schools()
 	{
-         return $this->hasMany('School');
+         return $this->hasMany('App\School');
     }
 	
 	public function pesantrens()
 	{
-         return $this->hasMany('Pesantren');
+         return $this->hasMany('App\Pesantren');
     }
 	
 	public function families()
 	{
-         return $this->hasMany('Family');
+         return $this->hasMany('App\Family');
     }
 	
 	public function applicants()
 	{
-         return $this->hasMany('Applicant');
+         return $this->hasMany('App\Applicant');
     }
 
 }

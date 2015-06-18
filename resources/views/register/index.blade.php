@@ -149,15 +149,16 @@
     <!-- Bootstrap Core JavaScript -->
 	{!! Html::script('homepage/js/bootstrap.min.js', array('type' => 'text/javascript')) !!}
 	
-	<!-- Morris Charts JavaScript -->
-    <script src="homepage/js/plugins/morris/raphael.min.js"></script>
-    <script src="homepage/js/plugins/morris/morris.min.js"></script>
-    <script src="homepage/js/plugins/morris/morris-data.js"></script>
-
-	
 	<!-- Include another specific JavaScript  -->
 	@yield('script')
 
+	<!-- Morris Charts JavaScript-->
+	{!! Html::script('homepage/js/plugins/morris/raphael.min.js', array('type' => 'text/javascript')) !!}
+   
+	{!! Html::script('homepage/js/plugins/morris/morris.min.js', array('type' => 'text/javascript')) !!}
+  
+	{!! Html::script('homepage/js/plugins/morris/morris-data.js', array('type' => 'text/javascript')) !!}
+     
 </body>
 
 </html>

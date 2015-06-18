@@ -10,26 +10,26 @@ class Applicant extends Model {
 	
 	public function family()
 	{
-		return $this->hasOne('Family');
+		return $this->hasOne('App\Family');
 	}
 	
 	public function pesantren()
 	{
-		return $this->hasOne('Pesantren');
+		return $this->hasOne('App\Pesantren');
 	}
 	
 	public function school()
 	{
-		return $this->hasOne('School');
+		return $this->hasOne('App\School');
 	}
 	
 	public function raport()
 	{
-		return $this->hasOne('Raport');
+		return $this->hasOne('App\Raport');
 	}
 	
-	public function raport()
+	public function application()
 	{
-		return $this->hasOne('Application');
+		return $this->hasOne('App\Application');
 	}
 }

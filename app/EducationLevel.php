@@ -8,7 +8,7 @@ class EducationLevel extends Model {
 	
 	public function families()
 	{
-		return $this->hasMany('Family');
+		return $this->hasMany('App\Family');
 	}
 
 }

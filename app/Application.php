@@ -7,4 +7,14 @@ class Application extends Model {
 	protected $table = 'applications';
 
 	public $guarded = ['id','applicant_id'];
+	
+	public function university()
+	{
+		return $this->belongsTo('App\University');
+	}
+	
+	public function departement()
+	{
+		return $this->hasOne('App\Departement');
+	}
 }

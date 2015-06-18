@@ -10,16 +10,16 @@ class Family extends Model {
 	
 	public function educationLevel()
 	{
-		return $this->belongsTo('EducationLevel');
+		return $this->belongsTo('App\EducationLevel');
 	}
 	
 	public function jobType()
 	{
-		return $this->belongsTo('JobType');
+		return $this->belongsTo('App\JobType');
 	}
 	
 	public function rangeSalary()
 	{
-		return $this->belongsTo('RangeSalary');
+		return $this->belongsTo('App\RangeSalary');
 	}
 }
