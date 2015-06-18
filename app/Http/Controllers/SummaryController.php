@@ -18,7 +18,10 @@ class SummaryController extends Controller {
 		$app = Applicant::find($id);
 		
 		//$fam = Family::where('applicant_id',$id)->get();
+		$date_birth = explode("-",$app->date_birth);
+		$date_birth = $date_birth[2].' - '.$date_birth[1].' - '.$date_birth[0];
+		//dd($date_birth);
 				
-		return view('summary',compact('app','fam'));
+		return view('summary',compact('app','date_birth'));
 	}
 }
