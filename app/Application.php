@@ -15,6 +15,11 @@ class Application extends Model {
 	
 	public function departement()
 	{
-		return $this->hasOne('App\Departement');
+		return $this->hasOne('App\Departement','id','major_1_id');
+	}
+	
+	public function departement2()
+	{
+		return $this->hasOne('App\Departement','id','major_2_id');
 	}
 }

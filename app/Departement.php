@@ -16,10 +16,12 @@ class Departement extends Model {
 		return $this->belongsTo('App\University');
 	}
 	
+	/* --
 	public function application()
 	{
-		return $this->hasOne('App\Application');
+		return $this->hasOne('App\Application','major_1_id','id');
 	}
+	--*/
 	
 	public function getUniversityName()
 	{

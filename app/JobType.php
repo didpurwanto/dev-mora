@@ -8,7 +8,7 @@ class JobType extends Model {
 	
 	public function families()
 	{
-		return $this->hasMany('App\Family');
+		return $this->hasMany('App\Family','father_job_id','id');
 	}
 
 }

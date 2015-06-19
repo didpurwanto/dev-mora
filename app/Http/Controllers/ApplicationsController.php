@@ -25,12 +25,13 @@ class ApplicationsController extends Controller {
 		//$program_study = ProgramStudy::
 		$univ = University::lists('university_name','id');
 		
-		//$dep = Departement::where(['program_study_id' => $program_study_id, 'university_id' => $univ->])->get();
+		$dep = Departement::where('study_program_id', $program_study_id)->lists('departement_name','id');
 		
 		//$appl_univ = Application::with('university')->get();
 		//$departemen = Departement::where('program_study_id', $program_study_id)->lists('departement_name','id');
 		$appl = Application::findOrFail($applicant_id);
 		
+		/*--------------
 		if (! $appl->major_1_id == 0)
 		{ 
 			$dep1 = Departement::where('id',$appl->major_1_id)->pluck('departement_name');
@@ -39,9 +40,9 @@ class ApplicationsController extends Controller {
 		if (! $appl->major_2_id == 0)
 		{ 
 			$dep2 = Departement::where('id',$appl->major_2_id)->pluck('departement_name');
-		}
+		}-----*/
 		
-		return view('application.edit', compact('appl','univ','dep1','dep2'));
+		return view('application.edit', compact('appl','univ','dep'));
 	}
 
 	/**
