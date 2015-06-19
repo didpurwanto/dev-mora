@@ -43,11 +43,8 @@
 		{!! Form::label('pesantren_type', 'Jenis Pesantren') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('pesantren_type', $pes_type,1,['class' => 'form-control']) !!}
+		{!! Form::select('pesantren_type', $pes_type,$pes->pesantren_type,['class' => 'form-control']) !!}
 		</div>
-		@if( $errors->first('pesantren_type') )
-			<span class="help-block text-danger">{{ $errors->first('pesantren_type') }}</span>
-		@endif
 	</div>
 </div>
 <div class="form-group {{ ! $errors->first('pesantren_address') ? '': 'has-error' }}">
@@ -69,11 +66,8 @@
 		{!! Form::label('province_id', 'Provinsi') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('province_id', $prov, 'Provinsi',['class' => 'form-control']) !!}
+		{!! Form::select('province_id', $prov, $pes->province_id,['class' => 'form-control']) !!}
 		</div>
-		@if( $errors->first('province_id') )
-			<span class="help-block text-danger">{{ $errors->first('province_id') }}</span>
-		@endif
 	</div>
 </div>
 <div class="form-group {{ ! $errors->first('kabupaten_id') ? '': 'has-error' }}">

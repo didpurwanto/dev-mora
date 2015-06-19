@@ -6,7 +6,7 @@ class Applicant extends Model {
 
 	protected $table = "applicants";
 
-	protected $guraded = ['id'];
+	protected $guarded = ['id','applicant_id'];
 	
 	public function family()
 	{

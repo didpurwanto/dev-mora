@@ -43,7 +43,7 @@
 		{!! Form::label('school_status', 'Status Sekolah') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('school_status', ['1'=>'Negeri', '0'=>'Swasta'],0,['class' => 'form-control']) !!}
+		{!! Form::select('school_status', ['1'=>'Negeri', '0'=>'Swasta'],$sch->school_status,['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>
@@ -63,7 +63,7 @@
 		{!! Form::label('school_type_id', 'Jenis Sekolah') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('school_type_id', $sch_type,1,['class' => 'form-control']) !!}
+		{!! Form::select('school_type_id', $sch_type,$sch->school_type_id,['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>
@@ -73,7 +73,7 @@
 		{!! Form::label('program_study_id', 'Program Studi') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('program_study_id', $prog_stud,1,['class' => 'form-control']) !!}
+		{!! Form::select('program_study_id', $prog_stud,$sch->program_study_id,['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>
@@ -83,7 +83,7 @@
 		{!! Form::label('inside_pondok', 'Lokasi Sekolah') !!}
 		</div>
 		<div class="col-md-4 form-inline">
-		{!! Form::select('inside_pondok', ['1'=>'Didalam', '0'=>'Diluar'],1,['class' => 'form-control']) !!} Pondok Pesantren
+		{!! Form::select('inside_pondok', ['1'=>'Didalam', '0'=>'Diluar'],$sch->inside_pondok,['class' => 'form-control']) !!} Pondok Pesantren
 		</div>
 	</div>
 </div>
@@ -106,11 +106,8 @@
 		{!! Form::label('province_id', 'Provinsi') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('province_id', $prov, 'Provinsi',['class' => 'form-control']) !!}
+		{!! Form::select('province_id', $prov, $sch->province_id,['class' => 'form-control']) !!}
 		</div>
-		@if( $errors->first('province_id') )
-			<span class="help-block text-danger">{{ $errors->first('province_id') }}</span>
-		@endif
 	</div>
 </div>
 <div class="form-group {{ ! $errors->first('kabupaten_id') ? '': 'has-error' }}">
