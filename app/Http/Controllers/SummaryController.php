@@ -5,11 +5,6 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Applicant;
-use App\Family;
-use App\Pesantren;
-use App\School;
-use App\Raport;
-use App\Application;
 
 class SummaryController extends Controller {
 
@@ -23,5 +18,12 @@ class SummaryController extends Controller {
 		//dd($date_birth);
 				
 		return view('summary',compact('app','date_birth'));
+	}
+	
+	public function cetak($id)
+	{
+		$applicant = Applicant::findOrFail($id);
+		
+		return view('prints',compact('applicant'));
 	}
 }

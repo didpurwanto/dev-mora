@@ -71,6 +71,8 @@ Route::patch('applications/{id}', 'ApplicationsController@update');
 
 //Summary Route
 Route::get('summary/{id}', 'SummaryController@index');
+//Summary Route
+Route::get('prints/{id}', 'SummaryController@cetak');
 
 /*
 |

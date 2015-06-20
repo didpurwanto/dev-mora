@@ -48,6 +48,7 @@ paket tambahan :
 code : composer require Illuminate/Html
 code : composer require nesbot/carbon
 code : composer require "intervention/image:2.2.1"
+code : composer require barryvdh/laravel-dompdf
 
 check mysql version:
 C:\>mysqladmin -uroot -p -hlocalhost version
