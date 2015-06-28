@@ -36,7 +36,7 @@
 			<span class="help-block text-danger">{{ $errors->first('nspp') }}</span>
 		@endif
 	</div>
-</div> 
+</div>
 <div class="form-group {{ ! $errors->first('pesantren_type') ? '': 'has-error' }}">
 	<div class="row">
 		<div class="col-md-3">
@@ -76,7 +76,7 @@
 		{!! Form::label('kabupaten_id', 'Kabupaten') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('kabupaten_id', ['1' => 'Kabupaten'], 'Kabupaten',['class' => 'form-control']) !!}
+		{!! Form::select('kabupaten_id', $kab, 'Kabupaten',['class' => 'form-control']) !!}
 		</div>
 		@if( $errors->first('kabupaten_id') )
 			<span class="help-block text-danger">{{ $errors->first('kabupaten_id') }}</span>
@@ -89,7 +89,7 @@
 		{!! Form::label('kecamatan_id', 'Kecamatan') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('kecamatan_id', ['1' => 'Kecamatan'], 'Kecamatan',['class' => 'form-control']) !!}
+		{!! Form::select('kecamatan_id', $kec, 'Kecamatan',['class' => 'form-control']) !!}
 		</div>
 		@if( $errors->first('kecamatan_id') )
 			<span class="help-block text-danger">{{ $errors->first('kecamatan_id') }}</span>

@@ -2,4 +2,6 @@ applicant:
 - jumlah hafalan seharusnya dropdown
 + riwayat penyakit harusnya nullable -> add "doctrine/dbal": "v2.4.2" in composer and create new migration related this change.
 + waktu save tidak tersimpan dan tidak redirect to step selanjutnya
+  (solved - Validasi foto masih ada di request nya, tapi tidak ada error muncul, makanya dia redirect ke sebelumnya)
 - waktu save keluarga tidak tersimpan dan tidak redirect to step selanjutnya
+  (save keluarga bisa, tidak ada masalah)
