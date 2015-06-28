@@ -27,15 +27,13 @@ class ApplicantRequest extends Request {
 			'place_birth' => 'required|min:3',
 			'date_birth' => 'date',
 			'recitation' => 'required|min:0|max:30',
-			'illness' => 'required',
 			'weight' => 'required',
 			'height'=> 'required',
 			'contact' => 'required',
-			'address' => 'required',
-			'photo' => 'required|image|mimes:jpeg,jpg,bmp,png,gif|max:1000'
+			'address' => 'required'
 		];
 	}
-	
+
 	/**
 	 * Get the validation rules messages customs.
 	 *
@@ -59,10 +57,7 @@ class ApplicantRequest extends Request {
 			'weight.required' => 'Berat Badan tidak boleh kosong',
 			'height.required'=> 'Tinggi Badan tidak boleh kosong',
 			'contact.required' => 'Nomor yang bisa dihubungi tidak boleh kosong',
-			'address.required' => 'Alamat tidak boleh kosong',
-			'photo.required' => 'Pas Photo harus dimasukan',
-			'photo.max' => 'Pas Photo harus lebih kecil dari 1000KB',
-			'photo.mimes' => 'Pas Photo harus menggunakan format gambar (jpeg, jpg, png, bmp, dan gif)'
+			'address.required' => 'Alamat tidak boleh kosong'
 		];
 	}
 

@@ -7,6 +7,8 @@ use DB;
 use Illuminate\Http\Request;
 use App\Applicant;
 use App\Province;
+use App\Kabupaten;
+use App\Kecamatan;
 use App\Http\Requests\ApplicantRequest;
 use App\Http\Requests\UpdateApplicantRequest;
 use App\Family;
@@ -21,8 +23,12 @@ class ApplicantsController extends Controller {
 	 */
 	public function create()
 	{
+		$listRecitation = array();
+		for ($i=0; $i < 31; $i++) {
+			$listRecitation +=  [$i => $i];
+		}
 		$prov = Province::lists('province_name','id');
-		return view('applicant.create', compact('prov'));
+		return view('applicant.create', compact('prov','listRecitation'));
 	}
 
 	/**
@@ -35,31 +41,31 @@ class ApplicantsController extends Controller {
 	{
 		//dd($request->all());
 		//Applicant::create($request->except('profile_photo'));
-		
+
 		//$imageName = $request->full_name . '.' . $request->file('photo')->getClientOriginalExtension();
 		//dd($imageName);
 		//$request->file('photo')->move(base_path() . '/public/images/photos/', $imageName);
-		
+
 		//$request['photo'] = $imageName;
 		//dd($request['profile_photo']);
-		
+
 		//dd($request->all());
 		$form = Applicant::create($request->all());
-		
+
 		//$data = $form->id;
-		
+
 		//dd($data);
-		
+
 		//Family::create(array('applicant_id' => $data));
 		DB::table('families')->insert(array('applicant_id' => $form->id));
 		DB::table('pesantrens')->insert(array('applicant_id' => $form->id));
 		DB::table('schools')->insert(array('applicant_id' => $form->id));
 		DB::table('raports')->insert(array('applicant_id' => $form->id));
 		DB::table('applications')->insert(array('applicant_id' => $form->id));
-		
-		
+
+
 		//return redirect('families/create');
-		return redirect('families/'. $form->id);
+		return redirect('families/'.$form->id);
 	}
 
 	/**
@@ -71,10 +77,17 @@ class ApplicantsController extends Controller {
 	public function edit($id)
 	{
 		$app = Applicant::findOrFail($id);
-		
+
 		$prov = Province::lists('province_name','id');
-		
-		return view('applicant.edit', compact('app','prov'));
+		$kab = Kabupaten::where('id',$app->kabupaten_id)->lists('kabupaten_name','id');
+		$kec = Kecamatan::where('id',$app->kecamatan_id)->lists('kecamatan_name','id');
+
+		$listRecitation = array();
+		for ($i=0; $i < 31; $i++) {
+			$listRecitation +=  [$i => $i];
+		}
+
+		return view('applicant.edit', compact('app','prov','kab','kec','listRecitation'));
 	}
 
 	/**
@@ -88,7 +101,7 @@ class ApplicantsController extends Controller {
 		$app = Applicant::findOrFail($id);
 		//Save record to the database
 		$form = $app->update($request->all());
-		
+
 		//Return
 		return redirect('families/'. $app->id);
 	}
@@ -103,29 +116,29 @@ class ApplicantsController extends Controller {
 	{
 		//
 	}
-	
+
 	public function getUploadForm()
 	{
 		return view('applicant.upload');
 	}
 
-	public function postUpload() 
+	public function postUpload()
 	{
 		//echo 'henri';
 		//dd($request->all());
 		//Applicant::create($request->except('profile_photo'));
-		
+
 		//$imageName = $request->full_name . '.' . $request->file('photo')->getClientOriginalExtension();
 		//dd($imageName);
 		//$request->file('photo')->move(base_path() . '/public/images/photos/', $imageName);
-		
+
 		//$request['photo'] = $imageName;
 		//dd('henri');
 		 $file = \Input::file('image');
 		 $input = array('image' => $file);
 		 $rules = array('image' => 'image');
 		 $validator = \Validator::make($input, $rules);
-		 
+
 		 if ( $validator->fails() )
 		 {
 			return ['success' => false, 'errors' => $validator->getMessageBag()->toArray()];
@@ -136,6 +149,6 @@ class ApplicantsController extends Controller {
 			 \Input::file('image')->move($destinationPath, $filename);
 			 return ['success' => true, 'file' => asset($destinationPath.$filename)];
 		 }
-	 
+
 	}
 }

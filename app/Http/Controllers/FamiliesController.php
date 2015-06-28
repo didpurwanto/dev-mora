@@ -19,13 +19,16 @@ class FamiliesController extends Controller {
 	public function edit($applicant_id)
 	{
 		$fam = Family::findOrFail($applicant_id);
-		
+
 		$prov = Province::lists('province_name','id');
 		$edu_level = EducationLevel::lists('level_name','id');
 		$jobs = JobType::lists('job_name','id');
 		$salary = RangeSalary::lists('range_name','id');
-		
-		return view('family.edit', compact('fam','prov','edu_level','jobs','salary'));
+
+		$kab = Kabupaten::where('id',$fam->kabupaten_id)->lists('kabupaten_name','id');
+		$kec = Kecamatan::where('id',$fam->kecamatan_id)->lists('kecamatan_name','id');
+
+		return view('family.edit', compact('fam','prov','edu_level','jobs','salary','kab','kec'));
 	}
 
 	/**
@@ -39,12 +42,12 @@ class FamiliesController extends Controller {
 		$fam = Family::findOrFail($applicant_id);
 		//Save record to the database
 		$form = $fam->update($request->all());
-		
+
 		//Return to universities controller
 		return redirect('pesantrens/'. $fam->applicant_id);
 	}
 
-	
+
 	public function getKabupatens($id)
     {
         $kabupatens = Kabupaten::where('province_id', '=', $id)->get();
@@ -54,11 +57,11 @@ class FamiliesController extends Controller {
         foreach ($kabupatens as $kabupaten) {
             $options += array($kabupaten->id => $kabupaten->kabupaten_name);
         }
-		
+
 		//dd($options);
         return $options;
     }
-	
+
 	public function getKecamatans($id)
     {
         $kecamatans = Kecamatan::where('kabupaten_id', '=', $id)->get();
@@ -68,7 +71,7 @@ class FamiliesController extends Controller {
         foreach ($kecamatans as $kecamatan) {
             $options += array($kecamatan->id => $kecamatan->kecamatan_name);
         }
-		
+
 		//dd($options);
         return $options;
     }

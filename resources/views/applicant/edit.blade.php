@@ -8,7 +8,7 @@
 @section('content')
 	<h2>Biodata Pribadi</h2>
 	<hr />
-	
+
 	{!! Form::model($app,['method' => 'PATCH','url' => ['/applicants',$app->id]]) !!}
 		<div class="form-group {{ ! $errors->first('full_name') ?'': 'has-error' }}">
 			<div class="row">
@@ -84,7 +84,7 @@
 				{!! Form::label('recitation', 'Jumlah Hafalan Al-Quran') !!}
 				</div>
 				<div class="col-md-3 form-inline">
-				{!! Form::select('recitation', null, ['class' => 'form-control', 'placeholder' => '00']) !!} &nbsp;Juz
+				{!! Form::select('recitation',$listRecitation, $app->recitation, ['class' => 'form-control', 'placeholder' => '00']) !!} &nbsp;Juz
 				</div>
 				@if( $errors->first('recitation') )
 					<span class="help-block text-danger">{{ $errors->first('recitation') }}</span>
@@ -97,7 +97,7 @@
 				{!! Form::label('color_blind', 'Buta Warna') !!}
 				</div>
 				<div class="col-md-4">
-				{!! Form::select('color_blind', array('1' => 'Ya', '0' => 'Tidak'),1,['class' => 'form-control']) !!}
+				{!! Form::select('color_blind', array('1' => 'Ya', '0' => 'Tidak'),$app->color_blind,['class' => 'form-control']) !!}
 				</div>
 				@if( $errors->first('color_blind') )
 					<span class="help-block text-danger">{{ $errors->first('color_blind') }}</span>
@@ -110,7 +110,7 @@
 				{!! Form::label('mental_disorder', 'Riwayat Gangguan Mental') !!}
 				</div>
 				<div class="col-md-4">
-				{!! Form::select('mental_disorder', array('1' => 'Ya', '0' => 'Tidak'),0, ['class' => 'form-control']) !!}
+				{!! Form::select('mental_disorder', array('1' => 'Ya', '0' => 'Tidak'),$app->mental_disorder, ['class' => 'form-control']) !!}
 				</div>
 				@if( $errors->first('mental_disorder') )
 					<span class="help-block text-danger">{{ $errors->first('mental_disorder') }}</span>
@@ -136,7 +136,7 @@
 				{!! Form::label('blood_type', 'Golongan Darah') !!}
 				</div>
 				<div class="col-md-4">
-				{!! Form::select('blood_type', array('A' => 'A', 'B' => 'B','AB' => 'AB','O' => 'O'),1,['class' => 'form-control']) !!}
+				{!! Form::select('blood_type', array('A' => 'A', 'B' => 'B','AB' => 'AB','O' => 'O'),$app->blood_type,['class' => 'form-control']) !!}
 				</div>
 				@if( $errors->first('blood_type') )
 					<span class="help-block text-danger">{{ $errors->first('blood_type') }}</span>
@@ -188,7 +188,7 @@
 				{!! Form::label('marriage_status', 'Sudah Menikah') !!}
 				</div>
 				<div class="col-md-4">
-				{!! Form::select('marriage_status', array('1' => 'Sudah', '0' => 'Belum'),0, ['class' => 'form-control']) !!}
+				{!! Form::select('marriage_status', array('1' => 'Sudah', '0' => 'Belum'),$app->marriage_status, ['class' => 'form-control']) !!}
 				</div>
 				@if( $errors->first('marriage_status') )
 					<span class="help-block text-danger">{{ $errors->first('marriage_status') }}</span>
@@ -227,7 +227,7 @@
 				{!! Form::label('kabupaten_id', 'Kabupaten') !!}
 				</div>
 				<div class="col-md-4">
-				{!! Form::select('kabupaten_id', ['0' => 'Kabupaten'], $app->kabupaten_id,['class' => 'form-control']) !!}
+				{!! Form::select('kabupaten_id',$kab, $app->kabupaten_id,['class' => 'form-control']) !!}
 				</div>
 				@if( $errors->first('kabupaten_id') )
 					<span class="help-block text-danger">{{ $errors->first('kabupaten_id') }}</span>
@@ -240,7 +240,7 @@
 				{!! Form::label('kecamatan_id', 'Kecamatan') !!}
 				</div>
 				<div class="col-md-4">
-				{!! Form::select('kecamatan_id', ['0' => 'Kecamatan'], $app->kecamatan_id,['class' => 'form-control']) !!}
+				{!! Form::select('kecamatan_id', $kec, $app->kecamatan_id,['class' => 'form-control']) !!}
 				</div>
 				@if( $errors->first('kecamatan_id') )
 					<span class="help-block text-danger">{{ $errors->first('kecamatan_id') }}</span>
@@ -252,7 +252,7 @@
 			{!! Form::submit('Simpan', ['class' => 'btn btn-primary btn-large form-button btn-lg']) !!}
 		</div>
 	{!! Form::close() !!}
-	
+
 @stop
 
 @section('script')
@@ -271,7 +271,7 @@
 		  });
 	  });
     </script>
-	
+
 	<script type="text/javascript">
     $(document).ready(function() {
         $("#province_id").change(function() {
@@ -286,7 +286,7 @@
         });
     });
 	</script>
-	
+
 	<script type="text/javascript">
     $(document).ready(function() {
         $("#kabupaten_id").change(function() {
