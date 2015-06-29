@@ -8,7 +8,7 @@
 @section('content')
 	<h2>Biodata Pribadi</h2>
 	<hr />
-	
+
 	{!! Form::open(['method' => 'POST','url' => '/applicants']) !!}
 		<div class="form-group {{ ! $errors->first('full_name') ? '': 'has-error' }}">
 			<div class="row">
@@ -84,7 +84,7 @@
 				{!! Form::label('recitation', 'Jumlah Hafalan Al-Quran') !!}
 				</div>
 				<div class="col-md-3 form-inline">
-				{!! Form::text('recitation', null, ['class' => 'form-control', 'placeholder' => '00']) !!} &nbsp;Juz
+				{!! Form::select('recitation', $listRecitation,0, ['class' => 'form-control', 'placeholder' => '0']) !!} &nbsp;Juz
 				</div>
 				@if( $errors->first('recitation') )
 					<span class="help-block text-danger">{{ $errors->first('recitation') }}</span>
@@ -250,10 +250,12 @@
 		<br />
 		<div class="form-group">
 			{!! Form::submit('Lanjutkan', ['class' => 'btn btn-primary btn-large form-button btn-lg']) !!}
-		</div>	
-	
+		</div>
+
 	{!! Form::close() !!}
 @stop
+
+
 
 @section('script')
 	{!! Html::script('js/bootstrap-datepicker.min.js', array('type' => 'text/javascript')) !!}
@@ -271,7 +273,7 @@
 		  });
 	  });
     </script>
-	
+
 	<script type="text/javascript">
     $(document).ready(function() {
         $('.province').change(function() {
@@ -286,7 +288,7 @@
         });
     });
 	</script>
-	
+
 	<script type="text/javascript">
     $(document).ready(function() {
         $('.kabupaten').change(function() {

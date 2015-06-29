@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\SchoolRequest;
 use App\School;
 use App\Province;
+use App\Kabupaten;
+use App\Kecamatan;
 use App\SchoolType;
 use App\ProgramStudy;
 
@@ -23,9 +25,12 @@ class SchoolsController extends Controller {
 		$prov = Province::lists('province_name','id');
 		$sch_type = SchoolType::lists('type_name','id');
 		$prog_stud = ProgramStudy::lists('program_name','id');
-		
+
 		$sch = School::findOrFail($applicant_id);
-		return view('school.edit', compact('sch','prov','prog_stud','sch_type'));
+		$kab = Kabupaten::where('id',$sch->kabupaten_id)->lists('kabupaten_name','id');
+		$kec = Kecamatan::where('id',$sch->kecamatan_id)->lists('kecamatan_name','id');
+
+		return view('school.edit', compact('sch','prov','prog_stud','sch_type','kab','kec'));
 	}
 
 	/**
