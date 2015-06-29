@@ -6,8 +6,9 @@ use App\JobType;
 use App\PesantrenType;
 use App\ProgramStudy;
 use App\RangeSalary;
-use app\SchoolType;
+use App\SchoolType;
 use App\Family;
+USE App\Province;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
@@ -32,7 +33,9 @@ class DatabaseSeeder extends Seeder {
 		$this->call('RangeSalarySeeder');
 		$this->call('SchoolTypeSeeder');
 		$this->call('FamilyTableSeeder');
+		$this->call('ProvinceSeeder');
 	}
+
 
 }
 
@@ -195,5 +198,53 @@ class SchoolTypeSeeder extends Seeder {
 			['type_name' => 'PPS'],
 			['type_name' => 'Lain-lain']
 		];
+
+		SchoolType::insert($types);
+	}
+}
+
+class ProvinceSeeder extends Seeder {
+	public function run()
+	{
+		DB::table('provinces')->delete();
+
+		$prov = [
+			['id'=>1, 'province_name'=>'Nanggroe Aceh Darussalam'],
+			['id'=>2, 'province_name'=>'Sumatera Utara'],
+			['id'=>3, 'province_name'=>'Sumatera Barat'],
+			['id'=>4, 'province_name'=>'Riau'],
+			['id'=>5, 'province_name'=>'Kepulauan Riau'],
+			['id'=>6, 'province_name'=>'Kepulauan Bangka-Belitung'],
+			['id'=>7, 'province_name'=>'Jambi'],
+			['id'=>8, 'province_name'=>'Bengkulu'],
+			['id'=>9, 'province_name'=>'Sumatera Selatan'],
+			['id'=>10, 'province_name'=>'Lampung'],
+			['id'=>11, 'province_name'=>'Banten'],
+			['id'=>12, 'province_name'=>'DKI Jakarta'],
+			['id'=>13, 'province_name'=>'Jawa Barat'],
+			['id'=>14, 'province_name'=>'Jawa Tengah'],
+			['id'=>15, 'province_name'=>'Daerah Istimewa Yogyakarta  '],
+			['id'=>16, 'province_name'=>'Jawa Timur'],
+			['id'=>17, 'province_name'=>'Bali'],
+			['id'=>18, 'province_name'=>'Nusa Tenggara Barat'],
+			['id'=>19, 'province_name'=>'Nusa Tenggara Timur'],
+			['id'=>20, 'province_name'=>'Kalimantan Barat'],
+			['id'=>21, 'province_name'=>'Kalimantan Tengah'],
+			['id'=>22, 'province_name'=>'Kalimantan Selatan'],
+			['id'=>23, 'province_name'=>'Kalimantan Timur'],
+			['id'=>24, 'province_name'=>'Gorontalo'],
+			['id'=>25, 'province_name'=>'Sulawesi Selatan'],
+			['id'=>26, 'province_name'=>'Sulawesi Tenggara'],
+			['id'=>27, 'province_name'=>'Sulawesi Tengah'],
+			['id'=>28, 'province_name'=>'Sulawesi Utara'],
+			['id'=>29, 'province_name'=>'Sulawesi Barat'],
+			['id'=>30, 'province_name'=>'Maluku'],
+			['id'=>31, 'province_name'=>'Maluku Utara'],
+			['id'=>32, 'province_name'=>'Papua Barat'],
+			['id'=>33, 'province_name'=>'Papua'],
+			['id'=>34, 'province_name'=>'Kalimantan Utara']
+		];
+
+		Province::insert($prov);
 	}
 }
