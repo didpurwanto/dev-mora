@@ -31,8 +31,8 @@ class ApplicantRequest extends Request {
 			'weight' => 'required',
 			'height'=> 'required',
 			'contact' => 'required',
-			'address' => 'required',
-			'photo' => 'required|image|mimes:jpeg,jpg,bmp,png,gif|max:1000'
+			'address' => 'required'
+			// 'photo' => 'required|image|mimes:jpeg,jpg,bmp,png,gif|max:1000'
 		];
 	}
 	

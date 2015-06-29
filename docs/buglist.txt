@@ -1,7 +1,15 @@
+global:
+- register
+
 applicant:
 - jumlah hafalan seharusnya dropdown
 - riwayat penyakit harusnya nullable -> add "doctrine/dbal": "v2.4.2" in composer and create new migration related this change.
-- waktu save tidak tersimpan dan tidak redirect to step selanjutnya
-- waktu save keluarga tidak tersimpan dan tidak redirect to step selanjutnya
+- isi biodata: data tdk tersimpan -> remove mandatory utk upload foto di ApplicantRequest - data tersimpan tadi muncul error page
+- Ketika save biodata tidak tersimpan dan tidak redirect to step selanjutnya
+- waktu save keluarga tidak tersimpan dan tidak redirect to step selanjutnya dan error No query results for model 
+- 
+
+- column role in users table -> mingration
+
 
 

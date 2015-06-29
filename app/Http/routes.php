@@ -93,3 +93,4 @@ Route::get('applications/universities/{id}', 'ApplicationsController@getDepartem
 
 Route::get('upload','ApplicantsController@getUploadForm');	
 Route::post('upload/image','ApplicantsController@postUpload');
+

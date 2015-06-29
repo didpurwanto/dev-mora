@@ -19,7 +19,12 @@ php artisan make:migration create_universities
 php artisan migrate
 
 create a controller:
-php artisan make:controller UniversitiesController
+generate controller with default method: php artisan make:controller UniversitiesController
+generate empyt method: php artisan make:controller UniversitiesController --plain
+see the available command for this: php artisan help make:controller
+
+playing around with out database: php artisan thinker
+
 
 git add . => add all changes/adds
 git commit -m => commit all changes

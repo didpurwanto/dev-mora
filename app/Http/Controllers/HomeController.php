@@ -32,6 +32,10 @@ class HomeController extends Controller {
 	public function index()
 	{
 		return view('register.beranda');
-	}
+	} 
 
+	public function register()
+	{
+		
+	}
 }
