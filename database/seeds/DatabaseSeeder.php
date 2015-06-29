@@ -68,7 +68,7 @@ class FamilyTableSeeder extends Seeder {
 	public function run()
 	{
 		DB::table('families')->delete();
-		Family::create([ 
+		Family::create([
 			'applicant_id'=>'1',
 			'father_name'=>'Drajat sudrajat',
 			'father_age'=>'30',
@@ -122,7 +122,7 @@ class JobTypeSeeder extends Seeder{
 			['job_name' => 'TNI/Polri'],
 			['job_name' => 'Guru/Dosen'],
 			['job_name' => 'Pensiunan'],
-			['job_name' => 'Tidak Bekerja']		
+			['job_name' => 'Tidak Bekerja']
 		];
 
 		JobType::insert($jobs);
@@ -171,6 +171,7 @@ class RangeSalarySeeder extends Seeder {
 		DB::table('range_salaries')->delete();
 
 		$salaries = [
+			['range_name' => 'Kurang dari 500.000'],
 			['range_name' => '500.000-1.000.000'],
 			['range_name' => '1.000.000-2.000.000'],
 			['range_name' => '1.000.000-3.000.000'],
@@ -192,7 +193,7 @@ class SchoolTypeSeeder extends Seeder {
 			['type_name' => 'SMK'],
 			['type_name' => 'PPM'],
 			['type_name' => 'PPS'],
-			['type_name' => 'Lain-lain']			
+			['type_name' => 'Lain-lain']
 		];
 	}
 }

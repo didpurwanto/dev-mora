@@ -9,5 +9,4 @@ applicant:
    (solved - Validasi foto masih ada di request nya, tapi tidak ada error muncul, makanya dia redirect ke sebelumnya)
  - waktu save keluarga tidak tersimpan dan tidak redirect to step selanjutnya
    (save keluarga bisa, tidak ada masalah)
- 
-- column role in users table -> mingration
+ - column role in users table -> mingration

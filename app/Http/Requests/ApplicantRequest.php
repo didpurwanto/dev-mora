@@ -31,10 +31,7 @@ class ApplicantRequest extends Request {
 			'height'=> 'required',
 			'contact' => 'required',
 			'address' => 'required'
-<<<<<<< HEAD
 			// 'photo' => 'required|image|mimes:jpeg,jpg,bmp,png,gif|max:1000'
-=======
->>>>>>> 411375acfa8251ba980b12692378714d40d4ea91
 		];
 	}
 
