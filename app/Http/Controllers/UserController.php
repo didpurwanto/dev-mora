@@ -43,7 +43,8 @@ class UserController extends Controller {
 
 		User::create($input);
 
-		return $input;
+		// return $input;
+		return view('home.index');
 	}
 
 	/**
