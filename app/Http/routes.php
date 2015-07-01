@@ -94,3 +94,13 @@ Route::get('applications/universities/{id}', 'ApplicationsController@getDepartem
 Route::get('upload','ApplicantsController@getUploadForm');	
 Route::post('upload/image','ApplicantsController@postUpload');
 
+/*
+|
+| Route for dynamic drop down departemen
+| Agung
+|
+*/
+
+Route::get('users', 'UserController@index');
+Route::get('users/create', 'UserController@create');
+Route::post('users', 'UserController@store');

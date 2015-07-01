@@ -84,8 +84,6 @@
         </div>
     </header>
 
-
-
     <section class="bg-success" id="login">
         <div class="container">
             <div class="row">
@@ -130,7 +128,26 @@
                   <h1>Buat Akun</h1>
                     <h3 class="section-heading">Silahkan isi data Anda di bawah ini!</h3>
                     <br />
-                    <form role="form" action="#" method="POST" name="myform" id="myform" enctype="multipart/form-data">
+                    {!! Form::open(['url' => 'users']) !!}
+                        <div class="form-group">
+                            {!! Form::text('username', null, [ 'class'=> 'form-control', 'placeholder'=>'Isi Username Anda!', 'cols' => '10' ]) !!}
+                        </div>
+                       <div class="form-group">
+                            {!! Form::text('email', null, [ 'class'=> 'form-control', 'placeholder'=>'Isi alamat email Anda!' ]) !!}
+                        </div>
+                       <div class="form-group">
+                            {!! Form::password('password', [ 'class'=> 'form-control', 'placeholder'=>'Isi Password Anda!' ]) !!}
+                        </div>
+                        <div class="form-group" >
+                            {!! Form::password('password2', [ 'class'=> 'form-control', 'placeholder'=>'Konfirmasi Password Anda!' ]) !!}
+                        </div>
+
+                       <div class="form-group" >
+                            {!! Form::submit('Buat akun sekarang',['class'=>'btn btn-default btn-xl wow tada']) !!}
+                        </div>
+
+                    {!! Form::close() !!}
+ <!--                    <form role="form" action="#" method="POST" name="myform" id="myform" enctype="multipart/form-data">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 					  <table align="center">
                         <tr>
@@ -161,7 +178,7 @@
                       <br />
                       <button href="#" class="btn btn-default btn-xl wow tada">Buat Akun Sekarang</button>
 
-                  </form>
+                  </form> -->
                 </div>
             </div>
         </div>

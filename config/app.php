@@ -209,8 +209,8 @@ return [
 		*/
 		'Form'      => 'Illuminate\Html\FormFacade',
 		'Html'      => 'Illuminate\Html\HtmlFacade',
-		'Image' => 'Intervention\Image\Facades\Image',
-		'PDF' => 'Barryvdh\DomPDF\Facade'
+		'Image' 	=> 'Intervention\Image\Facades\Image',
+		'PDF' 		=> 'Barryvdh\DomPDF\Facade'
 
 	],
 
