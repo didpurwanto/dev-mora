@@ -1,6 +1,6 @@
 <div class="table table-responsive">
    <div class="col-md-12">
-	<table class="table table-bordered table-stripped">
+	<table class="table table-bordered table-stripped set-bg">
 		<thead>
 			<tr>
 				<th>Mata Pelajaran</th>
@@ -69,7 +69,7 @@
 			</tr>
 		</tbody>
 	</table>
-	
+
 	<div class="form-group">
 		{!! Form::submit($text, ['class' => 'btn btn-primary form-button']) !!}
 	</div>
