@@ -27,8 +27,8 @@ class DatabaseSeeder extends Seeder {
 		Model::unguard();
 
 		// $this->call('UserTableSeeder');
-		$this->call('ApplicationTableSeeder');
-		$this->call('EducationLevelSeeder');
+		// $this->call('ApplicationTableSeeder');
+		// $this->call('EducationLevelSeeder');
 		$this->call('JobTypeSeeder');
 		$this->call('PesantrenTypeSeeder');
 		$this->call('ProgramStudySeeder');
@@ -43,58 +43,60 @@ class DatabaseSeeder extends Seeder {
 
 }
 
-class ApplicationTableSeeder extends Seeder {
-	public function run()
-	{
-		DB::table('applicants') ->delete();
-		Applicant::create([
-			'full_name' => 'The Name',
-           	'email' => 'thename@email.com',
-			'gender' => '1',
-			'place_birth' => 'Jakarta',
-			'date_birth' => '1998-10-10',
-			'recitation' => 10,
-			'color_blind' => 0,
-			'mental_disorder' => 0,
-			'illness' => '-',
-			'blood_type' => 'O',
-			'weight' => 90,
-			'height' => 200,
-			'contact' => '085648999',
-			'marriage_status' => '0',
-           	'address' => 'address applicant',
-			'province_id' => 1,
-			'kecamatan_id' => 1,
-			'profile_photo' => 'url photo',
-			'registration_number' => '1212121212'
-		]);
-	}
-}
+// class ApplicationTableSeeder extends Seeder {
+// 	public function run()
+// 	{
+// 		DB::table('applicants') ->delete();
+// 		Applicant::create([
+// 			'id' => 1,
+// 			'full_name' => 'The Name',
+//            	'email' => 'thename@email.com',
+// 			'gender' => '1',
+// 			'place_birth' => 'Jakarta',
+// 			'date_birth' => '1998-10-10',
+// 			'recitation' => 10,
+// 			'color_blind' => 0,
+// 			'mental_disorder' => 0,
+// 			'illness' => '-',
+// 			'blood_type' => 'O',
+// 			'weight' => 90,
+// 			'height' => 200,
+// 			'contact' => '085648999',
+// 			'marriage_status' => '0',
+//            	'address' => 'address applicant',
+// 			'province_id' => 1,
+// 			'kecamatan_id' => 1,
+// 			'profile_photo' => 'url photo',
+// 			'registration_number' => '1212121212'
+// 		]);
+// 	}
+// }
 
-class FamilyTableSeeder extends Seeder {
-	public function run()
-	{
-		DB::table('families')->delete();
-		Family::create([
-			'applicant_id'=>'1',
-			'father_name'=>'Drajat sudrajat',
-			'father_age'=>'30',
-			'father_deceased'=>1,
-			'father_education'=>4,
-			'father_job_id'=>4,
-			'father_salary_id'=>2,
-			'mother_name'=>'Sumiati',
-			'mother_age'=>'23',
-			'mother_deceased'=>1,
-			'mother_education'=>1,
-			'mother_job_id'=>2,
-			'mother_income_id'=>2,
-			'address'=>'Alamat',
-			'province_id'=>1,
-			'kecamatan_id'=>2
-		]);
-	}
-}
+// class FamilyTableSeeder extends Seeder {
+// 	public function run()
+// 	{
+// 		DB::table('families')->delete();
+// 		Family::create([
+// 			'id' => 1
+// 			'applicant_id'=>'1',
+// 			'father_name'=>'Drajat sudrajat',
+// 			'father_age'=>'30',
+// 			'father_deceased'=>1,
+// 			'father_education'=>4,
+// 			'father_job_id'=>4,
+// 			'father_salary_id'=>2,
+// 			'mother_name'=>'Sumiati',
+// 			'mother_age'=>'23',
+// 			'mother_deceased'=>1,
+// 			'mother_education'=>1,
+// 			'mother_job_id'=>2,
+// 			'mother_income_id'=>2,
+// 			'address'=>'Alamat',
+// 			'province_id'=>1,
+// 			'kecamatan_id'=>2
+// 		]);
+// 	}
+// }
 
 class EducationLevelSeeder extends Seeder {
 	public function run()
