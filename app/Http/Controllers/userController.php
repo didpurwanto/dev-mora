@@ -2,10 +2,12 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\User;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use Request;
 
-class userController extends Controller {
+class UserController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -14,7 +16,9 @@ class userController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$user = User::all();
+
+		return $user; 
 	}
 
 	/**
@@ -34,7 +38,13 @@ class userController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$input = Request::all();
+		$input['role'] =1;
+
+		User::create($input);
+
+		// return $input;
+		return view('home.index');
 	}
 
 	/**
@@ -78,7 +88,7 @@ class userController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+
 	}
 
 }
