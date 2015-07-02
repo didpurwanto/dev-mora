@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Applicant;
+use PDF;
 
 class SummaryController extends Controller {
 
@@ -27,17 +28,20 @@ class SummaryController extends Controller {
 		return view('prints',compact('applicant'));
 	}
 
-	public function cetakFormulir($id){
-		$applicant = Applicant::findOrFail($id);
+	public function cetakFormulir(){
+		//$applicant = Applicant::findOrFail($id);
 
-		$pdf = PDF::loadView('print.formulir_wrapper', $applicant);
-		return $pdf->download('Fomulir.pdf');
+		//$pdf = PDF::loadView('print.formulir_wrapper');
+		//$pdf = $pdf->setPaper('f4');
+		//return $pdf->download('Fomulir.pdf');
+
+		return view('print.formulir_wrapper');
 	}
 
 	public function cetakKartu($id){
-		$applicant = Applicant::findOrFail($id);
+		//$applicant = Applicant::findOrFail($id);
 
-		$pdf = PDF::loadView('print.peserta_wrapper', $applicant);
+		$pdf = PDF::loadView('print/peserta_wrapper', $applicant);
 		return $pdf->download('Kartu Peserta.pdf');
 	}
 }

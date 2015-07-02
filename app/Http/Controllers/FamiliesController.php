@@ -18,7 +18,7 @@ class FamiliesController extends Controller {
 
 	public function edit($applicant_id)
 	{
-		$fam = Family::findOrFail($applicant_id);
+		$fam = Family::where('applicant_id' ,$applicant_id)->get();
 
 		$prov = Province::lists('province_name','id');
 		$edu_level = EducationLevel::lists('level_name','id');

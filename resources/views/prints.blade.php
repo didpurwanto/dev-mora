@@ -14,10 +14,14 @@
 		<br />
 		<br />
 		<div class="col-md-5 col-md-offset-1 column">
-			 <p><button type="button" class="btn btn-primary btn-lg">Cetak Formulir Registrasi</button></p>
+			{!! Form::open(['method' => 'GET', 'url' => '/cetakformulir']) !!}
+    			{!! Form::submit('Cetak Formulir Registrasi', ['class' => 'btn btn-primary form-button btn-lg']) !!}
+			{!! Form::close() !!}
 		</div>
 		<div class="col-md-5 col-md-offset-1 column">
-			 <p><button type="button" class="btn btn-primary btn-lg">Cetak Kartu Peserta</button></p>
+			{!! Form::open(['method' => 'GET', 'url' => '/cetakkartu']) !!}
+    			{!! Form::submit('Cetak Kartu Peserta', ['class' => 'btn btn-primary form-button btn-lg']) !!}
+			{!! Form::close() !!}
 		</div>
 		<br />
 		<br />
@@ -31,5 +35,5 @@
 		<br />
 	</div>
 </div>
-			
+
 @stop

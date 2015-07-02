@@ -91,8 +91,12 @@ Route::get('families/kabupatens/{id}', 'FamiliesController@getKecamatans');
 Route::get('applications/universities/{id}', 'ApplicationsController@getDepartements');
 
 
-Route::get('upload','ApplicantsController@getUploadForm');	
+Route::get('upload','ApplicantsController@getUploadForm');
 Route::post('upload/image','ApplicantsController@postUpload');
+
+
+Route::get('cetakformulir','SummaryController@cetakFormulir');
+Route::get('cetakkartu','SummaryController@cetakKartu');
 
 /*
 |
