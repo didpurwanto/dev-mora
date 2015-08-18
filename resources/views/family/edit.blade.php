@@ -3,11 +3,11 @@
 @section('content')
 	<h2>Biodata Keluarga</h2>
 	<hr />
-	
+
 	{!! Form::model($fam,['method' => 'PATCH','url' => ['/families',$fam->id]]) !!}
 		@include ('family.form', ['text' => 'Simpan'])
 	{!! Form::close() !!}
-	
+
 	@include('errors.list')
 @stop
 
@@ -26,7 +26,7 @@
         });
     });
 	</script>
-	
+
 	<script type="text/javascript">
     $(document).ready(function() {
         $("#kabupaten_id").change(function() {
