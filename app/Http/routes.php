@@ -108,3 +108,5 @@ Route::get('cetakkartu','SummaryController@cetakKartu');
 Route::get('users', 'UserController@index');
 Route::get('users/create', 'UserController@create');
 Route::post('users', 'UserController@store');
+
+Route::get('admin', 'AdminController@index');
