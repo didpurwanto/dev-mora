@@ -18,17 +18,25 @@ class FamiliesController extends Controller {
 
 	public function edit($applicant_id)
 	{
-		$fam = Family::where('applicant_id' ,$applicant_id)->get();
+		$fam = Family::findOrFail($applicant_id);
+
+		//$idsaja = $fam->id;
+		//dd($idsaja);
 
 		$prov = Province::lists('province_name','id');
 		$edu_level = EducationLevel::lists('level_name','id');
 		$jobs = JobType::lists('job_name','id');
 		$salary = RangeSalary::lists('range_name','id');
 
+<<<<<<< HEAD
 		// $kab = Kabupaten::where('id',$fam->kabupaten_id)->lists('kabupaten_name','id');
 		// $kec = Kecamatan::where('id',$fam->kecamatan_id)->lists('kecamatan_name','id');
+=======
+		//$kab = Kabupaten::where('id',$fam->kabupaten_id)->lists('kabupaten_name','id');
+		//$kec = Kecamatan::where('id',$fam->kecamatan_id)->lists('kecamatan_name','id');
+>>>>>>> 0f9ff17a88255f9361e34552cec5bf15c7dcd089
 
-		return view('family.edit', compact('fam','prov','edu_level','jobs','salary','kab','kec'));
+		return view('family.edit', compact('fam','prov','edu_level','jobs','salary'));
 	}
 
 	/**

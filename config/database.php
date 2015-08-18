@@ -45,7 +45,6 @@ return [
 	*/
 
 	'connections' => [
-
 		'mysql' => [
 			'driver'    => 'mysql',
 			// 'host'      => getenv('OPENSHIFT_MYSQL_DB_HOST'),
@@ -55,14 +54,14 @@ return [
 			// 'password'  => getenv('OPENSHIFT_MYSQL_DB_PASSWORD'),
 			'host'      => 'localhost',
 			'port'      => '3306',
-			'database'  => 'moradb',
+			'database'  => 'dev-mora',
 			'username'  => 'root',
-			'password'  => 'bismillah',			
+			'password'  => 'henri',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 			'strict'    => false,
-		]
+			]
 	],
 
 	/*
