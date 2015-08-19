@@ -25,10 +25,10 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="homepage/css/creative.css" type="text/css">
-	
+
 	<!-- Include other spesific CSS -->
 	@yield('css')
-	
+
     <!-- VALIDATION SCRIPT-->
     <script language="JavaScript" src="js/gen_validatorv4.js"
       type="text/javascript" xml:space="preserve">
@@ -92,13 +92,24 @@
                     <h3 class="section-heading">Silahkan isi username dan password Anda!</h3>
                     <br />
 
-                    <form role="form" action="{!! url('applicanthome') !!}" method="post" name="myform" id="myform" enctype="multipart/form-data">
+                    <form role="form" action="{{ url('/auth/login') }}" method="post" name="myform" id="myform" enctype="multipart/form-data">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 					  <table align="center">
                         <tr>
                           <td>
-                            <font color = "white" size="2px"><div id='myform_username_login_errorloc' class="error_strings"></div></font>
-                            <input class="form-control" size="40" placeholder="Isi Username Anda!" name="username_login" id="username_login">
+                            <font color = "white" size="2px"><div id='myform_username_login_errorloc' class="error_strings">
+                              @if (count($errors) > 0)
+                    						<div class="alert alert-danger">
+                    							<strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    							<ul>
+                    								@foreach ($errors->all() as $error)
+                    									<li>{{ $error }}</li>
+                    								@endforeach
+                    							</ul>
+                    						</div>
+                    					@endif
+                            </div></font>
+                            <input class="form-control" size="40" placeholder="Isi Username Anda!" name="username" id="username">
                           </td>
                         </tr>
                       </table>
@@ -107,13 +118,13 @@
                         <tr>
                           <td>
                             <font color = "white" size="2px"><div id='myform_password_login_errorloc' class="error_strings"></div></font>
-                            <input class="form-control" size="40" type="password" placeholder="Isi Password Anda!" name="password_login" id="password_login">
+                            <input class="form-control" size="40" type="password" placeholder="Isi Password Anda!" name="password" id="password">
                           </td>
                         </tr>
                       </table>
 
                       <br />
-                      <button href="{!! URL::to('applicanthome') !!}" class="btn btn-default btn-xl wow tada">Login Aplikasi</button>
+                      <button type="submit" class="btn btn-default btn-xl wow tada">Login Aplikasi</button>
 
                   </form>
                 </div>
@@ -128,7 +139,8 @@
                   <h1>Buat Akun</h1>
                     <h3 class="section-heading">Silahkan isi data Anda di bawah ini!</h3>
                     <br />
-                    {!! Form::open(['url' => 'users']) !!}
+                    <!--
+                    {!! Form::open(['url' => '/auth/register', 'method' => 'POST']) !!}
                         <div class="form-group">
                             {!! Form::text('username', null, [ 'class'=> 'form-control', 'placeholder'=>'Isi Username Anda!', 'cols' => '10' ]) !!}
                         </div>
@@ -147,22 +159,43 @@
                         </div>
 
                     {!! Form::close() !!}
- <!--                    <form role="form" action="#" method="POST" name="myform" id="myform" enctype="multipart/form-data">
+
+                    -->
+              <form role="form" action="{!! url('auth/register') !!}" method="POST" name="myform" id="myform" enctype="multipart/form-data">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 					  <table align="center">
                         <tr>
                           <td>
-                            <font color = "white" size="2px"><div id='myform_username_errorloc' class="error_strings"></div></font>
+                            <font color = "white" size="2px"><div id='myform_username_errorloc' class="error_strings">
+                              @if (count($errors) > 0)
+                  						<div class="alert alert-danger">
+                  							<strong>Whoops!</strong> There were some problems with your input.<br><br>
+                  							<ul>
+                  								@foreach ($errors->all() as $error)
+                  									<li>{{ $error }}</li>
+                  								@endforeach
+                  							</ul>
+                  						</div>
+                  					@endif</div></font>
                             <input class="form-control" size="40" placeholder="Isi Username Anda!" name="username" id="username">
                           </td>
                         </tr>
                       </table>
                       <br />
                       <table align="center">
+                          <tr>
+                            <td>
+                              <font color = "white" size="2px"><div id='myform_email_errorloc' class="error_strings"></div></font>
+                              <input class="form-control" size="40" placeholder="Isi Email Anda!" name="email" id="email">
+                            </td>
+                          </tr>
+                        </table>
+                        <br />
+                      <table align="center">
                         <tr>
                           <td>
                             <font color = "white" size="2px"><div id='myform_password_errorloc' class="error_strings"></div></font>
-                            <input class="form-control" size="40" type="password" placeholder="Isi Password Anda!" name="password" id="password">
+                            <input class="form-control" size="40" type="password" placeholder="Isi Password Anda!" name="password">
                           </td>
                         </tr>
                       </table>
@@ -171,14 +204,15 @@
                         <tr>
                           <td>
                             <font color = "white" size="2px"><div id='myform_konfirmasi_errorloc' class="error_strings"></div></font>
-                            <input class="form-control" size="40"  type="password" placeholder="Isi Konfirmasi Password Anda!" name="konfirmasi" id="konfirmasi">
+                            <input class="form-control" size="40"  type="password" placeholder="Isi Konfirmasi Password Anda!" name="password_confirmation">
                           </td>
                         </tr>
                       </table>
                       <br />
-                      <button href="#" class="btn btn-default btn-xl wow tada">Buat Akun Sekarang</button>
-
-                  </form> -->
+                      <button type="submit" class="btn btn-default btn-xl wow tada">
+      									Buat Akun Sekarang
+      								</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -212,13 +246,13 @@
                         <img src="/logo/kampus/its.png" alt="" />
                         <p class="text-muted">Institut Teknologi Sepuluh Nopember</p>
                     </div>
-                </div>     
+                </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="/logo/kampus/its.png" alt="" />
                         <p class="text-muted">Institut Teknologi Sepuluh Nopember</p>
                     </div>
-                </div>                           
+                </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="logo/kampus/itb.png" alt="" />
@@ -294,10 +328,10 @@
     <!-- Custom Theme JavaScript -->
     <script src="homepage/js/creative.js"></script>
 
-	
+
 	<!-- Include another specific JavaScript  -->
 	@yield('script')
-	
+
     <!-- VALIDATION SCRIPT-->
     	<script language="JavaScript" type="text/javascript"
     			xml:space="preserve">//<![CDATA[

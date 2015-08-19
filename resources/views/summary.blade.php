@@ -2,6 +2,7 @@
 
 @section('content')
 
+	// Biodata Pribadi
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<h2>Biodata Pribadi</h2>
@@ -148,6 +149,9 @@
 			</div>
 		</div>
 	</div>
+
+
+	// Data Keluarga
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<br />
@@ -276,6 +280,9 @@
 			</div>
 		</div>
 	</div>
+
+
+	// Asal Pesantren
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<br />
@@ -337,6 +344,9 @@
 			</div>
 		</div>
 	</div>
+
+
+	// Asal Sekolah
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<br />
@@ -431,6 +441,10 @@
 			</div>
 		</div>
 	</div>
+
+
+
+	// Pilihan Perguruan Tinggi
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<br />
