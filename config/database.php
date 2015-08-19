@@ -45,22 +45,6 @@ return [
 	*/
 
 	'connections' => [
-
-		'mysqlsfsaf' => [
-			'driver'    => 'mysql',
-			'host'      => getenv('localhost'),
-			'port'      => getenv('3306'),
-			'database'  => getenv('dev-mora'),
-			'username'  => getenv('root'),
-			'password'  => getenv('henri'),
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
-			'strict'    => false,
-		]
-	],
-
-	'connections' => [
 		'mysql' => [
 			'driver'    => 'mysql',
 			// 'host'      => getenv('OPENSHIFT_MYSQL_DB_HOST'),

@@ -28,8 +28,13 @@ class FamiliesController extends Controller {
 		$jobs = JobType::lists('job_name','id');
 		$salary = RangeSalary::lists('range_name','id');
 
+<<<<<<< HEAD
+		// $kab = Kabupaten::where('id',$fam->kabupaten_id)->lists('kabupaten_name','id');
+		// $kec = Kecamatan::where('id',$fam->kecamatan_id)->lists('kecamatan_name','id');
+=======
 		//$kab = Kabupaten::where('id',$fam->kabupaten_id)->lists('kabupaten_name','id');
 		//$kec = Kecamatan::where('id',$fam->kecamatan_id)->lists('kecamatan_name','id');
+>>>>>>> 0f9ff17a88255f9361e34552cec5bf15c7dcd089
 
 		return view('family.edit', compact('fam','prov','edu_level','jobs','salary'));
 	}
