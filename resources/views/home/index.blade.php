@@ -163,7 +163,7 @@
                     -->
               <form role="form" action="{!! url('auth/register') !!}" method="POST" name="myform" id="myform" enctype="multipart/form-data">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
-					  <table align="center">
+					            <table align="center">
                         <tr>
                           <td>
                             <font color = "white" size="2px"><div id='myform_username_errorloc' class="error_strings">
