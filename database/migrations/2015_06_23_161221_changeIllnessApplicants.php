@@ -12,7 +12,7 @@ class ChangeIllnessApplicants extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('applicants', function($table)
+		Schema::table('applicants', function(Blueprint $table)
 		{
 			$table->string('illness',300)->nullable()->change();
 		});

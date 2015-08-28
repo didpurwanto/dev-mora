@@ -22,18 +22,18 @@ class PesantrenRequest extends Request {
 	public function rules()
 	{
 		return [
-			//'applicant_id',		
+			//'applicant_id',
 			'pesantren_name' => 'required',
 			'kiai_name' => 'required',
 			'nspp' => 'required|numeric',
 			'pesantren_type' => 'required',
 			'pesantren_address' => 'required',
-			'province_id' => 'required',
-			'kabupaten_id' => 'required',
-			'kecamatan_id' => 'required'
+			'province_id' => 'required'
+			//'kabupaten_id' => 'required',
+			//'kecamatan_id' => 'required'
 		];
 	}
-	
+
 	public function messages()
 	{
 		return [
@@ -42,9 +42,9 @@ class PesantrenRequest extends Request {
 			'nspp.numeric' => 'Nomor Statistik Pondok Pesantren (NSPP) harus angka',
 			'pesantren_type.required' => 'Jenis Pesantren tidak boleh kosong',
 			'pesantren_address.required' => 'Alamat Pesantren tidak boleh kosong',
-			'province_id.required' => 'Provinsi tidak boleh kosong',
-			'kabupaten_id.required' => 'Kabupaten tidak boleh kosong',
-			'kecamatan_id.required' => 'Kecamatan tidak boleh kosong'
+			'province_id.required' => 'Provinsi tidak boleh kosong'
+			//'kabupaten_id.required' => 'Kabupaten tidak boleh kosong',
+			//'kecamatan_id.required' => 'Kecamatan tidak boleh kosong'
 		];
 	}
 

@@ -9,7 +9,7 @@
 	<h2>Biodata Pribadi</h2>
 	<hr />
 
-	{!! Form::model($app,['method' => 'PATCH','url' => ['/applicants',$app->id]]) !!}
+	{!! Form::model($app,['method' => 'PATCH','url' => ['/applicants/edit']]) !!}
 		<div class="form-group {{ ! $errors->first('full_name') ?'': 'has-error' }}">
 			<div class="row">
 				<div class="col-md-3">

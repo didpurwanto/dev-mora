@@ -15,7 +15,7 @@ class CreateSchools extends Migration {
 		Schema::create('schools', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('applicant_id');
+			$table->integer('user_id');
 			$table->string('school_name', 150);
 			$table->string('school_principal_name');
 			$table->string('nisn', 20);
@@ -28,7 +28,7 @@ class CreateSchools extends Migration {
 			$table->integer('province_id');
 			$table->integer('kabupaten_id');
 			$table->integer('kecamatan_id');
-			$table->timestamps();			
+			$table->timestamps();
 		});
 	}
 

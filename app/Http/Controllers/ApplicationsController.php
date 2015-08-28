@@ -15,33 +15,38 @@ class ApplicationsController extends Controller {
 
 	private $program_study_id;
 
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
 	public function edit($applicant_id)
 	{
 		$dep1 = "";
 		$dep2 = "";
-		
+
 		$program_study_id = School::where('applicant_id', $applicant_id)->pluck('program_study_id');
 		//dd($program_study_id);
 		//$program_study = ProgramStudy::
 		$univ = University::lists('university_name','id');
-		
+
 		$dep = Departement::where('study_program_id', $program_study_id)->lists('departement_name','id');
-		
+
 		//$appl_univ = Application::with('university')->get();
 		//$departemen = Departement::where('program_study_id', $program_study_id)->lists('departement_name','id');
 		$appl = Application::findOrFail($applicant_id);
-		
+
 		/*--------------
 		if (! $appl->major_1_id == 0)
-		{ 
+		{
 			$dep1 = Departement::where('id',$appl->major_1_id)->pluck('departement_name');
 		}
-		
+
 		if (! $appl->major_2_id == 0)
-		{ 
+		{
 			$dep2 = Departement::where('id',$appl->major_2_id)->pluck('departement_name');
 		}-----*/
-		
+
 		return view('application.edit', compact('appl','univ','dep'));
 	}
 
@@ -70,7 +75,7 @@ class ApplicationsController extends Controller {
 	{
 		//
 	}
-	
+
 	public function getDepartements($university_id)
     {
         $departs = Departement::where('university_id', $university_id)->get();
@@ -80,7 +85,7 @@ class ApplicationsController extends Controller {
         foreach ($departs as $depart) {
             $options += array($depart->id => $depart->departement_name);
         }
-		
+
 		//dd($options);
         return $options;
     }

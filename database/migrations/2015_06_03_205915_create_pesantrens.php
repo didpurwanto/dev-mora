@@ -12,10 +12,10 @@ class CreatePesantrens extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('pesantrens', function($table)
+		Schema::create('pesantrens', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('applicant_id');			
+			$table->integer('user_id');
 			$table->string('pesantren_name', 150);
 			$table->string('kiai_name', 100);
 			$table->string('nspp', 20);
@@ -25,7 +25,7 @@ class CreatePesantrens extends Migration {
 			$table->integer('kabupaten_id');
 			$table->integer('kecamatan_id');
 			$table->timestamps();
-		});	
+		});
 	}
 
 	/**

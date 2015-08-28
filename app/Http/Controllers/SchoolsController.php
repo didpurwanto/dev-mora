@@ -11,8 +11,14 @@ use App\Kabupaten;
 use App\Kecamatan;
 use App\SchoolType;
 use App\ProgramStudy;
+use Auth;
 
 class SchoolsController extends Controller {
+
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -20,17 +26,18 @@ class SchoolsController extends Controller {
 	 * @param  int  $applicant_id
 	 * @return Response
 	 */
-	public function edit($applicant_id)
+	public function edit()
 	{
 		$prov = Province::lists('province_name','id');
 		$sch_type = SchoolType::lists('type_name','id');
 		$prog_stud = ProgramStudy::lists('program_name','id');
 
-		$sch = School::findOrFail($applicant_id);
-		$kab = Kabupaten::where('id',$sch->kabupaten_id)->lists('kabupaten_name','id');
-		$kec = Kecamatan::where('id',$sch->kecamatan_id)->lists('kecamatan_name','id');
+		$sch = School::where('user_id', '=', Auth::user()->id)->firstOrFail();
 
-		return view('school.edit', compact('sch','prov','prog_stud','sch_type','kab','kec'));
+		//$kab = Kabupaten::where('id',$sch->kabupaten_id)->lists('kabupaten_name','id');
+		//$kec = Kecamatan::where('id',$sch->kecamatan_id)->lists('kecamatan_name','id');
+
+		return view('school.edit', compact('sch','prov','prog_stud','sch_type'));
 	}
 
 	/**
@@ -39,13 +46,13 @@ class SchoolsController extends Controller {
 	 * @param  int  $applicant_id
 	 * @return Response
 	 */
-	public function update($applicant_id, SchoolRequest $request)
+	public function update(SchoolRequest $request)
 	{
-		$sch = School::findOrFail($applicant_id);
+		$sch = School::where('user_id', '=', Auth::user()->id)->firstOrFail();;
 		//Save record to the database
 		$form = $sch->update($request->all());
 		//
-		return redirect('raports/'. $sch->applicant_id);
+		return redirect('raports/');
 	}
 
 	/**

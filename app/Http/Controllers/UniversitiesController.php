@@ -9,6 +9,11 @@ use App\Http\Requests\UniversityRequest;
 
 class UniversitiesController extends Controller {
 
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+	
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -41,7 +46,7 @@ class UniversitiesController extends Controller {
 		//return $input;
 		//$this->validate($request, ['university_name' => 'required']);
 		University::create($request->all());
-		
+
 		\Session::flash('flash_text','A New University has been created!');
 		return redirect('universities');
 	}

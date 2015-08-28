@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use DB;
+use Auth;
 use Illuminate\Http\Request;
 use App\Applicant;
 use App\Province;
@@ -13,8 +14,14 @@ use App\Http\Requests\ApplicantRequest;
 use App\Http\Requests\UpdateApplicantRequest;
 use App\Family;
 
+
 class ApplicantsController extends Controller {
 
+
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 	/**
 	 * Create view for create data.
 	 *
@@ -50,22 +57,23 @@ class ApplicantsController extends Controller {
 		//dd($request['profile_photo']);
 
 		//dd($request->all());
-		$form = Applicant::create($request->all());
-
+		//$form = Applicant::create($request->all());
+		$data = new Applicant($request->all());
+		$form = Auth::user()->applicant()->save($data);
 		//$data = $form->id;
 
 		//dd($data);
 
 		//Family::create(array('applicant_id' => $data));
-		DB::table('families')->insert(array('applicant_id' => $form->id));
-		DB::table('pesantrens')->insert(array('applicant_id' => $form->id));
-		DB::table('schools')->insert(array('applicant_id' => $form->id));
-		DB::table('raports')->insert(array('applicant_id' => $form->id));
-		DB::table('applications')->insert(array('applicant_id' => $form->id));
+		DB::table('families')->insert(array('user_id' => Auth::user()->id));
+		DB::table('pesantrens')->insert(array('user_id' => Auth::user()->id));
+		DB::table('schools')->insert(array('user_id' => Auth::user()->id));
+		DB::table('raports')->insert(array('user_id' => Auth::user()->id));
+		DB::table('applications')->insert(array('user_id' => Auth::user()->id));
 
 
 		//return redirect('families/create');
-		return redirect('families/'.$form->id);
+		return redirect('families/'. Auth::user()->id);
 	}
 
 	/**
@@ -74,9 +82,10 @@ class ApplicantsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit()
 	{
-		$app = Applicant::findOrFail($id);
+		$app = Applicant::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		//$app = Applicant::findOrFail($id);
 
 		$prov = Province::lists('province_name','id');
 		$kab = Kabupaten::where('id',$app->kabupaten_id)->lists('kabupaten_name','id');
@@ -96,14 +105,15 @@ class ApplicantsController extends Controller {
 	 * @param  int  $id, ApplicantRequest $request
 	 * @return Redirect
 	 */
-	public function update($id, UpdateApplicantRequest $request)
+	public function update(UpdateApplicantRequest $request)
 	{
-		$app = Applicant::findOrFail($id);
+		$app = Applicant::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		//$app = Applicant::findOrFail($id);
 		//Save record to the database
 		$form = $app->update($request->all());
 
 		//Return
-		return redirect('families/'. $app->id);
+		return redirect('families');
 	}
 
 	/**

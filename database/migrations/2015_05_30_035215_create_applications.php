@@ -12,16 +12,16 @@ class CreateApplications extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('applications', function($table)
+		Schema::create('applications', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('applicant_id');
+			$table->integer('user_id');
 			$table->integer('university_id');
 			$table->integer('major_1_id');
 			$table->integer('major_2_id');
 			$table->integer('aggree_to_auto_move');
-			$table->string('test_number', 20)->nullable();			
-			$table->timestamps();			
+			$table->string('test_number', 20)->nullable();
+			$table->timestamps();
 		});
 	}
 

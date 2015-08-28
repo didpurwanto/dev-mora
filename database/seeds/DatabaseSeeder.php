@@ -28,16 +28,16 @@ class DatabaseSeeder extends Seeder {
 
 		// $this->call('UserTableSeeder');
 		// $this->call('ApplicationTableSeeder');
-		// $this->call('EducationLevelSeeder');
+		$this->call('EducationLevelSeeder');
 		$this->call('JobTypeSeeder');
 		$this->call('PesantrenTypeSeeder');
 		$this->call('ProgramStudySeeder');
 		$this->call('RangeSalarySeeder');
 		$this->call('SchoolTypeSeeder');
-		$this->call('FamilyTableSeeder');
+		//$this->call('FamilyTableSeeder');
 		$this->call('ProvinceSeeder');
-		$this->call('KabupatenSeeder');
-		$this->call('KecamatanSeeder');
+		//$this->call('KabupatenSeeder');
+		//$this->call('KecamatanSeeder');
 	}
 
 
@@ -145,10 +145,10 @@ class PesantrenTypeSeeder extends Seeder {
 		DB::table('pesantren_types')->delete();
 
 		$types = [
-			['type_name' => 'Muadalah'],
-			['type_name' => 'SalafiyahMuadalah'],
-			['type_name' => 'Kombinasi'],
-			['type_name' => 'Lain-lain']
+			['id'=>1,'type_name' => 'Muadalah'],
+			['id'=>2,'type_name' => 'SalafiyahMuadalah'],
+			['id'=>3,'type_name' => 'Kombinasi'],
+			['id'=>4,'type_name' => 'Lain-lain']
 		];
 
 
@@ -163,11 +163,11 @@ class ProgramStudySeeder extends Seeder {
 		DB::table('program_studies')->delete();
 
 		$programs = [
-			['program_name' => 'IPA', 'list_subject' 		=>  'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\n'],
-			['program_name' => 'IPS', 'list_subject' 		=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\n'],
-			['program_name' => 'BAHASA', 'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\n'],
-			['program_name' => 'AGAMA', 'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\n'],
-			['program_name' => 'Paket C', 'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking\r\n']
+			['id'=>1, 'program_name' => 'IPA', 'list_subject' 		=>  'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
+			['id'=>2, 'program_name' => 'IPS', 'list_subject' 		=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
+			['id'=>3, 'program_name' => 'BAHASA', 'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
+			['id'=>4, 'program_name' => 'AGAMA', 'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
+			['id'=>5,'program_name' => 'Paket C', 'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking']
 		];
 
 		ProgramStudy::insert($programs);
@@ -180,11 +180,11 @@ class RangeSalarySeeder extends Seeder {
 		DB::table('range_salaries')->delete();
 
 		$salaries = [
-			['range_name' => 'Kurang dari 500.000'],
-			['range_name' => '500.000-1.000.000'],
-			['range_name' => '1.000.000-2.000.000'],
-			['range_name' => '1.000.000-3.000.000'],
-			['range_name' => 'Lebih besar dari 3.000.000']
+			['id'=>1, 'range_name' => 'Kurang dari 500.000'],
+			['id'=>2, 'range_name' => '500.000-1.000.000'],
+			['id'=>3, 'range_name' => '1.000.000-2.000.000'],
+			['id'=>4, 'range_name' => '1.000.000-3.000.000'],
+			['id'=>5, 'range_name' => 'Lebih besar dari 3.000.000']
 		];
 
 		RangeSalary::insert($salaries);
@@ -197,12 +197,12 @@ class SchoolTypeSeeder extends Seeder {
 		DB::table('school_types')->delete();
 
 		$types = [
-			['type_name' => 'MA'],
-			['type_name' => 'SMA'],
-			['type_name' => 'SMK'],
-			['type_name' => 'PPM'],
-			['type_name' => 'PPS'],
-			['type_name' => 'Lain-lain']
+			['id'=>1, 'type_name' => 'MA'],
+			['id'=>2, 'type_name' => 'SMA'],
+			['id'=>3,'type_name' => 'SMK'],
+			['id'=>4, 'type_name' => 'PPM'],
+			['id'=>5, 'type_name' => 'PPS'],
+			['id'=>6, 'type_name' => 'Lain-lain']
 		];
 
 		SchoolType::insert($types);
@@ -254,6 +254,7 @@ class ProvinceSeeder extends Seeder {
 		Province::insert($prov);
 	}
 }
+/*
 class KabupatenSeeder extends Seeder {
 	public function run()
 	{
@@ -774,7 +775,7 @@ class KecamatanSeeder extends Seeder {
 	{
 		DB::table('kecamatans')->delete();
 
-		$kec = [ 
+		$kec = [
 			[ 'id' =>1,'kecamatan_name' => ' Kepulauan Seribu Selatan', 'kabupaten_id' => '160'],
 			[ 'id' =>2,'kecamatan_name' => ' Kepulauan Seribu Utara', 'kabupaten_id' => '160'],
 			[ 'id' =>3,'kecamatan_name' => ' Tanah Abang', 'kabupaten_id' => '162'],
@@ -7323,8 +7324,10 @@ class KecamatanSeeder extends Seeder {
 			[ 'id' =>6546,'kecamatan_name' => ' Sorong', 'kabupaten_id' => '468'],
 			[ 'id' =>6547,'kecamatan_name' => ' Sorong Kepulauan', 'kabupaten_id' => '468'],
 			[ 'id' =>6548,'kecamatan_name' => ' Sorong Utara', 'kabupaten_id' => '468']
-		];		
+		];
 
 		Kecamatan::insert($kec);
 	}
+
 }
+*/

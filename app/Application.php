@@ -6,18 +6,18 @@ class Application extends Model {
 
 	protected $table = 'applications';
 
-	public $guarded = ['id','applicant_id'];
-	
+	public $guarded = ['id','user_id'];
+
 	public function university()
 	{
 		return $this->belongsTo('App\University');
 	}
-	
+
 	public function departement()
 	{
 		return $this->hasOne('App\Departement','id','major_1_id');
 	}
-	
+
 	public function departement2()
 	{
 		return $this->hasOne('App\Departement','id','major_2_id');

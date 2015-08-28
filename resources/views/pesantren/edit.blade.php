@@ -3,16 +3,16 @@
 @section('content')
 	<h2>Data Pesantren</h2>
 	<hr />
-	
-	{!! Form::model($pes,['method' => 'PATCH','url' => ['/pesantrens',$pes->id]]) !!}
+
+	{!! Form::model($pes,['method' => 'PATCH','url' => ['/pesantrens']]) !!}
 		@include ('pesantren.form', ['text' => 'Simpan'])
 	{!! Form::close() !!}
-	
+
 	@include('errors.list')
 @stop
 
 @section('script')
-	
+
 	<script type="text/javascript">
     $(document).ready(function() {
         $("#province_id").change(function() {
@@ -27,7 +27,7 @@
         });
     });
 	</script>
-	
+
 	<script type="text/javascript">
     $(document).ready(function() {
         $("#kabupaten_id").change(function() {

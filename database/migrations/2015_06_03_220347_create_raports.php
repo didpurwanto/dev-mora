@@ -15,14 +15,14 @@ class CreateRaports extends Migration {
 		Schema::create('raports', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('applicant_id');
+			$table->integer('user_id');
 			$table->string('subject_1', 50);
 			$table->string('subject_2', 50);
 			$table->string('subject_3', 50);
 			$table->string('subject_4', 50);
 			$table->string('subject_5', 50);
 			$table->string('ranking', 50);
-			$table->timestamps();			
+			$table->timestamps();
 		});
 	}
 

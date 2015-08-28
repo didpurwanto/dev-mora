@@ -6,7 +6,7 @@ class Family extends Model {
 
 	protected $table = 'families';
 
-	public $guarded = ['id','applicant_id'];
+	public $guarded = ['id','user_id'];
 
 	public function educationLevel()
 	{

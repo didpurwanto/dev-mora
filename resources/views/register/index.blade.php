@@ -16,7 +16,7 @@
 
     <!-- Custom CSS -->
     {!! Html::style('homepage/css/sb-admin.css') !!}
-	
+
 	<!-- Morris Charts CSS -->
 	{!! Html::style('homepage/css/plugins/morris.css') !!}
 
@@ -29,7 +29,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	
+
 	<!-- Include other spesific CSS -->
 	@yield('css')
 
@@ -41,7 +41,7 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            
+
 			<!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -52,7 +52,7 @@
                 </button>
                 <a class="navbar-brand" href="{!! URL::to('/') !!}">Dev Mora Nasional</a>
             </div>
-			
+
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
@@ -69,7 +69,7 @@
                     </ul>
                 </li>
             </ul>
-			
+
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-left side-nav">
@@ -77,22 +77,22 @@
                         <a href="{!! URL::to('/applicanthome') !!}"><i class="fa fa-fw fa-dashboard"></i> Beranda</a>
                     </li>
                     <li class="{!! Request::is('applicants/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/applicants',1) !!}"><i class="fa fa-fw fa-edit"></i> Biodata</a>
+                        <a href="{!! URL::to('/applicants/edit') !!}"><i class="fa fa-fw fa-edit"></i> Biodata</a>
                     </li>
                     <li class="{!! Request::is('families/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/families',1) !!}"><i class="fa fa-fw fa-edit"></i> Data Keluarga</a>
+                        <a href="{!! URL::to('/families') !!}"><i class="fa fa-fw fa-edit"></i> Data Keluarga</a>
                     </li>
                     <li class="{!! Request::is('pesantrens/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/pesantrens',1) !!}"><i class="fa fa-fw fa-edit"></i> Data Pesantren</a>
+                        <a href="{!! URL::to('/pesantrens') !!}"><i class="fa fa-fw fa-edit"></i> Data Pesantren</a>
                     </li>
                     <li class="{!! Request::is('schools/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/schools',1) !!}"><i class="fa fa-fw fa-edit"></i> Data Sekolah</a>
+                        <a href="{!! URL::to('/schools') !!}"><i class="fa fa-fw fa-edit"></i> Data Sekolah</a>
                     </li>
                     <li class="{!! Request::is('raports/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/raports',1) !!}"><i class="fa fa-fw fa-edit"></i> Data Raport</a>
+                        <a href="{!! URL::to('/raports') !!}"><i class="fa fa-fw fa-edit"></i> Data Raport</a>
                     </li>
                     <li class="{!! Request::is('applications/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/applications',1) !!}"><i class="fa fa-fw fa-edit"></i> Pilih Studi</a>
+                        <a href="{!! URL::to('/applications') !!}"><i class="fa fa-fw fa-edit"></i> Pilih Studi</a>
                     </li>
                     <li class="{!! Request::is('summary/*') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/summary',1) !!}"><i class="fa fa-fw fa-desktop"></i> Summary</a>
@@ -148,17 +148,17 @@
 
     <!-- Bootstrap Core JavaScript -->
 	{!! Html::script('homepage/js/bootstrap.min.js', array('type' => 'text/javascript')) !!}
-	
+
 	<!-- Include another specific JavaScript  -->
 	@yield('script')
 
 	<!-- Morris Charts JavaScript-->
 	{!! Html::script('homepage/js/plugins/morris/raphael.min.js', array('type' => 'text/javascript')) !!}
-   
+
 	{!! Html::script('homepage/js/plugins/morris/morris.min.js', array('type' => 'text/javascript')) !!}
-  
+
 	{!! Html::script('homepage/js/plugins/morris/morris-data.js', array('type' => 'text/javascript')) !!}
-     
+
 </body>
 
 </html>

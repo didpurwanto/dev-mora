@@ -13,8 +13,8 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('applicanthome', 'HomeController@index');
-Route::post('applicanthome', 'HomeController@index');
+Route::get('applicanthome', ['middleware' => 'auth', 'uses' =>'HomeController@index']);
+Route::post('applicanthome', ['middleware' => 'auth', 'uses' =>'HomeController@index']);
 
 //auth
 Route::controllers([
@@ -40,28 +40,28 @@ Route::resource('departements','DepartementsController');
 //Route::resource('applicants','ApplicantsController',['except' => ['index', 'show']]);
 Route::get('applicants', 'ApplicantsController@create');
 Route::post('applicants', 'ApplicantsController@store');
-Route::get('applicants/{id}', 'ApplicantsController@edit');
-Route::patch('applicants/{id}', 'ApplicantsController@update');
+Route::get('applicants/edit', 'ApplicantsController@edit');
+Route::patch('applicants/edit', 'ApplicantsController@update');
 
 //Family Route
 //Route::resource('families','FamiliesController',['except' => ['index', 'show']]);
-Route::get('families/{id}', 'FamiliesController@edit');
-Route::patch('families/{id}', 'FamiliesController@update');
+Route::get('families', 'FamiliesController@edit');
+Route::patch('families', 'FamiliesController@update');
 
 //Pesantren Route
 //Route::resource('pesantrens','PesantrensController',['except' => ['index', 'show', 'create']]);
-Route::get('pesantrens/{id}', 'PesantrensController@edit');
-Route::patch('pesantrens/{id}', 'PesantrensController@update');
+Route::get('pesantrens', 'PesantrensController@edit');
+Route::patch('pesantrens', 'PesantrensController@update');
 
 //School Route
 //Route::resource('schools','SchoolsController',['except' => ['index', 'show', 'create']]);
-Route::get('schools/{id}', 'SchoolsController@edit');
-Route::patch('schools/{id}', 'SchoolsController@update');
+Route::get('schools', 'SchoolsController@edit');
+Route::patch('schools', 'SchoolsController@update');
 
 //Raports Route
 //Route::resource('raports','RaportsController',['except' => ['index', 'show', 'create']]);
-Route::get('raports/{id}', 'RaportsController@edit');
-Route::patch('raports/{id}', 'RaportsController@update');
+Route::get('raports', 'RaportsController@edit');
+Route::patch('raports', 'RaportsController@update');
 
 //Application Route
 //Route::resource('applications','ApplicationsController',['except' => ['index', 'show', 'create']]);

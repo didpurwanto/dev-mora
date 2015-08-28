@@ -10,8 +10,14 @@ use App\Kabupaten;
 use App\Kecamatan;
 use App\PesantrenType;
 use App\Pesantren;
+use Auth;
 
 class PesantrensController extends Controller {
+
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -19,9 +25,10 @@ class PesantrensController extends Controller {
 	 * @param  int  $applicant_id
 	 * @return Response
 	 */
-	public function edit($applicant_id)
+	public function edit()
 	{
-		$pes = Pesantren::findOrFail($applicant_id);
+		//$fam = Family::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		$pes = Pesantren::where('user_id', '=', Auth::user()->id)->firstOrFail();
 
 		$prov = Province::lists('province_name','id');
 		$kab = Kabupaten::where('id',$pes->kabupaten_id)->lists('kabupaten_name','id');
@@ -38,9 +45,10 @@ class PesantrensController extends Controller {
 	 * @param  int  $applicant_id
 	 * @return Response
 	 */
-	public function update($applicant_id, PesantrenRequest $request)
+	public function update(PesantrenRequest $request)
 	{
-		$pes = Pesantren::findOrFail($applicant_id);
+		$pes = Pesantren::where('user_id', '=', Auth::user()->id)->firstOrFail();
+
 		//Save record to the database
 		$form = $pes->update($request->all());
 		//

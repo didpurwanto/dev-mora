@@ -15,7 +15,7 @@ class CreateFamilies extends Migration {
 		Schema::create('families', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('applicant_id');
+			$table->integer('user_id');
 
 			$table->string('father_name', 50);
 			$table->string('father_age', 100);
@@ -36,7 +36,7 @@ class CreateFamilies extends Migration {
 			$table->integer('kabupaten_id');
 			$table->integer('kecamatan_id');
 
-			$table->timestamps();	
+			$table->timestamps();
 		});
 	}
 

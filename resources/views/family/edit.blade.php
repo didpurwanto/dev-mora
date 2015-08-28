@@ -4,7 +4,7 @@
 	<h2>Biodata Keluarga</h2>
 	<hr />
 
-	{!! Form::model($fam,['method' => 'PATCH','url' => ['/families',$fam->id]]) !!}
+	{!! Form::model($fam,['method' => 'PATCH','url' => ['/families']]) !!}
 		@include ('family.form', ['text' => 'Simpan'])
 	{!! Form::close() !!}
 

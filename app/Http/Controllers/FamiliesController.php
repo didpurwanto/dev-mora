@@ -13,12 +13,19 @@ use App\EducationLevel;
 use App\JobType;
 use App\RangeSalary;
 use App\Family;
+use Auth;
 
 class FamiliesController extends Controller {
 
-	public function edit($applicant_id)
+	public function __construct()
 	{
-		$fam = Family::findOrFail($applicant_id);
+		$this->middleware('auth');
+	}
+
+	public function edit()
+	{
+		$fam = Family::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		//$fam = Family::findOrFail($user_id);
 
 		//$idsaja = $fam->id;
 		//dd($idsaja);
@@ -28,14 +35,8 @@ class FamiliesController extends Controller {
 		$jobs = JobType::lists('job_name','id');
 		$salary = RangeSalary::lists('range_name','id');
 
-<<<<<<< HEAD
 		// $kab = Kabupaten::where('id',$fam->kabupaten_id)->lists('kabupaten_name','id');
 		// $kec = Kecamatan::where('id',$fam->kecamatan_id)->lists('kecamatan_name','id');
-=======
-		//$kab = Kabupaten::where('id',$fam->kabupaten_id)->lists('kabupaten_name','id');
-		//$kec = Kecamatan::where('id',$fam->kecamatan_id)->lists('kecamatan_name','id');
->>>>>>> 0f9ff17a88255f9361e34552cec5bf15c7dcd089
-
 		return view('family.edit', compact('fam','prov','edu_level','jobs','salary'));
 	}
 
@@ -45,14 +46,15 @@ class FamiliesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($applicant_id, FamilyRequest $request)
+	public function update(FamilyRequest $request)
 	{
-		$fam = Family::findOrFail($applicant_id);
+		$fam = Family::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		//$affectedRows = User::where('votes', '>', 100)->update(array('status' => 2));
 		//Save record to the database
 		$form = $fam->update($request->all());
 
 		//Return to universities controller
-		return redirect('pesantrens/'. $fam->applicant_id);
+		return redirect('pesantrens/');
 	}
 
 

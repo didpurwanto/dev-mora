@@ -31,9 +31,9 @@ class SchoolRequest extends Request {
 			'program_study_id' => 'required',
 			'inside_pondok' => 'required',
 			'school_address' => 'required',
-			'province_id' => 'required',
-			'kabupaten_id' => 'required',
-			'kecamatan_id' => 'required'
+			'province_id' => 'required'
+			//'kabupaten_id' => 'required',
+			//'kecamatan_id' => 'required'
 		];
 	}
 
