@@ -65,8 +65,8 @@ Route::patch('raports', 'RaportsController@update');
 
 //Application Route
 //Route::resource('applications','ApplicationsController',['except' => ['index', 'show', 'create']]);
-Route::get('applications/{id}', 'ApplicationsController@edit');
-Route::patch('applications/{id}', 'ApplicationsController@update');
+Route::get('applications', 'ApplicationsController@edit');
+Route::patch('applications', 'ApplicationsController@update');
 
 
 //Summary Route

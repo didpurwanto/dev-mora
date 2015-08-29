@@ -10,6 +10,7 @@ use App\University;
 use App\Departement;
 use App\School;
 use App\ProgramStudy;
+use Auth;
 
 class ApplicationsController extends Controller {
 
@@ -20,12 +21,12 @@ class ApplicationsController extends Controller {
 		$this->middleware('auth');
 	}
 
-	public function edit($applicant_id)
+	public function edit()
 	{
 		$dep1 = "";
 		$dep2 = "";
 
-		$program_study_id = School::where('applicant_id', $applicant_id)->pluck('program_study_id');
+		$program_study_id = School::where('user_id', Auth::user()->id)->pluck('program_study_id');
 		//dd($program_study_id);
 		//$program_study = ProgramStudy::
 		$univ = University::lists('university_name','id');
@@ -34,7 +35,7 @@ class ApplicationsController extends Controller {
 
 		//$appl_univ = Application::with('university')->get();
 		//$departemen = Departement::where('program_study_id', $program_study_id)->lists('departement_name','id');
-		$appl = Application::findOrFail($applicant_id);
+		$appl = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
 
 		/*--------------
 		if (! $appl->major_1_id == 0)
@@ -56,13 +57,13 @@ class ApplicationsController extends Controller {
 	 * @param  int  $applicant_id
 	 * @return Response
 	 */
-	public function update($applicant_id, ApplicationRequest $request)
+	public function update(ApplicationRequest $request)
 	{
-		$appl = Application::findOrFail($applicant_id);
+		$appl = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
 		//Save record to the database
 		$form = $appl->update($request->all());
 		//
-		return redirect('summary/'. $appl->applicant_id);
+		return redirect('summary');
 	}
 
 	/**

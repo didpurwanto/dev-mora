@@ -3,11 +3,11 @@
 @section('content')
 	<h2>Pilihan Jurusan</h2>
 	<hr />
-	
-	{!! Form::model($appl,['method' => 'PATCH','url' => ['/applications',$appl->id]]) !!}
+
+	{!! Form::model($appl,['method' => 'PATCH','url' => ['/applications']]) !!}
 		@include ('application.form', ['text' => 'Simpan'])
 	{!! Form::close() !!}
-	
+
 	@include('errors.list')
 @stop
 
@@ -17,7 +17,7 @@
 	   $('#university_id').change();
 	});
 	</script>
-	
+
 	<script type="text/javascript">
     $(document).ready(function() {
         $("#university_id").change(function(){
@@ -32,7 +32,7 @@
         });
     });
 	</script>
-	
+
 	<script type="text/javascript">
     $(document).ready(function() {
         $("#university_id").change(function(){

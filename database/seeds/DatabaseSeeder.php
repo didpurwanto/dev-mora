@@ -104,14 +104,14 @@ class EducationLevelSeeder extends Seeder {
 		DB::table('education_levels')->delete();
 
 		$educations = [
-			[ 'level_name' => 'Tidak Sekolah' ],
-			[ 'level_name' => 'SD/MI' ],
-			[ 'level_name' => 'SMP/MTS' ],
-			[ 'level_name' => 'SMA/MA/SMK/SEDERAJAT' ],
-			[ 'level_name' => 'D1/D2/D3' ],
-			[ 'level_name' => 'D4/S1' ],
-			[ 'level_name' => 'S2' ],
-			[ 'level_name' => 'S3' ]
+			['id'=>1, 'level_name' => 'Tidak Sekolah' ],
+			['id'=>2, 'level_name' => 'SD/MI' ],
+			['id'=>3, 'level_name' => 'SMP/MTS' ],
+			['id'=>4, 'level_name' => 'SMA/MA/SMK/SEDERAJAT' ],
+			['id'=>5, 'level_name' => 'D1/D2/D3' ],
+			['id'=>6, 'level_name' => 'D4/S1' ],
+			['id'=>7, 'level_name' => 'S2' ],
+			['id'=>8, 'level_name' => 'S3' ]
 		];
 
 		EducationLevel::insert($educations);
@@ -124,14 +124,14 @@ class JobTypeSeeder extends Seeder{
 		DB::table('job_types')->delete();
 
 		$jobs = [
-			['job_name' => 'PNS[Non Guru dan Dosen]'],
-			['job_name' => 'Pegawai Swasta/BUMN/BUMD'],
-			['job_name' => 'Petani/Nelayan'],
-			['job_name' => 'Penguasaha'],
-			['job_name' => 'TNI/Polri'],
-			['job_name' => 'Guru/Dosen'],
-			['job_name' => 'Pensiunan'],
-			['job_name' => 'Tidak Bekerja']
+			['id'=>1,'job_name' => 'PNS[Non Guru dan Dosen]'],
+			['id'=>2,'job_name' => 'Pegawai Swasta/BUMN/BUMD'],
+			['id'=>3,'job_name' => 'Petani/Nelayan'],
+			['id'=>4,'job_name' => 'Penguasaha'],
+			['id'=>5,'job_name' => 'TNI/Polri'],
+			['id'=>6,'job_name' => 'Guru/Dosen'],
+			['id'=>7,'job_name' => 'Pensiunan'],
+			['id'=>8,'job_name' => 'Tidak Bekerja']
 		];
 
 		JobType::insert($jobs);

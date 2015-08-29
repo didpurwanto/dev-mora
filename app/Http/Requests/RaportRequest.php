@@ -30,11 +30,11 @@ class RaportRequest extends Request {
 			'r1' => 'required','r2' => 'required','r3' => 'required','r4' => 'required','r5' => 'required','r6' => 'required'
 		];
 	}
-	
+
 	public function messages()
 	{
 		return [
-			'required' => 'Semua Nilai dan Ranking harus di risi dengan benar',
+			'required' => 'Semua Nilai dan Ranking harus di isi dengan nilai yang sebenarnya',
 		];
 	}
 

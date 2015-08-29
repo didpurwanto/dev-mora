@@ -19,7 +19,7 @@ class DepartementsController extends Controller {
 	{
 		$dep = Departement::all();
 		//dd($dep['university_name'] = University::getUniversityName($dep->university_id));
-		
+
 		return view('departement.dep', compact('dep'));
 	}
 
@@ -46,27 +46,31 @@ class DepartementsController extends Controller {
 		//$univ = $request->input('univ_name');
 		//$dept = $this->validate($request, ['departement_name' => 'required']);
 		//$dept->save($request->all());
-		
+
 		//$dept->university()->save($univ);
 		//University->departements()->save($univ);
 		//$this->save();
-		
+
 		//$departemen = new Departement(['departement_name' => 'Teknologi Informasi']);
-		
-		$univ = University::findOrFail($request->input('univ_name'));
-		
-		$departemen = $this->validate($request, ['departement_name' => 'required']);
-		
+
+		$univ = University::where('university_name', '=',$request['univ_name'])->firstOrFail();
+		dd($univ);
+
+		//$departemen = $this->validate($request, ['departement_name' => 'required']);
+
 		//dd($departemen = $request->input('departement_name'));
-		
+
 		$departemen = new Departement(['departement_name' => $request['departement_name']]);
-		
+
 		//dd($departemen);
-				
+
 		$departemen = $univ->departement()->save($departemen);
-		
-		\Session::flash('flash_text','A New Departement has been created!');
-		return redirect('departements');
+
+		//$data = new Departement($request->all());
+		//$form = Departement()->university()->save($data);
+
+		//\Session::flash('flash_text','A New Departement has been created!');
+		//return redirect('departements');
 	}
 
 	/**
@@ -81,7 +85,7 @@ class DepartementsController extends Controller {
 		$dep = Departement::findOrFail($id);
 		$dep['university_name'] = University::where('id',$dep['university_id'])->select('university_name')->first()->university_name;
 		//$dep['university_name'] = $univ->university_name;
-		
+
 		//Sent data to view
 		return view('departement.show', compact('dep'));
 	}
@@ -109,7 +113,7 @@ class DepartementsController extends Controller {
 	 * @return Response
 	 */
 	public function update($id, DepartementRequest $request)
-	{	
+	{
 		//Find or Fail to get ID
 		$dep = Departement::findOrFail($id);
 		// Validate with the parameters

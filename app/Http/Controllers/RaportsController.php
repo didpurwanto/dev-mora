@@ -30,7 +30,7 @@ class RaportsController extends Controller {
 
 		//dd($getProgramStudyId);
 		$getListSubjects = ProgramStudy::where('id', $getProgramStudyId)->pluck('list_subject');
-		dd($getListSubjects);
+		//dd($getListSubjects);
 
 		$listSubjects = explode("; ",$getListSubjects);
 		//dd($list);
