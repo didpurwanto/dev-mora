@@ -1,6 +1,6 @@
 <div class="form-group">
 	{!! Form::label('univ_name', 'Nama Universitas :') !!}
-	{!! Form::select('univ_name',$univ_list, 1 , ['class' => 'form-control']) !!}
+	{!! Form::select('university_id',$univ_list, 0, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('departement_name', 'Nama Departemen :') !!}

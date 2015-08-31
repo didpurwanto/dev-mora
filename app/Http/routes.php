@@ -70,9 +70,9 @@ Route::patch('applications', 'ApplicationsController@update');
 
 
 //Summary Route
-Route::get('summary/{id}', 'SummaryController@index');
+Route::get('summary', 'SummaryController@index');
 //Summary Route
-Route::get('prints/{id}', 'SummaryController@cetak');
+//Route::get('prints/{id}', 'SummaryController@cetak');
 
 /*
 |

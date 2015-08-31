@@ -31,14 +31,36 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+
+  // Relation
 	public function applicant()
 	{
 		return $this->hasOne('App\Applicant');
 	}
 
-	public function newApplicant()
+	public function family()
 	{
+		return $this->hasOne('App\Family');
+	}
 
+	public function pesantren()
+	{
+		return $this->hasOne('App\Pesantren');
+	}
+
+	public function school()
+	{
+		return $this->hasOne('App\School');
+	}
+
+	public function raport()
+	{
+		return $this->hasOne('App\Raport');
+	}
+
+	public function application()
+	{
+		return $this->hasOne('App\Application');
 	}
 
 }

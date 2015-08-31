@@ -95,10 +95,10 @@
                         <a href="{!! URL::to('/applications') !!}"><i class="fa fa-fw fa-edit"></i> Pilih Studi</a>
                     </li>
                     <li class="{!! Request::is('summary/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/summary',1) !!}"><i class="fa fa-fw fa-desktop"></i> Summary</a>
+                        <a href="{!! URL::to('/summary') !!}"><i class="fa fa-fw fa-desktop"></i> Summary</a>
                     </li>
                     <li class="{!! Request::is('prints/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/prints',1) !!}"><i class="fa fa-fw fa-file"></i> Cetak Kartu</a>
+                        <a href="{!! URL::to('/prints') !!}"><i class="fa fa-fw fa-file"></i> Cetak Kartu</a>
                     </li>
                 </ul>
             </div>

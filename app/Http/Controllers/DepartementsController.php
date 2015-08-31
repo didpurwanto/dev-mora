@@ -30,7 +30,7 @@ class DepartementsController extends Controller {
 	 */
 	public function create()
 	{
-		$univ_list= University::lists('university_name');
+		$univ_list= University::lists('university_name','id');
 		return view('departement.create', compact('univ_list'));
 	}
 
@@ -53,18 +53,22 @@ class DepartementsController extends Controller {
 
 		//$departemen = new Departement(['departement_name' => 'Teknologi Informasi']);
 
-		$univ = University::where('university_name', '=',$request['univ_name'])->firstOrFail();
-		dd($univ);
+		//$univ = new University;
+		//dd($univ);
 
+		$data = new Departement($request->all());
+
+    //dd($data);
+		$data->save();
 		//$departemen = $this->validate($request, ['departement_name' => 'required']);
 
 		//dd($departemen = $request->input('departement_name'));
 
-		$departemen = new Departement(['departement_name' => $request['departement_name']]);
+		//$departemen = new Departement(['departement_name' => $request['departement_name']]);
 
 		//dd($departemen);
 
-		$departemen = $univ->departement()->save($departemen);
+		//$departemen = $univ->departement()->save($data);
 
 		//$data = new Departement($request->all());
 		//$form = Departement()->university()->save($data);
