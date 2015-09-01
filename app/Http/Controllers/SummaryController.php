@@ -31,9 +31,10 @@ class SummaryController extends Controller {
 		return view('summary', compact('user','date_birth'));
 	}
 
-	public function cetak($id)
+	public function cetak()
 	{
-		$applicant = Applicant::findOrFail($id);
+		//$applicant = Applicant::findOrFail($id);
+		$applicant = Applicant::where('user_id', '=', Auth::user()->id)->firstOrFail();
 
 		return view('prints',compact('applicant'));
 	}

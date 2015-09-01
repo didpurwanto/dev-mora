@@ -72,7 +72,7 @@ Route::patch('applications', 'ApplicationsController@update');
 //Summary Route
 Route::get('summary', 'SummaryController@index');
 //Summary Route
-//Route::get('prints/{id}', 'SummaryController@cetak');
+Route::get('prints', 'SummaryController@cetak');
 
 /*
 |

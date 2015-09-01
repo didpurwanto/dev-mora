@@ -32,7 +32,7 @@
           <div class="col-lg-12">
               <div class="alert alert-success">
                 <font color="black">
-                  <h2>Selamat Datang, Didik Purwanto </h2><br />
+                  <h2>Selamat Datang, {!! strtoupper(\Auth::user()->username); !!} </h2><br />
 
                   <p>
                     Website ini adalah sistem informasi pendaftaran program beasiswa PBSB. Silahkan Anda melengkapi form pendaftaran yang berisi biodata, data keluarga, data pesantren, data raport, dan pilihan studi Anda.
@@ -50,9 +50,10 @@
                   3. Lengkapi data Anda sampai halaman terakhir <br />
 
                   <br />
+                  <br />
 
-                  <a href="{!! URL::to('/applicants') !!}" type="button" class="btn btn-success">Mulai Mengisi</a>
-				</font>
+                  <a href="{!! URL::to('/applicants/edit') !!}" type="button" class="btn btn-success">Mulai Mengisi</a>
+				        </font>
               </div>
           </div>
       </div>

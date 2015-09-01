@@ -200,7 +200,7 @@
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">Pimpinan Pondok Pesantren</div>
+				<div class="col-md-2 column">Nama Pimpinan</div>
 				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
 					 {!! Form::label($user->pesantren->kiai_name) !!}
@@ -285,7 +285,7 @@
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">Telp. Sekolah</div>
+				<div class="col-md-2 column">No. Telepon Sekolah</div>
 				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
 					 {!! Form::label($user->school->school_contact) !!}
