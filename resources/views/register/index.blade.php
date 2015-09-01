@@ -17,11 +17,11 @@
     <!-- Custom CSS -->
     {!! Html::style('homepage/css/sb-admin.css') !!}
 
-	<!-- Morris Charts CSS -->
-	{!! Html::style('homepage/css/plugins/morris.css') !!}
+  	<!-- Morris Charts CSS -->
+  	{!! Html::style('homepage/css/plugins/morris.css') !!}
 
     <!-- Custom Fonts -->
-	{!! Html::style('homepage/font-awesome/css/font-awesome.min.css') !!}
+	  {!! Html::style('homepage/font-awesome/css/font-awesome.min.css') !!}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,7 +42,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
-			<!-- Brand and toggle get grouped for better mobile display -->
+			  <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -74,31 +74,31 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-left side-nav">
                     <li class="{!! Request::is('applicanthome') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/applicanthome') !!}"><i class="fa fa-fw fa-dashboard"></i> Beranda</a>
+                        <a href="{!! URL::to('/applicanthome') !!}"><i class="fa fa-fw fa-2x fa-dashboard icon-green"></i> Beranda</a>
                     </li>
                     <li class="{!! Request::is('applicants/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/applicants/edit') !!}"><i class="fa fa-fw fa-edit"></i> Biodata</a>
+                        <a href="{!! URL::to('/applicants/edit') !!}"><i class="fa fa-fw fa-2x fa-user icon-green"></i> Biodata Pribadi</a>
                     </li>
                     <li class="{!! Request::is('families/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/families') !!}"><i class="fa fa-fw fa-edit"></i> Data Keluarga</a>
+                        <a href="{!! URL::to('/families') !!}"><i class="fa fa-fw fa-2x fa-users icon-green"></i> Data Keluarga</a>
                     </li>
                     <li class="{!! Request::is('pesantrens/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/pesantrens') !!}"><i class="fa fa-fw fa-edit"></i> Data Pesantren</a>
+                        <a href="{!! URL::to('/pesantrens') !!}"><i class="fa fa-fw fa-2x fa-institution icon-green"></i> Data Pesantren</a>
                     </li>
                     <li class="{!! Request::is('schools/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/schools') !!}"><i class="fa fa-fw fa-edit"></i> Data Sekolah</a>
+                        <a href="{!! URL::to('/schools') !!}"><i class="fa fa-fw fa-2x fa-building icon-green"></i> Data Sekolah</a>
                     </li>
                     <li class="{!! Request::is('raports/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/raports') !!}"><i class="fa fa-fw fa-edit"></i> Data Raport</a>
+                        <a href="{!! URL::to('/raports') !!}"><i class="fa fa-fw fa-2x fa-briefcase icon-green"></i> Data Raport</a>
                     </li>
                     <li class="{!! Request::is('applications/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/applications') !!}"><i class="fa fa-fw fa-edit"></i> Pilih Studi</a>
+                        <a href="{!! URL::to('/applications') !!}"><i class="fa fa-fw fa-2x fa-graduation-cap icon-green"></i> Pilihan Jurusan</a>
                     </li>
                     <li class="{!! Request::is('summary/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/summary') !!}"><i class="fa fa-fw fa-desktop"></i> Summary</a>
+                        <a href="{!! URL::to('/summary') !!}"><i class="fa fa-fw fa-2x fa-desktop icon-green"></i> Rangkuman</a>
                     </li>
                     <li class="{!! Request::is('prints/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/prints') !!}"><i class="fa fa-fw fa-file"></i> Cetak Kartu</a>
+                        <a href="{!! URL::to('/prints') !!}"><i class="fa fa-fw fa-2x fa-print icon-green"></i> Cetak Kartu</a>
                     </li>
                 </ul>
             </div>
@@ -114,22 +114,22 @@
                      <b><font color="{!! Request::is('applicants*') ? 'red' : 'grey' !!}"> Langkah 1</font></b>
                   </li>
                   <li>
-                    <b><font color="{!! Request::is('families/*') ? 'red' : 'grey' !!}">Langkah 2</font></b>
+                    <b><font color="{!! Request::is('families*') ? 'red' : 'grey' !!}">Langkah 2</font></b>
                   </li>
                   <li>
-                    <b><font color="{!! Request::is('pesantrens/*') ? 'red' : 'grey' !!}">Langkah 3</font></b>
+                    <b><font color="{!! Request::is('pesantrens*') ? 'red' : 'grey' !!}">Langkah 3</font></b>
                   </li>
                   <li>
-                    <b><font color="{!! Request::is('schools/*') ? 'red' : 'grey' !!}">Langkah 4</font></b>
+                    <b><font color="{!! Request::is('schools*') ? 'red' : 'grey' !!}">Langkah 4</font></b>
                   </li>
                   <li>
-                    <b><font color="{!! Request::is('raports/*') ? 'red' : 'grey' !!}">Langkah 5</font></b>
+                    <b><font color="{!! Request::is('raports*') ? 'red' : 'grey' !!}">Langkah 5</font></b>
                   </li>
                   <li>
-                    <b><font color="{!! Request::is('applications/*') ? 'red' : 'grey' !!}">Langkah 6</font></b>
+                    <b><font color="{!! Request::is('applications*') ? 'red' : 'grey' !!}">Langkah 6</font></b>
                   </li>
                   <li>
-                    <b><font color="{!! Request::is('summary/*') ? 'red' : 'grey' !!}">Summary</font></b>
+                    <b><font color="{!! Request::is('summary*') ? 'red' : 'grey' !!}">Summary</font></b>
                   </li>
               </ol>
 				<div class="alert alert-success">

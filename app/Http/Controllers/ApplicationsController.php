@@ -31,7 +31,7 @@ class ApplicationsController extends Controller {
 		//$program_study = ProgramStudy::
 		$univ = University::lists('university_name','id');
 
-		$dep = Departement::where('study_program_id', $program_study_id)->lists('departement_name','id');
+		$dep = Departement::where('study_program_id','=', $program_study_id)->lists('departement_name','id');
 
 		//$appl_univ = Application::with('university')->get();
 		//$departemen = Departement::where('program_study_id', $program_study_id)->lists('departement_name','id');
@@ -81,7 +81,7 @@ class ApplicationsController extends Controller {
     {
         $departs = Departement::where('university_id', $university_id)->get();
         //dd($kabupatens);
-		$options = array();
+		    $options = array();
 
         foreach ($departs as $depart) {
             $options += array($depart->id => $depart->departement_name);
