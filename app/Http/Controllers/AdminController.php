@@ -4,6 +4,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\University;
+use App\Http\Requests\UniversityRequest;
 
 class AdminController extends Controller {
 
@@ -82,4 +84,9 @@ class AdminController extends Controller {
 		//
 	}
 
+	public function univlist()
+	{
+		$univ = University::all();
+		return view('admin.university', compact('univ'));
+	}
 }

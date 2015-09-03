@@ -110,3 +110,5 @@ Route::get('users/create', 'UserController@create');
 Route::post('users', 'UserController@store');
 
 Route::get('admin', 'AdminController@index');
+Route::get('report/univ', 'AdminController@univlist');
+
