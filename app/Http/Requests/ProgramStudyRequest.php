@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class DepartementRequest extends Request {
+class ProgramStudyRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -22,14 +22,16 @@ class DepartementRequest extends Request {
 	public function rules()
 	{
 		return [
-			'departement_name' => 'required'
+			'program_name' => 'required',
+			'list_subject' => 'required'
 		];
 	}
 
 	public function messages()
 	{
 		return [
-			'departement_name.required' => 'Nama Departemen tidak boleh kosong'
+			'program_name.required' => 'Nama Departemen tidak boleh kosong',
+			'list_subject.required' => 'Daftar Pelajaran tidak boleh kosong'
 		];
 	}
 

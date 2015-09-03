@@ -5,7 +5,9 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Applicant;
+use App\User;
 use PDF;
+use Auth;
 
 class SummaryController extends Controller {
 
@@ -13,22 +15,26 @@ class SummaryController extends Controller {
 	{
 		$this->middleware('auth');
 	}
-	
-	public function index($id)
+
+	public function index()
 	{
-		$app = Applicant::find($id);
+		//$app = Applicant::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		$user = User::where('id', '=', Auth::user()->id)->firstOrFail();
 
 		//$fam = Family::where('applicant_id',$id)->get();
-		$date_birth = explode("-",$app->date_birth);
+		$date_birth = explode("-",$user->applicant->date_birth);
 		$date_birth = $date_birth[2].' - '.$date_birth[1].' - '.$date_birth[0];
 		//dd($date_birth);
 
-		return view('summary',compact('app','date_birth'));
+		//dd($user->family->jobType->job_name);
+
+		return view('summary', compact('user','date_birth'));
 	}
 
-	public function cetak($id)
+	public function cetak()
 	{
-		$applicant = Applicant::findOrFail($id);
+		//$applicant = Applicant::findOrFail($id);
+		$applicant = Applicant::where('user_id', '=', Auth::user()->id)->firstOrFail();
 
 		return view('prints',compact('applicant'));
 	}

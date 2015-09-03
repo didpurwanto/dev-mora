@@ -4,12 +4,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use App\Departement;
-use App\University;
 use App\ProgramStudy;
-use App\Http\Requests\DepartementRequest;
+use App\Http\Requests\ProgramStudyRequest;
 
-class DepartementsController extends Controller {
+class ProgramStudiesController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -18,11 +16,10 @@ class DepartementsController extends Controller {
 	 */
 	public function index()
 	{
-		$dep = Departement::all();
-		//$listProgram = ProgramStudy::lists('program_name');
+		$programs = ProgramStudy::all();
 		//dd($dep['university_name'] = University::getUniversityName($dep->university_id));
 
-		return view('departement.dep', compact('dep'));
+		return view('programstudi.program', compact('programs'));
 	}
 
 	/**
@@ -32,10 +29,8 @@ class DepartementsController extends Controller {
 	 */
 	public function create()
 	{
-		$univ_list= University::lists('university_name','id');
-		$listProgram = ProgramStudy::lists('program_name','id');
-
-		return view('departement.create', compact('univ_list','listProgram'));
+		//$univ_list= University::lists('university_name','id');
+		return view('programstudi.create');
 	}
 
 	/**
@@ -43,9 +38,8 @@ class DepartementsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(DepartementRequest $request)
+	public function store(ProgramStudyRequest $request)
 	{
-		//dd($request->input('program_name'));
 		//dd($request->all());
 		//dd($request->input('univ_name'));
 		//$univ = $request->input('univ_name');
@@ -60,14 +54,11 @@ class DepartementsController extends Controller {
 
 		//$univ = new University;
 		//dd($univ);
-		$depart['university_id'] = $request->input('university_id');
-		$depart['departement_name'] = $request->input('departement_name');
-		//dd($depart);
 
-		$data = Departement::create($depart);
-	  //dd($data);
+		$data = new ProgramStudy($request->all());
 
-		$data->program_studies()->attach($request->input('program_studies'));
+    //dd($data);
+		$data->save();
 		//$departemen = $this->validate($request, ['departement_name' => 'required']);
 
 		//dd($departemen = $request->input('departement_name'));
@@ -86,6 +77,23 @@ class DepartementsController extends Controller {
 	}
 
 	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		//Find or Fail to get ID
+		$dep = ProgramStudy::findOrFail($id);
+		//$dep['university_name'] = University::where('id',$dep['university_id'])->select('university_name')->first()->university_name;
+		//$dep['university_name'] = $univ->university_name;
+
+		//Sent data to view
+		return view('departement.show', compact('dep'));
+	}
+
+	/**
 	 * Show the form for editing the specified resource.
 	 *
 	 * @param  int  $id
@@ -93,14 +101,12 @@ class DepartementsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		dd($id);
-		$dep = Departement::findOrFail($id);
-
-		$univ_list= University::lists('university_name');
-		$univ = University::where('id',$dep['university_id'])->first()->id;
+		$dep = ProgramStudy::findOrFail($id);
+		//$univ_list= University::lists('university_name');
+		//$univ = University::where('id',$dep['university_id'])->first()->id;
 		//$univ = $univ->id;
 		//dd($univ);
-		return view('departement.edit', compact('dep','univ_list','univ'));
+		return view('programstudies.edit', compact('dep'));
 	}
 
 	/**
@@ -109,16 +115,16 @@ class DepartementsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id, DepartementRequest $request)
+	public function update($id, ProgramStudyRequest $request)
 	{
 		//Find or Fail to get ID
-		$dep = Departement::findOrFail($id);
+		$dep = ProgramStudy::findOrFail($id);
 		// Validate with the parameters
 		//$this->validate($request, ['departement_name' => 'required']);
 		//Save record to the database
 		$dep->update($request->all());
 		//Return to universities controller
-		return redirect('departements');	}
+		return redirect('programstudies');	}
 
 	/**
 	 * Remove the specified resource from storage.
@@ -128,7 +134,7 @@ class DepartementsController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		Departement::destroy($id);
+		ProgramStudy::destroy($id);
 	}
 
 }

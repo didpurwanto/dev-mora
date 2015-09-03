@@ -2,499 +2,334 @@
 
 @section('content')
 
-	// Biodata Pribadi
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<h2>Biodata Pribadi</h2>
 			<hr />
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Nama Lengkap</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Nama Lengkap</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column">
-					 {!! Form::label($app->full_name ) !!}
+					 {!! Form::label($user->applicant->full_name ) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Jenis Kelamin</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Jenis Kelamin				</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column">
-					 {!! Form::label(($app->gender == 1) ? 'Laki-laki' : 'Perempuan') !!}
+					 {!! Form::label(($user->applicant->gender == 1) ? 'Laki-laki' : 'Perempuan') !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Tempat Lahir</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Tempat Lahir				</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column">
-					 {!! Form::label($app->place_birth) !!}
+					 {!! Form::label($user->applicant->place_birth) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Tanggal Lahir</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Tanggal Lahir</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column">
 					 {!! Form::label($date_birth) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Jumlah Hafalan Al-Quran</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Hafalan Al-Quran</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->recitation) !!}&nbsp;&nbsp;<b>Juz</b>
+					 {!! Form::label($user->applicant->recitation) !!}&nbsp;&nbsp;<b>Juz</b>
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Buta Warna</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Buta Warna</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label(($app->color_blind == 1) ? 'Ya' : 'Tidak') !!}
+					 {!! Form::label(($user->applicant->color_blind == 1) ? 'Ya' : 'Tidak') !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Riwayat Gangguan Mental</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Gangguan Mental</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label(($app->mental_disorder == 1) ? 'Ya' : 'Tidak') !!}
+					 {!! Form::label(($user->applicant->mental_disorder == 1) ? 'Ya' : 'Tidak') !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Penyakit yang sedang/pernah diderita</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Riwayat Penyakit</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->illness) !!}
+					 {!! Form::label($user->applicant->illness) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-4 column">
+				<div class="col-md-6 column">
 					<div class="row clearfix">
-						<div class="col-md-4 column">
-							 <p>Golongan Darah</p>
-						</div>
-						<div class="col-md-1 column text-right">
-							 <p>:</p>
-						</div>
-						<div class="col-md-6 column">
-							 {!! Form::label($app->blood_type) !!}
+						<div class="col-md-5 column">Golongan Darah</div>
+						<div class="col-md-1 column text-right">:</div>
+						<div class="col-md-2 column">
+							 {!! Form::label($user->applicant->blood_type) !!}
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 column">
+				<div class="col-md-3 column">
 					<div class="row clearfix">
-						<div class="col-md-4 column">
-							 <p>Berat Badan</p>
-						</div>
-						<div class="col-md-1 column text-right">
-							 <p>:</p>
-						</div>
-						<div class="col-md-6 column form-inline">
-							 {!! Form::label($app->weight) !!}&nbsp;&nbsp;Kg
+						<div class="col-md-5 column">Berat Badan</div>
+						<div class="col-md-1 column text-right">:</div>
+						<div class="col-md-4 column form-inline">
+							 {!! Form::label($user->applicant->weight) !!}&nbsp;&nbsp;Kg
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 column">
+				<div class="col-md-3 column">
 					 <div class="row clearfix">
-						<div class="col-md-4 column">
-							 <p>Tinggi</p>
-						</div>
-						<div class="col-md-1 column text-right">
-							 <p>:</p>
-						</div>
-						<div class="col-md-6 column">
-							 {!! Form::label($app->height) !!}&nbsp;&nbsp;Cm
+						<div class="col-md-5 column">Tinggi Badan</div>
+						<div class="col-md-1 column text-right">:</div>
+						<div class="col-md-5 column">
+							 {!! Form::label($user->applicant->height) !!}&nbsp;&nbsp;Cm
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Telepon yang bisa dihubungi</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Nomor Telepon</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->contact) !!}
+					 {!! Form::label($user->applicant->contact) !!}
 				</div>
 			</div>
 		</div>
 	</div>
 
 
-	// Data Keluarga
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<br />
-			<h2>Data Keluarga</h2><hr />
+			<h2>Data Keluarga</h2>
+			<hr />
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Nama Ayah Kandung</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Nama Ayah Kandung</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column">
-					 {!! Form::label($app->family->father_name) !!}
+					 {!! Form::label($user->family->father_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Umur</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Umur</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->family->father_age) !!}&nbsp; <b>Tahun</b>
+					 {!! Form::label($user->family->father_age) !!}&nbsp; <b>Tahun</b>
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Pendidikan Terakhir</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Pendidikan Terakhir</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->family->educationLevel->level_name) !!}
+					 {!! Form::label($user->family->educationLevel->level_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Pekerjaan Ayah</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Pekerjaan Ayah</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->family->jobType->job_name) !!}
+					 {!! Form::label($user->family->jobType->job_name) !!}
 				</div>
 			</div>
 
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Nama Ibu Kandung</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Nama Ibu Kandung</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column">
-					 {!! Form::label($app->family->mother_name) !!}
+					 {!! Form::label($user->family->mother_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Umur</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Umur</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->family->mother_age) !!}&nbsp; <b>Tahun</b>
+					 {!! Form::label($user->family->mother_age) !!}&nbsp; <b>Tahun</b>
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Pendidikan Terakhir</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Pendidikan Terakhir</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->family->educationLevelIbu->level_name) !!}
+					 {!! Form::label($user->family->educationLevelIbu->level_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Pekerjaan Ibu</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Pekerjaan Ibu</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->family->jobTypeIbu->job_name) !!}
+					 {!! Form::label($user->family->jobTypeIbu->job_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Peghasilan Ortu/wali</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Peghasilan Ortu/wali</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->family->rangeSalary->range_name) !!}
+					 {!! Form::label($user->family->rangeSalary->range_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Alamat Ortu/wali</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Alamat Ortu/wali</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->family->address) !!}
+					 {!! Form::label($user->family->address) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Nomor Telepon</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Nomor Telepon</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->family->father_contact) !!}
+					 {!! Form::label($user->family->father_contact) !!}
 				</div>
 			</div>
 		</div>
 	</div>
 
-
-	// Asal Pesantren
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<br />
 			<h2>Asal Pesantren</h2><hr />
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Nama Pesantren</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Nama Pesantren</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->pesantren->pesantren_name) !!}
+					 {!! Form::label($user->pesantren->pesantren_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Pimpinan Pondok Pesantren</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Nama Pimpinan</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->pesantren->kiai_name) !!}
+					 {!! Form::label($user->pesantren->kiai_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>NSPP</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">NSPP</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->pesantren->nspp) !!}
+					 {!! Form::label($user->pesantren->nspp) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Alamat</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Alamat</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->pesantren->pesantren_address) !!}
+					 {!! Form::label($user->pesantren->pesantren_address) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>No. Telepon Pondok</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">No. Telepon Pondok</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->pesantren->pesantren_contact) !!}
+					 {!! Form::label($user->pesantren->pesantren_contact) !!}
 				</div>
 			</div>
 		</div>
 	</div>
 
 
-	// Asal Sekolah
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<br />
-			<h2>Asal Sekolah</h2><hr />
+			<h2>Asal Madrasah/Sekolah</h2><hr />
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Nama Sekolah</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Nama Sekolah</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->school->school_name) !!}
+					 {!! Form::label($user->school->school_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Jenis Sekolah</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Jenis Sekolah</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->school->schoolType->type_name) !!}
+					 {!! Form::label($user->school->schoolType->type_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Nama Kepala Sekolah</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Nama Ka. Sekolah</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->school->school_principal_name) !!}
+					 {!! Form::label($user->school->school_principal_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Status Sekolah</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Status Sekolah</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label(($app->school_status == 1) ? 'Negeri' : 'Swasta') !!}
+					 {!! Form::label(($user->school_status == 1) ? 'Negeri' : 'Swasta') !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Jurusan</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Jurusan</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->school->programStudy->program_name) !!}
+					 {!! Form::label($user->school->programStudy->program_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Tahun Lulus</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Tahun Lulus</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->school->graduate_year) !!}
+					 {!! Form::label($user->school->graduate_year) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Alamat</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Alamat</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->school->school_address) !!}
+					 {!! Form::label($user->school->school_address) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Telp. Sekolah</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">No. Telepon Sekolah</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->school->school_contact) !!}
+					 {!! Form::label($user->school->school_contact) !!}
 				</div>
 			</div>
 		</div>
 	</div>
 
 
-
-	// Pilihan Perguruan Tinggi
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<br />
 			<h2>Pilihan Perguruan Tinggi</h2><hr />
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Jenis Sekolah</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Nama Universitas</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->application->university->university_name) !!}
+					 {!! Form::label($user->application->university->university_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Pilihan Jurusan 1</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Pilihan Jurusan 1</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->application->departement->departement_name) !!}
+					 {!! Form::label($user->application->departement->departement_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Pilihan Jurusan 2</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Pilihan Jurusan 2</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label($app->application->departement2->departement_name) !!}
+					 {!! Form::label($user->application->departement2->departement_name) !!}
 				</div>
 			</div>
 			<div class="row clearfix">
-				<div class="col-md-2 column">
-					 <p>Bersedia untuk dipindahkan Jurusan</p>
-				</div>
-				<div class="col-md-1 column text-right">
-					 <p>:</p>
-				</div>
+				<div class="col-md-2 column">Bersedia Pindah Jurusan</div>
+				<div class="col-md-1 column text-right">:</div>
 				<div class="col-md-6 column form-inline">
-					 {!! Form::label(($app->application->aggree_to_auto_move == 1) ? 'Bersedia' : 'Tidak Bersedia') !!}
+					 {!! Form::label(($user->application->aggree_to_auto_move == 1) ? 'Bersedia' : 'Tidak Bersedia') !!}
 				</div>
 			</div>
 		</div>
 	</div>
+
 
 
 @stop

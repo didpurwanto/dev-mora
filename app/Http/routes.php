@@ -33,8 +33,9 @@ Route::controllers([
 // Route::post('univ/{id}/edit','UniversitiesController@edit');
 
 //Administrator route
-Route::resource('universities','UniversitiesController');
-Route::resource('departements','DepartementsController');
+Route::resource('universities','UniversitiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
+Route::resource('departements','DepartementsController',['except' => ['show']]); // seharusnya method 'show' tidak ada
+Route::resource('programstudies','ProgramStudiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
 
 //applicant route
 //Route::resource('applicants','ApplicantsController',['except' => ['index', 'show']]);
@@ -70,9 +71,9 @@ Route::patch('applications', 'ApplicationsController@update');
 
 
 //Summary Route
-Route::get('summary/{id}', 'SummaryController@index');
+Route::get('summary', 'SummaryController@index');
 //Summary Route
-Route::get('prints/{id}', 'SummaryController@cetak');
+Route::get('prints', 'SummaryController@cetak');
 
 /*
 |

@@ -17,7 +17,6 @@ class CreateDepartements extends Migration {
 			$table->increments('id');
 			$table->integer('university_id')->unsigned();
 			$table->string('departement_name', '100');
-			$table->integer('study_program_id');
 			$table->timestamps();
 		});
 	}

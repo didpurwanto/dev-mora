@@ -8,6 +8,11 @@ class Applicant extends Model {
 
 	protected $guarded = ['id','user_id'];
 
+	public function province()
+	{
+		return $this->belongsTo('App\Province');
+	}
+/*
 	public function family()
 	{
 		return $this->hasOne('App\Family');
@@ -32,4 +37,5 @@ class Applicant extends Model {
 	{
 		return $this->hasOne('App\Application');
 	}
+	*/
 }
