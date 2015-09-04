@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class UserRequest extends Request {
+class UserUpdateRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -22,8 +22,8 @@ class UserRequest extends Request {
 	public function rules()
 	{
 		return [
-			'username' => 'required|max:30|alpha|unique:users',
-			'email' => 'required|email|unique:users',
+			'username' => 'required|max:30|alpha',
+			'email' => 'required|email',
 			'password' => 'required|confirmed|min:8'
 		];
 	}
@@ -32,10 +32,8 @@ class UserRequest extends Request {
 	{
 		return [
 			'username.required' => 'Username harus diisi',
-			'username.unique' 	=> 'Username telah digunakan pengguna lain',
 			'email.required' => 'Username harus diisi',
 			'email.email' => 'Gunakan E-mail yang valid',
-			'email.unique' => 'Email ini sudah digunakan',
 			'password.required' => 'Password tidak boleh kosong',
 			'password.confirmed' => 'Password yang anda masukan tidak sama',
 			'password.min' => 'Password minimal depalan (8) huruf',

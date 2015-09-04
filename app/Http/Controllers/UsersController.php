@@ -3,11 +3,13 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserUpdateRequest;
 
 // use Illuminate\Http\Request;
 use Request;
 
-class UserController extends Controller {
+class UsersController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,9 +18,9 @@ class UserController extends Controller {
 	 */
 	public function index()
 	{
-		$user = User::all();
+		$users = User::all();
 
-		return $user; 
+		return view('user.user', compact('users'));
 	}
 
 	/**
@@ -28,7 +30,7 @@ class UserController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('user.create');
 	}
 
 	/**
@@ -36,15 +38,20 @@ class UserController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(UserRequest $request)
 	{
-		$input = Request::all();
-		$input['role'] =1;
+		//$input = Request::all();
+		//$input['role'] =1;
 
-		User::create($input);
+		//User::create($input);
 
 		// return $input;
-		return view('home.index');
+
+    //dd($request->all());
+		User::create($request->all());
+
+		\Session::flash('flash_text','Pengguna berhasil dibuat!');
+		return redirect('users');
 	}
 
 	/**
@@ -66,7 +73,8 @@ class UserController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$user = User::findOrFail($id);
+		return view('user.edit', compact('user'));
 	}
 
 	/**
@@ -75,9 +83,11 @@ class UserController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, UserUpdateRequest $request)
 	{
-		//
+		$user = User::findOrFail($id);
+		$user->update($request->all());
+		return redirect('users');
 	}
 
 	/**

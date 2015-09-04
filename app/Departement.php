@@ -19,7 +19,7 @@ class Departement extends Model {
 	 */
 	public function program_studies()
 	{
-		return $this->belongsToMany('App\ProgramStudy','departements_program_studies','departement_id','program_study_id');
+		return $this->belongsToMany('App\ProgramStudy','departements_program_studies','departement_id','program_study_id')->withTimestamps();
 	}
 
 	/* --
@@ -32,6 +32,11 @@ class Departement extends Model {
 	public function getUniversityName()
 	{
 		return University::where('id',$this->university_id)->first()->university_name;
+	}
+
+	public function getProgramListAttribute()
+	{
+		return $this->program_studies()->lists('id');
 	}
 
 }

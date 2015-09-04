@@ -93,14 +93,16 @@ class DepartementsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		dd($id);
+		//dd($id);
 		$dep = Departement::findOrFail($id);
 
+		$listProgram = ProgramStudy::lists('program_name','id');
+		//$listProgram = $dep->getProgramListAttribute();
 		$univ_list= University::lists('university_name');
 		$univ = University::where('id',$dep['university_id'])->first()->id;
 		//$univ = $univ->id;
 		//dd($univ);
-		return view('departement.edit', compact('dep','univ_list','univ'));
+		return view('departement.edit', compact('dep','univ_list','univ','listProgram'));
 	}
 
 	/**
