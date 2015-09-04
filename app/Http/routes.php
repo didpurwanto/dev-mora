@@ -112,3 +112,5 @@ Route::get('cetakkartu','SummaryController@cetakKartu');
 Route::resource('users','UsersController',['except' => ['show']]);
 
 Route::get('admin', 'AdminController@index');
+Route::get('report/univ', 'AdminController@univlist');
+
