@@ -46,34 +46,21 @@ class ApplicantsController extends Controller {
 	 */
 	public function store(ApplicantRequest $request)
 	{
-		//dd($request->all());
-		//Applicant::create($request->except('profile_photo'));
 
-		//$imageName = $request->full_name . '.' . $request->file('photo')->getClientOriginalExtension();
-		//dd($imageName);
-		//$request->file('photo')->move(base_path() . '/public/images/photos/', $imageName);
+		//$data = new Applicant($request->all());
+		//$form = Auth::user()->applicant()->save($data);
 
-		//$request['photo'] = $imageName;
-		//dd($request['profile_photo']);
-
-		//dd($request->all());
-		//$form = Applicant::create($request->all());
-		$data = new Applicant($request->all());
-		$form = Auth::user()->applicant()->save($data);
-		//$data = $form->id;
-
-		//dd($data);
 
 		//Family::create(array('applicant_id' => $data));
-		DB::table('families')->insert(array('user_id' => Auth::user()->id));
-		DB::table('pesantrens')->insert(array('user_id' => Auth::user()->id));
-		DB::table('schools')->insert(array('user_id' => Auth::user()->id));
-		DB::table('raports')->insert(array('user_id' => Auth::user()->id));
-		DB::table('applications')->insert(array('user_id' => Auth::user()->id));
+		//DB::table('families')->insert(array('user_id' => Auth::user()->id));
+		//DB::table('pesantrens')->insert(array('user_id' => Auth::user()->id));
+		//DB::table('schools')->insert(array('user_id' => Auth::user()->id));
+		//DB::table('raports')->insert(array('user_id' => Auth::user()->id));
+		//DB::table('applications')->insert(array('user_id' => Auth::user()->id));
 
 
 		//return redirect('families/create');
-		return redirect('families/'. Auth::user()->id);
+		//return redirect('families/'. Auth::user()->id);
 	}
 
 	/**

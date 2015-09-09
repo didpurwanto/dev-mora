@@ -229,8 +229,6 @@
 	{!! Form::close() !!}
 @stop
 
-
-
 @section('script')
 	{!! Html::script('js/bootstrap-datepicker.min.js', array('type' => 'text/javascript')) !!}
 	<script type="text/javascript">

@@ -9,7 +9,7 @@
 	<h2>Biodata Pribadi</h2>
 	<hr />
 
-	{!! Form::model($app,['method' => 'PATCH','url' => ['/applicants/edit']]) !!}
+	{!! Form::model($app,['method' => 'PATCH','url' => ['/applicants']]) !!}
 		<div class="form-group {{ ! $errors->first('full_name') ?'': 'has-error' }}">
 			<div class="row">
 				<div class="col-md-3">
@@ -71,7 +71,7 @@
 				{!! Form::label('date_birth', 'Tanggal Lahir') !!}
 				</div>
 				<div class="col-md-4">
-				{!! Form::text('date_birth', null,['placeholder' => 'YYYY-MM-DD', 'class' => 'form-control form_date', 'data-date-format' => 'yyyy-mm-dd', 'data-date-viewmode' => 'years']) !!}
+				{!! Form::text('date_birth',$app->date_birth,['placeholder' => 'YYYY-MM-DD', 'class' => 'form-control form_date', 'data-date-format' => 'yyyy-mm-dd', 'data-date-viewmode' => 'years']) !!}
 				</div>
 				@if( $errors->first('date_birth') )
 					<span class="help-block text-danger">{{ $errors->first('date_birth') }}</span>
@@ -188,7 +188,7 @@
 				{!! Form::label('marriage_status', 'Sudah Menikah') !!}
 				</div>
 				<div class="col-md-4">
-				{!! Form::select('marriage_status', array('1' => 'Sudah', '0' => 'Belum'),$app->marriage_status, ['class' => 'form-control']) !!}
+				{!! Form::select('marriage_status', array('0' => 'Belum', '1' => 'Sudah'),$app->marriage_status, ['class' => 'form-control']) !!}
 				</div>
 				@if( $errors->first('marriage_status') )
 					<span class="help-block text-danger">{{ $errors->first('marriage_status') }}</span>
@@ -233,7 +233,7 @@
 	{!! Html::script('js/bootstrap-datepicker.min.js', array('type' => 'text/javascript')) !!}
 	<script>
 	  $(function() {
-		$( '.form_date' ).datepicker({
+		$( '#date_birth' ).datepicker({
 		  //language:  'en',
 		  weekStart: 1,
 		  todayBtn:  0,

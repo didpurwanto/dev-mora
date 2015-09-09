@@ -47,7 +47,7 @@ class RaportsController extends Controller {
 
 		//dd($subject_1);
 		if(empty($subject_1[1])){
-			$subject_1 = ["#","#","#","#","#","#"];
+			$subject_1 = ["","","","","",""];
 		}
 		if(empty($subject_2[1])){
 			$subject_2 = ["","","","","",""];

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-	<h2>Create A New User</h2>
+	<h2>Membuat Pengguna Baru</h2>
 	<hr />
 
 	{!! Form::open(['url' => '/users']) !!}

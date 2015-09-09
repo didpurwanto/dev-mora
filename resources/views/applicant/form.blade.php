@@ -85,7 +85,7 @@
 		{!! Form::label('color_blind', 'Buta Warna') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('color_blind', array('1' => 'Ya', '0' => 'Tidak'),1,['class' => 'form-control']) !!}
+		{!! Form::select('color_blind', array('1' => 'Ya', '0' => 'Tidak'),0,['class' => 'form-control']) !!}
 		</div>
 		@if( $errors->first('color_blind') )
 			<span class="help-block text-danger">{{ $errors->first('color_blind') }}</span>

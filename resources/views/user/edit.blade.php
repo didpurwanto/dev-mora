@@ -5,7 +5,7 @@
 	<hr />
 
 	{!! Form::model($user,['method' => 'PATCH','url' => ['/users',$user->id]]) !!}
-		@include ('user.form', ['text' => 'Update'])
+		@include ('user.formedit', ['text' => 'Update'])
 	{!! Form::close() !!}
 
 	@include('errors.list')

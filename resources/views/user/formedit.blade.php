@@ -3,16 +3,20 @@
 	{!! Form::text('username', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-	{!! Form::label('password', 'Passwaord :') !!}
+	{!! Form::label('email', 'Alamat E-Mail :') !!}
+	{!! Form::text('email', null, [ 'class'=> 'form-control', 'placeholder'=>'Alamat email' ]) !!}
+ </div>
+<div class="form-group">
+	{!! Form::label('password', 'Password :') !!}
 	{!! Form::password('password', [ 'class'=> 'form-control']) !!}
 </div>
 <div class="form-group">
-	{!! Form::label('password_confirmation', 'Passwaord :') !!}
+	{!! Form::label('password_confirmation', 'Konfirmasi Password :') !!}
 	{!! Form::password('password_confirmation', [ 'class'=> 'form-control']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('role', 'Hak Akses :') !!}
-	{!! Form::select('role', $hak_akses, 0, ['class' => 'form-control']) !!}
+	{!! Form::select('role', ['255'=> 'Administrator','100' => 'Manager Pusat','200' => 'Manager Propinsi'], null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

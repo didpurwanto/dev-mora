@@ -52,7 +52,7 @@
                   <br />
                   <br />
 
-                  <a href="{!! URL::to('/applicants/edit') !!}" type="button" class="btn btn-success">Mulai Mengisi</a>
+                  <a href="{!! URL::to('/applicants') !!}" type="button" class="btn btn-success">Mulai Mengisi</a>
 				        </font>
               </div>
           </div>

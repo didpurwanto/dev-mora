@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
+use DB;
+use Auth;
 
 trait AuthenticatesAndRegistersUsers {
 
@@ -42,11 +44,21 @@ trait AuthenticatesAndRegistersUsers {
 
 		if ($validator->fails())
 		{
-			$this->throwValidationException(
-				$request, $validator
-			);
+			return redirect($this->registerPath())
+            ->withErrors($validator)
+            ->withInput();
+				//$this->throwValidationException(
+				//$request, $validator
+				//);
 		}
 		$this->auth->login($this->registrar->create($request->all()));
+
+		DB::table('applicants')->insert(array('user_id' => Auth::user()->id));
+		DB::table('families')->insert(array('user_id' => Auth::user()->id));
+		DB::table('pesantrens')->insert(array('user_id' => Auth::user()->id));
+		DB::table('schools')->insert(array('user_id' => Auth::user()->id));
+		DB::table('raports')->insert(array('user_id' => Auth::user()->id));
+		DB::table('applications')->insert(array('user_id' => Auth::user()->id));
 
 		return redirect($this->redirectPath());
 	}
@@ -83,7 +95,7 @@ trait AuthenticatesAndRegistersUsers {
 		return redirect($this->loginPath())
 					->withInput($request->only('username', 'remember'))
 					->withErrors([
-						'email' => $this->getFailedLoginMessage(),
+						'email_login' => $this->getFailedLoginMessage(),
 					]);
 	}
 
@@ -132,6 +144,16 @@ trait AuthenticatesAndRegistersUsers {
 	public function loginPath()
 	{
 		return property_exists($this, 'loginPath') ? $this->loginPath : '/#login';
+	}
+
+	/**
+	 * Get the path to the login route.
+	 *
+	 * @return string
+	 */
+	public function registerPath()
+	{
+		return property_exists($this, 'registerPath') ? $this->registerPath : '/#daftar';
 	}
 
 }

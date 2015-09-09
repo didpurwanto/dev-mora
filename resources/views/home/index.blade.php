@@ -97,18 +97,14 @@
 					  <table align="center">
                         <tr>
                           <td>
-                            <font color = "white" size="2px"><div id='myform_username_login_errorloc' class="error_strings">
-                              @if (count($errors) > 0)
-                    						<div class="alert alert-danger">
-                    							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-                    							<ul>
-                    								@foreach ($errors->all() as $error)
-                    									<li>{{ $error }}</li>
-                    								@endforeach
-                    							</ul>
-                    						</div>
-                    					@endif
-                            </div></font>
+                            <font color = "red" size="2px">
+                              <div id='myform_username_login_errorloc' class="error_strings">
+                                @if ($errors->first('email_login'))
+                                		<ul class="alert alert-danger">
+                                				<li>{{ $errors->first('email_login') }}</li>
+                                		</ul>
+                                @endif
+                             </div></font>
                             <input class="form-control" size="40" placeholder="Isi Username Anda!" name="username" id="username">
                           </td>
                         </tr>
@@ -166,17 +162,21 @@
 					            <table align="center">
                         <tr>
                           <td>
-                            <font color = "white" size="2px"><div id='myform_username_errorloc' class="error_strings">
-                              @if (count($errors) > 0)
-                  						<div class="alert alert-danger">
-                  							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-                  							<ul>
-                  								@foreach ($errors->all() as $error)
-                  									<li>{{ $error }}</li>
-                  								@endforeach
-                  							</ul>
-                  						</div>
-                  					@endif</div></font>
+                            <font color = "white" size="2px">
+                              <div id='myform_username_errorloc' class="error_strings">
+
+                                @if ($errors->first('username'))
+                                <ul class="alert alert-danger">
+                                    <li>{{ $errors->first('username') }}</li>
+                                @endif
+                                @if ($errors->first('email'))
+                                    <li>{{ $errors->first('email') }}</li>
+                                @endif
+                                @if ($errors->first('password'))
+                                    <li>{{ $errors->first('password') }}</li>
+                                @endif
+                                </ul>
+                              </div></font>
                             <input class="form-control" size="40" placeholder="Isi Username Anda!" name="username" id="username">
                           </td>
                         </tr>

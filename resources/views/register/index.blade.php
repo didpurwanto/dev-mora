@@ -71,28 +71,28 @@
                     <li class="{!! Request::is('applicanthome') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/applicanthome') !!}"><i class="fa fa-fw fa-dashboard icon-green"></i> Halaman Utama</a>
                     </li>
-                    <li class="{!! Request::is('applicants/*') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/applicants/edit') !!}"><i class="fa fa-fw fa-user icon-green"></i> Biodata Pribadi</a>
+                    <li class="{!! Request::is('applicants') ? 'active' : '' !!}">
+                        <a href="{!! URL::to('/applicants') !!}"><i class="fa fa-fw fa-user icon-green"></i> Biodata Pribadi</a>
                     </li>
-                    <li class="{!! Request::is('families/*') ? 'active' : '' !!}">
+                    <li class="{!! Request::is('families') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/families') !!}"><i class="fa fa-fw fa-users icon-green"></i> Data Keluarga</a>
                     </li>
-                    <li class="{!! Request::is('pesantrens/*') ? 'active' : '' !!}">
+                    <li class="{!! Request::is('pesantrens') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/pesantrens') !!}"><i class="fa fa-fw fa-institution icon-green"></i> Data Pesantren</a>
                     </li>
-                    <li class="{!! Request::is('schools/*') ? 'active' : '' !!}">
+                    <li class="{!! Request::is('schools') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/schools') !!}"><i class="fa fa-fw fa-building icon-green"></i> Data Sekolah</a>
                     </li>
-                    <li class="{!! Request::is('raports/*') ? 'active' : '' !!}">
+                    <li class="{!! Request::is('raports') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/raports') !!}"><i class="fa fa-fw fa-briefcase icon-green"></i> Data Raport</a>
                     </li>
-                    <li class="{!! Request::is('applications/*') ? 'active' : '' !!}">
+                    <li class="{!! Request::is('applications') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/applications') !!}"><i class="fa fa-fw fa-graduation-cap icon-green"></i> Pilihan Jurusan</a>
                     </li>
-                    <li class="{!! Request::is('summary/*') ? 'active' : '' !!}">
+                    <li class="{!! Request::is('summary') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/summary') !!}"><i class="fa fa-fw fa-desktop icon-green"></i> Rangkuman Data</a>
                     </li>
-                    <li class="{!! Request::is('prints/*') ? 'active' : '' !!}">
+                    <li class="{!! Request::is('prints') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/prints') !!}"><i class="fa fa-fw fa-print icon-green"></i> Cetak Kartu</a>
                     </li>
                 </ul>

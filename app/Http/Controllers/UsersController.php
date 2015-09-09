@@ -48,21 +48,15 @@ class UsersController extends Controller {
 		// return $input;
 
     //dd($request->all());
-		User::create($request->all());
+		User::create([
+			'username' => $request['username'],
+			'email' => $request['email'],
+			'password' => bcrypt($request['password']),
+			'role' => $request['role'],
+		]);
 
 		\Session::flash('flash_text','Pengguna berhasil dibuat!');
 		return redirect('users');
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
 	}
 
 	/**

@@ -39,10 +39,10 @@ Route::resource('programstudies','ProgramStudiesController',['except' => ['show'
 
 //applicant route
 //Route::resource('applicants','ApplicantsController',['except' => ['index', 'show']]);
-Route::get('applicants', 'ApplicantsController@create');
-Route::post('applicants', 'ApplicantsController@store');
-Route::get('applicants/edit', 'ApplicantsController@edit');
-Route::patch('applicants/edit', 'ApplicantsController@update');
+//Route::get('applicants', 'ApplicantsController@create');
+//Route::post('applicants', 'ApplicantsController@store');
+Route::get('applicants', 'ApplicantsController@edit');
+Route::patch('applicants', 'ApplicantsController@update');
 
 //Family Route
 //Route::resource('families','FamiliesController',['except' => ['index', 'show']]);
@@ -113,4 +113,3 @@ Route::resource('users','UsersController',['except' => ['show']]);
 
 Route::get('admin', 'AdminController@index');
 Route::get('report/univ', 'AdminController@univlist');
-
