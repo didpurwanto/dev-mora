@@ -63,4 +63,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return $this->hasOne('App\Application');
 	}
 
+	/**
+	 * Check admin role
+	 *
+	 * @return bool
+	 */
+	public function isAdmin()
+	{
+		return $this->role == '1';
+	}
+
 }

@@ -6,16 +6,17 @@ class University extends Model {
 
 	//
 	protected $table ="universities";
-	
+
 	protected $fillable = [
+		'university_code',
 		'university_name'
 	];
-	
+
 	public function departements()
 	{
 		return $this->hasMany('App\Departement');
 	}
-	
+
 	public function applications()
 	{
 		return $this->hasMany('App\Application');

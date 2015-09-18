@@ -11,7 +11,7 @@ class UniversitiesController extends Controller {
 
 	public function __construct()
 	{
-		//$this->middleware('auth');
+		$this->middleware('admin');
 	}
 
 	/**
@@ -48,7 +48,7 @@ class UniversitiesController extends Controller {
 		University::create($request->all());
 
 		\Session::flash('flash_text','A New University has been created!');
-		return redirect('universities');
+		return redirect('admin/universities');
 	}
 
 	/**
@@ -93,7 +93,7 @@ class UniversitiesController extends Controller {
 		$univ->update($request->all());
 
 		//Return to universities controller
-		return redirect('universities');
+		return redirect('admin/universities');
 	}
 
 	/**
@@ -105,6 +105,8 @@ class UniversitiesController extends Controller {
 	public function destroy($id)
 	{
 		University::destroy($id);
+
+		return redirect('admin/universities');
 	}
 
 }

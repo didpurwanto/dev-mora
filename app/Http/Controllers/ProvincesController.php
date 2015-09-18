@@ -11,7 +11,7 @@ class ProvincesController extends Controller {
 
 	public function __construct()
 	{
-		//$this->middleware('auth');
+		$this->middleware('admin');
 	}
 
 	/**
@@ -45,7 +45,7 @@ class ProvincesController extends Controller {
 		Province::create($request->all());
 
 		\Session::flash('flash_text','A New University has been created!');
-		return redirect('provinces');
+		return redirect('admin/provinces');
 	}
 
 	/**
@@ -86,7 +86,7 @@ class ProvincesController extends Controller {
 		$prov->update($request->all());
 
 		//Return to universities controller
-		return redirect('provinces');
+		return redirect('admin/provinces');
 	 }
 	/**
 	 * Remove the specified resource from storage.
@@ -97,6 +97,8 @@ class ProvincesController extends Controller {
 	public function destroy($id)
 	{
 		Province::destroy($id);
+
+    return redirect('admin/provinces');
 	}
 
 }

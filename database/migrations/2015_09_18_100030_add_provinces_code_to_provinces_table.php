@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUniversities extends Migration {
+class AddProvincesCodeToProvincesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,9 @@ class CreateUniversities extends Migration {
 	 */
 	public function up()
 	{
-		//
-		Schema::create('universities', function(Blueprint $table)
+		Schema::table('provinces', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->string('university_name', 100);
-			$table->timestamps();
+			$table->string('province_code', 10)->after('id');
 		});
 	}
 
@@ -28,7 +25,10 @@ class CreateUniversities extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Universities');
+		Schema::table('provinces', function(Blueprint $table)
+		{
+			$table->dropColumn('province_code');
+		});
 	}
 
 }

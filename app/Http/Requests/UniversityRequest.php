@@ -30,7 +30,7 @@ class UniversityRequest extends Request {
 	public function messages()
 	{
 		return [
-			'university_code.required' => 'Kode Universitas tidak boleh kosong'
+			'university_code.required' => 'Kode Universitas tidak boleh kosong',
 			'university_name.required' => 'Nama Universitas tidak boleh kosong'
 		];
 	}

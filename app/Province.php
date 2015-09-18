@@ -8,6 +8,10 @@ class Province extends Model {
 
 	public $timestamps = false;
 
+	protected $fillable = [
+		'province_name','province_code'
+	];
+
 	/* Disable Kabupatens
 	public function kabupatens()
 	{

@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('ProvinceSeeder');
 		//$this->call('KabupatenSeeder');
 		//$this->call('KecamatanSeeder');
+		$this->call('UserSeeder');
 	}
 
 
@@ -97,6 +98,20 @@ class DatabaseSeeder extends Seeder {
 // 		]);
 // 	}
 // }
+
+class UserSeeder extends Seeder {
+	public function run()
+	{
+		DB::table('users')->delete();
+
+		$users = [
+			['id'=>1, 'username' => 'devmora2015', 'email' => 'mhi.henri@yahoo.com', 'password' => '$2y$10$FvCQF4.RhYvmCOtscWHLauD4ugpCeelWfphaVRp20R4vz8huE/Mba', 'role' => '1'],
+			['id'=>2, 'username' => 'devmora2016', 'email' => 'mhi.henri2@yahoo.com', 'password' => '$2y$10$FvCQF4.RhYvmCOtscWHLauD4ugpCeelWfphaVRp20R4vz8huE/Mba', 'role' => '1']
+		];
+
+		User::insert($users);
+	}
+}
 
 class EducationLevelSeeder extends Seeder {
 	public function run()

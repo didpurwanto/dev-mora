@@ -17,7 +17,7 @@
 						<div class="panel-body">
 								<div class="row">
 									<div class="col-lg-12">
-										{!! Form::model($prov,['method' => 'PATCH','url' => ['/provinces',$prov->id]]) !!}
+										{!! Form::model($prov,['method' => 'PATCH','url' => ['admin/provinces',$prov->id]]) !!}
 											@include ('province.form', ['text' => 'Simpan'])
 										{!! Form::close() !!}
 

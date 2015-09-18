@@ -11,6 +11,12 @@ use App\Http\Requests\DepartementRequest;
 
 class DepartementsController extends Controller {
 
+	public function __construct()
+	{
+		$this->middleware('admin');
+	}
+
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -85,7 +91,7 @@ class DepartementsController extends Controller {
 		//$form = Departement()->university()->save($data);
 
 		//\Session::flash('flash_text','A New Departement has been created!');
-		//return redirect('departements');
+		return redirect('admin/departements');
 	}
 
 	/**
@@ -123,7 +129,8 @@ class DepartementsController extends Controller {
 		//Save record to the database
 		$dep->update($request->all());
 		//Return to universities controller
-		return redirect('departements');	}
+		return redirect('admin/departements');
+	}
 
 	/**
 	 * Remove the specified resource from storage.
@@ -134,6 +141,8 @@ class DepartementsController extends Controller {
 	public function destroy($id)
 	{
 		Departement::destroy($id);
+
+		return redirect('admin/departements');
 	}
 
 }

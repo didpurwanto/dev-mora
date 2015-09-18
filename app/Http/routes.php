@@ -33,10 +33,10 @@ Route::controllers([
 // Route::post('univ/{id}/edit','UniversitiesController@edit');
 
 //Administrator route
-Route::resource('universities','UniversitiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
-Route::resource('departements','DepartementsController',['except' => ['show']]); // seharusnya method 'show' tidak ada
-Route::resource('programstudies','ProgramStudiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
-Route::resource('provinces','ProvincesController',['except' => ['show']]);
+Route::resource('admin/universities','UniversitiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
+Route::resource('admin/departements','DepartementsController',['except' => ['show']]); // seharusnya method 'show' tidak ada
+Route::resource('admin/programstudies','ProgramStudiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
+Route::resource('admin/provinces','ProvincesController',['except' => ['show']]);
 
 //applicant route
 //Route::resource('applicants','ApplicantsController',['except' => ['index', 'show']]);
@@ -112,5 +112,11 @@ Route::get('cetakkartu','SummaryController@cetakKartu');
 //Route::post('users', 'UserController@store');
 Route::resource('users','UsersController',['except' => ['show']]);
 
-Route::get('admin', 'AdminController@index');
-Route::get('report/univ', 'AdminController@univlist');
+//Route::get('admin', 'AdminController@index');
+//Route::get('report/univ', 'AdminController@univlist');
+// Admin
+Route::get('admin', [
+	'uses' => 'AdminController@index',
+	'as' => 'admin',
+	'middleware' => 'admin'
+]);

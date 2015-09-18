@@ -159,13 +159,13 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Master Data<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li class="{!! Request::is('provinces') ? 'active' : '' !!}">
-                                    <a href="{!! URL::to('/provinces') !!}">Daftar Provinsi</a>
+                                    <a href="{!! URL::to('admin/provinces') !!}">Daftar Provinsi</a>
                                 </li>
                                 <li class="{!! Request::is('universities') ? 'active' : '' !!}">
-                                    <a href="{!! URL::to('/universities') !!}">Daftar Universitas</a>
+                                    <a href="{!! URL::to('admin/universities') !!}">Daftar Universitas</a>
                                 </li>
                                 <li class="{!! Request::is('departements') ? 'active' : '' !!}">
-                                    <a href="{!! URL::to('/departements') !!}">Daftar Jurusan</a>
+                                    <a href="{!! URL::to('admin/departements') !!}">Daftar Jurusan</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
