@@ -31,7 +31,12 @@ class ApplicationsController extends Controller {
 		//$program_study = ProgramStudy::
 		$univ = University::lists('university_name','id');
 
-		$dep = Departement::where('study_program_id','=', $program_study_id)->lists('departement_name','id');
+		$dep = Departement::has('program_studies','=', $program_study_id)->lists('departement_name','id');
+		//$dep = Departement::whereHas('program_studies', function($q)
+		//{
+		//    $q->where('program_study_id', '=', $program_study_id);
+		//})->lists('departement_name','id');
+		//dd($dep);
 
 		//$appl_univ = Application::with('university')->get();
 		//$departemen = Departement::where('program_study_id', $program_study_id)->lists('departement_name','id');

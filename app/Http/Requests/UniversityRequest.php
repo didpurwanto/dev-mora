@@ -22,6 +22,7 @@ class UniversityRequest extends Request {
 	public function rules()
 	{
 		return [
+			'university_code' => 'required',
 			'university_name' => 'required'
 		];
 	}
@@ -29,6 +30,7 @@ class UniversityRequest extends Request {
 	public function messages()
 	{
 		return [
+			'university_code.required' => 'Kode Universitas tidak boleh kosong'
 			'university_name.required' => 'Nama Universitas tidak boleh kosong'
 		];
 	}

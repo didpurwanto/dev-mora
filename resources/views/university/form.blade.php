@@ -1,4 +1,8 @@
 <div class="form-group">
+	{!! Form::label('university_code', 'Kode Universitas :') !!}
+	{!! Form::text('university_code',null, ['class' => 'form-control']) !!}
+</div>
+<div class="form-group">
 	{!! Form::label('university_name', 'Nama Universitas :') !!}
 	{!! Form::text('university_name',null, ['class' => 'form-control']) !!}
 </div>

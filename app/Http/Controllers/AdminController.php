@@ -17,7 +17,7 @@ class AdminController extends Controller {
 	public function index()
 	{
 		// echo "index admin";
-		return view('admin.home');
+		return view('admin.beranda');
 	}
 
 	/**

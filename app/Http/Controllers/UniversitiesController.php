@@ -11,7 +11,7 @@ class UniversitiesController extends Controller {
 
 	public function __construct()
 	{
-		$this->middleware('auth');
+		//$this->middleware('auth');
 	}
 
 	/**
@@ -88,10 +88,10 @@ class UniversitiesController extends Controller {
 	{
 		//Find or Fail to get ID
 		$univ = University::findOrFail($id);
-		// Validate with the parameters
-		//$this->validate($request, ['university_name' => 'required']);
+
 		//Save record to the database
 		$univ->update($request->all());
+
 		//Return to universities controller
 		return redirect('universities');
 	}

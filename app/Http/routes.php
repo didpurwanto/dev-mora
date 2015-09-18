@@ -36,6 +36,7 @@ Route::controllers([
 Route::resource('universities','UniversitiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
 Route::resource('departements','DepartementsController',['except' => ['show']]); // seharusnya method 'show' tidak ada
 Route::resource('programstudies','ProgramStudiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
+Route::resource('provinces','ProvincesController',['except' => ['show']]);
 
 //applicant route
 //Route::resource('applicants','ApplicantsController',['except' => ['index', 'show']]);

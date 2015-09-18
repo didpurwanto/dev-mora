@@ -140,6 +140,10 @@ body {
     .navbar-top-links .dropdown-alerts {
         margin-left: auto;
     }
+
+    .active {
+      background-color: #EEE !important;
+    }
 }
 
 .btn-outline {

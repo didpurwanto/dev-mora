@@ -32,10 +32,12 @@ class DepartementsController extends Controller {
 	 */
 	public function create()
 	{
+		$dep = new Departement();
+
 		$univ_list= University::lists('university_name','id');
 		$listProgram = ProgramStudy::lists('program_name','id');
 
-		return view('departement.create', compact('univ_list','listProgram'));
+		return view('departement.create', compact('dep','univ_list','listProgram'));
 	}
 
 	/**
@@ -67,7 +69,8 @@ class DepartementsController extends Controller {
 		$data = Departement::create($depart);
 	  //dd($data);
 
-		$data->program_studies()->attach($request->input('program_studies'));
+		$data2 = $data->program_studies()->attach($request->input('program_studies_list'));
+		//dd($data2);
 		//$departemen = $this->validate($request, ['departement_name' => 'required']);
 
 		//dd($departemen = $request->input('departement_name'));

@@ -16,7 +16,7 @@ class ProgramStudy extends Model {
 	 */
 	public function departements()
 	{
-		return $this->belongsToMany('App\Departement','departements_program_studies','program_study_id','departement_id');
+		return $this->belongsToMany('App\Departement','departements_program_studies','program_study_id','departement_id')->withTimestamps();
 	}
 
 }
