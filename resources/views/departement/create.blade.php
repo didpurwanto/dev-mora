@@ -17,7 +17,7 @@
 						<div class="panel-body">
 								<div class="row">
 									<div class="col-lg-12">
-										{!! Form::open(['url' => '/departements']) !!}
+										{!! Form::open(['url' => 'admin/departements']) !!}
 											@include('departement.form', ['text' => 'Simpan'])
 										{!! Form::close() !!}
 

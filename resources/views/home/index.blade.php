@@ -65,6 +65,9 @@
                     <li>
                         <a class="page-scroll" href="#contact">Kontak</a>
                     </li>
+                    <li>
+                        <a class="page-scroll" href="{{ url('/auth/login') }}">Admin</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

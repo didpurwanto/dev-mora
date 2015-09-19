@@ -68,10 +68,10 @@ trait AuthenticatesAndRegistersUsers {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	//public function getLogin()
-	//{
-	//	return view('auth.login');
-	//}
+	public function getLogin()
+	{
+		return view('auth.login');
+	}
 
 	/**
 	 * Handle a login request to the application.
@@ -93,6 +93,32 @@ trait AuthenticatesAndRegistersUsers {
 		}
 
 		return redirect($this->loginPath())
+					->withInput($request->only('username', 'remember'))
+					->withErrors([
+						'email_login' => $this->getFailedLoginMessage(),
+					]);
+	}
+
+	/**
+	 * Handle a login request to the application.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function postLoginadmin(Request $request)
+	{
+		$this->validate($request, [
+			'username' => 'required', 'password' => 'required',
+		]);
+
+		$credentials = $request->only('username', 'password');
+
+		if ($this->auth->attempt($credentials, $request->has('remember')))
+		{
+			return redirect()->intended($this->adminPath());
+		}
+
+		return redirect($this->adminPath())
 					->withInput($request->only('username', 'remember'))
 					->withErrors([
 						'email_login' => $this->getFailedLoginMessage(),
@@ -154,6 +180,16 @@ trait AuthenticatesAndRegistersUsers {
 	public function registerPath()
 	{
 		return property_exists($this, 'registerPath') ? $this->registerPath : '/#daftar';
+	}
+
+	/**
+	 * Get the path to the login route.
+	 *
+	 * @return string
+	 */
+	public function adminPath()
+	{
+		return property_exists($this, 'adminPath') ? $this->adminPath : '/admin';
 	}
 
 }

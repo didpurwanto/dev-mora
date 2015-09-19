@@ -70,7 +70,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	public function isAdmin()
 	{
-		return $this->role == '1';
+		return $this->role == '255';
 	}
 
 }

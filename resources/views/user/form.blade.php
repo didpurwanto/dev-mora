@@ -16,7 +16,7 @@
 </div>
 <div class="form-group">
 	{!! Form::label('role', 'Hak Akses :') !!}
-	{!! Form::select('role', ['255'=> 'Administrator','100' => 'Manager Pusat','200' => 'Manager Propinsi'], null, ['class' => 'form-control']) !!}
+	{!! Form::select('role', ['255'=> 'Administrator','200' => 'Manager Pusat','100' => 'Manager Propinsi'], null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

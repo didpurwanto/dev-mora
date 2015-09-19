@@ -34,9 +34,9 @@ class Departement extends Model {
 		return University::where('id',$this->university_id)->first()->university_name;
 	}
 
-	public function getProgramListAttribute()
+	public function getStudyListAttribute()
 	{
-		return $this->program_studies()->lists('id');
+		return $this->program_studies->lists('id');
 	}
 
 }

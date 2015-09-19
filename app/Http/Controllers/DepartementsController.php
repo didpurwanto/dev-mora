@@ -75,7 +75,7 @@ class DepartementsController extends Controller {
 		$data = Departement::create($depart);
 	  //dd($data);
 
-		$data2 = $data->program_studies()->attach($request->input('program_studies_list'));
+		$data2 = $data->program_studies()->attach($request->input('study_list'));
 		//dd($data2);
 		//$departemen = $this->validate($request, ['departement_name' => 'required']);
 
@@ -107,8 +107,8 @@ class DepartementsController extends Controller {
 
 		$listProgram = ProgramStudy::lists('program_name','id');
 		//$listProgram = $dep->getProgramListAttribute();
-		$univ_list= University::lists('university_name');
-		$univ = University::where('id',$dep['university_id'])->first()->id;
+		$univ_list= University::lists('university_name','id');
+		$univ = University::where('id','=',$dep['university_id'])->first()->id;
 		//$univ = $univ->id;
 		//dd($univ);
 		return view('departement.edit', compact('dep','univ_list','univ','listProgram'));
@@ -128,6 +128,8 @@ class DepartementsController extends Controller {
 		//$this->validate($request, ['departement_name' => 'required']);
 		//Save record to the database
 		$dep->update($request->all());
+
+		$data2[] = $dep->program_studies()->sync($request->input('study_list'));
 		//Return to universities controller
 		return redirect('admin/departements');
 	}

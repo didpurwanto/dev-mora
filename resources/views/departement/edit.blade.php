@@ -17,7 +17,7 @@
 						<div class="panel-body">
 								<div class="row">
 									<div class="col-lg-12">
-										{!! Form::model($dep,['method' => 'PATCH','url' => ['/departements',$dep->id]]) !!}
+										{!! Form::model($dep,['method' => 'PATCH','url' => ['admin/departements',$dep->id]]) !!}
 											@include ('departement.formedit', ['text' => 'Simpan'])
 										{!! Form::close() !!}
 

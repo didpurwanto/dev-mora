@@ -105,8 +105,8 @@ class UserSeeder extends Seeder {
 		DB::table('users')->delete();
 
 		$users = [
-			['id'=>1, 'username' => 'devmora2015', 'email' => 'mhi.henri@yahoo.com', 'password' => '$2y$10$FvCQF4.RhYvmCOtscWHLauD4ugpCeelWfphaVRp20R4vz8huE/Mba', 'role' => '1'],
-			['id'=>2, 'username' => 'devmora2016', 'email' => 'mhi.henri2@yahoo.com', 'password' => '$2y$10$FvCQF4.RhYvmCOtscWHLauD4ugpCeelWfphaVRp20R4vz8huE/Mba', 'role' => '1']
+			['id'=>1, 'username' => 'devmora2015', 'email' => 'mhi.henri@yahoo.com', 'password' => '$2y$10$FvCQF4.RhYvmCOtscWHLauD4ugpCeelWfphaVRp20R4vz8huE/Mba', 'role' => '255'],
+			['id'=>2, 'username' => 'devmora2016', 'email' => 'mhi.henri2@yahoo.com', 'password' => '$2y$10$FvCQF4.RhYvmCOtscWHLauD4ugpCeelWfphaVRp20R4vz8huE/Mba', 'role' => '255']
 		];
 
 		User::insert($users);
