@@ -56,7 +56,7 @@ return [
 			'port'      => '3306',
 			'database'  => 'dev-mora',
 			'username'  => 'root',
-			'password'  => 'henri',
+			'password'  => 'bismillah',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
