@@ -11,6 +11,7 @@ use App\Family;
 use App\Province;
 use App\Kabupaten;
 use App\Kecamatan;
+use App\User;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;

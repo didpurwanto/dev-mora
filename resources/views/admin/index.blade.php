@@ -147,10 +147,10 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Laporan Rekapitulasi<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!! URL::to('/listprovinces') !!}">Propinsi</a>
+                                    <a href="{!! URL::to('admin/listprovinces') !!}">Propinsi</a>
                                 </li>
                                 <li>
-                                    <a href="{!! URL::to('/listuniversities') !!}">Universitas</a>
+                                    <a href="{!! URL::to('admin/listuniversities') !!}">Universitas</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
