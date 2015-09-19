@@ -32,12 +32,6 @@ Route::controllers([
 // Route::post('univ','UniversitiesController@store');
 // Route::post('univ/{id}/edit','UniversitiesController@edit');
 
-//Administrator route
-Route::resource('admin/universities','UniversitiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
-Route::resource('admin/departements','DepartementsController',['except' => ['show']]); // seharusnya method 'show' tidak ada
-Route::resource('admin/programstudies','ProgramStudiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
-Route::resource('admin/provinces','ProvincesController',['except' => ['show']]);
-
 //applicant route
 //Route::resource('applicants','ApplicantsController',['except' => ['index', 'show']]);
 //Route::get('applicants', 'ApplicantsController@create');
@@ -100,6 +94,7 @@ Route::post('upload/image','ApplicantsController@postUpload');
 Route::get('cetakformulir','SummaryController@cetakFormulir');
 Route::get('cetakkartu','SummaryController@cetakKartu');
 
+
 /*
 |
 | Route for dynamic drop down departemen
@@ -120,3 +115,11 @@ Route::get('admin', [
 	'as' => 'admin',
 	'middleware' => 'admin'
 ]);
+
+//Administrator route
+Route::resource('admin/universities','UniversitiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
+Route::resource('admin/departements','DepartementsController',['except' => ['show']]); // seharusnya method 'show' tidak ada
+Route::resource('admin/programstudies','ProgramStudiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
+Route::resource('admin/provinces','ProvincesController',['except' => ['show']]);
+
+Route::get('admin/listuniversities','AdminController@listuniversities');
