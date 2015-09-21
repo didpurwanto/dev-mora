@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\University;
+use App\Province;
 use App\Departement;
 use App\Http\Requests\UniversityRequest;
 use App\Http\Requests\DepartementRequest;
@@ -93,5 +94,14 @@ class AdminController extends Controller {
 		$dept_list= Departement::all();//lists('departement_name', 'university_id','id');
 
 		return view('admin.listuniversities', compact('univ_list','dept_list'));
+	}
+
+	public function listprovinces()
+	{
+		$prov_list = Province::all();
+
+		$univ_list = University::lists('university_name','id');
+
+		return view('admin.listprovinces', compact('prov_list', 'univ_list'));
 	}
 }
