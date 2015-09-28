@@ -23,12 +23,21 @@
 <div class="row">
 		<div class="col-lg-12">
 				<div class="panel panel-default">
-<!-- 						<div class="panel-heading">
-								Kode dan Nama Provinsi
-						</div> -->
-
-						<!-- /.panel-heading -->
+				<h4>  Daftar universitas: </h4>
 						<div class="panel-body">
+							<div class="center col-md-4">
+								@foreach ($univ_list as $university)
+									<td class="center col-md-2">
+										{{ $university->university_code }} --
+									</td> 
+									<td class="center col-md-2">
+										{{ $university->university_name }}
+									</td>
+									<br>								
+								@endforeach
+								<br>							
+							</div>
+
 							<div class="col-md-2 col-md-offset-5">
 								<!-- <a class="btn btn-success" href="{!! URL::to('admin/provinces/create') !!}"><i class="fa fa-floppy-o fa-fw"></i> Tambah Provinsi</a> -->
 							</div>

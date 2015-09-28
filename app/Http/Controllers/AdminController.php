@@ -100,7 +100,7 @@ class AdminController extends Controller {
 	{
 		$prov_list = Province::all();
 
-		$univ_list = University::lists('university_name','id');
+		$univ_list = University::all();//lists('university_name','id');
 
 		return view('admin.listprovinces', compact('prov_list', 'univ_list'));
 	}
