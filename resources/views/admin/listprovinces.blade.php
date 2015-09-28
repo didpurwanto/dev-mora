@@ -47,9 +47,10 @@
 												<tr>
 													<th>No</th>
 													<th>Nama Provinsi</th>
-													<th>Univ 1</th>
-													<th>Univ 2</th>
-													<th>Univ 3</th>
+													@foreach ($univ_list as $university)
+														<th> {{ $university->university_code }}</th>
+													@endforeach
+													<th>Total</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -61,15 +62,12 @@
 													<td class="center col-md-8">
 														{{ $province->province_name }}
 													</td>
-													<td class="center col-md-1">
-															100
-													</td>
-													<td class="center col-md-1">
-															100
-													</td>
+													@foreach ($univ_list as $university)
+														<th> 100 </th>
+													@endforeach
 
 													<td class="center col-md-1">
-															100
+															1000
 													</td>
 												</tr>
 													@endforeach
