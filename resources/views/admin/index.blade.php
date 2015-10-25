@@ -174,7 +174,7 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Data Tambahan<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                               <li>
-                                  <a href="typography.html"> Tingkat Pendidikan</a>
+                                  <a href="{{!! URL::to('admin/educationlevel') !!}}">Tingkat Pendidikan</a>
                               </li>
                               <li>
                                   <a href="icons.html"> Jenis Pekerjaan</a>
@@ -183,7 +183,7 @@
                                   <a href="grid.html"> Jenis Pesantren</a>
                               </li>
                               <li>
-                                  <a href="grid.html"> Program Studi</a>
+                                  <a href="{{!! URL::to('admin/programstudies') !!}}">Program Studi</a>
                               </li>
                               <li>
                                   <a href="grid.html"> Range Gaji</a>

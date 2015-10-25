@@ -26,14 +26,16 @@
 <!-- 						<div class="panel-heading">
 								Kode dan Nama Provinsi
 						</div> -->
-
+						@foreach($data as $fetch)
+						   {{ $fetch }}
+						@endforeach
 						<!-- /.panel-heading -->
 						<div class="panel-body">
 							<div class="col-md-2 col-md-offset-5">
 								<!-- <a class="btn btn-success" href="{!! URL::to('admin/provinces/create') !!}"><i class="fa fa-floppy-o fa-fw"></i> Tambah Provinsi</a> -->
 							<div class="form-group">
 								{!! Form::label('university_id', 'Pilih Universitas :') !!}
-								{!! Form::select('university_id',   array_merge(['0' => 'Semua Universitas'], $univ_list), ['class' => 'form-control']) !!}
+								{!! Form::select('university_id',   array_merge(['0' => 'Pilih Universitas'], $univ_list), ['class' => 'form-control']) !!}
 							</div>
 							</div>
 								<div class="dataTable_wrapper">

@@ -1,11 +1,12 @@
 <?php namespace App\Http\Controllers;
-
+use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\University;
 use App\Province;
+use App\Application;
 use App\Departement;
 use App\Http\Requests\UniversityRequest;
 use App\Http\Requests\DepartementRequest;
@@ -92,8 +93,18 @@ class AdminController extends Controller {
 		$univ_list= University::lists('university_name','id');
 
 		$dept_list= Departement::all();//lists('departement_name', 'university_id','id');
+		$data = array();
+		foreach ($univ_list as $univ) {
+			foreach ($dept_list as $dept) {
+				$result = DB::table('applications')->count()
+					->where('university_id',$univ->id)
+					->where('major_id', $dept->id)
+					->get();
 
-		return view('admin.listuniversities', compact('univ_list','dept_list'));
+				$data [$univ] [$dept] = $result;
+			}
+		}
+		return view('admin.listuniversities', compact('univ_list','dept_list', 'data'));
 	}
 
 	public function listprovinces()
@@ -101,7 +112,14 @@ class AdminController extends Controller {
 		$prov_list = Province::all();
 
 		$univ_list = University::all();//lists('university_name','id');
-
+		$data= array();
+		
+		// foreach($prov_list as $prov){
+		// 	foreach ($univ_list as $univ) {
+		// 		$r = DB::('Application')
+		// 			->where(	)
+		// 	}
+		// }
 		return view('admin.listprovinces', compact('prov_list', 'univ_list'));
 	}
 }
