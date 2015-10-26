@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 
 use App\JobType;
 use Illuminate\Http\Request;
+use App\Http\Requests\JobTypeRequest;
+
 
 class JobTypesController extends Controller {
 
@@ -36,21 +38,14 @@ class JobTypesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(JobTypeRequest $request)
 	{
-		//
+		JobType::create($request->all());
+
+		return redirect('admin/jobtypes');
+
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -60,7 +55,8 @@ class JobTypesController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$jobtype = JobType::findOrfail($id);
+		return view('jobtype.edit', compact('jobtype'));
 	}
 
 	/**
@@ -69,9 +65,13 @@ class JobTypesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, JobTypeRequest $request)
 	{
-		//
+		$jobtype = JobType::findOrfail($id);
+		// dd($edu);
+		$jobtype->update($request->all());
+
+		return redirect('admin/jobtypes');
 	}
 
 	/**
@@ -82,7 +82,9 @@ class JobTypesController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		JobType::destroy($id);
+
+		return redirect('admin/jobtypes');	
 	}
 
 }

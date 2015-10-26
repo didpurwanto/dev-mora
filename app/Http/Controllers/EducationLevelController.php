@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\EducationLevel;
-
+use App\Http\Requests\EducationLevelRequest;
 
 class EducationLevelController extends Controller {
 
@@ -36,21 +36,13 @@ class EducationLevelController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(EducationLevelRequest $request)
 	{
-		//
+		EducationLevel::create($request->all());
+
+		return redirect('admin/educationlevels');
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -60,7 +52,8 @@ class EducationLevelController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$edu = EducationLevel::findOrfail($id);
+		return view('educationlevel.edit', compact('edu'));
 	}
 
 	/**
@@ -69,9 +62,13 @@ class EducationLevelController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, EducationLevelRequest $request)
 	{
-		//
+		$edu = EducationLevel::findOrfail($id);
+		// dd($edu);
+		$edu->update($request->all());
+
+		return redirect('admin/educationlevels');
 	}
 
 	/**
@@ -82,7 +79,9 @@ class EducationLevelController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		EducationLevel::destroy($id);
+
+		return redirect('admin/educationlevels');	
 	}
 
 }
