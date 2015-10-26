@@ -173,24 +173,27 @@
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Data Tambahan<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                              <li>
-                                  <a href="{{!! URL::to('admin/educationlevel') !!}}">Tingkat Pendidikan</a>
-                              </li>
-                              <li>
-                                  <a href="icons.html"> Jenis Pekerjaan</a>
-                              </li>
-                              <li>
-                                  <a href="grid.html"> Jenis Pesantren</a>
-                              </li>
-                              <li>
-                                  <a href="{{!! URL::to('admin/programstudies') !!}}">Program Studi</a>
-                              </li>
-                              <li>
-                                  <a href="grid.html"> Range Gaji</a>
-                              </li>
-                              <li>
-                                  <a href="grid.html"> Tipe Sekolah</a>
-                              </li>
+                                <li class="{!! Request::is('edicationlevels') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/educationlevels') !!}">Tingkat Pendidikan</a>
+                                </li>                              
+                                <li class="{!! Request::is('jobtypes') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/jobtypes') !!}">Jenis Pekerjaan</a>
+                                </li>                              
+
+                                <li class="{!! Request::is('pesantrentypes') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/pesantrentypes') !!}">Jenis Pesantren</a>
+                                </li>                              
+
+                                <li class="{!! Request::is('programstudies') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/programstudies') !!}">Program Study</a>
+                                </li>                              
+
+                                <li class="{!! Request::is('rangesalaries') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/rangesalaries') !!}">Range Gaji</a>
+                                </li>                              
+                                <li class="{!! Request::is('schooltypes') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/schooltypes') !!}">Tipe Sekolah</a>
+                                </li>                              
                             </ul>
                         </li>
 

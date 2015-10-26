@@ -125,8 +125,8 @@ Route::resource('admin/departements','DepartementsController',['except' => ['sho
 Route::resource('admin/programstudies','ProgramStudiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
 Route::resource('admin/provinces','ProvincesController',['except' => ['show']]);
 
-Route::resource('admin/educationlevel','EducationLevelController@index');
-Route::resource('admin/jobtype','JobTypesController@index');
-Route::resource('admin/pesantrentype','PesantrenTypesController@index');
-Route::resource('admin/rangesalary','RangeSalariesController@index');
-Route::resource('admin/schooltype','SchoolTypesController@index');
+Route::resource('admin/educationlevels','EducationLevelController',['except' => ['show']]);
+Route::resource('admin/jobtypes','JobTypesController',['except' => ['show']]);
+Route::resource('admin/pesantrentypes','PesantrenTypesController',['except' => ['show']]);
+Route::resource('admin/rangesalaries','RangeSalariesController',['except' => ['show']]);
+Route::resource('admin/schooltypes','SchoolTypesController',['except' => ['show']]);
