@@ -27,7 +27,7 @@
 						<!-- /.panel-heading -->
 						<div class="panel-body">
 							<div class="col-md-2 col-md-offset-5">
-								<a class="btn btn-success" href="{!! URL::to('admin/universities/create') !!}"><i class="fa fa-floppy-o fa-fw"></i> Tambah Tipe Pesantren</a>
+								<a class="btn btn-success" href="{!! URL::to('admin/pesantrentypes/create') !!}"><i class="fa fa-floppy-o fa-fw"></i> Tambah Tipe Pesantren</a>
 							</div>
 								<div class="dataTable_wrapper">
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
@@ -48,9 +48,9 @@
 														{{ $type->type_name }}
 													</td>
 													<td class="center col-md-2">
-															<a class="btn btn-xs btn-success" href="{!! URL::to('admin/jobtype/'.$type->id.'/edit') !!}"><i class="fa fa-edit fa-fw"></i> Edit</a>
+															<a class="btn btn-xs btn-success" href="{!! URL::to('admin/pesantrentypes/'.$type->id.'/edit') !!}"><i class="fa fa-edit fa-fw"></i> Edit</a>
 															&nbsp;&nbsp;
-															<a class="btn btn-xs btn-danger" href="{!! URL::to('admin/jobtype/'.$type->id) !!}" data-token="{{csrf_token()}}" data-method="delete" data-confirm="Anda yakin menghapus data Universitas?"><i class="fa fa-remove fa-fw"></i> Hapus</a>
+															<a class="btn btn-xs btn-danger" href="{!! URL::to('admin/pesantrentypes/'.$type->id) !!}" data-token="{{csrf_token()}}" data-method="delete" data-confirm="Anda yakin menghapus tipe pesantren ini?"><i class="fa fa-remove fa-fw"></i> Hapus</a>
 													</td>
 												</tr>
 													@endforeach

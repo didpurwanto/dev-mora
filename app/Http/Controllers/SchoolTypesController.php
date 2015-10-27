@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\SchoolType;
 use Illuminate\Http\Request;
+use App\Http\Requests\SchoolTypeRequest;
 
 class SchoolTypesController extends Controller {
 
@@ -33,20 +34,10 @@ class SchoolTypesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(SchoolTypeRequest $Request)
 	{
-		//
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
+		SchoolType::create($Request->all());
+		return redirect('admin/schooltypes');
 	}
 
 	/**
@@ -57,7 +48,8 @@ class SchoolTypesController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$schooltype =  SchoolType::findOrFail($id);
+		return view('schooltype.edit', compact('schooltype'));
 	}
 
 	/**
@@ -66,9 +58,13 @@ class SchoolTypesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, SchoolTypeRequest $request)
 	{
-		//
+		$schooltype = SchoolType::findOrFail($id);
+
+		$schooltype->update($request->all());
+
+		return redirect('admin/schooltypes');
 	}
 
 	/**
@@ -79,7 +75,8 @@ class SchoolTypesController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		SchoolType::destroy($id);
+		return redirect('admin/schooltypes');
 	}
 
 }

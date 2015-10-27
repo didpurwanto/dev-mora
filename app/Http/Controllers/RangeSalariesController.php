@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\RangeSalary;
 use Illuminate\Http\Request;
+use App\Http\Requests\RangeSalaryRequest;
 
 class RangeSalariesController extends Controller {
 
@@ -26,7 +27,7 @@ class RangeSalariesController extends Controller {
 	 */
 	public function create()
 	{
-		return view('RangeSalary.create');
+		return view('rangesalary.create');
 	}
 
 	/**
@@ -34,20 +35,10 @@ class RangeSalariesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(RangeSalaryRequest $request)
 	{
-		//
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
+		RangeSalary::create($request->all());
+		return redirect('admin/rangesalaries');
 	}
 
 	/**
@@ -58,7 +49,9 @@ class RangeSalariesController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$salary = RangeSalary::findOrFail($id);
+		return view('rangesalary.edit', compact('salary'));
+
 	}
 
 	/**
@@ -67,9 +60,13 @@ class RangeSalariesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, RangeSalaryRequest $request)
 	{
-		//
+		$edu = RangeSalary::findOrfail($id);
+		// dd($edu);
+		$edu->update($request->all());
+
+		return redirect('admin/rangesalaries');
 	}
 
 	/**
@@ -80,7 +77,8 @@ class RangeSalariesController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		RangeSalary::destroy($id);
+		return redirect('admin/rangesalaries');
 	}
 
 }

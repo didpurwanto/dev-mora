@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\PesantrenType;
 use Illuminate\Http\Request;
+use App\Http\Requests\PesantrenTypeRequest;
 
 class PesantrenTypesController extends Controller {
 
@@ -35,20 +36,11 @@ class PesantrenTypesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(PesantrenTypeRequest $request)
 	{
-		//
-	}
+		PesantrenType::create($request->all());
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
+		return redirect('admin/pesantrentypes');
 	}
 
 	/**
@@ -59,7 +51,8 @@ class PesantrenTypesController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$pesantrentype = PesantrenType::findOrFail($id);
+		return view('pesantrentype.edit', compact('pesantrentype'));	
 	}
 
 	/**
@@ -68,9 +61,13 @@ class PesantrenTypesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, PesantrenTypeRequest $request)
 	{
-		//
+		$edu = PesantrenType::findOrfail($id);
+		// dd($edu);
+		$edu->update($request->all());
+
+		return redirect('admin/pesantrentypes');
 	}
 
 	/**
@@ -81,7 +78,9 @@ class PesantrenTypesController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		PesantrenType::destroy($id);
+
+		return redirect('admin/pesantrentypes');	
 	}
 
 }
