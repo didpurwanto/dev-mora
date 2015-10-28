@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge">12</div>
-                        <div>New Tasks!</div>
+                        <div>Sisa yang tersedia!</div>
                     </div>
                 </div>
             </div>

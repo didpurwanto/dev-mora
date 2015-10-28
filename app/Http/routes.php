@@ -130,3 +130,6 @@ Route::resource('admin/jobtypes','JobTypesController',['except' => ['show']]);
 Route::resource('admin/pesantrentypes','PesantrenTypesController',['except' => ['show']]);
 Route::resource('admin/rangesalaries','RangeSalariesController',['except' => ['show']]);
 Route::resource('admin/schooltypes','SchoolTypesController',['except' => ['show']]);
+
+
+Route::get('admin/departementlist','AdminController@departementlist');

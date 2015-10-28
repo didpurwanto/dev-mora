@@ -94,17 +94,38 @@ class AdminController extends Controller {
 
 		$dept_list= Departement::all();//lists('departement_name', 'university_id','id');
 		$data = array();
-		foreach ($univ_list as $univ) {
-			foreach ($dept_list as $dept) {
-				$result = DB::table('applications')->count()
-					->where('university_id',$univ->id)
-					->where('major_id', $dept->id)
-					->get();
+		// foreach ($univ_list as $univ) {
+		// 	foreach ($dept_list as $dept) {
+		// 		$result = DB::table('applications')->count()
+		// 			->where('university_id',$univ->id)
+		// 			->where('major_id', $dept->id)
+		// 			->get();
 
-				$data [$univ] [$dept] = $result;
-			}
-		}
+		// 		$data [$univ] [$dept] = $result;
+		// 	}
+		// }
 		return view('admin.listuniversities', compact('univ_list','dept_list', 'data'));
+	}
+
+	/*
+	* selecet by university id
+	*/
+// 	select departement_name, count(applications.major_1_id)
+//  from departements left join applications on applications.major_1_id = departements.id
+//  where departements.university_id = 1
+//  group by departements.id;
+
+	public function departementlist()
+	{
+		$id =1;
+		$dept = DB::table('departements')
+			// ->select(DB::raw('count(*) as total, departement_name'))
+            ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
+            ->where('departements.university_id', $id)
+            ->where('applications.university_id', $id)
+            ->get();
+
+         dd($dept);
 	}
 
 	public function listprovinces()
