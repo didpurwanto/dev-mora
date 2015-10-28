@@ -117,15 +117,21 @@ class AdminController extends Controller {
 
 	public function departementlist()
 	{
+		$univ_list= University::lists('university_name','id');
+
+
 		$id =1;
 		$dept = DB::table('departements')
-			// ->select(DB::raw('count(*) as total, departement_name'))
+			->select(['departements.departement_name', DB::raw('count(applications.major_1_id) as total'), 'departements.id'
+				])
             ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
             ->where('departements.university_id', $id)
-            ->where('applications.university_id', $id)
+            ->groupBy('departements.id')
             ->get();
 
-         dd($dept);
+         // dd($dept);
+
+            return view('admin.departement', compact('dept', 'univ_list'));
 	}
 
 	public function listprovinces()
