@@ -67,7 +67,7 @@
 													@endforeach
 
 													<td class="center col-md-1">
-															1000
+														{{ $province->total }}
 													</td>
 												</tr>
 													@endforeach
