@@ -23,9 +23,9 @@
 <div class="row">
 		<div class="col-lg-12">
 				<div class="panel panel-default">
-				<h4>  Daftar universitas: </h4>
 						<div class="panel-body">
-							<div class="center col-md-4">
+							<div class="alert alert-warning" role="alert">
+								<h4>  Daftar universitas: </h4>
 								@foreach ($univ_list as $university)
 									<td class="center col-md-2">
 										{{ $university->university_code }} --
