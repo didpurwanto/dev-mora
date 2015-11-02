@@ -119,8 +119,7 @@ Route::get('admin', [
 //Administrator route
 Route::resource('admin/universities','UniversitiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
 Route::resource('admin/departements','DepartementsController',['except' => ['show']]); // seharusnya method 'show' tidak ada
- Route::resource('admin/programstudies','ProgramStudiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
+Route::resource('admin/programstudies','ProgramStudiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
 Route::resource('admin/provinces','ProvincesController',['except' => ['show']]);
 
 Route::get('admin/listuniversities','AdminController@listuniversities');
-Route::get('admin/listprovinces','AdminController@listprovinces');
