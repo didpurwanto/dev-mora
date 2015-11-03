@@ -92,7 +92,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h1>Login</h1>
-                    <h3 class="section-heading">Silahkan isi username dan password Anda!</h3>
+                    <h3 class="section-heading">Silahkan masukkan username dan password Anda!</h3>
                     <br />
 
                     <form role="form" action="{{ url('/auth/login') }}" method="post" name="myform" id="myform" enctype="multipart/form-data">
@@ -136,7 +136,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                   <h1>Buat Akun</h1>
-                    <h3 class="section-heading">Silahkan isi data Anda di bawah ini!</h3>
+                    <h3 class="section-heading">Silahkan lengkapi data Anda di bawah ini!</h3>
                     <br />
                     <!--
                     {!! Form::open(['url' => '/auth/register', 'method' => 'POST']) !!}
@@ -180,7 +180,7 @@
                                 @endif
                                 </ul>
                               </div></font>
-                            <input class="form-control" size="40" placeholder="Isi Username Anda!" name="username" id="username">
+                            <input class="form-control" size="40" placeholder="Masukkan Username Anda!" name="username" id="username">
                           </td>
                         </tr>
                       </table>
@@ -198,7 +198,7 @@
                         <tr>
                           <td>
                             <font color = "white" size="2px"><div id='myform_password_errorloc' class="error_strings"></div></font>
-                            <input class="form-control" size="40" type="password" placeholder="Isi Password Anda!" name="password">
+                            <input class="form-control" size="40" type="password" placeholder="Masukkan Password Anda!" name="password">
                           </td>
                         </tr>
                       </table>
@@ -207,7 +207,7 @@
                         <tr>
                           <td>
                             <font color = "white" size="2px"><div id='myform_konfirmasi_errorloc' class="error_strings"></div></font>
-                            <input class="form-control" size="40"  type="password" placeholder="Isi Konfirmasi Password Anda!" name="password_confirmation">
+                            <input class="form-control" size="40"  type="password" placeholder="Masukkan Konfirmasi Password Anda!" name="password_confirmation">
                           </td>
                         </tr>
                       </table>
