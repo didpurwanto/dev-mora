@@ -128,7 +128,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="{!! URL::to('/auth/logout') !!}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -175,25 +175,25 @@
                             <ul class="nav nav-second-level">
                                 <li class="{!! Request::is('edicationlevels') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/educationlevels') !!}">Tingkat Pendidikan</a>
-                                </li>                              
+                                </li>
                                 <li class="{!! Request::is('jobtypes') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/jobtypes') !!}">Jenis Pekerjaan</a>
-                                </li>                              
+                                </li>
 
                                 <li class="{!! Request::is('pesantrentypes') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/pesantrentypes') !!}">Jenis Pesantren</a>
-                                </li>                              
+                                </li>
 
                                 <li class="{!! Request::is('programstudies') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/programstudies') !!}">Program Study</a>
-                                </li>                              
+                                </li>
 
                                 <li class="{!! Request::is('rangesalaries') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/rangesalaries') !!}">Range Gaji</a>
-                                </li>                              
+                                </li>
                                 <li class="{!! Request::is('schooltypes') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/schooltypes') !!}">Tipe Sekolah</a>
-                                </li>                              
+                                </li>
                             </ul>
                         </li>
 

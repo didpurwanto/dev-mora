@@ -97,7 +97,7 @@
 
                     <form role="form" action="{{ url('/auth/login') }}" method="post" name="myform" id="myform" enctype="multipart/form-data">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
-					  <table align="center">
+					            <table align="center">
                         <tr>
                           <td>
                             <font color = "red" size="2px">
@@ -167,19 +167,21 @@
                           <td>
                             <font color = "white" size="2px">
                               <div id='myform_username_errorloc' class="error_strings">
-
-                                @if ($errors->first('username'))
-                                <ul class="alert alert-danger">
-                                    <li>{{ $errors->first('username') }}</li>
-                                @endif
-                                @if ($errors->first('email'))
-                                    <li>{{ $errors->first('email') }}</li>
-                                @endif
-                                @if ($errors->first('password'))
-                                    <li>{{ $errors->first('password') }}</li>
+                                @if($errors->any())
+                                  <ul class="alert alert-danger">
+                                  @if ($errors->first('username'))
+                                      <li>{{ $errors->first('username') }}</li>
+                                  @endif
+                                  @if ($errors->first('email'))
+                                      <li>{{ $errors->first('email') }}</li>
+                                  @endif
+                                  @if ($errors->first('password'))
+                                      <li>{{ $errors->first('password') }}</li>
+                                  @endif
                                 @endif
                                 </ul>
-                              </div></font>
+                              </div>
+                            </font>
                             <input class="form-control" size="40" placeholder="Masukkan Username Anda!" name="username" id="username">
                           </td>
                         </tr>
