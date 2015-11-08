@@ -21,7 +21,11 @@ class AdminController extends Controller {
 	public function index()
 	{
 		// echo "index admin";
-		return view('admin.beranda');
+		$total_pendaftar = DB::table('applicants')->count();
+         // dd($total_pendaftar);
+
+		// return view('admin.beranda')->with('total_pendaftar','$total_pendaftar');
+		return view('admin.beranda', compact('total_pendaftar'));
 	}
 
 	/**
@@ -115,12 +119,12 @@ class AdminController extends Controller {
 //  where departements.university_id = 1
 //  group by departements.id;
 
-	public function departementlist()
+	public function departementlist($id)
 	{
 		$univ_list= University::lists('university_name','id');
 
 
-		$id =1;
+		// $id =1;
 		$dept = DB::table('departements')
 			->select(['departements.departement_name', DB::raw('count(applications.major_1_id) as total'), 'departements.id'
 				])
@@ -135,6 +139,7 @@ class AdminController extends Controller {
 	}
 
 
+
 // select provinces.province_name, count(applicants.id) from provinces 
 // left join applicants on provinces.id = applicants.province_id 
 // group by provinces.id;
@@ -142,16 +147,19 @@ class AdminController extends Controller {
 	public function listprovinces()
 	{
 		// $prov_list = Province::all();
-
+		$id= 1;
 		$univ_list = University::all();//lists('university_name','id');
 		$data= array();
 		
 		$prov_list = DB::table('provinces')
 			->select(['provinces.province_name', DB::raw('count(applicants.id) as total'), 'provinces.id'])
 			->leftJoin('applicants', 'provinces.id','=', 'applicants.province_id' )
+			->leftJoin('applications', 'applications.user_id','=','applicants.user_id')
+			->where('university_id',$id)
 			->groupBy('provinces.id')
 			->get();
 
+		
 		return view('admin.listprovinces', compact('prov_list', 'univ_list'));
 	}
 }

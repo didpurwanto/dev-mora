@@ -8,6 +8,7 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
+
 <!-- /.row -->
 <div class="row">
     <div class="col-lg-3 col-md-6">
@@ -18,7 +19,8 @@
                         <i class="fa fa-comments fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">26</div>
+                        <div class="huge">000
+                        </div>
                         <div>Total Pendaftar!</div>
                     </div>
                 </div>

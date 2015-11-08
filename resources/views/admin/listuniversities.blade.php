@@ -103,3 +103,28 @@
 	{!! Html::script('js/laravel.js', array('type' => 'text/javascript')) !!}
 
 @stop
+
+
+@section('script')
+	<script type="text/javascript">
+    $(document).ready(function() {
+	   $('#university_id').change();
+	});
+	</script>
+
+	<script type="text/javascript">
+    $(document).ready(function() {
+        $("#university_id").change(function(){
+            $.getJSON("/applications/universities/" + $("#university_id").val(), function(data) {
+                var $stations = $("#major_1_id");
+                $stations.empty();
+                $.each(data, function(index, value) {
+                    $stations.append('<option value="' + index +'">' + value + '</option>');
+                });
+            $("#major_1_id").trigger("change"); /* trigger next drop down list not in the example */
+            });
+        });
+    });
+	</script>
+
+@stop
