@@ -146,20 +146,50 @@ class AdminController extends Controller {
 
 	public function listprovinces()
 	{
-		// $prov_list = Province::all();
-		$id= 1;
+		// // $prov_list = Province::all();
+		// $id= 1;
 		$univ_list = University::all();//lists('university_name','id');
-		$data= array();
+		// $data= array();
 		
-		$prov_list = DB::table('provinces')
-			->select(['provinces.province_name', DB::raw('count(applicants.id) as total'), 'provinces.id'])
-			->leftJoin('applicants', 'provinces.id','=', 'applicants.province_id' )
-			->leftJoin('applications', 'applications.user_id','=','applicants.user_id')
-			->where('university_id',$id)
-			->groupBy('provinces.id')
-			->get();
+		// $prov_list = DB::table('provinces')
+		// 	->select(['provinces.province_name', DB::raw('count(applicants.id) as total'), 'provinces.id'])
+		// 	->leftJoin('applicants', 'provinces.id','=', 'applicants.province_id' )
+		// 	->leftJoin('applications', 'applications.user_id','=','applicants.user_id')
+		// 	->where('university_id',$id)
+		// 	->groupBy('provinces.id')
+		// 	->get();
 
 		
-		return view('admin.listprovinces', compact('prov_list', 'univ_list'));
+		$data = array();
+		$univ = DB::table('universities')
+			->select('id', 'university_name')
+			->get();
+
+		$prov = DB::table('provinces')
+			->select('id','province_name')
+			->get();
+		$value = 0;
+		foreach ($prov as $province) {
+			foreach ($univ as $university) {			
+				// echo $province->id;
+				$val = DB::table('applicants')
+					->select('full_name')
+					->where('university_id',$university->id)
+					->where('province_id', $province->id)
+					->get();
+				if (count($val)) {
+					$value =  count($val);
+				}
+				else{
+					$value=0;
+				}
+
+				$data[] = array($province, $university, $value);
+			}
+		}
+
+		dd($data);
+		return view('admin.listprovinces', compact('univ_list', 'univ_list'));
+
 	}
 }
