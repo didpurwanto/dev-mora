@@ -26,9 +26,9 @@
 						<div class="panel-body">
 							<div class="alert alert-warning" role="alert">
 								<h4>  Daftar universitas: </h4>
-								@foreach ($univ_list as $university)
+								@foreach ($univ as $university)
 									<td class="center col-md-2">
-										{{ $university->university_code }} --
+										{{ $university->university_code }} :
 									</td> 
 									<td class="center col-md-2">
 										{{ $university->university_name }}
@@ -37,17 +37,13 @@
 								@endforeach
 								<br>							
 							</div>
-
-							<div class="col-md-2 col-md-offset-5">
-								<!-- <a class="btn btn-success" href="{!! URL::to('admin/provinces/create') !!}"><i class="fa fa-floppy-o fa-fw"></i> Tambah Provinsi</a> -->
-							</div>
 								<div class="dataTable_wrapper">
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 											<thead>
 												<tr>
 													<th>No</th>
 													<th>Nama Provinsi</th>
-													@foreach ($univ_list as $university)
+													@foreach ($univ as $university)
 														<th> {{ $university->university_code }}</th>
 													@endforeach
 													<th>Total</th>
@@ -62,19 +58,22 @@
 													<td class="center col-md-8">
 														{{ $province->province_name }}
 													</td>
-													@foreach ($univ_list as $university)
-														<th> 100 </th>
+													<!-- <td class="center col-md-1"> -->
+													@foreach ($univ as $university)
+														<th>
+															{{ $data[$province->province_name][$university->university_name] }}
+														</th>
 													@endforeach
-
-													<td class="center col-md-1">
+													</td>
+													<td>
 														{{ $province->total }}
 													</td>
 												</tr>
-													@endforeach
+												@endforeach
 											</tbody>
 								   </table>
-						 </div>
-					 </div>
+						 </div>					 		
+					 	</div>
  					<!-- /.panel-body -->
  			</div>
  			<!-- /.panel -->
