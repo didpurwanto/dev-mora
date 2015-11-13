@@ -45,8 +45,8 @@ trait AuthenticatesAndRegistersUsers {
 		if ($validator->fails())
 		{
 			return redirect($this->registerPath())
-            ->withErrors($validator)
-            ->withInput();
+						->withInput($request->only('username', 'email'))
+            ->withErrors($validator);
 				//$this->throwValidationException(
 				//$request, $validator
 				//);

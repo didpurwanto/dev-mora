@@ -190,7 +190,6 @@
                       <table align="center">
                           <tr>
                             <td>
-                              <font color = "white" size="2px"><div id='myform_email_errorloc' class="error_strings"></div></font>
                               <input class="form-control" size="40" placeholder="Isi Email Anda!" name="email" id="email">
                             </td>
                           </tr>
@@ -199,7 +198,6 @@
                       <table align="center">
                         <tr>
                           <td>
-                            <font color = "white" size="2px"><div id='myform_password_errorloc' class="error_strings"></div></font>
                             <input class="form-control" size="40" type="password" placeholder="Masukkan Password Anda!" name="password">
                           </td>
                         </tr>
@@ -208,7 +206,6 @@
                       <table align="center">
                         <tr>
                           <td>
-                            <font color = "white" size="2px"><div id='myform_konfirmasi_errorloc' class="error_strings"></div></font>
                             <input class="form-control" size="40"  type="password" placeholder="Masukkan Konfirmasi Password Anda!" name="password_confirmation">
                           </td>
                         </tr>

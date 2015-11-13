@@ -26,7 +26,7 @@ class Registrar implements RegistrarContract {
 			'email.email' => 'Alamat email harus valid.',
 			'email.unique' => 'Alamat email ini sudah digunakan.',
 			'password.required' => 'Password tidak boleh kosong',
-			'password.confirmed' => 'Password tidak match',
+			'password.confirmed' => 'Password tidak sesuai',
 			'password.min' => 'Password minimal delapan (8) karakter',
 			]);
 	}

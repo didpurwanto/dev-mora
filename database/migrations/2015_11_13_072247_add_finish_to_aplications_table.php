@@ -14,7 +14,7 @@ class AddFinishToAplicationsTable extends Migration {
 	{
 		Schema::table('applications', function(Blueprint $table)
 		{
-			//
+			$table->smallInteger('finish');
 		});
 	}
 
@@ -27,7 +27,7 @@ class AddFinishToAplicationsTable extends Migration {
 	{
 		Schema::table('applications', function(Blueprint $table)
 		{
-			//
+			$table->smallInteger('finish');
 		});
 	}
 
