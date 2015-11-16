@@ -1,7 +1,7 @@
 @extends('register.index')
 
 @section('content')
-	<h2>Data Pesantren</h2>
+	<h2>Data Sekolah</h2>
 	<hr />
 
 	{!! Form::model($sch,['method' => 'PATCH','url' => ['/schools']]) !!}
