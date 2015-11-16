@@ -27,7 +27,7 @@ class AddFinishToPesantrensTable extends Migration {
 	{
 		Schema::table('pesantrens', function(Blueprint $table)
 		{
-			$table->smallInteger('finish');
+			$table->dropColumn('finish');
 		});
 	}
 
