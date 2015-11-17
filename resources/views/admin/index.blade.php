@@ -150,7 +150,7 @@
                                     <a href="{!! URL::to('admin/listprovinces') !!}">Propinsi</a>
                                 </li>
                                 <li>
-                                    <a href="{!! URL::to('admin/listuniversities/0') !!}">Universitas</a>
+                                    <a href="{!! URL::to('admin/listuniversities/1') !!}">Universitas</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

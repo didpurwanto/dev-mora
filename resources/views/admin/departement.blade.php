@@ -32,7 +32,7 @@
 								<!-- <a class="btn btn-success" href="{!! URL::to('admin/provinces/create') !!}"><i class="fa fa-floppy-o fa-fw"></i> Tambah Provinsi</a> -->
 							<div class="form-group">
 								{!! Form::label('university_id', 'Pilih Universitas :') !!}
-								{!! Form::select('university_id',   array_merge(['0' => 'Pilih Universitas'], $univ_list), ['class' => 'form-control']) !!}
+								{!! Form::select('university_id', array_merge(['0' => 'Pilih Universitas'], $univ_list), 1, ['class' => 'form-control']) !!}
 							</div>
 							</div>
 								<div class="dataTable_wrapper">
