@@ -12,16 +12,16 @@
     <title>DEVMORA</title>
 
     <!-- Bootstrap Core CSS -->
-    {!! Html::style('homepage/css/bootstrap.min.css') !!}
+    {!! Html::style('css/bootstrap.min.css') !!}
 
     <!-- Custom CSS -->
-    {!! Html::style('homepage/css/sb-admin.css') !!}
+    {!! Html::style('css/sb-admin.css') !!}
 
   	<!-- Morris Charts CSS -->
-  	{!! Html::style('homepage/css/plugins/morris.css') !!}
+  	{!! Html::style('css/plugins/morris.css') !!}
 
     <!-- Custom Fonts -->
-	  {!! Html::style('homepage/font-awesome/css/font-awesome.min.css') !!}
+	  {!! Html::style('font-awesome/css/font-awesome.min.css') !!}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -116,20 +116,20 @@
 
 
     <!-- jQuery -->
-    {!! Html::script('homepage/js/jquery.js', array('type' => 'text/javascript')) !!}
+    {!! Html::script('js/jquery-1.11.1.min.js', array('type' => 'text/javascript')) !!}
 
     <!-- Bootstrap Core JavaScript -->
-	{!! Html::script('homepage/js/bootstrap.min.js', array('type' => 'text/javascript')) !!}
+	{!! Html::script('js/bootstrap.min.js', array('type' => 'text/javascript')) !!}
 
 	<!-- Include another specific JavaScript  -->
 	@yield('script')
 
 	<!-- Morris Charts JavaScript-->
-	{!! Html::script('homepage/js/plugins/morris/raphael.min.js', array('type' => 'text/javascript')) !!}
+	{!! Html::script('js/plugins/morris/raphael.min.js', array('type' => 'text/javascript')) !!}
 
-	{!! Html::script('homepage/js/plugins/morris/morris.min.js', array('type' => 'text/javascript')) !!}
+	{!! Html::script('js/plugins/morris/morris.min.js', array('type' => 'text/javascript')) !!}
 
-	{!! Html::script('homepage/js/plugins/morris/morris-data.js', array('type' => 'text/javascript')) !!}
+	{!! Html::script('js/plugins/morris/morris-data.js', array('type' => 'text/javascript')) !!}
 
 </body>
 

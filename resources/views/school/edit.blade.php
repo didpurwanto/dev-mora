@@ -8,7 +8,6 @@
 		@include ('school.form', ['text' => 'Simpan'])
 	{!! Form::close() !!}
 
-	@include('errors.list')
 @stop
 
 @section('script')
