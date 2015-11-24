@@ -150,7 +150,7 @@
                                     <a href="{!! URL::to('admin/listprovinces') !!}">Propinsi</a>
                                 </li>
                                 <li>
-                                    <a href="{!! URL::to('admin/listuniversities/0') !!}">Universitas</a>
+                                    <a href="{!! URL::to('admin/listuniversities') !!}">Universitas</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -215,6 +215,13 @@
     </div>
     <!-- /#wrapper -->
 
+
+    <!-- on top -->
+    <!-- Morris Charts JavaScript -->
+    {!! Html::script('bower_components/morrisjs/morris.min.js', array('type' => 'text/javascript')) !!}
+    {!! Html::script('js/morris-data.js', array('type' => 'text/javascript')) !!}
+    {!! Html::script('bower_components/raphael/raphael-min.js', array('type' => 'text/javascript')) !!}
+
     <!-- jQuery -->
     {!! Html::script('bower_components/jquery/dist/jquery.min.js', array('type' => 'text/javascript')) !!}
 
@@ -226,10 +233,6 @@
 
     @yield('script')
 
-    <!-- Morris Charts JavaScript -->
-    {!! Html::script('bower_components/raphael/raphael-min.js', array('type' => 'text/javascript')) !!}
-    {!! Html::script('bower_components/morrisjs/morris.min.js', array('type' => 'text/javascript')) !!}
-    {!! Html::script('js/morris-data.js', array('type' => 'text/javascript')) !!}
 
         <!-- Custom Theme JavaScript -->
     {!! Html::script('dist/js/sb-admin-2.js', array('type' => 'text/javascript')) !!}

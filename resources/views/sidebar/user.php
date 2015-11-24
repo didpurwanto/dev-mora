@@ -108,6 +108,10 @@
 
     </div>
     <!-- /#wrapper -->
+    <!-- Morris Charts JavaScript -->
+    <script src="<?php echo base_url('public/theme')?>/js/plugins/morris/morris.min.js"></script>
+    <script src="<?php echo base_url('public/theme')?>/js/plugins/morris/morris-data.js"></script>
+    <script src="<?php echo base_url('public/theme')?>/js/plugins/morris/raphael.min.js"></script>
 
     <!-- jQuery -->
     <script src="<?php echo base_url('public/theme')?>/js/jquery.js"></script>
@@ -115,10 +119,6 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url('public/theme')?>/js/bootstrap.min.js"></script>
 
-    <!-- Morris Charts JavaScript -->
-    <script src="<?php echo base_url('public/theme')?>/js/plugins/morris/raphael.min.js"></script>
-    <script src="<?php echo base_url('public/theme')?>/js/plugins/morris/morris.min.js"></script>
-    <script src="<?php echo base_url('public/theme')?>/js/plugins/morris/morris-data.js"></script>
 
 </body>
 

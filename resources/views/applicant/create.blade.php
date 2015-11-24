@@ -236,7 +236,7 @@
 		$('#date_birth' ).datepicker({
 		  //language:  'en',
 		  weekStart: 1,
-		  todayBtn:  0,
+		  todayBtn:  1,
 		  autoclose: 1,
 		  todayHighlight: 0,
 		  startView: 2,
