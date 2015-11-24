@@ -126,9 +126,7 @@
 
 	<!-- Morris Charts JavaScript-->
 	{!! Html::script('js/plugins/morris/raphael.min.js', array('type' => 'text/javascript')) !!}
-
 	{!! Html::script('js/plugins/morris/morris.min.js', array('type' => 'text/javascript')) !!}
-
 	{!! Html::script('js/plugins/morris/morris-data.js', array('type' => 'text/javascript')) !!}
 
 </body>

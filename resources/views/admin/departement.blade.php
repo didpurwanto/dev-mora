@@ -28,11 +28,10 @@
 						</div> -->
 						<!-- /.panel-heading -->
 						<div class="panel-body">
-							<div class="col-md-2 col-md-offset-5">
-								<!-- <a class="btn btn-success" href="{!! URL::to('admin/provinces/create') !!}"><i class="fa fa-floppy-o fa-fw"></i> Tambah Provinsi</a> -->
 							<div class="form-group">
-								{!! Form::label('university_id', 'Pilih Universitas :') !!}
-								{!! Form::select('university_id', array_merge(['0' => 'Pilih Universitas'], $univ_list), 1, ['class' => 'form-control']) !!}
+								{!! Form::label('university_name', 'Pilih Universitas :') !!}
+								{!! Form::select('university_id',   array_merge(['0' => 'Pilih Universitas'], $univ_list), ['class' => 'form-control']) !!}
+								<a class="btn btn-success tampilkan" href="/admin/listuniversities/"{{ 'strUniv' }} ></i> tampilkan</a>	
 							</div>
 							</div>
 								<div class="dataTable_wrapper">
@@ -98,4 +97,26 @@
 	<!-- Delete Data JavaScript - Jeffry Wayy -->
 	{!! Html::script('js/laravel.js', array('type' => 'text/javascript')) !!}
 
+@stop
+
+
+
+@section('script')
+	<script>
+	 $(document).ready(function() {
+	 $('select[name="university_id"]').change(function(){
+		 	alert("aaa");
+			var nilai = $(this).val() ;
+			var url = "<?php echo URL::to('admin/listuniversities') ; ?>" ;
+			$('a.tampilkan').attr('href', url+"/"+nilai);
+		});
+	});
+	</script>
+@stop
+
+@section('script')
+	<script type="text/javascript"></script>
+		var e = document.getElementById("university_id");
+		var strUniv = e.options[e.selectedIndex].value;
+	</script>
 @stop

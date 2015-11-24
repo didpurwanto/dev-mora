@@ -210,7 +210,15 @@ return [
 		'Form'      => 'Illuminate\Html\FormFacade',
 		'Html'      => 'Illuminate\Html\HtmlFacade',
 		'Image' 	=> 'Intervention\Image\Facades\Image',
-		'PDF' 		=> 'Barryvdh\DomPDF\Facade'
+		'PDF' 		=> 'Barryvdh\DomPDF\Facade',
+		/*
+		|
+		| Agung
+		| - menambahkan excel library
+		*/
+		'Excel' => 'Maatwebsite\Excel\Facades\Excel'
+
+
 
 	],
 

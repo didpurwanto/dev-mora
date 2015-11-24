@@ -31,48 +31,46 @@
 						@endforeach
 						<!-- /.panel-heading -->
 						<div class="panel-body">
-							<div class="col-md-2 col-md-offset-5">
-								<!-- <a class="btn btn-success" href="{!! URL::to('admin/provinces/create') !!}"><i class="fa fa-floppy-o fa-fw"></i> Tambah Provinsi</a> -->
 							<div class="form-group">
 								{!! Form::label('university_id', 'Pilih Universitas :') !!}
 								{!! Form::select('university_id',   array_merge(['0' => 'Pilih Universitas'], $univ_list), ['class' => 'form-control']) !!}
+					
 							</div>
-							</div>
-								<div class="dataTable_wrapper">
-										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
-											<thead>
-												<tr>
-													<th>No</th>
-													<th>Nama Jurusan</th>
-													<th>Bidang</th>
-													<th>Kode</th>
-													<th>Jumlah</th>
-												</tr>
-											</thead>
-											<tbody>
-												@foreach ($dept_list as $departement)
-												<tr>
-													<td class="center col-md-1">
-														{{ $departement->id, ['size' => 3] }}
-												    </td>
-													<td class="center col-md-8">
-														{{ $departement->departement_name }}
-													</td>
-													<td class="center col-md-1">
-															100
-													</td>
-													<td class="center col-md-1">
-															100
-													</td>
+							<div class="dataTable_wrapper">
+								<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
+									<thead>
+										<tr>
+											<th>No</th>
+											<th>Nama Jurusan</th>
+											<th>Bidang</th>
+											<th>Kode</th>
+											<th>Jumlah</th>
+										</tr>
+									</thead>
+									<tbody>
+										@foreach ($dept_list as $departement)
+										<tr>
+											<td class="center col-md-1">
+												{{ $departement->id, ['size' => 3] }}
+										    </td>
+											<td class="center col-md-8">
+												{{ $departement->departement_name }}
+											</td>
+											<td class="center col-md-1">
+													100
+											</td>
+											<td class="center col-md-1">
+													100
+											</td>
 
-													<td class="center col-md-1">
-															100
-													</td>
-												</tr>
-													@endforeach
-											</tbody>
-								   </table>
-						 </div>
+											<td class="center col-md-1">
+													100
+											</td>
+										</tr>
+											@endforeach
+									</tbody>
+						   		</table>
+				 			</div>
 					 </div>
  					<!-- /.panel-body -->
  			</div>

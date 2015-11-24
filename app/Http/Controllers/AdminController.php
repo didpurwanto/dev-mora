@@ -21,7 +21,7 @@ class AdminController extends Controller {
 	public function index()
 	{
 		// echo "index admin";
-		$total_pendaftar = DB::table('applicants')->count();
+		$total_pendaftar = DB::table('applications')->count();
          // dd($total_pendaftar);
 
 		// return view('admin.beranda')->with('total_pendaftar','$total_pendaftar');
@@ -121,6 +121,29 @@ class AdminController extends Controller {
 
 	public function departementlist($id)
 	{
+
+		$univ_list= University::lists('university_name','id');
+
+
+		// $id =1;
+		$dept = DB::table('departements')
+			->select(['departements.departement_name', DB::raw('count(applications.major_1_id) as total'), 'departements.id'
+				])
+            ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
+            ->where('departements.university_id', $id)
+            ->groupBy('departements.id')
+            ->get();
+
+         // dd($dept);
+
+            return view('admin.departement', compact('dept', 'univ_list'));
+	}
+
+	public function departementlist2()
+	{
+		
+		$id = 0;
+
 		$univ_list= University::lists('university_name','id');
 
 
