@@ -177,7 +177,7 @@ class AdminController extends Controller {
 		// $id= 1;
 		$univ_list = University::all();//lists('university_name','id');
 		// $data= array();
-		
+
 		$prov_list = DB::table('provinces')
 			->select(['provinces.province_name', DB::raw('count(applicants.id) as total'), 'provinces.id'])
 			->leftJoin('applicants', 'provinces.id','=', 'applicants.province_id' )
@@ -185,7 +185,7 @@ class AdminController extends Controller {
 			->groupBy('provinces.id')
 			->get();
 
-		
+
 		$data = array();
 		$univ = DB::table('universities')
 			->select('id', 'university_name','university_code')
@@ -196,7 +196,7 @@ class AdminController extends Controller {
 			->get();
 		$value = 0;
 		foreach ($prov as $province) {
-			foreach ($univ as $university) {			
+			foreach ($univ as $university) {
 				// echo $province->id;
 				$val = DB::table('applicants')
 					->select('full_name')

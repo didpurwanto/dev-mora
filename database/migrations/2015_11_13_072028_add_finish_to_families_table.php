@@ -27,7 +27,7 @@ class AddFinishToFamiliesTable extends Migration {
 	{
 		Schema::table('families', function(Blueprint $table)
 		{
-			$table->smallInteger('finish');
+			$table->dropColumn('finish');
 		});
 	}
 
