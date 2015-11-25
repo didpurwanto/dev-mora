@@ -13,18 +13,18 @@
     <title>PBSB Online -Dev</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="homepage/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="homepage/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
 
     <!-- Plugin CSS -->
-    <link rel="stylesheet" href="homepage/css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="homepage/css/creative.css" type="text/css">
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
 
 	<!-- Include other spesific CSS -->
 	@yield('css')
@@ -317,18 +317,18 @@
     </section>
 
     <!-- jQuery -->
-    <script src="homepage/js/jquery.js"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="homepage/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="homepage/js/jquery.easing.min.js"></script>
-    <script src="homepage/js/jquery.fittext.js"></script>
-    <script src="homepage/js/wow.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.fittext.js"></script>
+    <script src="js/wow.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="homepage/js/creative.js"></script>
+    <script src="js/creative.js"></script>
 
 
 	<!-- Include another specific JavaScript  -->

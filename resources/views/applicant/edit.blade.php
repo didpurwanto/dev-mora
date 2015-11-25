@@ -68,7 +68,7 @@
 				@endif
 			</div>
 		</div>
-		<div class="form-group">
+		<div class="form-group {{ ! $errors->first('date_birth') ?'': 'has-error' }}">
 			<div class="row">
 				<div class="col-md-3">
 				{!! Form::label('date_birth', 'Tanggal Lahir') !!}
