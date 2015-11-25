@@ -99,6 +99,11 @@ class ApplicantsController extends Controller {
 		//Save record to the database
 		$form = $app->update($request->all());
 
+		//update if the table is filled with content it should.
+		$app->finish = 1;
+		//sava the update
+		$app->save();
+
 		//Return
 		return redirect('families');
 	}

@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use App\School;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
@@ -71,6 +72,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	public function isAdmin()
 	{
 		return $this->role == '255';
+	}
+
+	public function isSchoolFinish()
+	{
+		$school = School::where('user_id', $this->id)->firstOrFail();
+
+		return $school->finish == 1;
 	}
 
 }
