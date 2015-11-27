@@ -118,6 +118,8 @@ Route::get('admin', [
 
 //Administrator route
 // Route::get('admin/listuniversities/{id}','AdminController@departementlist');
+Route::get('admin/export','ExportImportController@exportapplicants');
+
 Route::get('admin/listuniversities/','AdminController@departementlist');
 Route::get('admin/listprovinces','AdminController@listprovinces');
 
