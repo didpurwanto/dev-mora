@@ -151,7 +151,7 @@
                                 </li>
                                 <li>
 
-                                    <a href="{!! URL::to('admin/listuniversities/1') !!}">Universitas</a>
+                                    <a href="{!! URL::to('admin/listuniversities/') !!}">Universitas</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
