@@ -47,14 +47,17 @@
 		</div>
 	</div>
 </div>
-<div class="form-group {{ ! $errors->first('nisn') ? '': 'has-error' }}">
+<div class="form-group {{ ! $errors->first('graduate_year') ? '': 'has-error' }}">
 	<div class="row">
 		<div class="col-md-3">
 		{!! Form::label('graduate_year', 'Tahun Lulus Sekolah') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::text('graduate_year',null ,['class' => 'form-control', 'placeholder' => '2020']) !!}
+		{!! Form::text('graduate_year',null ,['class' => 'form-control', 'placeholder' => '2015']) !!}
 		</div>
+		@if( $errors->first('graduate_year') )
+			<span class="help-block text-danger">{{ $errors->first('graduate_year') }}</span>
+		@endif
 	</div>
 </div>
 <div class="form-group">

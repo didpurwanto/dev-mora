@@ -38,6 +38,7 @@ class PesantrenRequest extends Request {
 	{
 		return [
 			'pesantren_name.required' => 'Nama Pesantren tidak boleh kosong',
+			'kiai_name.required' => 'Nama Pimpinan Pondok tidak boleh kosong',
 			'nspp.required' => 'Nomor Statistik Pondok Pesantren (NSPP) tidak boleh kosong',
 			'nspp.numeric' => 'Nomor Statistik Pondok Pesantren (NSPP) harus angka',
 			'pesantren_type.required' => 'Jenis Pesantren tidak boleh kosong',

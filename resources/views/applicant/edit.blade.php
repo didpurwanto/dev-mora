@@ -3,6 +3,9 @@
 
 @section('css')
 	{!! Html::style('css/bootstrap-datepicker.min.css') !!}
+	{!! Html::style('css/bootstrap-datepicker.standalone.min.css') !!}
+	{!! Html::style('css/bootstrap-datepicker3.min.css') !!}
+	{!! Html::style('css/bootstrap-datepicker3.standalone.min.css') !!}
 @stop
 
 @section('content')
@@ -29,7 +32,7 @@
 				{!! Form::label('email', 'Alamat E-mail') !!}
 				</div>
 				<div class="col-md-4">
-				{!! Form::email('email',null ,['class' => 'form-control', 'placeholder' => 'Alamat E-mail']) !!}
+				{!! Form::email('email',Auth::user()->email ,['class' => 'form-control', 'placeholder' => 'Alamat E-mail']) !!}
 				</div>
 				@if( $errors->first('email') )
 					<span class="help-block text-danger">{{ $errors->first('email') }}</span>
@@ -65,20 +68,20 @@
 				@endif
 			</div>
 		</div>
-		<div class="form-group {{ ! $errors->first('date_birth') ? '' : 'has-error' }}">
+		<div class="form-group">
 			<div class="row">
 				<div class="col-md-3">
 				{!! Form::label('date_birth', 'Tanggal Lahir') !!}
 				</div>
 				<div class="col-md-4">
-				{!! Form::text('date_birth',$app->date_birth,['placeholder' => 'YYYY-MM-DD', 'class' => 'form-control form_date', 'data-date-format' => 'yyyy-mm-dd', 'data-date-viewmode' => 'years']) !!}
+				{!! Form::text('date_birth',$app->date_birth,['class' => 'form-control']) !!}
 				</div>
 				@if( $errors->first('date_birth') )
 					<span class="help-block text-danger">{{ $errors->first('date_birth') }}</span>
 				@endif
 			</div>
 		</div>
-		<div class="form-group {{ ! $errors->first('recitation') ?'': 'has-error' }}">
+		<div class="form-group">
 			<div class="row">
 				<div class="col-md-3">
 				{!! Form::label('recitation', 'Jumlah Hafalan Al-Quran') !!}
@@ -91,7 +94,7 @@
 				@endif
 			</div>
 		</div>
-		<div class="form-group {{ ! $errors->first('color_blind') ?'': 'has-error' }}">
+		<div class="form-group">
 			<div class="row">
 				<div class="col-md-3">
 				{!! Form::label('color_blind', 'Buta Warna') !!}
@@ -234,14 +237,11 @@
 	<script>
 	  $(function() {
 		$( '#date_birth' ).datepicker({
-		  //language:  'en',
-		  weekStart: 1,
-		  todayBtn:  0,
+			format: "yyyy-mm-dd",
+			//language: "id",
+			orientation: "bottom left",
 		  autoclose: 1,
-		  todayHighlight: 0,
-		  startView: 2,
-		  minView: 2,
-		  forceParse: 0
+			defaultViewDate: { year: 2010, month: 04, day: 25 }
 		  });
 	  });
     </script>
