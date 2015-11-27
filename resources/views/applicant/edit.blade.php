@@ -223,7 +223,7 @@
 		</div>
 		<br />
 		<div class="form-group">
-			{!! Form::submit('Simpan', ['class' => 'btn btn-primary btn-large form-button btn-lg']) !!}
+			{!! Form::submit('Selanjutnya', ['class' => 'btn btn-primary btn-large form-button btn-lg']) !!}
 		</div>
 	{!! Form::close() !!}
 

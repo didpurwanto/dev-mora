@@ -5,7 +5,7 @@
 	<hr />
 
 	{!! Form::model($sch,['method' => 'PATCH','url' => ['/schools']]) !!}
-		@include ('school.form', ['text' => 'Simpan'])
+		@include ('school.form', ['text' => 'Selanjutnya'])
 	{!! Form::close() !!}
 
 	@include('errors.list')
