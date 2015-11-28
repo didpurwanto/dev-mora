@@ -1,7 +1,6 @@
 <?php namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\RedirectResponse;
 
 class SchoolCheck {
 
@@ -20,7 +19,7 @@ class SchoolCheck {
 		{
 			return $next($request);
 		}
-		return new RedirectResponse(url('/schools'));
+		return redirect('/schools')->with('pesan', 'Anda harus mengisi data SEKOLAH terlebih dahulu');
 	}
 
 }

@@ -104,6 +104,11 @@
         <div id="page-wrapper">
 			<div class="container-fluid">
 				<br />
+        @if (Session::has('pesan'))
+      		<div class="alert alert-danger">
+      			<p>{{ Session::get('pesan') }}</p>
+      		</div>
+      	@endif
 				<div class="alert alert-success">
 					<font color="black">
 						@yield('content')

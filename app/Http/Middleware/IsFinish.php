@@ -19,7 +19,7 @@ class IsFinish {
 		{
 			return $next($request);
 		}
-		return new RedirectResponse(url('/summary'));
+		return redirect('/summary');
 	}
 
 }

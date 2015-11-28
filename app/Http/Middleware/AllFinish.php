@@ -1,7 +1,6 @@
 <?php namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\RedirectResponse;
 
 class AllFinish {
 
@@ -20,7 +19,7 @@ class AllFinish {
 		{
 			return $next($request);
 		}
-		return new RedirectResponse(url('/applicants'));
+		return redirect('/applicants')->with('pesan', 'Anda harus mengisi semua data yang diperlukan terlebih dahulu. Mohon cek kembali data yang anda masukan, pastikan data sudah tersimpan.');
 	}
 
 }
