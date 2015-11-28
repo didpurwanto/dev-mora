@@ -41,6 +41,7 @@
 									<thead>
 										<tr>
 											<th>No</th>
+											<th>Nama Universitas</th>											
 											<th>Nama Jurusan</th>
 											<th>Bidang</th>
 											<th>Kode</th>
@@ -53,6 +54,9 @@
 											<td class="center col-md-1">
 												{{ $departement->id, ['size' => 3] }}
 										    </td>
+											<td class="center col-md-8">
+												{{ $departement->university_name }}
+											</td>
 											<td class="center col-md-8">
 												{{ $departement->departement_name }}
 											</td>

@@ -153,6 +153,11 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+		/*
+		* Agung
+		* menambahkan Maatwebsite excel
+		*/
+		'Maatwebsite\Excel\ExcelServiceProvider',		
 
 	],
 

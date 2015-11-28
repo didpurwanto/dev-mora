@@ -151,11 +151,24 @@
                                 </li>
                                 <li>
 
-                                    <a href="{!! URL::to('admin/listuniversities/1') !!}">Universitas</a>
+                                    <a href="{!! URL::to('admin/listuniversities/') !!}">Universitas</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Export dan Import data<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!! URL::to('admin/export') !!}">Upload Nomor Ujian</a>
+                                </li>
+                                <li>
+
+                                    <a href="{!! URL::to('admin/export/') !!}">Export data Pendaftar</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>                        
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Master Data<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

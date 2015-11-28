@@ -5,7 +5,7 @@
 	<hr />
 
 	{!! Form::model($fam,['method' => 'PATCH','url' => ['/families']]) !!}
-		@include ('family.form', ['text' => 'Simpan'])
+		@include ('family.form', ['text' => 'Selanjutnya'])
 	{!! Form::close() !!}
 
 	@include('errors.list')

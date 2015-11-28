@@ -9,6 +9,6 @@
 			</ul>
 		@endif
 	{!! Form::model($raports,['method' => 'PATCH','url' => ['/raports']]) !!}
-		@include ('raport.form', ['text' => 'Simpan'])
+		@include ('raport.form', ['text' => 'Selanjutnya'])
 	{!! Form::close() !!}
 @stop

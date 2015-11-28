@@ -5,7 +5,7 @@
 	<hr />
 
 	{!! Form::model($pes,['method' => 'PATCH','url' => ['/pesantrens']]) !!}
-		@include ('pesantren.form', ['text' => 'Simpan'])
+		@include ('pesantren.form', ['text' => 'Selanjutnya'])
 	{!! Form::close() !!}
 
 @stop

@@ -28,17 +28,18 @@
 						</div> -->
 						<!-- /.panel-heading -->
 						<div class="panel-body">
-							<div class="form-group">
+<!-- 							<div class="form-group">
 								{!! Form::label('university_name', 'Pilih Universitas :') !!}
 								{!! Form::select('university_id',   array_merge(['0' => 'Pilih Universitas'], $univ_list), ['class' => 'form-control']) !!}
 								<a class="btn btn-success tampilkan" href="/admin/listuniversities/"{{ 'strUniv' }} ></i> tampilkan</a>	
-							</div>
+							</div> -->
 							</div>
 								<div class="dataTable_wrapper">
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 											<thead>
 												<tr>
 													<th>No</th>
+													<th>Universitas</th>
 													<th>Jurusan</th>
 													<th>Kode</th>
 													<th>Bidang</th>
@@ -51,6 +52,9 @@
 													<td class="center col-md-1">
 														1
 												    </td>
+													<td class="center col-md-6">
+														{{ $departement->university_name }}
+													</td>
 													<td class="center col-md-6">
 														{{ $departement->departement_name }}
 													</td>
