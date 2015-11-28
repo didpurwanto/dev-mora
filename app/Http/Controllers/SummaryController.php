@@ -13,7 +13,8 @@ class SummaryController extends Controller {
 
 	public function __construct()
 	{
-		$this->middleware('auth');
+		$this->middleware('auth'); // make sure someone eligible access it.
+		$this->middleware('allfinish'); //check for sure all data is filled, if doesn't redirect to applicants page.
 	}
 
 	public function index()

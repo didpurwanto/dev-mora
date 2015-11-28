@@ -51,8 +51,13 @@ class PesantrensController extends Controller {
 
 		//Save record to the database
 		$form = $pes->update($request->all());
+
+		//update if the table is filled with content it should.
+		$pes->finish = 1;
+		//sava the update
+		$pes->save();
 		//
-		return redirect('schools/'. $pes->applicant_id);
+		return redirect('schools');
 	}
 
 	/**

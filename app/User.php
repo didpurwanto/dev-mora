@@ -5,7 +5,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+
+use App\Applicant;
+use App\Family;
+use App\Pesantren;
 use App\School;
+use App\Raport;
+use App\Application;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
@@ -76,9 +82,26 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	public function isSchoolFinish()
 	{
-		$school = School::where('user_id', $this->id)->firstOrFail();
+		$school = School::where('user_id', $this->id)->pluck('finish');
+		return $school == 1;
+	}
 
-		return $school->finish == 1;
+	public function isAllFinish()
+	{
+		$applicant = Applicant::where('user_id', $this->id)->pluck('finish');
+		$family = Family::where('user_id', $this->id)->pluck('finish');
+		$pesantren = Pesantren::where('user_id', $this->id)->pluck('finish');
+		//school
+		$school = $this->isSchoolFinish();
+		$raport = Raport::where('user_id', $this->id)->pluck('finish');
+		$application = Raport::where('user_id', $this->id)->pluck('finish');
+
+		return ($applicant == 1 && $family == 1 && $pesantren == 1 && $school && $raport == 1 && $application == 1);
+	}
+
+	public function isFinish()
+	{
+		return $this->finish == 1;
 	}
 
 }

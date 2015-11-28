@@ -19,6 +19,7 @@ class ApplicationsController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
+		$this->middleware('schoolcheck'); // make sure data in school has been filled. if doesn't, redirect thos those page.
 	}
 
 	public function edit()
@@ -26,11 +27,13 @@ class ApplicationsController extends Controller {
 		$dep1 = "";
 		$dep2 = "";
 
+		// get program studi yang di ambil di sekolah
 		$program_study_id = School::where('user_id', Auth::user()->id)->pluck('program_study_id');
 		//dd($program_study_id);
 		//$program_study = ProgramStudy::
 		$univ = University::lists('university_name','id');
 
+		// ambil departemen yang bisa diambil dari program studi yang diambil
 		$dep = Departement::has('program_studies','=', $program_study_id)->lists('departement_name','id');
 		//$dep = Departement::whereHas('program_studies', function($q)
 		//{
@@ -67,6 +70,11 @@ class ApplicationsController extends Controller {
 		$appl = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
 		//Save record to the database
 		$form = $appl->update($request->all());
+
+		//update if the table is filled with content it should.
+		$appl->finish = 1;
+		//sava the update
+		$appl->save();
 		//
 		return redirect('summary');
 	}

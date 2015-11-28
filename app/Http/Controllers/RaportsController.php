@@ -16,7 +16,7 @@ class RaportsController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
-		$this->middleware('schoolcheck');
+		$this->middleware('schoolcheck'); // make sure data in school has been filled. if doesn't, redirect thos those page.
 	}
 
 	/**
@@ -27,17 +27,22 @@ class RaportsController extends Controller {
 	 */
 	public function edit()
 	{
+		// get program studi yang diambil sebagai referensi pelajaran yang akan di isi rapor
 		$getProgramStudyId = School::where('user_id', Auth::user()->id)->pluck('program_study_id');
 
 		//dd($getProgramStudyId);
+		// ambil pelajaran yang sesuai dengan program studi
 		$getListSubjects = ProgramStudy::where('id', $getProgramStudyId)->pluck('list_subject');
 		//dd($getListSubjects);
 
+		// pecah pelajaran dengan tanda ';'
 		$listSubjects = explode("; ",$getListSubjects);
 		//dd($list);
 
+		// get data for current user
 		$raports = Raport::where('user_id', '=', Auth::user()->id)->firstOrFail();
 
+		//
 		$subject_1 = explode(";",$raports['subject_1']);
 		$subject_2 = explode(";",$raports['subject_2']);
 		$subject_3 = explode(";",$raports['subject_3']);
@@ -110,10 +115,14 @@ class RaportsController extends Controller {
 		$raport->subject_5 = $subject_5;
 		$raport->ranking = $ranking;
 
+		//update if the table is filled with content it should.
+		$raport->finish = 1;
+		
 		//Save record to the database
 		$raport->save();
 		//dd($request->all());
 		//Return to universities controller
+
 		return redirect('applications');
 	}
 

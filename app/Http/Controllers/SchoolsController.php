@@ -51,6 +51,11 @@ class SchoolsController extends Controller {
 		$sch = School::where('user_id', '=', Auth::user()->id)->firstOrFail();;
 		//Save record to the database
 		$form = $sch->update($request->all());
+
+		//update if the table is filled with content it should.
+		$sch->finish = 1;
+		//sava the update
+		$sch->save();
 		//
 		return redirect('raports/');
 	}
