@@ -44,6 +44,13 @@ class Authenticate {
 			}
 		}
 
+		$user = $request->user();
+
+		if ($user && $user->isAdmin())
+		{
+			return redirect('/admin');
+		}
+
 		return $next($request);
 	}
 
