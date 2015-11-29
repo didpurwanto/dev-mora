@@ -7,8 +7,6 @@
 	{!! Form::model($appl,['method' => 'PATCH','url' => ['/applications']]) !!}
 		@include ('application.form', ['text' => 'Selanjutnya'])
 	{!! Form::close() !!}
-
-	@include('errors.list')
 @stop
 
 @section('script')

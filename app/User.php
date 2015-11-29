@@ -94,7 +94,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		//school
 		$school = $this->isSchoolFinish();
 		$raport = Raport::where('user_id', $this->id)->pluck('finish');
-		$application = Raport::where('user_id', $this->id)->pluck('finish');
+		$application = Application::where('user_id', $this->id)->pluck('finish');
 
 		return ($applicant == 1 && $family == 1 && $pesantren == 1 && $school && $raport == 1 && $application == 1);
 	}

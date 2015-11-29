@@ -4,7 +4,7 @@
 		{!! Form::label('university_id', 'Nama Universitas') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('university_id', array('default' => 'Pilih Universitas') + $univ, Input::old('university_id',($appl->university_id ? $appl->university_id : '0')), ['class' => 'form-control']) !!}
+		{!! Form::select('university_id', array('default' => 'Pilih Universitas') + $univ, $appl->university_id, ['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>
@@ -14,7 +14,7 @@
 		{!! Form::label('major_1_id', 'Pilihan Jurusan I') !!}
 		</div>
 		<div class="col-md-6">
-		{!! Form::select('major_1_id', ['default' => 'Jurusan 1'] + $dep, $appl->major_1_id, ['class' => 'form-control']) !!}
+		{!! Form::select('major_1_id', array('default' => 'Jurusan 1') + $dep, $appl->major_1_id, ['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>
@@ -24,7 +24,7 @@
 		{!! Form::label('major_2_id', 'Pilihan Jurusan II') !!}
 		</div>
 		<div class="col-md-6">
-		{!! Form::select('major_2_id', ['default' => 'Jurusan 2'] + $dep,$appl->major_2_id, ['class' => 'form-control']) !!}
+		{!! Form::select('major_2_id', array('default' => 'Jurusan 2') + $dep, $appl->major_2_id, ['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>

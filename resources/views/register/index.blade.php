@@ -37,7 +37,7 @@
 
 <body>
 
-    <div id="wrapper">
+<div id="wrapper">
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -101,7 +101,7 @@
         </nav>
 
         <!--load  isi -->
-        <div id="page-wrapper">
+    <div id="page-wrapper">
 			<div class="container-fluid">
 				<br />
         @if (Session::has('pesan'))
@@ -117,7 +117,7 @@
 			</div>
 		</div>
 
-    </div>
+</div>
 
 
     <!-- jQuery -->
