@@ -160,7 +160,7 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Export dan Import data<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!! URL::to('admin/export') !!}">Upload Nomor Ujian</a>
+                                    <a href="{!! URL::to('admin/import') !!}">Upload Nomor Ujian</a>
                                 </li>
                                 <li>
 

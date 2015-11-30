@@ -6,8 +6,43 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Excel;
 use App\Applicant;
+use App\Application;
+use Input;
 
 class ExportImportController extends Controller {
+
+	public function importtestnumber()
+	{
+		return view('admin/importform');
+	}
+
+	public function uploadtestnumber()
+	{
+	    try
+	     {
+	     	$file = Input::file('file');
+    		$filename = $this->doSomethingLikeUpload($file);
+    		dd($file);
+	       Excel::load(Input::file('file'), function($reader) {
+	       	// dd($reader);
+	        foreach ($reader->toObject() as $row)
+	        {
+
+	           $application = new Application;
+	           $application->user_id = $row->user_id;
+	           $application->test_number = $row->test_number;
+	           $customers->save();
+	        }
+	       });
+	          // Session::flash('message', 'Customer uploaded successfully.');
+	          return redirect('admin/import');
+	      }
+	      catch (\Exception $e)
+	      {
+	          // Session::flash('message', $e->getMessage());
+	          return redirect('admin/import');
+	      }		
+	}
 
 	public function exportapplicants()
 	{

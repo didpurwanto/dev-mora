@@ -119,6 +119,9 @@ Route::get('admin', [
 //Administrator route
 // Route::get('admin/listuniversities/{id}','AdminController@departementlist');
 Route::get('admin/export','ExportImportController@exportapplicants');
+Route::get('admin/import','ExportImportController@importtestnumber');
+Route::post('admin/upload','ExportImportController@uploadtestnumber');
+
 
 Route::get('admin/listuniversities/','AdminController@departementlist');
 Route::get('admin/listprovinces','AdminController@listprovinces');
