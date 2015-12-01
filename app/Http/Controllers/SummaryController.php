@@ -24,7 +24,7 @@ class SummaryController extends Controller {
 
 		//$fam = Family::where('applicant_id',$id)->get();
 		$date_birth = explode("-",$user->applicant->date_birth);
-		$date_birth = $date_birth[2].' - '.$date_birth[1].' - '.$date_birth[0];
+		$date_birth = $date_birth[2].'-'.$date_birth[1].'-'.$date_birth[0];
 		//dd($date_birth);
 
 		//dd($user->family->jobType->job_name);
