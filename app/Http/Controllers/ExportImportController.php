@@ -14,16 +14,20 @@ class ExportImportController extends Controller {
 
 	public function importtestnumber()
 	{
-		$application = Application::all();
+		$application = DB::table('applications')
+					->join('applicants', 'applications.user_id', '=', 'applicants.user_id')
+					->get();
+					
 		return view('admin/importform', compact('application'));
 	}
 
 	public function afterimporttestnumber()
 	{
 		$application = DB::table('applications')
-				->whereNotNull('test_number')
+				->join('applicants', 'applications.user_id', '=', 'applicants.user_id')
+				->whereNotNull('applications.test_number')
 				->get();
-		// dd($application);
+
 		return view('admin/importform', compact('application'));
 	}
 

@@ -37,7 +37,7 @@
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 											<thead>
 												<tr>
-													<th>ID pendaftar</th>
+													<th>no registrasi</th>
 													<th>Nama</th>
 													<th>No test</th>
 												</tr>
@@ -46,10 +46,10 @@
 												@foreach ($application as $apl)
 												<tr>
 													<td class="center col-md-1">
-														{{ $apl->user_id }}
+														{{ $apl->registration_number }}
 												    </td>
 													<td class="center col-md-3">
-														{{ $apl->user_id }}
+														{{ $apl->full_name }}
 													</td>
 													<td class="center col-md-3">
 														{{ $apl->test_number }}
