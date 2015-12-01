@@ -6,8 +6,54 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Excel;
 use App\Applicant;
+use App\Application;
+use Input;
+use Session;
 
 class ExportImportController extends Controller {
+
+	public function importtestnumber()
+	{
+		$application = DB::table('applications')
+					->join('applicants', 'applications.user_id', '=', 'applicants.user_id')
+					->get();
+					
+		return view('admin/importform', compact('application'));
+	}
+
+	public function afterimporttestnumber()
+	{
+		$application = DB::table('applications')
+				->join('applicants', 'applications.user_id', '=', 'applicants.user_id')
+				->whereNotNull('applications.test_number')
+				->get();
+
+		return view('admin/importform', compact('application'));
+	}
+
+	public function uploadtestnumber()
+	{
+	    try
+	     {
+	     	// $file = Input::file('file');
+			Excel::load(Input::file('file'), function($reader) {
+			//dd($reader);
+	        foreach ($reader->toObject() as $row)
+	        {
+	           print $row->user_id;
+        	   Application::where('user_id',$row->user_id)
+        	   			->update(['test_number'=> $row->test_number]);
+	        }
+	       });
+	          Session::flash('message', 'Customer uploaded successfully.');
+	          return redirect('admin/afterimport');
+	      }
+	      catch (\Exception $e)
+	      {
+	        Session::flash('message', $e->getMessage());
+	        return redirect('admin/import');
+	      }		
+	}
 
 	public function exportapplicants()
 	{

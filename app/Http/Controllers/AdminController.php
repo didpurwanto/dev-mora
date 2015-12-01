@@ -47,27 +47,6 @@ class AdminController extends Controller {
          return view('admin.departement', compact('dept', 'univ_list'));
 	}
 
-
-	// public function departementlist($id)
-	// {
-
-	// 	$univ_list= University::lists('university_name','id');
-
-
-	// 	// $id =1;
-	// 	$dept = DB::table('departements')
-	// 		->select(['departements.departement_name', DB::raw('count(applications.major_1_id) as total'), 'departements.id'
-	// 			])
- //            ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
- //            ->where('departements.university_id', $id)
- //            ->groupBy('departements.id')
- //            ->get();
-
- //         // dd($dept);
-
- //            return view('admin.departement', compact('dept', 'univ_list'));
-	// }
-
 	public function departementlist2()
 	{
 		
@@ -146,6 +125,15 @@ class AdminController extends Controller {
  		}
 
 		return view('admin.listprovinces', compact('univ','prov', 'prov_list', 'data'));
+	}
 
+	public function pesantren()
+	{
+		$pesantren = DB::table('pesantrens')
+			->join('pesantren_types', 'pesantren_types.id', '=', 'pesantrens.pesantren_type')
+			->join('provinces', 'provinces.id', '=', 'pesantrens.province_id')
+			->get();
+
+		return view('admin.pesantren', compact('pesantren'));
 	}
 }

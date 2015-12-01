@@ -122,9 +122,15 @@ Route::get('admin', [
 //Administrator route
 // Route::get('admin/listuniversities/{id}','AdminController@departementlist');
 Route::get('admin/export','ExportImportController@exportapplicants');
+Route::get('admin/import','ExportImportController@importtestnumber');
+Route::post('admin/upload','ExportImportController@uploadtestnumber');
+Route::get('admin/afterimport','ExportImportController@afterimporttestnumber');
+
 
 Route::get('admin/listuniversities/','AdminController@departementlist');
 Route::get('admin/listprovinces','AdminController@listprovinces');
+Route::get('admin/pesantren','AdminController@pesantren');
+
 
 Route::resource('admin/universities','UniversitiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
 Route::resource('admin/departements','DepartementsController',['except' => ['show']]); // seharusnya method 'show' tidak ada
