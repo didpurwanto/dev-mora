@@ -121,6 +121,7 @@ Route::get('admin', [
 Route::get('admin/export','ExportImportController@exportapplicants');
 Route::get('admin/import','ExportImportController@importtestnumber');
 Route::post('admin/upload','ExportImportController@uploadtestnumber');
+Route::get('admin/afterimport','ExportImportController@afterimporttestnumber');
 
 
 Route::get('admin/listuniversities/','AdminController@departementlist');

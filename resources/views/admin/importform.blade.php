@@ -14,7 +14,7 @@
 
 <div class="row">
 		<div class="col-lg-12">
-				<h1 class="page-header">Rekapitulasi Perprovinsi</h1>
+				<h1 class="page-header">Upload Nomor Ujian</h1>
 		</div>
 		<!-- /.col-lg-12 -->
 </div>
@@ -24,17 +24,7 @@
 		<div class="col-lg-12">
 				<div class="panel panel-default">
 						<div class="panel-body">
-							<div class="container">
-							    <div class="content">
-							      <!-- @if (Session::has('message')) -->
-							      <div class="col-md-12">
-							        <div class="alert alert-info alert-dismissible" role="alert">
-							          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							          <!-- {{ Session::get('message') }} -->
-							        </div>
-							      </div>
-							      <!-- @endif -->
-							<hr/> 
+
 							<form action="upload" enctype="multipart/form-data" method="POST">
 							    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 							    <input name="file" type="file"/>
@@ -43,27 +33,29 @@
 							</form>
 							</div>
 								<div class="dataTable_wrapper">
+								<div class="panel-body">								
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 											<thead>
 												<tr>
-													<th>No</th>
-													<th>Nama Provinsi</th>
-													<th>Total</th>
+													<th>ID pendaftar</th>
+													<th>Nama</th>
+													<th>No test</th>
 												</tr>
 											</thead>
 											<tbody>
+												@foreach ($application as $apl)
 												<tr>
 													<td class="center col-md-1">
+														{{ $apl->user_id }}
 												    </td>
-													<td class="center col-md-8">
+													<td class="center col-md-3">
+														{{ $apl->user_id }}
 													</td>
-													<!-- <td class="center col-md-1"> -->
-														<th>
-														</th>
-													</td>
-													<td>
+													<td class="center col-md-3">
+														{{ $apl->test_number }}
 													</td>
 												</tr>
+												@endforeach
 											</tbody>
 								   </table>
 						 </div>					 		

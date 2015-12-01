@@ -8,39 +8,46 @@ use Excel;
 use App\Applicant;
 use App\Application;
 use Input;
+use Session;
 
 class ExportImportController extends Controller {
 
 	public function importtestnumber()
 	{
-		return view('admin/importform');
+		$application = Application::all();
+		return view('admin/importform', compact('application'));
+	}
+
+	public function afterimporttestnumber()
+	{
+		$application = DB::table('applications')
+				->whereNotNull('test_number')
+				->get();
+		// dd($application);
+		return view('admin/importform', compact('application'));
 	}
 
 	public function uploadtestnumber()
 	{
 	    try
 	     {
-	     	$file = Input::file('file');
-    		$filename = $this->doSomethingLikeUpload($file);
-    		dd($file);
-	       Excel::load(Input::file('file'), function($reader) {
-	       	// dd($reader);
+	     	// $file = Input::file('file');
+			Excel::load(Input::file('file'), function($reader) {
+			//dd($reader);
 	        foreach ($reader->toObject() as $row)
 	        {
-
-	           $application = new Application;
-	           $application->user_id = $row->user_id;
-	           $application->test_number = $row->test_number;
-	           $customers->save();
+	           print $row->user_id;
+        	   Application::where('user_id',$row->user_id)
+        	   			->update(['test_number'=> $row->test_number]);
 	        }
 	       });
-	          // Session::flash('message', 'Customer uploaded successfully.');
-	          return redirect('admin/import');
+	          Session::flash('message', 'Customer uploaded successfully.');
+	          return redirect('admin/afterimport');
 	      }
 	      catch (\Exception $e)
 	      {
-	          // Session::flash('message', $e->getMessage());
-	          return redirect('admin/import');
+	        Session::flash('message', $e->getMessage());
+	        return redirect('admin/import');
 	      }		
 	}
 
