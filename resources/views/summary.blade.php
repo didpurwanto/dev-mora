@@ -6,18 +6,11 @@
 
 @section('content')
 <table style="font-family:arial,helvetica,sans-serif;">
-	<tr>
-		<td rowspan="3" width="50px">
-			<img src="logo/Kemenag-logo.png" height="50px" width="50px">
+	<tr align="center">
+		<td>
+			<b><font size="5 px">RANGKUMAN DATA CALON PESERTA PBSB</font></b>
+			<b><font size="5 px"> TAHUN {{ date('Y')}} </font></b>
 		</td>
-		<td>&nbsp;&nbsp;</td>
-		<td width="440 px">
-			<b><font size="3 px">KEMENTERIAN AGAMA RI </font></b></br>
-			<b><font size="2 px">Seleksi Calon Peserta Program Beasiswa Santri Berprestasi</font></b> </br>
-			<b>Tahun 2016</b>
-		</td>
-		<td align="right" width="450px">
-			<b><font size="5 px" color="red">RANGKUMAN DATA CALON PESERTA</font></b>
 	</tr>
 </table>
 <hr>
@@ -33,7 +26,7 @@
 			Buta Warna : <b>{!! ($user->applicant->color_blind == 1) ? 'Ya' : 'Tidak' !!}</b> </br>
 			Gol. Darah <b>{!! $user->applicant->blood_type !!}</b> Berat <b>{!! $user->applicant->weight !!}</b> Kg Tinggi <b>{!! $user->applicant->height !!}</b> cm </br>
 			Riwayat Gangguan Mental : <b>{!! ($user->applicant->mental_disorder == 1) ? 'Ya' : 'Tidak' !!}</b> </br>
-			Hafalan Al-Qurran : <b>{!! $user->applicant->recitation !!}</b> </br>
+			Hafalan Al-Qurran : <b>{!! $user->applicant->recitation !!}</b> Juz </br>
 			No Telp yang Bisa Dihubungi : <b>{!! $user->applicant->contact !!}</b> </br>
 		</td>
 	</tr>
@@ -100,7 +93,7 @@
 			Kel./Desa : <b>ISIAN</b> </br>
 			Kab./Kota : <b>ISIAN</b> </br>
 			Kecamatan : <b>ISIAN</b> </br>
-			Provinsi  : <b>ISIAN</b>
+			Provinsi  : <b>{!!$user->family->province->province_name!!}</b>
 		</td>
 	</tr>
 </table>
@@ -131,7 +124,7 @@
 			Kel./Desa : <b>ISIAN</b> </br>
 			Kab./Kota : <b>ISIAN</b> </br>
 			Kecamatan : <b>ISIAN</b> </br>
-			Provinsi  : <b>ISIAN</b>
+			Provinsi  : <b>{!!$user->pesantren->province->province_name!!}</b>
 		</td>
 	</tr>
 	<tr>
@@ -196,7 +189,7 @@
 			Kel./Desa : <b>-</b> </br>
 			Kab./Kota : <b>-</b> </br>
 			Kecamatan : <b>-</b> </br>
-			Provinsi  : <b>ISIAN</b>
+			Provinsi  : <b>{!!$user->school->province->province_name!!}</b>
 		</td>
 	</tr>
 	<tr>
@@ -279,100 +272,118 @@
 		</td>
 	</tr>
 	<tr  align="center">
-		<td width="80" align="left">Matematika
+		<td width="80" align="left">&nbsp{{ $listSubjects[0] }}
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_1[0]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_1[1]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_1[2]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_1[3]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_1[4]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
-		</td>
-	</tr>
-	<tr  align="center">
-		<td width="80" align="left">Bahasa Inggris
-		</td>
-		<td width="80"><b>ISIAN</b>
-		</td>
-		<td width="80"><b>ISIAN</b>
-		</td>
-		<td width="80"><b>ISIAN</b>
-		</td>
-		<td width="80"><b>ISIAN</b>
-		</td>
-		<td width="80"><b>ISIAN</b>
-		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_1[5]}}</b>
 		</td>
 	</tr>
 	<tr  align="center">
-		<td width="80" align="left">Bahasa Indonesia
+		<td width="80" align="left">&nbsp{{ $listSubjects[1] }}
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_2[0]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_2[1]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_2[2]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_2[3]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_2[4]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
-		</td>
-	</tr>
-	<tr  align="center">
-		<td width="80" align="left">Pendidikan Kewarganegaraan
-		</td>
-		<td width="80"><b>ISIAN</b>
-		</td>
-		<td width="80"><b>ISIAN</b>
-		</td>
-		<td width="80"><b>ISIAN</b>
-		</td>
-		<td width="80"><b>ISIAN</b>
-		</td>
-		<td width="80"><b>ISIAN</b>
-		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_2[5]}}</b>
 		</td>
 	</tr>
 	<tr  align="center">
-		<td width="80" align="left">Pendidikan Agama
+		<td width="80" align="left">&nbsp{{ $listSubjects[2] }}
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_3[0]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_3[1]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_3[2]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_3[3]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_3[4]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_3[5]}}</b>
 		</td>
 	</tr>
 	<tr  align="center">
-		<td width="80" align="left">RANGKING
+		<td width="80" align="left">&nbsp{{ $listSubjects[3] }}
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_4[0]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_4[1]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_4[2]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_4[3]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_4[4]}}</b>
 		</td>
-		<td width="80"><b>ISIAN</b>
+		<td width="80"><b>{{$subject_4[5]}}</b>
+		</td>
+	</tr>
+	<tr  align="center">
+		<td width="80" align="left">&nbsp{{ $listSubjects[4] }}
+		</td>
+		<td width="80"><b>{{$subject_5[0]}}</b>
+		</td>
+		<td width="80"><b>{{$subject_5[1]}}</b>
+		</td>
+		<td width="80"><b>{{$subject_5[2]}}</b>
+		</td>
+		<td width="80"><b>{{$subject_5[3]}}</b>
+		</td>
+		<td width="80"><b>{{$subject_5[4]}}</b>
+		</td>
+		<td width="80"><b>{{$subject_5[5]}}</b>
+		</td>
+	</tr>
+	<tr  align="center">
+		<td width="80" align="left">&nbsp{{ $listSubjects[5] }}
+		</td>
+		<td width="80"><b>{{$ranking[0]}}</b>
+		</td>
+		<td width="80"><b>{{$ranking[1]}}</b>
+		</td>
+		<td width="80"><b>{{$ranking[2]}}</b>
+		</td>
+		<td width="80"><b>{{$ranking[3]}}</b>
+		</td>
+		<td width="80"><b>{{$ranking[4]}}</b>
+		</td>
+		<td width="80"><b>{{$ranking[5]}}</b>
 		</td>
 	</tr>
 </table>
+<br/>
+<br/>
+
+@if ($user->finish==0)
+	<div class="alert alert-danger">
+		<p align="center">Pastikan semua data yang masukan sudah benar. Jika sudah BENAR, silahkan klik FINALISASI untuk menyimpan permanen data anda (data tidak diubah setelah FINALISASI).</p>
+	</div>
+
+	<div class="row clearfix">
+		<div class="col-md-12 column" align="center">
+		{!! Form::open(['method' => 'GET', 'url' => '/finalisasi']) !!}
+				{!! Form::submit('FINALISASI', ['class' => 'btn btn-primary form-button btn-lg']) !!}
+		{!! Form::close() !!}
+	</div>
+	</div>
+	<br/>
+	<br/>
+@endif
 @stop

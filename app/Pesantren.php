@@ -13,4 +13,9 @@ class Pesantren extends Model {
 		return $this->belongsTo('App\PesantrenType');
 	}
 
+	public function province()
+	{
+		return $this->belongsTo('App\Province');
+	}
+
 }

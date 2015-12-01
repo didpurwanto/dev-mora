@@ -21,7 +21,8 @@ class ApplicantsController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
-		$this->middleware('isfinish');
+		//$this->middleware('isfinish');
+		$this->middleware('finish');
 	}
 	/**
 	 * Create view for create data.

@@ -20,6 +20,7 @@ class FamiliesController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
+		$this->middleware('finish');
 	}
 
 	public function edit()

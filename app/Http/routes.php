@@ -68,7 +68,7 @@ Route::patch('applications', 'ApplicationsController@update');
 //Summary Route
 Route::get('summary', 'SummaryController@index');
 //Summary Route
-Route::get('prints', 'SummaryController@cetak');
+Route::get('prints', ['middleware' => 'isfinish', 'uses' =>'SummaryController@cetak']);
 
 /*
 |
@@ -89,6 +89,9 @@ Route::get('applications/universities/{id}', 'ApplicationsController@getDepartem
 
 Route::get('upload','ApplicantsController@getUploadForm');
 Route::post('upload/image','ApplicantsController@postUpload');
+
+// finalisasi data
+Route::get('finalisasi','UsersController@finalisasi');
 
 
 Route::get('cetakformulir','SummaryController@cetakFormulir');

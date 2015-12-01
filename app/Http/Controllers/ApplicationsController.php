@@ -20,6 +20,7 @@ class ApplicationsController extends Controller {
 	{
 		$this->middleware('auth');
 		$this->middleware('schoolcheck'); // make sure data in school has been filled. if doesn't, redirect thos those page.
+		$this->middleware('finish');
 	}
 
 	public function edit()

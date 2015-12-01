@@ -32,4 +32,9 @@ class Family extends Model {
 	{
 		return $this->belongsTo('App\RangeSalary','father_salary_id','id');
 	}
+
+	public function province()
+	{
+		return $this->belongsTo('App\Province');
+	}
 }

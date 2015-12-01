@@ -30,7 +30,8 @@ class Kernel extends HttpKernel {
 		'admin' => 'App\Http\Middleware\IsAdmin',
 		'schoolcheck' => 'App\Http\Middleware\SchoolCheck',
 		'allfinish' => 'App\Http\Middleware\AllFinish',
-		'isfinish' => 'App\Http\Middleware\IsFinish'
+		'isfinish' => 'App\Http\Middleware\IsFinish',
+		'finish' => 'App\Http\Middleware\finish'
 	];
 
 }

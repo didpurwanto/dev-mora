@@ -17,6 +17,7 @@ class RaportsController extends Controller {
 	{
 		$this->middleware('auth');
 		$this->middleware('schoolcheck'); // make sure data in school has been filled. if doesn't, redirect thos those page.
+		$this->middleware('finish');
 	}
 
 	/**
@@ -117,7 +118,7 @@ class RaportsController extends Controller {
 
 		//update if the table is filled with content it should.
 		$raport->finish = 1;
-		
+
 		//Save record to the database
 		$raport->save();
 		//dd($request->all());

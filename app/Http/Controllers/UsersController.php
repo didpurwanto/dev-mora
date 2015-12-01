@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
+use Auth;
 
 // use Illuminate\Http\Request;
 use Request;
@@ -93,6 +94,18 @@ class UsersController extends Controller {
 	public function destroy($id)
 	{
 
+	}
+
+	public function finalisasi()
+	{
+		$user = User::where('id', '=', Auth::user()->id)->firstOrFail();
+		//update if the table is final.
+		$user->finish = 1;
+
+		//Save record to the database
+		$user->save();
+
+		return redirect('prints');
 	}
 
 }

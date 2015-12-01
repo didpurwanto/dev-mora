@@ -2,7 +2,7 @@
 
 use Closure;
 
-class IsFinish {
+class finish {
 
 	/**
 	 * Handle an incoming request.
@@ -15,11 +15,11 @@ class IsFinish {
 	{
 		$user = $request->user();
 
-		if ($user && $user->isFinish())
+		if ($user && !$user->isFinish())
 		{
 			return $next($request);
 		}
-		return redirect('/summary')->with('pesan','Anda harus melakukan FINALISASI data terlebih dahulu.');
+		return redirect('/prints')->with('pesan','Anda sudah melakukan FINALISASI data, silahkan cetak data anda.');
 	}
 
 }
