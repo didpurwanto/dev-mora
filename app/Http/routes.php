@@ -95,6 +95,8 @@ Route::get('finalisasi','UsersController@finalisasi');
 
 
 Route::get('cetakformulir','SummaryController@cetakFormulir');
+Route::get('pdfFormulir','SummaryController@pdfFormulir');
+
 Route::get('cetakkartu','SummaryController@cetakKartu');
 
 

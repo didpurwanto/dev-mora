@@ -3,7 +3,7 @@
 <head>
 <style type="text/css">
 html,body{
-    height:100%;    
+    height:100%;
     margin:0;
     padding:0;
     border:0;
@@ -43,7 +43,7 @@ textarea {
 	font-size: 11px;
 }
 
-td { 
+td {
     vertical-align: top;
 }
 
@@ -54,13 +54,13 @@ td {
 <table style="font-family:arial,helvetica,sans-serif;">
 	<tr>
 		<td rowspan="3" width="50px">
-			<img src="logo.jpg" height="50px" width="50px">
+			<img src="logo/logo.jpg" height="50px" width="50px">
 		</td>
 		<td width="440 px">
 			<b><font size="3 px">KEMENTERIAN AGAMA RI </font></b></br>
 			<b><font size="2 px">Seleksi Calon Peserta Program Beasiswa Santri Berprestasi</font></b> </br>
-			Tahun <b>ISIAN</b>
-		</td>		
+			<b>Tahun {{date('Y')}}</b>
+		</td>
 		<td align="right" width="210px">
 			<b><font size="3 px">FORMULIR REGISTRASI</font></b></br>
 			No Registrasi : 123123123123
@@ -73,30 +73,28 @@ td {
 <table>
 	<tr>
 		<td width="400px">
-			<font size="4 px"><b>NAMA SAYA</b></font> </br>
-			Jenis Kelamin : <b>ISIAN</b> </br>
-			Tempat/Tanggal Lahir : <b>ISIAN</b> </br>
-			Pilihan Perguruan Tinggi : <b>ISIAN</b> </br>
-			
+			<font size="4 px"><b>{!! $user->applicant->full_name !!}</b></font> </br>
+			Jenis Kelamin : <b>{!! ($user->applicant->gender == 1) ? 'Laki-laki' : 'Perempuan' !!}</b> </br>
+			Tempat/Tanggal Lahir : <b>{!! $user->applicant->place_birth !!} / {!! $date_birth  !!}</b> </br>
+			Pilihan Perguruan Tinggi : <b>{!!$user->application->university->university_name!!}</b> </br>
+
 			</br>
 			</br>
-			Pilihan 1 : </br>
-			<b>ISIAN</b> 
-			</br>
+			Pilihan 1 :
+			<b>{!!$user->application->departement->departement_name!!}</b>
 			(Kode - <b>ISIAN</b> )
-			
+
 			</br>
 			</br>
-			Pilihan 2 : </br>
-			<b>ISIAN</b> 
-			</br>
+			Pilihan 2 :
+			<b>{!!$user->application->departement2->departement_name!!}</b>
 			(Kode - <b>ISIAN</b> )
-			
+
 			</br>
 			</br>
-			Bersedia untuk Dipindah Jurusan = <b>ISIAN</b> 
+			Bersedia untuk Dipindah Jurusan = <b>{!!($user->application->aggree_to_auto_move == 1) ? 'YA' : 'TIDAK'!!}</b>
 		</td>
-		
+
 		<td align="right" width="300px">
 			No. Peserta : <b>ISIAN</b></br>
 			<i><small>(Diberikan oleh panitia seleksi)</small></i></br>
@@ -113,12 +111,12 @@ td {
 		</td>
 		<td width="10px">:
 		</td>
-		<td width="290px"><b>ISIAN</b>
+		<td width="290px"><b>{!!$user->pesantren->pesantren_name!!}</b>
 		</td>
 		<td width="200px" align="right">
-			NSPP : <b>ISIAN</b>
+			NSPP : <b>{!!$user->pesantren->nspp!!}</b>
 		</td>
-		
+
 	</tr>
 	<tr>
 		<td>
@@ -126,11 +124,11 @@ td {
 		</td>
 		<td>:
 		</td>
-		<td><b>ISIAN</b> </br>
+		<td><b>{!!$user->pesantren->pesantren_address!!}</b> </br>
 			Kel./Desa : <b>ISIAN</b> </br>
 			Kab./Kota : <b>ISIAN</b> </br>
 			Kecamatan : <b>ISIAN</b> </br>
-			Provinsi  : <b>ISIAN</b> 
+			Provinsi  : <b>{!!$user->pesantren->province->province_name!!}</b>
 		</td>
 	</tr>
 	<tr>
@@ -139,7 +137,7 @@ td {
 		</td>
 		<td>:
 		</td>
-		<td><b>ISIAN</b> </br>			
+		<td><b>{!!$user->pesantren->kiai_name!!}</b> </br>
 		</td>
 	</tr>
 	<tr>
@@ -148,7 +146,7 @@ td {
 		</td>
 		<td>:
 		</td>
-		<td><b>ISIAN</b> </br>			
+		<td><b>{!!$user->pesantren->pesantren_contact!!}</b> </br>
 		</td>
 	</tr>
 </table>
@@ -158,9 +156,9 @@ td {
 	<tr>
 		<td>
 			<small>
-			Tanda peserta yang berlaku adalah yang telah diberi pengesahan oleh Panitia 
+			Tanda peserta yang berlaku adalah yang telah diberi pengesahan oleh Panitia
 			</br>
-			Harap disimpan dengan baik karena akan digunakan sebagai salah satu kelengkapan pada saat 
+			Harap disimpan dengan baik karena akan digunakan sebagai salah satu kelengkapan pada saat
 			</br>
 			Konfirmasi kesediaan dan verifikasi data
 			</small>
