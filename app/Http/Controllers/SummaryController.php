@@ -79,7 +79,11 @@ class SummaryController extends Controller {
 		$subject_5 = explode(";",$raports['subject_5']);
 		$ranking = explode(";",$raports['ranking']);
 
-		return view('formulir', compact('user','date_birth','listSubjects','subject_1','subject_2','subject_3','subject_4','subject_5','ranking'));
+		//cetak langsung download dalam bentuk PDF
+		$pdf = PDF::loadView('formulir', compact('user','date_birth','listSubjects','subject_1','subject_2','subject_3','subject_4','subject_5','ranking'))->setPaper('legal');
+		return $pdf->stream('Formulir Peserta.pdf');
+
+		//return view('formulir', compact('user','date_birth','listSubjects','subject_1','subject_2','subject_3','subject_4','subject_5','ranking'));
 	}
 
 	public function cetakKartu()
@@ -90,7 +94,10 @@ class SummaryController extends Controller {
 		$date_birth = explode("-",$user->applicant->date_birth);
 		$date_birth = $date_birth[2].'-'.$date_birth[1].'-'.$date_birth[0];
 
-		return view('kartu',compact('user','date_birth'));
+		$pdf = PDF::loadView('kartu',compact('user','date_birth'))->setPaper('legal');
+		return $pdf->stream('Kartu Peserta.pdf');
+
+		//return view('kartu',compact('user','date_birth'));
 	}
 	public function pdfFormulir(){
 		//$applicant = Applicant::findOrFail($id);

@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> Formulir Registrasi Program Beasiswa Santri Berprestasi (PBSB) Tahun {{ date('Y')}}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title> Formulir Registrasi Program Beasiswa Santri Berprestasi (PBSB)</title>
 <style type="text/css">
+@media print {
 html,body{
-    height:100%;
-    margin:0;
-    padding:0;
+    height:90%;
+    margin-top:5px;
+    margin-left:5px;
+    margin-right:5px;
+    margin-bottom:5px;
+    padding:10px;
     border:0;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 0.5px;
 }
 
 div{
@@ -36,7 +51,65 @@ textarea {
     height:100%;
 }
 
-#header,#footer{
+#isi,#footer{
+    height:10%;
+    position:relative;
+    z-index:1;
+	font-family: arial,helvetica,sans-serif;
+	font-size: 11px;
+}
+
+td {
+    vertical-align: top;
+}
+}
+
+html,body{
+    height:90%;
+    margin-top:5px;
+    margin-left:5px;
+    margin-right:5px;
+    margin-bottom:5px;
+    padding:10px;
+    border:0;
+}
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+div{
+    margin:0;
+    border:0;
+}
+
+textarea {
+    margin:0;
+    border:0;
+    padding:0;
+    height:100%;
+    width:100%;
+}
+
+.content{
+    display:table;
+    width:100%;
+    border-collapse:separate;
+    height:80%;
+}
+
+.Col{
+    display:table-cell;
+    width:30%;
+    height:100%;
+}
+
+#isi,#footer{
     height:10%;
     position:relative;
     z-index:1;
@@ -51,53 +124,53 @@ td {
 </style>
 </head>
 <body>
-<div id="header">
+<div id="isi">
 <table style="font-family:arial,helvetica,sans-serif;">
 	<tr>
-		<td rowspan="3" width="50px">
+		<td width="60px">
 			<img src="logo/logo.jpg" height="50px" width="50px">
 		</td>
 		<td width="440 px">
-			<b><font size="3 px">KEMENTERIAN AGAMA RI </font></b></br>
-			<b><font size="2 px">Seleksi Calon Peserta Program Beasiswa Santri Berprestasi</font></b> </br>
-			<b>Tahun {{ date('Y')}}</b>
+			<b><font size="15 px">KEMENTERIAN AGAMA RI </font></b><br />
+			<b><font size="11 px">Seleksi Calon Peserta Program Beasiswa Santri Berprestasi</font></b> <br />
+			<b><font size="11 px">Tahun {{ date('Y')}}</font></b>
 		</td>
-		<td align="right" width="210px">
-			<b><font size="3 px">FORMULIR REGISTRASI</font></b></br>
+		<td align="right" width="270px">
+			<b><font size="20px">FORMULIR REGISTRASI</font></b><br />
 			No Registrasi : 123123123123
 		</td>
 	</tr>
 </table>
-<hr align="left" width="710px">
+<hr>
 <table>
 	<tr>
 		<td width="400px">
-      <font size="4 px"><b>{!! $user->applicant->full_name !!}</b></font> </br>
-			Jenis Kelamin : <b>{!! ($user->applicant->gender == 1) ? 'Laki-laki' : 'Perempuan' !!}</b> </br>
-			Tempat/Tanggal Lahir : <b>{!! $user->applicant->place_birth !!} / {!! $date_birth  !!}</b> </br>
-			Penyakit yang sedang/pernah diderita:  </br>
+      <font size="20px"><b>{!! $user->applicant->full_name !!}</b></font> <br />
+			Jenis Kelamin : <b>{!! ($user->applicant->gender == 1) ? 'Laki-laki' : 'Perempuan' !!}</b> <br />
+			Tempat/Tanggal Lahir : <b>{!! $user->applicant->place_birth !!} / {!! $date_birth  !!}</b> <br />
+			Penyakit yang sedang/pernah diderita:  <br />
 			<b>{!! $user->applicant->illness !!}</b><br />
 			<br />
-			Buta Warna : <b>{!! ($user->applicant->color_blind == 1) ? 'Ya' : 'Tidak' !!}</b> </br>
-			Gol. Darah <b>{!! $user->applicant->blood_type !!}</b> Berat <b>{!! $user->applicant->weight !!}</b> Kg Tinggi <b>{!! $user->applicant->height !!}</b> cm </br>
-			Riwayat Gangguan Mental : <b>{!! ($user->applicant->mental_disorder == 1) ? 'Ya' : 'Tidak' !!}</b> </br>
-			Hafalan Al-Qurran : <b>{!! $user->applicant->recitation !!}</b> Juz </br>
-			No Telp yang Bisa Dihubungi : <b>{!! $user->applicant->contact !!}</b> </br>
+			Buta Warna : <b>{!! ($user->applicant->color_blind == 1) ? 'Ya' : 'Tidak' !!}</b> <br />
+			Gol. Darah <b>{!! $user->applicant->blood_type !!}</b> Berat <b>{!! $user->applicant->weight !!}</b> Kg Tinggi <b>{!! $user->applicant->height !!}</b> cm <br />
+			Riwayat Gangguan Mental : <b>{!! ($user->applicant->mental_disorder == 1) ? 'Ya' : 'Tidak' !!}</b> <br />
+			Hafalan Al-Qurran : <b>{!! $user->applicant->recitation !!}</b> Juz <br />
+			No Telp yang Bisa Dihubungi : <b>{!! $user->applicant->contact !!}</b> <br />
 		</td>
-		<td align="right" width="300px">
-			No. Peserta : <b>ISIAN</b></br>
-			<i><small>(Diberikan oleh panitia seleksi)</small></i></br>
-			<img src="images.jpg" height="120px" width="100px">
+		<td align="right" width="350px">
+			No. Peserta : <b>ISIAN</b><br />
+			<i><small>(Diberikan oleh panitia seleksi)</small></i><br />
+			<img src="images/pasphoto.png" height="120px" width="100px">
 		</td>
 	</tr>
 </table>
-<hr align="left" width="710px">
+<hr>
 <table>
 	<tr>
 		<td width="200px">
 			Anak Ke <b>ISIAN</b> Dari <b>ISIAN</b> Bersaudara
 		</td>
-		<td  width="10px">&nbsp
+		<td  width="10px">&nbsp;
 		</td>
 		<td  width="200px">
 		</td>
@@ -107,17 +180,17 @@ td {
 		</td>
 	</tr>
 	<tr>
-    <td>
+    <td width="200px">
 			Ayah Kandung
 		</td>
-		<td>:
+		<td width="10px">:
 		</td>
-		<td><b>{!!$user->family->father_name !!}</b>
+		<td width="200px"><b>{!!$user->family->father_name !!}</b>
 		</td>
 		<td >Umur <b>{!!$user->family->father_age!!} </b> Tahun
 		</td>
-		<td >Pekerjaan : <b>{!!$user->family->jobType->job_name!!}</b> </br>
-		Pendidikan Terakhir : <b>{!!$user->family->educationLevel->level_name!!}</b> </br>
+		<td >Pekerjaan : <b>{!!$user->family->jobType->job_name!!}</b> <br />
+		Pendidikan Terakhir : <b>{!!$user->family->educationLevel->level_name!!}</b> <br />
 		</td>
 	</tr>
 	<tr>
@@ -128,10 +201,10 @@ td {
 		</td>
 		<td><b>{!!$user->family->mother_name !!}</b>
 		</td>
-		<td >Umur <b>{!!$user->family->mother_age!!}</b> Tahun
+		<td width="150px">Umur <b>{!!$user->family->mother_age!!}</b> Tahun
 		</td>
-		<td >Pekerjaan : <b>{!!$user->family->jobTypeIbu->job_name!!}</b> </br>
-		Pendidikan Terakhir : <b>{!!$user->family->educationLevelIbu->level_name!!}</b> </br>
+		<td>Pekerjaan : <b>{!!$user->family->jobTypeIbu->job_name!!}</b> <br />
+		Pendidikan Terakhir : <b>{!!$user->family->educationLevelIbu->level_name!!}</b> <br />
 		</td>
 	</tr>
 	<tr>
@@ -149,16 +222,16 @@ td {
 		</td>
 		<td>:
 		</td>
-		<td><b>{!!$user->family->address!!}</b> </br>
-			Kel./Desa : <b>ISIAN</b> </br>
-			Kab./Kota : <b>ISIAN</b> </br>
-			Kecamatan : <b>ISIAN</b> </br>
+		<td><b>{!!$user->family->address!!}</b> <br />
+			Kel./Desa : <b>ISIAN</b> <br />
+			Kab./Kota : <b>ISIAN</b> <br />
+			Kecamatan : <b>ISIAN</b> <br />
 			Provinsi  : <b>{!!$user->family->province->province_name!!}</b>
 		</td>
 	</tr>
 </table>
 
-<hr align="left" width="710px">
+<hr>
 
 <table>
 	<tr>
@@ -169,7 +242,7 @@ td {
 		</td>
 		<td width="290px"><b>{!!$user->pesantren->pesantren_name!!}</b>
 		</td>
-		<td width="190px" align="right">
+		<td width="200px" align="right">
 			NSPP : <b>{!!$user->pesantren->nspp!!}</b>
 		</td>
 
@@ -180,10 +253,10 @@ td {
 		</td>
 		<td>:
 		</td>
-		<td><b>{!!$user->pesantren->pesantren_address!!}</b> </br>
-			Kel./Desa : <b>ISIAN</b> </br>
-			Kab./Kota : <b>ISIAN</b> </br>
-			Kecamatan : <b>ISIAN</b> </br>
+		<td><b>{!!$user->pesantren->pesantren_address!!}</b> <br />
+			Kel./Desa : <b>ISIAN</b> <br />
+			Kab./Kota : <b>ISIAN</b> <br />
+			Kecamatan : <b>ISIAN</b> <br />
 			Provinsi  : <b>{!!$user->pesantren->province->province_name!!}</b>
 		</td>
 	</tr>
@@ -193,7 +266,7 @@ td {
 		</td>
 		<td>:
 		</td>
-		<td><b>{!!$user->pesantren->kiai_name!!}</b> </br>
+		<td><b>{!!$user->pesantren->kiai_name!!}</b> <br />
 		</td>
 	</tr>
 	<tr>
@@ -202,78 +275,65 @@ td {
 		</td>
 		<td>:
 		</td>
-		<td><b>{!!$user->pesantren->pesantren_contact!!}</b> </br>
+		<td><b>{!!$user->pesantren->pesantren_contact!!}</b> <br />
 		</td>
 	</tr>
 </table>
 
-<hr align="left" width="710px">
+<hr>
 
 <table>
 	<tr>
-		<td width="200px">
-			Asal Sekolah
-		</td>
-		<td width="10px">:
-		</td>
-		<td width="200px"><b>{!!$user->school->school_name!!}</b>
-		</td>
-		<td width="50px">
-			Jenis</br>
+		<td width="200px">Asal Sekolah</td>
+		<td width="10px">:</td>
+		<td width="100px"><b>{!!$user->school->school_name!!}</b></td>
+		<td width="30px">
+			Jenis<br />
 			Lokasi
 		</td>
-		<td width="10px">:</br>
+		<td width="10px">:<br />
 		:
 		</td>
-		<td width="80px"><b>{!!$user->school->schoolType->type_name!!}</b></br>
+		<td width="80px"><b>{!!$user->school->schoolType->type_name!!}</b><br />
 		<b>{!!($user->school->inside_pondok == 1) ? 'DIDALAM' : 'DILUAR'!!}</b>
 		</td>
 		<td width="40px">
-			Status</br>
+			Status<br />
 			NISN
 		</td>
-		<td width="10px">:</br>
+		<td width="10px">:<br />
 		:
 		</td>
-		<td width="80px"><b>{!!($user->school->school_status == 1) ? 'NEGERI' : 'SWASTA'!!}</b></br>
+		<td width="80px"><b>{!!($user->school->school_status == 1) ? 'NEGERI' : 'SWASTA'!!}</b><br />
 		<b>{!!$user->school->nisn!!}</b>
 		</td>
 	</tr>
 	<tr>
-		<td>
-			Alamat Sekolah
-		</td>
-		<td>:
-		</td>
-		<td><b>{!!$user->school->school_address!!}</b> </br>
-			Kel./Desa : <b>-</b> </br>
-			Kab./Kota : <b>-</b> </br>
-			Kecamatan : <b>-</b> </br>
+		<td width="200px">Alamat Sekolah</td>
+		<td width="10px">:</td>
+		<td width="100px"><b>{!!$user->school->school_address!!}</b> <br />
+			Kel./Desa : <b>-</b> <br />
+			Kab./Kota : <b>-</b> <br />
+			Kecamatan : <b>-</b> <br />
 			Provinsi  : <b>{!!$user->school->province->province_name!!}</b>
 		</td>
 	</tr>
 	<tr>
-	<tr>
-		<td>
-			Nama Kepala Sekolah
-		</td>
-		<td>:
-		</td>
-		<td><b>{!!$user->school->school_principal_name!!}</b> </br>
+		<td width="200px">Nama Kepala Sekolah</td>
+		<td width="10px">:</td>
+		<td width="100px"><b>{!!$user->school->school_principal_name!!}</b> <br />
 		</td>
 	</tr>
 	<tr>
-		<td>
-			No Telp Sekolah
+		<td width="200px">No Telp Sekolah</td>
+		<td width="10px">:
 		</td>
-		<td>:
-		</td>
-		<td><b>{!!$user->school->school_contact!!}</b></br>
+		<td width="260px"><b>{!!$user->school->school_contact!!}</b><br />
 		</td>
 	</tr>
 </table>
 
-<hr align="left" width="710px">
+<hr>
 <table>
 	<tr>
 		<td width="200px">Pilihan Perguruan Tinggi</td>
@@ -305,10 +365,10 @@ td {
 	</tr>
 </table>
 
-<hr align="left" width="710px">
-<table border="1">
+<hr>
+<table border="1px" align="center">
 	<tr align="center" >
-		<td rowspan="2" width="180">
+		<td rowspan="2" width="130">
 		</td>
 		<td colspan="2">Kelas I
 		</td>
@@ -318,118 +378,118 @@ td {
 		</td>
 	</tr>
 	<tr  align="center">
-		<td width="80">Sem I
+		<td width="60">Sem I
 		</td>
-		<td width="80">Sem II
+		<td width="60">Sem II
 		</td>
-		<td width="80">Sem III
+		<td width="60">Sem III
 		</td>
-		<td width="80">Sem IV
+		<td width="60">Sem IV
 		</td>
-		<td width="80">Sem V
+		<td width="60">Sem V
 		</td>
-		<td width="80">Sem VI
-		</td>
-	</tr>
-	<tr  align="center">
-		<td width="80" align="left">&nbsp{{ $listSubjects[0] }}
-		</td>
-		<td width="80"><b>{{$subject_1[0]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_1[1]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_1[2]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_1[3]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_1[4]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_1[5]}}</b>
+		<td width="60">Sem VI
 		</td>
 	</tr>
 	<tr  align="center">
-		<td width="80" align="left">&nbsp{{ $listSubjects[1] }}
+		<td width="80" align="left">&nbsp;{{ $listSubjects[0] }}
 		</td>
-		<td width="80"><b>{{$subject_2[0]}}</b>
+		<td width="60"><b>{{$subject_1[0]}}</b>
 		</td>
-		<td width="80"><b>{{$subject_2[1]}}</b>
+		<td width="60"><b>{{$subject_1[1]}}</b>
 		</td>
-		<td width="80"><b>{{$subject_2[2]}}</b>
+		<td width="60"><b>{{$subject_1[2]}}</b>
 		</td>
-		<td width="80"><b>{{$subject_2[3]}}</b>
+		<td width="60"><b>{{$subject_1[3]}}</b>
 		</td>
-		<td width="80"><b>{{$subject_2[4]}}</b>
+		<td width="60"><b>{{$subject_1[4]}}</b>
 		</td>
-		<td width="80"><b>{{$subject_2[5]}}</b>
-		</td>
-	</tr>
-	<tr  align="center">
-		<td width="80" align="left">&nbsp{{ $listSubjects[2] }}
-		</td>
-		<td width="80"><b>{{$subject_3[0]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_3[1]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_3[2]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_3[3]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_3[4]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_3[5]}}</b>
+		<td width="60"><b>{{$subject_1[5]}}</b>
 		</td>
 	</tr>
 	<tr  align="center">
-		<td width="80" align="left">&nbsp{{ $listSubjects[3] }}
+		<td width="80" align="left">&nbsp;{{ $listSubjects[1] }}
 		</td>
-		<td width="80"><b>{{$subject_4[0]}}</b>
+		<td width="60"><b>{{$subject_2[0]}}</b>
 		</td>
-		<td width="80"><b>{{$subject_4[1]}}</b>
+		<td width="60"><b>{{$subject_2[1]}}</b>
 		</td>
-		<td width="80"><b>{{$subject_4[2]}}</b>
+		<td width="60"><b>{{$subject_2[2]}}</b>
 		</td>
-		<td width="80"><b>{{$subject_4[3]}}</b>
+		<td width="60"><b>{{$subject_2[3]}}</b>
 		</td>
-		<td width="80"><b>{{$subject_4[4]}}</b>
+		<td width="60"><b>{{$subject_2[4]}}</b>
 		</td>
-		<td width="80"><b>{{$subject_4[5]}}</b>
-		</td>
-	</tr>
-	<tr  align="center">
-		<td width="80" align="left">&nbsp{{ $listSubjects[4] }}
-		</td>
-		<td width="80"><b>{{$subject_5[0]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_5[1]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_5[2]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_5[3]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_5[4]}}</b>
-		</td>
-		<td width="80"><b>{{$subject_5[5]}}</b>
+		<td width="60"><b>{{$subject_2[5]}}</b>
 		</td>
 	</tr>
 	<tr  align="center">
-		<td width="80" align="left">&nbsp{{ $listSubjects[5] }}
+		<td width="80" align="left">&nbsp;{{ $listSubjects[2] }}
 		</td>
-		<td width="80"><b>{{$ranking[0]}}</b>
+		<td width="60"><b>{{$subject_3[0]}}</b>
 		</td>
-		<td width="80"><b>{{$ranking[1]}}</b>
+		<td width="60"><b>{{$subject_3[1]}}</b>
 		</td>
-		<td width="80"><b>{{$ranking[2]}}</b>
+		<td width="60"><b>{{$subject_3[2]}}</b>
 		</td>
-		<td width="80"><b>{{$ranking[3]}}</b>
+		<td width="60"><b>{{$subject_3[3]}}</b>
 		</td>
-		<td width="80"><b>{{$ranking[4]}}</b>
+		<td width="60"><b>{{$subject_3[4]}}</b>
 		</td>
-		<td width="80"><b>{{$ranking[5]}}</b>
+		<td width="60"><b>{{$subject_3[5]}}</b>
+		</td>
+	</tr>
+	<tr  align="center">
+		<td width="80" align="left">&nbsp;{{ $listSubjects[3] }}
+		</td>
+		<td width="60"><b>{{$subject_4[0]}}</b>
+		</td>
+		<td width="60"><b>{{$subject_4[1]}}</b>
+		</td>
+		<td width="60"><b>{{$subject_4[2]}}</b>
+		</td>
+		<td width="60"><b>{{$subject_4[3]}}</b>
+		</td>
+		<td width="60"><b>{{$subject_4[4]}}</b>
+		</td>
+		<td width="60"><b>{{$subject_4[5]}}</b>
+		</td>
+	</tr>
+	<tr  align="center">
+		<td width="80" align="left">&nbsp;{{ $listSubjects[4] }}
+		</td>
+		<td width="60"><b>{{$subject_5[0]}}</b>
+		</td>
+		<td width="60"><b>{{$subject_5[1]}}</b>
+		</td>
+		<td width="60"><b>{{$subject_5[2]}}</b>
+		</td>
+		<td width="60"><b>{{$subject_5[3]}}</b>
+		</td>
+		<td width="60"><b>{{$subject_5[4]}}</b>
+		</td>
+		<td width="60"><b>{{$subject_5[5]}}</b>
+		</td>
+	</tr>
+	<tr  align="center">
+		<td width="80" align="left">&nbsp;{{ $listSubjects[5] }}
+		</td>
+		<td width="60"><b>{{$ranking[0]}}</b>
+		</td>
+		<td width="60"><b>{{$ranking[1]}}</b>
+		</td>
+		<td width="60"><b>{{$ranking[2]}}</b>
+		</td>
+		<td width="60"><b>{{$ranking[3]}}</b>
+		</td>
+		<td width="60"><b>{{$ranking[4]}}</b>
+		</td>
+		<td width="60"><b>{{$ranking[5]}}</b>
 		</td>
 	</tr>
 </table>
 
-<hr align="left" width="710px">
+<hr>
 
 <table>
 	<tr>
@@ -481,17 +541,17 @@ td {
 	</tr>
 </table>
 
-<hr align="left" width="710px">
+<hr>
 <table>
 	<tr>
 		<td>
 			<small>
-			Panitia Seleksi Calon Peserta Program Beasiswa Santri Berprestasi Tahun {{ date('Y') }}</br>
-			Direktorak Pendidikan Diniyah & Pondok Pesantren | Direktorat Jenderal Pendidikan Islam Kementerian Agama RI </br>
-			JL. Lapangan Banteng Barat No. 3-4 Jakarta Pusar - DKI Jakarta Telp : 021 - 3811810</br>
+			Panitia Seleksi Calon Peserta Program Beasiswa Santri Berprestasi Tahun {{ date('Y') }}<br />
+			Direktorak Pendidikan Diniyah & Pondok Pesantren | Direktorat Jenderal Pendidikan Islam Kementerian Agama RI <br />
+			JL. Lapangan Banteng Barat No. 3-4 Jakarta Pusar - DKI Jakarta Telp : 021 - 3811810<br />
 			Mohon dicetak/kopi rangkap 2 - Lembar : (1) Peserta (2) Kementerian Agama
-			</br>
-			</br>
+			<br />
+			<br />
 			Tanggal Finalisasi :  <b>{!!$user->updated_at!!}</b>
 
 			</small>

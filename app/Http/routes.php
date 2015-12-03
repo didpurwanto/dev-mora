@@ -90,13 +90,11 @@ Route::get('applications/universities/{id}', 'ApplicationsController@getDepartem
 Route::get('upload','ApplicantsController@getUploadForm');
 Route::post('upload/image','ApplicantsController@postUpload');
 
-// finalisasi data
+// finalisasi data bagi pendaftar
 Route::get('finalisasi','UsersController@finalisasi');
 
-
+// cetak bagi pendaftar
 Route::get('cetakformulir','SummaryController@cetakFormulir');
-Route::get('pdfFormulir','SummaryController@pdfFormulir');
-
 Route::get('cetakkartu','SummaryController@cetakKartu');
 
 
