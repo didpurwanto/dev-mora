@@ -45,7 +45,7 @@ class FamilyRequest extends Request {
 			'mother_age.integer' => 'Umur Ibu harus angka integer (angka tanpa koma)',
 			'mother_age.min' => 'Umur Ibu minimal 20 tahun',
 			'mother_age.max' => 'Umur Ibu maksimal 100 tahun',
-			'address.required' => 'Alamat Ayah tidak boleh kosong'
+			'address.required' => 'Alamat orang tua tidak boleh kosong'
 		];
 	}
 }
