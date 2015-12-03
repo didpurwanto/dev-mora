@@ -27,8 +27,8 @@ class ApplicantRequest extends Request {
 			'place_birth' => 'required|min:3',
 			'date_birth' => 'date',
 			'recitation' => 'required|min:0|max:30',
-			'weight' => 'required',
-			'height'=> 'required',
+			'weight' => 'required|min:20',
+			'height'=> 'required|min:100',
 			'contact' => 'required',
 			'address' => 'required'
 			// 'photo' => 'required|image|mimes:jpeg,jpg,bmp,png,gif|max:1000'
@@ -56,7 +56,9 @@ class ApplicantRequest extends Request {
 			'recitation.max' => 'Jumlah Hafalan Al-Quran tidak boleh diatas 30',
 			'illness.required' => 'Riwayat penyakit tidak boleh kosong',
 			'weight.required' => 'Berat Badan tidak boleh kosong',
+			'weight.min' => 'Berat badan tidak boleh dibawah 20 KG',
 			'height.required'=> 'Tinggi Badan tidak boleh kosong',
+			'height.min' => 'Tinggi badang tidak boleh dibawah 100 cm',
 			'contact.required' => 'Nomor yang bisa dihubungi tidak boleh kosong',
 			'address.required' => 'Alamat tidak boleh kosong'
 		];

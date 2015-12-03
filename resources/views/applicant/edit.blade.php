@@ -32,10 +32,10 @@
 				{!! Form::label('email', 'Alamat E-mail') !!}
 				</div>
 				<div class="col-md-4">
-				{!! Form::email('email',Auth::user()->email ,['class' => 'form-control', 'placeholder' => 'Alamat E-mail']) !!}
+				{!! Form::email('email',Auth::user()->email ,['class' => 'form-control', 'placeholder' => 'Alamat E-mail', 'disable' => true]) !!}
 				</div>
 				@if( $errors->first('email') )
-					<span class="help-block text-danger">{{ $errors->first('email') }}</span>
+					<span class="help-block text-danger">{{ $errors->first('email' ) }}</span>
 				@endif
 			</div>
 		</div>

@@ -234,45 +234,27 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="/logo/kampus/its.png" alt="" />
-                        <p class="text-muted">Institut Teknologi Sepuluh Nopember</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <img src="/logo/kampus/its.png" alt="" />
-                        <p class="text-muted">Institut Teknologi Sepuluh Nopember</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <img src="/logo/kampus/its.png" alt="" />
-                        <p class="text-muted">Institut Teknologi Sepuluh Nopember</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <img src="/logo/kampus/its.png" alt="" />
-                        <p class="text-muted">Institut Teknologi Sepuluh Nopember</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <img src="logo/kampus/itb.png" alt="" />
-                        <p class="text-muted">Institut Teknologi Bandung</p>
-                    </div>
-                </div>
+                        <p class="text-muted"><a href="http://its.ac.id">Institut Teknologi Sepuluh Nopember</a></p>
 
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="/logo/kampus/itb.png" alt="" />
+                        <p class="text-muted"><a href="http://itb.ac.id">Institut Teknologi Bandung</p>
+                    </div>
+                </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="logo/kampus/unair.png" alt="" />
-                        <p class="text-muted">Universitas Airlangga</p>
+                        <p class="text-muted"><a href="http://unair.ac.id">Universitas Airlangga</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="logo/kampus/ipb.png" alt="" />
-                        <p class="text-muted">Institut Pertanian Bogor</p>
+                        <p class="text-muted"><a href="http://ipb.ac.id">Institut Pertanian Bogor</p>
                     </div>
                 </div>
 
