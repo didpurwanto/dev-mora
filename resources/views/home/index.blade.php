@@ -54,10 +54,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#daftar">Buat Akun</a>
+                        <a class="page-scroll" href="#login">Login</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#login">Login</a>
+                        <a class="page-scroll" href="#daftar">Buat Akun</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">PTN Mitra</a>
