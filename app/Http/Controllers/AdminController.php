@@ -8,6 +8,7 @@ use App\University;
 use App\Province;
 use App\Application;
 use App\Departement;
+use App\Pesantren;
 use App\Http\Requests\UniversityRequest;
 use App\Http\Requests\DepartementRequest;
 
@@ -22,10 +23,13 @@ class AdminController extends Controller {
 	{
 		// echo "index admin";
 		$total_pendaftar = DB::table('applications')->count();
-         // dd($total_pendaftar);
+		$total_univ = DB::table('universities')->count();
+		$total_dept = DB::table('departements')->count();		
+		$total_pesantren = DB::table('pesantrens')->count(DB::raw('DISTINCT pesantren_name'));
+         // dd($total_pesantren);
 
 		// return view('admin.beranda')->with('total_pendaftar','$total_pendaftar');
-		return view('admin.beranda', compact('total_pendaftar'));
+		return view('admin.beranda', compact('total_pendaftar', 'total_univ', 'total_dept', 'total_pesantren'));
 	}
 
 	public function departementlist()

@@ -19,9 +19,8 @@
                         <i class="fa fa-comments fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div>Total Pendaftar!</div>
-                        <!-- agung TODO: add class="huge" on this -->
-                        {!!   $total_pendaftar !!}
+                        <div class="huge">{!!  $total_pendaftar !!}</div>
+                        <div> total Pendaftar!</div>
                     </div>
                 </div>
             </div>
@@ -42,8 +41,8 @@
                         <i class="fa fa-tasks fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">12</div>
-                        <div>Sisa yang tersedia!</div>
+                        <div class="huge">{!! $total_pesantren !!}</div>
+                        <div> total pesantren!</div>
                     </div>
                 </div>
             </div>
@@ -64,12 +63,12 @@
                         <i class="fa fa-shopping-cart fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">124</div>
-                        <div>New Orders!</div>
+                        <div class="huge">{!!  $total_univ !!}</div>
+                        <div>total Universitas!</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href={!! URL::to('admin/listuniversities/') !!}>
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -86,12 +85,12 @@
                         <i class="fa fa-support fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">13</div>
-                        <div>Support Tickets!</div>
+                        <div class="huge">{!!  $total_dept !!}</div>
+                        <div>total Jurusan</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href={!! URL::to('admin/departements') !!}>
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

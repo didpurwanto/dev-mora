@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('admin.index')
 
 @section('content')
 	<h2>Edit Departement Name</h2>
