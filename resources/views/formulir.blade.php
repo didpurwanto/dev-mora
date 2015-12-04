@@ -135,7 +135,7 @@ td {
 			<b><font size="11 px">Seleksi Calon Peserta Program Beasiswa Santri Berprestasi</font></b> <br />
 			<b><font size="11 px">Tahun {{ date('Y')}}</font></b>
 		</td>
-		<td align="right" width="270px">
+		<td align="right" width="260px">
 			<b><font size="20px">FORMULIR REGISTRASI</font></b><br />
 			No Registrasi : 123123123123
 		</td>
