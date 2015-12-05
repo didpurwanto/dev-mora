@@ -6,10 +6,19 @@ class ProgramStudy extends Model {
 
 	protected $table = 'program_studies';
 
+	public $timestamps = false;
+
+	protected $fillable = [
+		'program_name',
+		'list_subject'
+	];
+
 	public function schools()
 	{
 		return $this->hasMany('App\School');
 	}
+
+
 
 	/**
 	 * Many to many relationships

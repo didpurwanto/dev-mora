@@ -40,57 +40,9 @@ class ProgramStudiesController extends Controller {
 	 */
 	public function store(ProgramStudyRequest $request)
 	{
-		//dd($request->all());
-		//dd($request->input('univ_name'));
-		//$univ = $request->input('univ_name');
-		//$dept = $this->validate($request, ['departement_name' => 'required']);
-		//$dept->save($request->all());
+		ProgramStudy::create($request->all());
+		return redirect('admin/programstudies');
 
-		//$dept->university()->save($univ);
-		//University->departements()->save($univ);
-		//$this->save();
-
-		//$departemen = new Departement(['departement_name' => 'Teknologi Informasi']);
-
-		//$univ = new University;
-		//dd($univ);
-
-		$data = new ProgramStudy($request->all());
-
-    //dd($data);
-		$data->save();
-		//$departemen = $this->validate($request, ['departement_name' => 'required']);
-
-		//dd($departemen = $request->input('departement_name'));
-
-		//$departemen = new Departement(['departement_name' => $request['departement_name']]);
-
-		//dd($departemen);
-
-		//$departemen = $univ->departement()->save($data);
-
-		//$data = new Departement($request->all());
-		//$form = Departement()->university()->save($data);
-
-		//\Session::flash('flash_text','A New Departement has been created!');
-		//return redirect('departements');
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//Find or Fail to get ID
-		$dep = ProgramStudy::findOrFail($id);
-		//$dep['university_name'] = University::where('id',$dep['university_id'])->select('university_name')->first()->university_name;
-		//$dep['university_name'] = $univ->university_name;
-
-		//Sent data to view
-		return view('departement.show', compact('dep'));
 	}
 
 	/**
@@ -102,11 +54,8 @@ class ProgramStudiesController extends Controller {
 	public function edit($id)
 	{
 		$dep = ProgramStudy::findOrFail($id);
-		//$univ_list= University::lists('university_name');
-		//$univ = University::where('id',$dep['university_id'])->first()->id;
-		//$univ = $univ->id;
-		//dd($univ);
-		return view('programstudies.edit', compact('dep'));
+		// dd($dep);
+		return view('programstudi.edit', compact('dep'));
 	}
 
 	/**
@@ -117,14 +66,10 @@ class ProgramStudiesController extends Controller {
 	 */
 	public function update($id, ProgramStudyRequest $request)
 	{
-		//Find or Fail to get ID
 		$dep = ProgramStudy::findOrFail($id);
-		// Validate with the parameters
-		//$this->validate($request, ['departement_name' => 'required']);
-		//Save record to the database
 		$dep->update($request->all());
-		//Return to universities controller
-		return redirect('programstudies');	}
+		return redirect('admin/programstudies');	
+	}
 
 	/**
 	 * Remove the specified resource from storage.
@@ -135,6 +80,9 @@ class ProgramStudiesController extends Controller {
 	public function destroy($id)
 	{
 		ProgramStudy::destroy($id);
+		
+		return redirect('admin/programstudies');
+
 	}
 
 }
