@@ -84,7 +84,7 @@ class SummaryController extends Controller {
 
 		//Make user logout after prints
 		Auth::logout();
-		return $pdf->stream('Formulir Peserta.pdf');
+		return $pdf->download('Formulir Peserta.pdf');
 
 		//return view('formulir', compact('user','date_birth','listSubjects','subject_1','subject_2','subject_3','subject_4','subject_5','ranking'));
 	}
@@ -101,14 +101,8 @@ class SummaryController extends Controller {
 
 		//Make user logout after prints
 		Auth::logout();
-		return $pdf->stream('Kartu Peserta.pdf');
+		return $pdf->download('Kartu Peserta.pdf');
 
 		//return view('kartu',compact('user','date_birth'));
-	}
-	public function pdfFormulir(){
-		//$applicant = Applicant::findOrFail($id);
-
-		$pdf = PDF::loadView('formulir');
-		return $pdf->download('Formulir Peserta.pdf');
 	}
 }

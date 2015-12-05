@@ -103,6 +103,19 @@
 		@endif
 	</div>
 </div>
+<div class="form-group {{ ! $errors->first('no_telp') ? '': 'has-error' }}">
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('no_telp', 'No Telp Sekolah') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::text('no_telp', null,['class' => 'form-control', 'placeholder' => '']) !!}
+		</div>
+		@if( $errors->first('no_telp') )
+			<span class="help-block text-danger">{{ $errors->first('no_telp') }}</span>
+		@endif
+	</div>
+</div>
 <div class="form-group {{ ! $errors->first('province_id') ? '': 'has-error' }}">
 	<div class="row">
 		<div class="col-md-3">

@@ -31,6 +31,7 @@ class SchoolRequest extends Request {
 			'program_study_id' => 'required',
 			'inside_pondok' => 'required',
 			'school_address' => 'required',
+			'no_telp' => 'required',
 			'province_id' => 'required'
 			//'kabupaten_id' => 'required',
 			//'kecamatan_id' => 'required'
@@ -51,7 +52,8 @@ class SchoolRequest extends Request {
 			'school_type_id.required' => 'Jenis Sekolah tidak boleh kosong',
 			'program_study_id.required' => 'Jenis Program Studi tidak boleh kosong',
 			'inside_pondok.required' => 'Lokasi Sekolah tidak boleh kosong',
-			'school_address.required' => 'Alamat Sekolah tidak boleh kosong'
+			'school_address.required' => 'Alamat Sekolah tidak boleh kosong',
+			'no_telp.required' => 'Nomor Telepon Sekolah tidak boleh kosong'
 		];
 	}
 }
