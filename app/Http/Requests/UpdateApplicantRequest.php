@@ -58,8 +58,8 @@ class UpdateApplicantRequest extends Request {
 			'weight.integer' => 'Berat Badan harus dalam bentuk angka integer',
 			'weight.min' => 'Berat badan tidak boleh dibawah 20 Kg',
 			'height.required'=> 'Tinggi Badan tidak boleh kosong',
-			'weight.integer' => 'Tinggi Badan harus dalam bentuk angka integer',
-			'weight.min' => 'Tinggi Badan tidak boleh dibawah 100 cm',
+			'height.integer' => 'Tinggi Badan harus dalam bentuk angka integer',
+			'height.min' => 'Tinggi Badan tidak boleh dibawah 100 cm',
 			'contact.required' => 'Nomor yang bisa dihubungi tidak boleh kosong',
 			'address.required' => 'Alamat tidak boleh kosong'
 		];
