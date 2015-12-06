@@ -80,7 +80,7 @@ hr {
     margin-left: auto;
     margin-right: auto;
     border-style: inset;
-    border-width: 1px;
+    border-width: 0.5px;
 }
 
 div{
@@ -223,9 +223,9 @@ td {
 		<td>:
 		</td>
 		<td><b>{!!$user->family->address!!}</b> <br />
-			Kel./Desa : <b>ISIAN</b> <br />
-			Kab./Kota : <b>ISIAN</b> <br />
-			Kecamatan : <b>ISIAN</b> <br />
+			Kel./Desa : <b>-</b> <br />
+			Kab./Kota : <b>-</b> <br />
+			Kecamatan : <b>-</b> <br />
 			Provinsi  : <b>{!!$user->family->province->province_name!!}</b>
 		</td>
 	</tr>
@@ -254,9 +254,9 @@ td {
 		<td>:
 		</td>
 		<td><b>{!!$user->pesantren->pesantren_address!!}</b> <br />
-			Kel./Desa : <b>ISIAN</b> <br />
-			Kab./Kota : <b>ISIAN</b> <br />
-			Kecamatan : <b>ISIAN</b> <br />
+			Kel./Desa : <b>-</b> <br />
+			Kab./Kota : <b>-</b> <br />
+			Kecamatan : <b>-</b> <br />
 			Provinsi  : <b>{!!$user->pesantren->province->province_name!!}</b>
 		</td>
 	</tr>
@@ -275,7 +275,7 @@ td {
 		</td>
 		<td>:
 		</td>
-		<td><b>{!!$user->pesantren->pesantren_contact!!}</b> <br />
+		<td><b>{!!$user->pesantren->no_telp!!}</b> <br />
 		</td>
 	</tr>
 </table>
@@ -328,7 +328,7 @@ td {
 		<td width="200px">No Telp Sekolah</td>
 		<td width="10px">:
 		</td>
-		<td width="260px"><b>{!!$user->school->school_contact!!}</b><br />
+		<td width="260px"><b>{!!$user->school->no_telp!!}</b><br />
 		</td>
 	</tr>
 </table>
@@ -366,7 +366,7 @@ td {
 </table>
 
 <hr>
-<table border="1px" align="center">
+<table border="1" align="center">
 	<tr align="center" >
 		<td rowspan="2" width="130">
 		</td>
