@@ -204,7 +204,7 @@
 				{!! Form::label('address', 'Alamat') !!}
 				</div>
 				<div class="col-md-4">
-				{!! Form::textarea('address', null, ['class' => 'form-control', 'placeholder' => 'Jl. Sakti No. 05 RT/RW 005/005 Kel. Sekijang','cols' => '50', 'rows' => '2']) !!}
+				{!! Form::textarea('address', null, ['class' => 'form-control', 'placeholder' => 'Jl. Sakti No. 05 RT/RW 005/005','cols' => '50', 'rows' => '2']) !!}
 				</div>
 				@if( $errors->first('address') )
 					<span class="help-block text-danger">{{ $errors->first('address') }}</span>

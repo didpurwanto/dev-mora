@@ -90,29 +90,68 @@
 		</div>
 	</div>
 </div>
-<div class="form-group {{ ! $errors->first('school_address') ? '': 'has-error' }}">
-	<div class="row">
-		<div class="col-md-3">
-		{!! Form::label('school_address', 'Alamat') !!}
-		</div>
-		<div class="col-md-4">
-		{!! Form::textarea('school_address', null,['class' => 'form-control', 'placeholder' => 'Jl. Keramat Jati, No. 5, RT/RW 05/05, Kel. Sukajadi', 'cols' => '50', 'rows' => '2']) !!}
-		</div>
-		@if( $errors->first('school_address') )
-			<span class="help-block text-danger">{{ $errors->first('school_address') }}</span>
-		@endif
-	</div>
-</div>
 <div class="form-group {{ ! $errors->first('no_telp') ? '': 'has-error' }}">
 	<div class="row">
 		<div class="col-md-3">
-		{!! Form::label('no_telp', 'No Telp Sekolah') !!}
+		{!! Form::label('no_telp', 'No. Telp Sekolah') !!}
 		</div>
 		<div class="col-md-4">
 		{!! Form::text('no_telp', null,['class' => 'form-control', 'placeholder' => '']) !!}
 		</div>
 		@if( $errors->first('no_telp') )
 			<span class="help-block text-danger">{{ $errors->first('no_telp') }}</span>
+		@endif
+	</div>
+</div>
+<div class="form-group {{ ! $errors->first('school_address') ? '': 'has-error' }}">
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('school_address', 'Alamat') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::textarea('school_address', null,['class' => 'form-control', 'placeholder' => 'Jl. Keramat Jati, No. 5, RT/RW 05/05, Kel. Sukajadi', 'cols' => '50', 'rows' => '1']) !!}
+		</div>
+		@if( $errors->first('school_address') )
+			<span class="help-block text-danger">{{ $errors->first('school_address') }}</span>
+		@endif
+	</div>
+</div>
+<div class="form-group {{ ! $errors->first('kelurahan') ?'': 'has-error' }}">
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('Kelurahan', 'Desa/Kelurahan') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::text('kelurahan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kelurahan']) !!}
+		</div>
+		@if( $errors->first('kelurahan') )
+			<span class="help-block text-danger">{{ $errors->first('kelurahan') }}</span>
+		@endif
+	</div>
+</div>
+<div class="form-group {{ ! $errors->first('kecamatan') ?'': 'has-error' }}">
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('kecamatan', 'Kecamatan') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::text('kecamatan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kecamatan']) !!}
+		</div>
+		@if( $errors->first('kecamatan') )
+			<span class="help-block text-danger">{{ $errors->first('kecamatan') }}</span>
+		@endif
+	</div>
+</div>
+<div class="form-group {{ ! $errors->first('kabupaten') ?'': 'has-error' }}">
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('kabupaten', 'Kabupaten/Kota') !!}
+		</div>
+		<div class="col-md-4">
+		{!! Form::text('kabupaten', null, ['class' => 'form-control', 'placeholder' => 'Nama Kabupaten']) !!}
+		</div>
+		@if( $errors->first('kabupaten') )
+			<span class="help-block text-danger">{{ $errors->first('kabupaten') }}</span>
 		@endif
 	</div>
 </div>

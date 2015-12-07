@@ -29,7 +29,10 @@ class PesantrenRequest extends Request {
 			'pesantren_type' => 'required',
 			'pesantren_address' => 'required',
 			'no_telp' => 'required',
-			'province_id' => 'required'
+			'province_id' => 'required',
+			'kabupaten' => 'required',
+			'kecamatan' => 'required',
+			'kelurahan' => 'required'
 			//'kabupaten_id' => 'required',
 			//'kecamatan_id' => 'required'
 		];
@@ -45,7 +48,10 @@ class PesantrenRequest extends Request {
 			'pesantren_type.required' => 'Jenis Pesantren tidak boleh kosong',
 			'pesantren_address.required' => 'Alamat Pesantren tidak boleh kosong',
 			'no_telp.required' => 'Nomor Telepon Pesantren tidak boleh kosong',
-			'province_id.required' => 'Provinsi tidak boleh kosong'
+			'province_id.required' => 'Provinsi tidak boleh kosong',
+			'kabupaten.required' => 'Nama Kabupaten tidak boleh kosong',
+			'kecamatan.required' => 'Nama Kecamatan tidak boleh kosong',
+			'kelurahan.required' => 'Nama Kelurahan tidak boleh kosong'
 			//'kabupaten_id.required' => 'Kabupaten tidak boleh kosong',
 			//'kecamatan_id.required' => 'Kecamatan tidak boleh kosong'
 		];

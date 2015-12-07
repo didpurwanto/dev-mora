@@ -30,7 +30,10 @@ class ApplicantRequest extends Request {
 			'weight' => 'required|integer|min:20',
 			'height'=> 'required|min:100',
 			'contact' => 'required',
-			'address' => 'required'
+			'address' => 'required',
+			'kabupaten' => 'required',
+			'kecamatan' => 'required',
+			'kecamatan' => 'required'
 			// 'photo' => 'required|image|mimes:jpeg,jpg,bmp,png,gif|max:1000'
 		];
 	}
@@ -61,7 +64,10 @@ class ApplicantRequest extends Request {
 			'height.required'=> 'Tinggi Badan tidak boleh kosong',
 			'height.min' => 'Tinggi badang tidak boleh dibawah 100 cm',
 			'contact.required' => 'Nomor yang bisa dihubungi tidak boleh kosong',
-			'address.required' => 'Alamat tidak boleh kosong'
+			'address.required' => 'Alamat tidak boleh kosong',
+			'kabupaten.required' => 'Alamat tidak boleh kosong',
+			'kecamatan.required' => 'Alamat tidak boleh kosong',
+			'kelurahan.required' => 'Alamat tidak boleh kosong'
 		];
 	}
 

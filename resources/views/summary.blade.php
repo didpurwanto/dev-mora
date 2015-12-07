@@ -35,7 +35,7 @@
 <table>
 	<tr>
 		<td width="200px">
-			Anak Ke <b>ISIAN</b> Dari <b>ISIAN</b> Bersaudara
+			Anak Ke <b>{!!$user->family->anak_ke !!}</b> Dari <b>{!!$user->family->saudara !!}</b> Bersaudara
 		</td>
 		<td  width="10px">&nbsp
 		</td>
@@ -52,7 +52,7 @@
 		</td>
 		<td>:
 		</td>
-		<td><b>{!!$user->family->father_name !!}</b>
+		<td><b>{!!($user->family->father_deceased == 1) ? 'Alm. ' : ''!!}{!!$user->family->father_name !!}</b>
 		</td>
 		<td >Umur <b>{!!$user->family->father_age!!} </b> Tahun
 		</td>
@@ -66,7 +66,7 @@
 		</td>
 		<td>:
 		</td>
-		<td><b>{!!$user->family->mother_name !!}</b>
+		<td><b>{!!($user->family->mother_deceased == 1) ? 'Almh. ' : ''!!}{!!$user->family->mother_name !!}</b>
 		</td>
 		<td >Umur <b>{!!$user->family->mother_age!!}</b> Tahun
 		</td>
@@ -90,9 +90,9 @@
 		<td>:
 		</td>
 		<td><b>{!!$user->family->address!!}</b> </br>
-			Kel./Desa : <b>ISIAN</b> </br>
-			Kab./Kota : <b>ISIAN</b> </br>
-			Kecamatan : <b>ISIAN</b> </br>
+			Kel./Desa : <b>{!!$user->family->kelurahan!!}</b> </br>
+			Kecamatan : <b>{!!$user->family->kecamatan!!}</b> </br>
+			Kab./Kota : <b>{!!$user->family->kabupaten!!}</b> </br>
 			Provinsi  : <b>{!!$user->family->province->province_name!!}</b>
 		</td>
 	</tr>
@@ -121,9 +121,9 @@
 		<td>:
 		</td>
 		<td><b>{!!$user->pesantren->pesantren_address!!}</b> </br>
-			Kel./Desa : <b>ISIAN</b> </br>
-			Kab./Kota : <b>ISIAN</b> </br>
-			Kecamatan : <b>ISIAN</b> </br>
+			Kel./Desa : <b>{!!$user->pesantren->kelurahan!!}</b> </br>
+			Kecamatan : <b>{!!$user->pesantren->kecamatan!!}</b> </br>
+			Kab./Kota : <b>{!!$user->pesantren->kabupaten!!}</b> </br>
 			Provinsi  : <b>{!!$user->pesantren->province->province_name!!}</b>
 		</td>
 	</tr>
@@ -142,7 +142,7 @@
 		</td>
 		<td>:
 		</td>
-		<td><b>{!!$user->pesantren->pesantren_contact!!}</b> </br>
+		<td><b>{!!$user->pesantren->no_telp!!}</b> </br>
 		</td>
 	</tr>
 </table>
@@ -186,9 +186,9 @@
 		<td>:
 		</td>
 		<td><b>{!!$user->school->school_address!!}</b> </br>
-			Kel./Desa : <b>-</b> </br>
-			Kab./Kota : <b>-</b> </br>
-			Kecamatan : <b>-</b> </br>
+			Kel./Desa : <b>{!!$user->school->kelurahan!!}</b> </br>
+			Kecamatan : <b>{!!$user->school->kecamatan!!}</b> </br>
+			Kab./Kota : <b>{!!$user->school->kabupaten!!}</b> </br>
 			Provinsi  : <b>{!!$user->school->province->province_name!!}</b>
 		</td>
 	</tr>
@@ -208,7 +208,7 @@
 		</td>
 		<td>:
 		</td>
-		<td><b>{!!$user->school->school_contact!!}</b></br>
+		<td><b>{!!$user->school->no_telp!!}</b></br>
 		</td>
 	</tr>
 </table>

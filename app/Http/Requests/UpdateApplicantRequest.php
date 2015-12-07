@@ -30,7 +30,7 @@ class UpdateApplicantRequest extends Request {
 			'weight' => 'required|integer|min:20',
 			'height'=> 'required|integer|min:100',
 			'contact' => 'required',
-			'address' => 'required'
+			'address' => 'required',
 		];
 	}
 
