@@ -121,10 +121,10 @@
                           </td>
                         </tr>
                       </table>
-
                       <br />
                       <button type="submit" class="btn btn-default btn-xl wow tada">Login Aplikasi</button>
-
+                      <a class="btn btn-link" href="{{ url('/password/email') }}">Anda Lupa Password?</a>
+                      
                   </form>
                 </div>
             </div>
