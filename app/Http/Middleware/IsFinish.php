@@ -19,7 +19,7 @@ class IsFinish {
 		{
 			return $next($request);
 		}
-		return redirect('/summary')->with('pesan','Anda harus melakukan FINALISASI data terlebih dahulu.');
+		return redirect('/summary')->with('pesan','Anda harus melakukan FINALISASI data terlebih dahulu, bagian bawah pada rangkuman ini.');
 	}
 
 }

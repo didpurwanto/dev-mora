@@ -223,9 +223,9 @@ td {
 		<td>:
 		</td>
 		<td><b>{!!$user->family->address!!}</b> <br />
-      Kel./Desa : <b>{!!$user->family->kelurahan!!}</b> </br>
-			Kecamatan : <b>{!!$user->family->kecamatan!!}</b> </br>
-			Kab./Kota : <b>{!!$user->family->kabupaten!!}</b> </br>
+      Kel./Desa : <b>{!!$user->family->kelurahan!!}</b> <br />
+			Kecamatan : <b>{!!$user->family->kecamatan!!}</b> <br />
+			Kab./Kota : <b>{!!$user->family->kabupaten!!}</b> <br />
 			Provinsi  : <b>{!!$user->family->province->province_name!!}</b>
 		</td>
 	</tr>
@@ -254,9 +254,9 @@ td {
 		<td>:
 		</td>
 		<td><b>{!!$user->pesantren->pesantren_address!!}</b> <br />
-      Kel./Desa : <b>{!!$user->pesantren->kelurahan!!}</b> </br>
-			Kecamatan : <b>{!!$user->pesantren->kecamatan!!}</b> </br>
-			Kab./Kota : <b>{!!$user->pesantren->kabupaten!!}</b> </br>
+      Kel./Desa : <b>{!!$user->pesantren->kelurahan!!}</b> <br />
+			Kecamatan : <b>{!!$user->pesantren->kecamatan!!}</b> <br />
+			Kab./Kota : <b>{!!$user->pesantren->kabupaten!!}</b> <br />
 			Provinsi  : <b>{!!$user->pesantren->province->province_name!!}</b>
 		</td>
 	</tr>
@@ -312,9 +312,9 @@ td {
 		<td width="200px">Alamat Sekolah</td>
 		<td width="10px">:</td>
 		<td width="100px"><b>{!!$user->school->school_address!!}</b> <br />
-      Kel./Desa : <b>{!!$user->school->kelurahan!!}</b> </br>
-			Kecamatan : <b>{!!$user->school->kecamatan!!}</b> </br>
-			Kab./Kota : <b>{!!$user->school->kabupaten!!}</b> </br>
+      Kel./Desa : <b>{!!$user->school->kelurahan!!}</b> <br />
+			Kecamatan : <b>{!!$user->school->kecamatan!!}</b> <br />
+			Kab./Kota : <b>{!!$user->school->kabupaten!!}</b> <br />
 			Provinsi  : <b>{!!$user->school->province->province_name!!}</b>
 		</td>
 	</tr>
@@ -368,7 +368,7 @@ td {
 <hr>
 <table border="1" align="center">
 	<tr align="center" >
-		<td rowspan="2" width="130">
+		<td rowspan="2" width="130">Mata Pelajaran
 		</td>
 		<td colspan="2">Kelas I
 		</td>

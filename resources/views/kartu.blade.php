@@ -127,9 +127,9 @@ td {
 		<td>:
 		</td>
 		<td><b>{!!$user->pesantren->pesantren_address!!}</b> <br />
-			Kel./Desa : <b>ISIAN</b> <br />
-			Kab./Kota : <b>ISIAN</b> <br />
-			Kecamatan : <b>ISIAN</b> <br />
+      Kel./Desa : <b>{!!$user->pesantren->kelurahan!!}</b> <br />
+			Kecamatan : <b>{!!$user->pesantren->kecamatan!!}</b> <br />
+			Kab./Kota : <b>{!!$user->pesantren->kabupaten!!}</b> <br />
 			Provinsi  : <b>{!!$user->pesantren->province->province_name!!}</b>
 		</td>
 	</tr>

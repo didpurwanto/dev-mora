@@ -238,7 +238,7 @@
 	</tr>
 	<tr>
 		<td>
-			Bersedia untuk Dipindah Jurusan
+			Bersedia untuk dipindah Jurusan
 		</td>
 		<td>:</td>
 		<td><b>{!!($user->application->aggree_to_auto_move == 1) ? 'YA' : 'TIDAK'!!}</b></td>
@@ -248,7 +248,7 @@
 <hr>
 <table border="1">
 	<tr align="center" >
-		<td rowspan="2" width="200">
+		<td rowspan="2" width="200">Mata Pelajaran
 		</td>
 		<td colspan="2">Kelas I
 		</td>
@@ -373,13 +373,13 @@
 
 @if ($user->finish==0)
 	<div class="alert alert-danger">
-		<p align="center">Pastikan semua data yang masukan sudah benar. Jika sudah BENAR, silahkan klik FINALISASI untuk menyimpan permanen data anda (data tidak diubah setelah FINALISASI).</p>
+		<p align="center">Pastikan semua data yang masukan sudah benar. Jika sudah BENAR, silahkan klik FINALISASI DATA SAYA untuk menyimpan secara permanen data anda, data tidak dapat diubah setelah FINALISASI.</p>
 	</div>
 
 	<div class="row clearfix">
 		<div class="col-md-12 column" align="center">
 		{!! Form::open(['method' => 'GET', 'url' => '/finalisasi']) !!}
-				{!! Form::submit('FINALISASI', ['class' => 'btn btn-primary form-button btn-lg']) !!}
+				{!! Form::submit('FINALISASI DATA SAYA', ['class' => 'btn btn-primary form-button btn-lg']) !!}
 		{!! Form::close() !!}
 	</div>
 	</div>
