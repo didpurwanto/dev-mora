@@ -24,7 +24,9 @@
 		<div class="col-lg-12">
 				<div class="panel panel-default">
 						<div class="panel-body">
-						{!! Form::open(array('action' => array('AdminController@departementlist2',''))) !!}
+
+						{!! Form::model(null,['method' => 'POST','url' => 'admin/listdepartement'])
+						//{!! Form::open(array('url' => 'admin/listdepartement'.,'method'=>'get')) !!}
 								{!! Form::label('university_name', 'Pilih Universitas :') !!}
 								{!! Form::select('university_id', $univ_list, ['class' => 'form-control']) !!}
 								{!! Form::submit('submit', ['class' => 'btn btn-primary form-control']) !!}

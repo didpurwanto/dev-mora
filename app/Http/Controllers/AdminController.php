@@ -12,6 +12,7 @@ use App\Pesantren;
 use App\Http\Requests\UniversityRequest;
 use App\Http\Requests\DepartementRequest;
 use App\Http\Requests\AdminDepartementRequest;
+use Input;
 
 class AdminController extends Controller {
 
@@ -25,7 +26,7 @@ class AdminController extends Controller {
 		// echo "index admin";
 		$total_pendaftar = DB::table('applications')->count();
 		$total_univ = DB::table('universities')->count();
-		$total_dept = DB::table('departements')->count();		
+		$total_dept = DB::table('departements')->count();
 		$total_pesantren = DB::table('pesantrens')->count(DB::raw('DISTINCT pesantren_name'));
          // dd($total_pesantren);
 
@@ -48,29 +49,35 @@ class AdminController extends Controller {
             ->get();
 
          // dd($univ_list);
+        // dd($dept);
 
          return view('admin.departement', compact('dept', 'univ_list'));
 	}
 
-	public function departementlist2(AdminDepartementRequest $request)
+	public function departementlist2()
 	{
-         dd($request);
-
+	
+		$id = Input::get('university_id');
 		$univ_list= University::lists('university_name','id');
-		// $univ_list = University::all();//lists('university_name','id');
+	
+		// $dept = DB::table('departements')
+		// 	->select(['departements.departement_name', DB::raw('count(applications.major_1_id) as total'), 'departements.id'
+		// 		])
+  //           ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
+  //           ->where('departements.university_id', $id)
+  //           ->groupBy('departements.id')
+  //           ->get();
 
-
-		// $id =1;
 		$dept = DB::table('departements')
-			->select(['departements.departement_name', DB::raw('count(applications.major_1_id) as total'), 'departements.id'
+			->select(['departements.departement_name', 'universities.university_name',DB::raw('count(applications.major_1_id) as total'), 'departements.id'
 				])
             ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
-            ->where('departements.university_id', $request->university_id)
+            ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
+            ->where('departements.university_id', $id)
             ->groupBy('departements.id')
-            ->get();
-
-
-            return view('admin.departement', compact('dept', 'univ_list'));
+            ->get();            
+        // dd($dept);
+        return view('admin.departement', compact('dept', 'univ_list'));
 	}
 
 
