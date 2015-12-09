@@ -29,7 +29,7 @@
 							    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 							    <input name="file" type="file"/>
 							    <hr />
-							    <input value="upload" type="submit"/>
+						    <input value="upload" type="submit"/>
 							</form>
 							</div>
 								<div class="dataTable_wrapper">
