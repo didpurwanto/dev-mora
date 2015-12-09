@@ -12,6 +12,7 @@ use App\Pesantren;
 use App\Http\Requests\UniversityRequest;
 use App\Http\Requests\DepartementRequest;
 use App\Http\Requests\AdminDepartementRequest;
+use Input;
 
 class AdminController extends Controller {
 
@@ -25,7 +26,7 @@ class AdminController extends Controller {
 		// echo "index admin";
 		$total_pendaftar = DB::table('applications')->count();
 		$total_univ = DB::table('universities')->count();
-		$total_dept = DB::table('departements')->count();		
+		$total_dept = DB::table('departements')->count();
 		$total_pesantren = DB::table('pesantrens')->count(DB::raw('DISTINCT pesantren_name'));
          // dd($total_pesantren);
 
@@ -52,10 +53,11 @@ class AdminController extends Controller {
          return view('admin.departement', compact('dept', 'univ_list'));
 	}
 
-	public function departementlist2(AdminDepartementRequest $request)
+	public function departementlist2()
 	{
-		
+
 		// $id = 1;
+		$id = Input::get('university_id');
 
 		$univ_list= University::lists('university_name','id');
 		// $univ_list = University::all();//lists('university_name','id');
@@ -66,11 +68,11 @@ class AdminController extends Controller {
 			->select(['departements.departement_name', DB::raw('count(applications.major_1_id) as total'), 'departements.id'
 				])
             ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
-            ->where('departements.university_id', $request->university_id)
+            ->where('departements.university_id', $id)
             ->groupBy('departements.id')
             ->get();
 
-         dd($dept);
+         dd($id);
 
             return view('admin.departement', compact('dept', 'univ_list'));
 	}
