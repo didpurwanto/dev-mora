@@ -124,7 +124,7 @@
                       <br />
                       <button type="submit" class="btn btn-default btn-xl wow tada">Login Aplikasi</button>
                       <a class="btn btn-link" href="{{ url('/password/email') }}">Anda Lupa Password?</a>
-                      
+
                   </form>
                 </div>
             </div>
@@ -162,27 +162,44 @@
                     -->
               <form role="form" action="{!! url('auth/register') !!}" method="POST" name="myform" id="myform" enctype="multipart/form-data">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <table align="center">
+                        <tr>
+                          <td>
+                          <font color = "white" size="2px">
+                            <div id='myform_username_errorloc' class="error_strings">
+                              @if($errors->any())
+                                <ul class="alert alert-danger">
+                                @if ($errors->first('username'))
+                                    <li>{{ $errors->first('username') }}</li>
+                                @endif
+                                @if ($errors->first('full_name'))
+                                    <li>{{ $errors->first('full_name') }}</li>
+                                @endif
+                                @if ($errors->first('email'))
+                                    <li>{{ $errors->first('email') }}</li>
+                                @endif
+                                @if ($errors->first('password'))
+                                    <li>{{ $errors->first('password') }}</li>
+                                @endif
+                              @endif
+                              </ul>
+                            </div>
+                          </font>
+                          </td>
+                        </tr>
+                      </table>
 					            <table align="center">
                         <tr>
                           <td>
-                            <font color = "white" size="2px">
-                              <div id='myform_username_errorloc' class="error_strings">
-                                @if($errors->any())
-                                  <ul class="alert alert-danger">
-                                  @if ($errors->first('username'))
-                                      <li>{{ $errors->first('username') }}</li>
-                                  @endif
-                                  @if ($errors->first('email'))
-                                      <li>{{ $errors->first('email') }}</li>
-                                  @endif
-                                  @if ($errors->first('password'))
-                                      <li>{{ $errors->first('password') }}</li>
-                                  @endif
-                                @endif
-                                </ul>
-                              </div>
-                            </font>
                             <input class="form-control" size="40" placeholder="Masukkan Username Anda!" name="username" id="username">
+                          </td>
+                        </tr>
+                      </table>
+                      <br />
+                      <table align="center">
+                        <tr>
+                          <td>
+                            <input class="form-control" size="40" placeholder="Masukkan Nama Lengkap Anda!" name="nama_lengkap" id="nama_lengkap">
                           </td>
                         </tr>
                       </table>

@@ -139,11 +139,11 @@ return [
 		|
 		| Henri
 		| - menambahkan HTML function
-		| - menambahkan Image library
+		| - menambahkan PDF library, Unique with validator
 		*/
 		'Illuminate\Html\HtmlServiceProvider',
-		'Intervention\Image\ImageServiceProvider',
 		'Barryvdh\DomPDF\ServiceProvider',
+		'Felixkiss\UniqueWithValidator\UniqueWithValidatorServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -157,7 +157,7 @@ return [
 		* Agung
 		* menambahkan Maatwebsite excel
 		*/
-		'Maatwebsite\Excel\ExcelServiceProvider',		
+		'Maatwebsite\Excel\ExcelServiceProvider',
 
 	],
 
@@ -210,11 +210,10 @@ return [
 		|
 		| Henri
 		| - menambahkan HTML function
-		| - menambahkan Image library
+		| - menambahkan PDF library
 		*/
 		'Form'      => 'Illuminate\Html\FormFacade',
 		'Html'      => 'Illuminate\Html\HtmlFacade',
-		'Image' 	=> 'Intervention\Image\Facades\Image',
 		'PDF' 		=> 'Barryvdh\DomPDF\Facade',
 		/*
 		|
