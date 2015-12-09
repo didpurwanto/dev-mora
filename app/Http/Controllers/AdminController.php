@@ -37,7 +37,7 @@ class AdminController extends Controller {
 	{
 
 		$univ_list= University::lists('university_name','id');
-
+		// dd($univ_list);
 		// $id =1;
 		$dept = DB::table('departements')
 			->select(['departements.departement_name', 'universities.university_name',DB::raw('count(applications.major_1_id) as total'), 'departements.id'
@@ -54,8 +54,7 @@ class AdminController extends Controller {
 
 	public function departementlist2(AdminDepartementRequest $request)
 	{
-		
-		// $id = 1;
+         dd($request);
 
 		$univ_list= University::lists('university_name','id');
 		// $univ_list = University::all();//lists('university_name','id');
@@ -70,7 +69,6 @@ class AdminController extends Controller {
             ->groupBy('departements.id')
             ->get();
 
-         dd($dept);
 
             return view('admin.departement', compact('dept', 'univ_list'));
 	}
