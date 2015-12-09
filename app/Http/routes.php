@@ -126,7 +126,7 @@ Route::get('admin/import','ExportImportController@importtestnumber');
 Route::post('admin/upload','ExportImportController@uploadtestnumber');
 Route::get('admin/afterimport','ExportImportController@afterimporttestnumber');
 
-
+Route::post('admin/listdepartement','AdminController@departementlist2');
 Route::get('admin/listuniversities/','AdminController@departementlist');
 Route::get('admin/listprovinces','AdminController@listprovinces');
 Route::get('admin/pesantren','AdminController@pesantren');

@@ -11,6 +11,7 @@ use App\Departement;
 use App\Pesantren;
 use App\Http\Requests\UniversityRequest;
 use App\Http\Requests\DepartementRequest;
+use App\Http\Requests\AdminDepartementRequest;
 
 class AdminController extends Controller {
 
@@ -51,13 +52,13 @@ class AdminController extends Controller {
          return view('admin.departement', compact('dept', 'univ_list'));
 	}
 
-	public function departementlist2()
+	public function departementlist2(AdminDepartementRequest $request)
 	{
 		
-		$id = 0;
+		// $id = 1;
 
 		$univ_list= University::lists('university_name','id');
-		$univ_list = University::all();//lists('university_name','id');
+		// $univ_list = University::all();//lists('university_name','id');
 
 
 		// $id =1;
@@ -65,11 +66,11 @@ class AdminController extends Controller {
 			->select(['departements.departement_name', DB::raw('count(applications.major_1_id) as total'), 'departements.id'
 				])
             ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
-            ->where('departements.university_id', $id)
+            ->where('departements.university_id', $request->university_id)
             ->groupBy('departements.id')
             ->get();
 
-         // dd($dept);
+         dd($dept);
 
             return view('admin.departement', compact('dept', 'univ_list'));
 	}

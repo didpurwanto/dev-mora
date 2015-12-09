@@ -23,9 +23,12 @@
 <div class="row">
 		<div class="col-lg-12">
 				<div class="panel panel-default">
-<!-- 						<div class="panel-heading">
-								Kode dan Nama Provinsi
-						</div> -->
+							<form action="upload" enctype="multipart/form-data" method="POST">
+							    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+							    <input name="file" type="file"/>
+							    <hr />
+							    <input value="upload" type="submit"/>
+							</form>
 						@foreach($data as $fetch)
 						   {{ $fetch }}
 						@endforeach

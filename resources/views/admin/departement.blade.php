@@ -28,11 +28,11 @@
 						</div> -->
 						<!-- /.panel-heading -->
 						<div class="panel-body">
-<!-- 							<div class="form-group">
+						{!! Form::open(array('action' => array('AdminController@departementlist2', 'university_id'))) !!}
 								{!! Form::label('university_name', 'Pilih Universitas :') !!}
-								{!! Form::select('university_id',   array_merge(['0' => 'Pilih Universitas'], $univ_list), ['class' => 'form-control']) !!}
-								<a class="btn btn-success tampilkan" href="/admin/listuniversities/"{{ 'strUniv' }} ></i> tampilkan</a>	
-							</div> -->
+								{!! Form::select('university_id', $univ_list, ['class' => 'form-control']) !!}
+								{!! Form::submit('submit', ['class' => 'btn btn-primary form-control']) !!}
+						{!! Form::close() !!}
 							</div>
 								<div class="dataTable_wrapper">
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
