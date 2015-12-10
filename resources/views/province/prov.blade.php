@@ -49,10 +49,10 @@
 													<td>
 														{{ $province->province_name }}
 													</td>
-													<td class="center col-md-2">
+													<td class="center col-md-1">
 															<a class="btn btn-xs btn-success" href="{!! URL::to('admin/provinces/'.$province->id.'/edit') !!}"><i class="fa fa-edit fa-fw"></i> Edit</a>
-															&nbsp;&nbsp;
-															<a class="btn btn-xs btn-danger" href="{!! URL::to('admin/provinces/'.$province->id) !!}" data-token="{{csrf_token()}}" data-method="delete" data-confirm="Anda yakin menghapus data Provinsi?"><i class="fa fa-remove fa-fw"></i> Hapus</a>
+															<!-- &nbsp;&nbsp; -->
+															<!-- <a class="btn btn-xs btn-danger" href="{!! URL::to('admin/provinces/'.$province->id) !!}" data-token="{{csrf_token()}}" data-method="delete" data-confirm="Anda yakin menghapus data Provinsi?"><i class="fa fa-remove fa-fw"></i> Hapus</a> -->
 													</td>
 												</tr>
 													@endforeach

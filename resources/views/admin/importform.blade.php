@@ -24,7 +24,9 @@
 		<div class="col-lg-12">
 				<div class="panel panel-default">
 						<div class="panel-body">
-
+						<div class="alert alert-warning" role="alert">
+							Import hanya bisa dilakukan menggunakan Ms Excel
+						</div>
 							<form action="upload" enctype="multipart/form-data" method="POST">
 							    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 							    <input name="file" type="file"/>

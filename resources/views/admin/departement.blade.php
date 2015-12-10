@@ -25,11 +25,10 @@
 				<div class="panel panel-default">
 						<div class="panel-body">
 
-						{!! Form::model(null,['method' => 'POST','url' => 'admin/listdepartement'])
-						//{!! Form::open(array('url' => 'admin/listdepartement'.,'method'=>'get')) !!}
+						{!! Form::model(null,['method' => 'POST','url' => 'admin/listdepartement']) !!}
 								{!! Form::label('university_name', 'Pilih Universitas :') !!}
-								{!! Form::select('university_id', $univ_list, ['class' => 'form-control']) !!}
-								{!! Form::submit('Tampilkan', ['class' => 'btn btn-primary form-control']) !!}
+								{!! Form::select('university_id', array_merge(['0' => 'Pilih Universitas'], $univ_list), ['class' => 'form-control']) !!}
+								{!! Form::submit('Klik disini untuk menampilkan data', ['class' => 'btn btn-primary form-control']) !!}
 						{!! Form::close() !!}
 							</div>
 								<div class="dataTable_wrapper">

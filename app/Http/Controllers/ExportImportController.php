@@ -44,8 +44,8 @@ class ExportImportController extends Controller {
         	   Application::where('user_id',$row->user_id)
         	   			->update(['test_number'=> $row->test_number]);
 	        }
+	        Session::flash('message', 'Data is uploaded successfully.');
 	       });
-	          Session::flash('message', 'Customer uploaded successfully.');
 	          return redirect('admin/afterimport');
 	      }
 	      catch (\Exception $e)

@@ -40,6 +40,7 @@ trait AuthenticatesAndRegistersUsers {
 	 */
 	public function postRegister(Request $request)
 	{
+		$name = Input::get('full_name');
 		$validator = $this->registrar->validator($request->all());
 
 		if ($validator->fails())
@@ -54,7 +55,7 @@ trait AuthenticatesAndRegistersUsers {
 		$this->auth->login($this->registrar->create($request->all()));
 
 		DB::table('applicants')->insert(array('user_id' => Auth::user()->id));
-		DB::table('applicants')->where('user_id', Auth::user()->id)->update('full_name', $request->full_name);
+		DB::table('applicants')->where('user_id', Auth::user()->id)->update('full_name', $name);
 		//DB::table('applicants')->insert(array('full_name' => $request->nama_lengkap));
 		DB::table('families')->insert(array('user_id' => Auth::user()->id));
 		DB::table('pesantrens')->insert(array('user_id' => Auth::user()->id));
