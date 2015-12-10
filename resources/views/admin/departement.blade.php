@@ -29,7 +29,7 @@
 						//{!! Form::open(array('url' => 'admin/listdepartement'.,'method'=>'get')) !!}
 								{!! Form::label('university_name', 'Pilih Universitas :') !!}
 								{!! Form::select('university_id', $univ_list, ['class' => 'form-control']) !!}
-								{!! Form::submit('submit', ['class' => 'btn btn-primary form-control']) !!}
+								{!! Form::submit('Tampilkan', ['class' => 'btn btn-primary form-control']) !!}
 						{!! Form::close() !!}
 							</div>
 								<div class="dataTable_wrapper">
