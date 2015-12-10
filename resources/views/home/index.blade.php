@@ -199,7 +199,7 @@
                       <table align="center">
                         <tr>
                           <td>
-                            <input class="form-control" size="40" placeholder="Masukkan Nama Lengkap Anda!" name="nama_lengkap" id="nama_lengkap">
+                            <input class="form-control" size="40" placeholder="Masukkan Nama Lengkap Anda!" name="full_name" id="full_name">
                           </td>
                         </tr>
                       </table>

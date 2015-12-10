@@ -22,7 +22,7 @@ class Registrar implements RegistrarContract {
 		], [
 			'username.required' => 'Username tidak boleh kosong.',
 			'unique_with' => 'Data-data yang anda masukan sudah terdaftar. Silahkan klik lupa password pada saat login, jika anda sudah pernah mendaftar.',
-			'email.unique' => 'Username ini sudah digunakan.',
+			//'email.unique' => 'Username ini sudah digunakan.',
 			'username.min' => 'Username minimal 3 karakter.',
 			'username.max' => 'Username maksimal 20 karakter.',
 			'full_name.required' => 'Nama Lengkap tidak boleh kosong',
