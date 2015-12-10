@@ -23,11 +23,8 @@
 <div class="row">
 		<div class="col-lg-12">
 				<div class="panel panel-default">
-<!-- 						<div class="panel-heading">
-								Kode dan Nama Provinsi
-						</div> -->
-						<!-- /.panel-heading -->
 						<div class="panel-body">
+
 						{!! Form::model(null,['method' => 'POST','url' => 'admin/listdepartement'])
 						//{!! Form::open(array('url' => 'admin/listdepartement'.,'method'=>'get')) !!}
 								{!! Form::label('university_name', 'Pilih Universitas :') !!}
