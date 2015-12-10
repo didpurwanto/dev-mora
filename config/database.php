@@ -47,6 +47,7 @@ return [
 	'connections' => [
 		'mysql' => [
 			'driver'    => 'mysql',
+			
 			'host'      => getenv('OPENSHIFT_MYSQL_DB_HOST'),
 			'port'      => getenv('OPENSHIFT_MYSQL_DB_PORT'),
 			'database'  => getenv('OPENSHIFT_APP_NAME'),
