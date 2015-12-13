@@ -94,8 +94,8 @@ trait ResetsPasswords {
 			'token' => array('required' =>'Token tidak boleh kosong'),
 			'email' => array('required' =>'E-Mail tidak boleh kosong', 'email' => 'Silahkan masukan alamat E-Mail'),
 			'password' => array('required' =>'Password tidak boleh kosong',
-													'confirmed' => 'Password yang anda masukan tidak sama.'
-												  'min:8' => 'Password minimal 8 (delapan) karakter.'),
+													'confirmed' => 'Password yang anda masukan tidak sama.',
+												  'min:8' => 'Password minimal 8 (delapan) karakter.')
 		]);
 
 		$credentials = $request->only(

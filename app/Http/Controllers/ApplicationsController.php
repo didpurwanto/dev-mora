@@ -19,7 +19,7 @@ class ApplicationsController extends Controller {
 	public function __construct()
 	{
 		$this->middleware('auth');
-		$this->middleware('schoolcheck'); // make sure data in school has been filled. if doesn't, redirect thos those page.
+		$this->middleware('schoolcheck'); // make sure data in school has been filled. if doesn't, redirect tho those page.
 		$this->middleware('finish');
 	}
 
@@ -28,34 +28,13 @@ class ApplicationsController extends Controller {
 		$dep1 = "";
 		$dep2 = "";
 
-		// get program studi yang di ambil di sekolah
+		// get program studi from school
 		$program_study_id = School::where('user_id', Auth::user()->id)->pluck('program_study_id');
-		//dd($program_study_id);
-		//$program_study = ProgramStudy::
 		$univ = University::lists('university_name','id');
 
-		// ambil departemen yang bisa diambil dari program studi yang diambil
+		// get departement based on program study 
 		$dep = Departement::has('program_studies','=', $program_study_id)->lists('departement_name','id');
-		//$dep = Departement::whereHas('program_studies', function($q)
-		//{
-		//    $q->where('program_study_id', '=', $program_study_id);
-		//})->lists('departement_name','id');
-		//dd($dep);
-
-		//$appl_univ = Application::with('university')->get();
-		//$departemen = Departement::where('program_study_id', $program_study_id)->lists('departement_name','id');
 		$appl = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
-
-		/*--------------
-		if (! $appl->major_1_id == 0)
-		{
-			$dep1 = Departement::where('id',$appl->major_1_id)->pluck('departement_name');
-		}
-
-		if (! $appl->major_2_id == 0)
-		{
-			$dep2 = Departement::where('id',$appl->major_2_id)->pluck('departement_name');
-		}-----*/
 
 		return view('application.edit', compact('appl','univ','dep'));
 	}
@@ -78,17 +57,6 @@ class ApplicationsController extends Controller {
 		$appl->save();
 		//
 		return redirect('summary');
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
 	}
 
 	public function getDepartements($university_id)
