@@ -143,7 +143,7 @@ class JobTypeSeeder extends Seeder{
 			['id'=>1,'job_name' => 'PNS[Non Guru dan Dosen]'],
 			['id'=>2,'job_name' => 'Pegawai Swasta/BUMN/BUMD'],
 			['id'=>3,'job_name' => 'Petani/Nelayan'],
-			['id'=>4,'job_name' => 'Penguasaha'],
+			['id'=>4,'job_name' => 'Pengusaha'],
 			['id'=>5,'job_name' => 'TNI/Polri'],
 			['id'=>6,'job_name' => 'Guru/Dosen'],
 			['id'=>7,'job_name' => 'Pensiunan'],

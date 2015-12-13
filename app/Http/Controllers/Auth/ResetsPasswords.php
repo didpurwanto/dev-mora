@@ -39,7 +39,7 @@ trait ResetsPasswords {
 	 */
 	public function postEmail(Request $request)
 	{
-		$this->validate($request, ['email' => 'required|email']);
+		$this->validate($request, ['email' => array('required' => 'Alamat E-mail tidak boleh kosong.','email' =>'Anda harus memasukan sebuah alamat E-Mail.')]);
 
 		$response = $this->passwords->sendResetLink($request->only('email'), function($m)
 		{
@@ -49,10 +49,10 @@ trait ResetsPasswords {
 		switch ($response)
 		{
 			case PasswordBroker::RESET_LINK_SENT:
-				return redirect()->back()->with('status', trans($response));
+				return redirect()->back()->with('status', 'Kami telah mengirim Alamat Reset Password ke E-Mail Anda.');
 
 			case PasswordBroker::INVALID_USER:
-				return redirect()->back()->withErrors(['email' => trans($response)]);
+				return redirect()->back()->withErrors(['email' => 'Mohon Maaf, E-Mail anda tidak terdaftar.']);
 		}
 	}
 
@@ -63,7 +63,7 @@ trait ResetsPasswords {
 	 */
 	protected function getEmailSubject()
 	{
-		return isset($this->subject) ? $this->subject : 'Your Password Reset Link';
+		return isset($this->subject) ? $this->subject : 'Alamat Reset Password Anda';
 	}
 
 	/**
@@ -91,9 +91,11 @@ trait ResetsPasswords {
 	public function postReset(Request $request)
 	{
 		$this->validate($request, [
-			'token' => 'required',
-			'email' => 'required|email',
-			'password' => 'required|confirmed',
+			'token' => array('required' =>'Token tidak boleh kosong'),
+			'email' => array('required' =>'E-Mail tidak boleh kosong', 'email' => 'Silahkan masukan alamat E-Mail'),
+			'password' => array('required' =>'Password tidak boleh kosong',
+													'confirmed' => 'Password yang anda masukan tidak sama.'
+												  'min:8' => 'Password minimal 8 (delapan) karakter.'),
 		]);
 
 		$credentials = $request->only(
@@ -117,7 +119,7 @@ trait ResetsPasswords {
 			default:
 				return redirect()->back()
 							->withInput($request->only('email'))
-							->withErrors(['email' => trans($response)]);
+							->withErrors(['email' => 'Alamat E-Mail tidak valid.']);
 		}
 	}
 
