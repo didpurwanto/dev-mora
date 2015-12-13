@@ -19,7 +19,7 @@
 				{!! Form::label('full_name', 'Nama Lengkap') !!}
 				</div>
 				<div class="col-md-4">
-				{!! Form::text('full_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Lengkap']) !!}
+				{!! Form::text('full_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Lengkap','disabled' => 'disabled']) !!}
 				</div>
 				@if( $errors->first('full_name') )
 					<span class="help-block text-danger">{{ $errors->first('full_name') }}</span>
