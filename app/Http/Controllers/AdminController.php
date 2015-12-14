@@ -49,7 +49,7 @@ class AdminController extends Controller {
             ->get();
 
          // dd($univ_list);
-
+		// dd($dept);
          return view('admin.departement', compact('dept', 'univ_list'));
 	}
 
@@ -65,14 +65,15 @@ class AdminController extends Controller {
 
 		// $id =1;
 		$dept = DB::table('departements')
-			->select(['departements.departement_name', DB::raw('count(applications.major_1_id) as total'), 'departements.id'
+			->select(['departements.departement_name', 'universities.university_name',DB::raw('count(applications.major_1_id) as total'), 'departements.id'
 				])
             ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
+            ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
             ->where('departements.university_id', $id)
             ->groupBy('departements.id')
             ->get();
 
-         dd($id);
+         // dd($id);	
 
             return view('admin.departement', compact('dept', 'univ_list'));
 	}
