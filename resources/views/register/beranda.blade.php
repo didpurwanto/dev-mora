@@ -39,7 +39,7 @@
                     Pastikan data Anda benar dan bisa dipertanggung jawabkan.
                   </p>
                   <p>
-                    Jika Anda mengalami kesulitan dalam mengisi data, silahkan hubungi kami di devmora@gmail.com
+                    Jika Anda mengalami kesulitan dalam mengisi data, silahkan hubungi kami di mahasantripbsb@gmail.com
                   </p>
 
                   <hr />

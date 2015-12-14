@@ -27,7 +27,7 @@ class ExportImportController extends Controller {
 				->join('applicants', 'applications.user_id', '=', 'applicants.user_id')
 				->whereNotNull('applications.test_number')
 				->get();
-
+		dd($application);
 		return view('admin/importform', compact('application'));
 	}
 

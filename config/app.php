@@ -157,7 +157,7 @@ return [
 		* Agung
 		* menambahkan Maatwebsite excel
 		*/
-		'Maatwebsite\Excel\ExcelServiceProvider',
+		'Maatwebsite\Excel\ExcelServiceProvider'
 
 	],
 
