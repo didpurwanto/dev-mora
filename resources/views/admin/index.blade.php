@@ -99,14 +99,14 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Upload dan Download data<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Upload dan Download Data<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{!! URL::to('admin/import') !!}">Upload Nomor Ujian</a>
                                 </li>
                                 <li>
 
-                                    <a href="{!! URL::to('admin/export/') !!}">Download data Pendaftar</a>
+                                    <a href="{!! URL::to('admin/export/') !!}">Download Data Pendaftar</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
