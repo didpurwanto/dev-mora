@@ -44,6 +44,7 @@
 												</tr>
 											</thead>
 											<tbody>
+												
 												@foreach ($dept as $departement)
 												<tr>
 													<td class="center col-md-1">

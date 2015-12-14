@@ -302,7 +302,7 @@
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p><a href="mailto:devmora@gmail.com"><font color="white">devmora@gmail.com</font></a></p>
+                    <p><a href="mailto:mahasantripbsb@gmail.com"><font color="white">mahasantripbsb@gmail.com</font></a></p>
                 </div>
             </div>
 
