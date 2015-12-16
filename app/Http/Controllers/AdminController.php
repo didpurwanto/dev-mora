@@ -16,6 +16,11 @@ use Input;
 
 class AdminController extends Controller {
 
+	public function __construct()
+	{
+		$this->middleware('auth');
+		$this->middleware('admin');
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -73,7 +78,7 @@ class AdminController extends Controller {
             ->groupBy('departements.id')
             ->get();
 
-         // dd($id);	
+         // dd($id);
 
             return view('admin.departement', compact('dept', 'univ_list'));
 	}

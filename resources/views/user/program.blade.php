@@ -1,13 +1,5 @@
 @extends('admin.index')
 
-@section('css')
-	<!-- DataTables CSS -->
-	{!! Html::style('bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css') !!}
-	<!-- DataTables Responsive CSS -->
-	{!! Html::style('bower_components/datatables-responsive/css/dataTables.responsive.css') !!}
-
-@stop
-
 @section('content')
 <div class="row">
 		<div class="col-lg-12">
@@ -25,7 +17,7 @@
 				<div>
 				</div>
 			<div class="panel-body">
-
+					
 				</div>
 
 				<div class="dataTable_wrapper">
@@ -51,30 +43,11 @@
 											<a class="btn btn-xs btn-success" href="{!! URL::to('admin/programstudies/'.$program->id.'/edit') !!}"><i class="fa fa-edit fa-fw"></i> Edit</a>
 											&nbsp;&nbsp;
 											<a class="btn btn-xs btn-danger" href="{!! URL::to('admin/programstudies/'.$program->id) !!}" data-token="{{csrf_token()}}" data-method="delete" data-confirm="Anda yakin menghapus data ini?"><i class="fa fa-remove fa-fw"></i> Hapus</a>
-									</td>
+									</td>									
 								</tr>
 								@endforeach
 							</tbody>
 				   </table>
 		 		</div>
 		 	</div>
-@stop
-
-@section('script')
-	<!-- DataTables JavaScript -->
-	{!! Html::script('bower_components/datatables/media/js/jquery.dataTables.min.js', array('type' => 'text/javascript')) !!}
-	{!! Html::script('bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js', array('type' => 'text/javascript')) !!}
-
-	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-	<script>
-	$(document).ready(function() {
-			$('#tabel-provinsi').DataTable({
-							responsive: true
-			});
-	});
-	</script>
-
-	<!-- Delete Data JavaScript - Jeffry Wayy -->
-	{!! Html::script('js/laravel.js', array('type' => 'text/javascript')) !!}
-
 @stop

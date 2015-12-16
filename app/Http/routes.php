@@ -13,8 +13,16 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('applicanthome', ['middleware' => 'auth', 'uses' =>'HomeController@index']);
-Route::post('applicanthome', ['middleware' => 'auth', 'uses' =>'HomeController@index']);
+
+/*
+|--------------------------------------------------------------------------------------------
+| APPLICANT ROUTE
+| ALL ROUTE PROTECTED By 'AUTH' MIDDLEWARE (Pleasec check if protected or doesn't)
+| It is place on method __construct on every controller.
+*/
+
+Route::get('applicanthome', 'HomeController@index');
+//Route::post('applicanthome', ['middleware' => 'auth', 'uses' =>'HomeController@index']);
 
 //auth
 Route::controllers([
@@ -22,28 +30,6 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-// Password reset link request routes...
-//Route::get('password/email', 'Auth\PasswordController@getEmail');
-//Route::post('password/email', 'Auth\PasswordController@postEmail');
-
-// Password reset routes...
-//Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-//Route::post('password/reset', 'Auth\PasswordController@postReset');
-
-// Route::get(‘/helloworld’, ‘HelloWorldController@index’);
-
-/* Universities controller*/
-
-// Route::get('univ', 'UniversitiesController@index');
-// Route::get('univ/create', 'UniversitiesController@create');
-// Route::get('univ/{id}', 'UniversitiesController@show');
-// Route::post('univ','UniversitiesController@store');
-// Route::post('univ/{id}/edit','UniversitiesController@edit');
-
-//applicant route
-//Route::resource('applicants','ApplicantsController',['except' => ['index', 'show']]);
-//Route::get('applicants', 'ApplicantsController@create');
-//Route::post('applicants', 'ApplicantsController@store');
 Route::get('applicants', 'ApplicantsController@edit');
 Route::patch('applicants', 'ApplicantsController@update');
 
@@ -71,40 +57,43 @@ Route::patch('raports', 'RaportsController@update');
 //Route::resource('applications','ApplicationsController',['except' => ['index', 'show', 'create']]);
 Route::get('applications', 'ApplicationsController@edit');
 Route::patch('applications', 'ApplicationsController@update');
-
-
-//Summary Route
-Route::get('summary', 'SummaryController@index');
-//Summary Route
-Route::get('prints', ['middleware' => 'isfinish', 'uses' =>'SummaryController@cetak']);
-
 /*
-|
-| Route for dynamic drop down kabupaten and kecamatan
-| Henri
-|
-*/
-Route::get('families/provinces/{id}', 'FamiliesController@getKabupatens');
-Route::get('families/kabupatens/{id}', 'FamiliesController@getKecamatans');
-
-/*
-|
 | Route for dynamic drop down departemen
-|
 */
 Route::get('applications/universities/{id}', 'ApplicationsController@getDepartements');
 
-
-Route::get('upload','ApplicantsController@getUploadForm');
-Route::post('upload/image','ApplicantsController@postUpload');
+//Summary Route
+Route::get('summary', 'SummaryController@index');
 
 // finalisasi data bagi pendaftar
-Route::get('finalisasi','UsersController@finalisasi');
+Route::get('finalisasi','SummaryController@finalisasi');
+
+//Summary Route
+Route::get('prints', ['middleware' => 'isfinish', 'uses' =>'SummaryController@cetak']);
 
 // cetak bagi pendaftar
 Route::get('cetakformulir','SummaryController@cetakFormulir');
 Route::get('cetakkartu','SummaryController@cetakKartu');
 
+
+/*
+| -------------------------------------------------------------------------------------------
+| ADMIN ROUTE
+| ALL ROUTE PROTECTED By 'AUTH' and 'ADMIN' MIDDLEWARE (Pleasec check if protected or doesn't)
+| It is place on method __construct on every controller.
+|*
+
+/*
+|
+| Route for dynamic drop down kabupaten and kecamatan
+| Henri
+| NOT USED FOR WHILE
+*/
+//Route::get('families/provinces/{id}', 'FamiliesController@getKabupatens');
+//Route::get('families/kabupatens/{id}', 'FamiliesController@getKecamatans');
+
+//Route::get('upload','ApplicantsController@getUploadForm');
+//Route::post('upload/image','ApplicantsController@postUpload');
 
 /*
 |
@@ -116,16 +105,19 @@ Route::get('cetakkartu','SummaryController@cetakKartu');
 //Route::get('users', 'UserController@index');
 //Route::get('users/create', 'UserController@create');
 //Route::post('users', 'UserController@store');
-Route::resource('users','UsersController',['except' => ['show']]);
 
-//Route::get('admin', 'AdminController@index');
-//Route::get('report/univ', 'AdminController@univlist');
-// Admin
+// Admin route
 Route::get('admin', [
 	'uses' => 'AdminController@index',
 	'as' => 'admin',
 	'middleware' => 'admin'
 ]);
+
+// User route resourcefull
+Route::resource('admin/users','UsersController',['except' => ['show']]);
+
+//Route::get('admin', 'AdminController@index');
+//Route::get('report/univ', 'AdminController@univlist');
 
 //Administrator route
 // Route::get('admin/listuniversities/{id}','AdminController@departementlist');
@@ -139,20 +131,16 @@ Route::get('admin/listuniversities/','AdminController@departementlist');
 Route::get('admin/listprovinces','AdminController@listprovinces');
 Route::get('admin/pesantren','AdminController@pesantren');
 
-
 Route::resource('admin/universities','UniversitiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
 Route::resource('admin/departements','DepartementsController',['except' => ['show']]); // seharusnya method 'show' tidak ada
 Route::resource('admin/programstudies','ProgramStudiesController',['except' => ['show']]); // seharusnya method 'show' tidak ada
 Route::resource('admin/provinces','ProvincesController',['except' => ['show']]);
 
-
 // Route::get('admin/listuniversities','AdminController@listuniversities');
-
 Route::resource('admin/educationlevels','EducationLevelController',['except' => ['show']]);
 Route::resource('admin/jobtypes','JobTypesController',['except' => ['show']]);
 Route::resource('admin/pesantrentypes','PesantrenTypesController',['except' => ['show']]);
 Route::resource('admin/rangesalaries','RangeSalariesController',['except' => ['show']]);
 Route::resource('admin/schooltypes','SchoolTypesController',['except' => ['show']]);
-
 
 Route::get('admin/departementlist','AdminController@departementlist');

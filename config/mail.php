@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => 'mahasantripbsb@gmail.com', 'name' => 'PBSB'],
+	'from' => ['address' => 'mahasantripbsb@gmail.com', 'name' => 'PBSB-KEMENAG'],
 
 	/*
 	|--------------------------------------------------------------------------

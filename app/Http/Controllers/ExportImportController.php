@@ -12,12 +12,19 @@ use Session;
 
 class ExportImportController extends Controller {
 
+	public function __construct()
+	{
+		$this->middleware('auth');
+		$this->middleware('admin');
+	}
+
+	
 	public function importtestnumber()
 	{
 		$application = DB::table('applications')
 					->join('applicants', 'applications.user_id', '=', 'applicants.user_id')
 					->get();
-					
+
 		return view('admin/importform', compact('application'));
 	}
 
@@ -52,7 +59,7 @@ class ExportImportController extends Controller {
 	      {
 	        Session::flash('message', $e->getMessage());
 	        return redirect('admin/import');
-	      }		
+	      }
 	}
 
 	public function exportapplicants()
@@ -63,11 +70,11 @@ class ExportImportController extends Controller {
 	          // Chain the setters
 	          $excel->setCreator('Agung Laksono')
 	                ->setCompany('Kemenag');
-	 
+
 	          $excel->sheet('biodata pendaftar', function ($sheet) {
-	 
+
 	            // $appl = Applicant::all();
-	 
+
 	 			$appl = DB::table('applicants')
 	 						->join('families', 'families.user_id', '=', 'applicants.user_id')
 	 						->join('pesantrens', 'pesantrens.user_id', '=', 'applicants.user_id')
@@ -75,9 +82,9 @@ class ExportImportController extends Controller {
 	 						->join('applications', 'applications.user_id', '=', 'applicants.user_id' )
 	 						->get();
 	 			// dd($tab);
-	            
+
 	            $column = array(
-	            	'Nama', 
+	            	'Nama',
 	            	'No Registrasi',
 	            	'Email',
 	            	'jenis_kelamin(1=L, 2=P)',
@@ -129,20 +136,20 @@ class ExportImportController extends Controller {
 	            	'bersedia dipindahkan',
 	            	'nomor tes'
 	            	);
-	 
+
 	            $sheet->appendRow($column);
-	 
+
 	            // getting last row number (the one we already filled and setting it to bold
 	            $sheet->row($sheet->getHighestRow(), function ($row) {
 	                $row->setFontWeight('bold');
 	            });
-	 
+
 	            // putting customers data as next rows
 	            foreach ($appl as $applicant) {
 	                $sheet->appendRow(array(
 	                	$applicant->full_name,
 	                	$applicant->registration_number,
-	                	$applicant->email, 
+	                	$applicant->email,
 	                	$applicant->gender,
 	                	$applicant->place_birth,
 	                	$applicant->date_birth,
@@ -195,7 +202,7 @@ class ExportImportController extends Controller {
 
 	            }
 	          });
-	 
+
 	        })->export('xls');
 		 Session::flash('message', 'Customer uploaded successfully.');
 	}

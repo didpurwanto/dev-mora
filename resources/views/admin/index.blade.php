@@ -94,7 +94,7 @@
                                 </li>
                                 <li>
                                     <a href="{!! URL::to('admin/pesantren/') !!}">Rekap Pesantren</a>
-                                </li>                                
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -110,7 +110,7 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>                        
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Master Data<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -149,6 +149,9 @@
                                 </li>
                                 <li class="{!! Request::is('schooltypes') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/schooltypes') !!}">Tipe Sekolah</a>
+                                </li>
+                                <li class="{!! Request::is('users') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/users') !!}">Daftar Pengguna</a>
                                 </li>
                             </ul>
                         </li>

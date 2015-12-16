@@ -12,6 +12,14 @@ use Request;
 
 class UsersController extends Controller {
 
+
+	public function __construct()
+	{
+		$this->middleware('auth');
+		$this->middleware('admin');
+	}
+
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -19,7 +27,8 @@ class UsersController extends Controller {
 	 */
 	public function index()
 	{
-		$users = User::all();
+		//$users = User::all();
+		$users = User::whereRaw('role = 255 OR role = 100 OR role = 200')->get();
 
 		return view('user.user', compact('users'));
 	}
@@ -56,8 +65,8 @@ class UsersController extends Controller {
 			'role' => $request['role'],
 		]);
 
-		\Session::flash('flash_text','Pengguna berhasil dibuat!');
-		return redirect('users');
+		//\Session::flash('flash_text','Pengguna berhasil dibuat!');
+		return redirect('admin/users');
 	}
 
 	/**
@@ -82,7 +91,7 @@ class UsersController extends Controller {
 	{
 		$user = User::findOrFail($id);
 		$user->update($request->all());
-		return redirect('users');
+		return redirect('admin/users');
 	}
 
 	/**
@@ -93,19 +102,9 @@ class UsersController extends Controller {
 	 */
 	public function destroy($id)
 	{
+		User::destroy($id);
 
-	}
-
-	public function finalisasi()
-	{
-		$user = User::where('id', '=', Auth::user()->id)->firstOrFail();
-		//update if the table is final.
-		$user->finish = 1;
-
-		//Save record to the database
-		$user->save();
-
-		return redirect('prints');
+		return redirect('admin/users');
 	}
 
 }

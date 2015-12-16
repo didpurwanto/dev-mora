@@ -9,6 +9,12 @@ use App\Http\Requests\PesantrenTypeRequest;
 
 class PesantrenTypesController extends Controller {
 
+	public function __construct()
+	{
+		$this->middleware('auth');
+		$this->middleware('admin');
+	}
+	
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -52,7 +58,7 @@ class PesantrenTypesController extends Controller {
 	public function edit($id)
 	{
 		$pesantrentype = PesantrenType::findOrFail($id);
-		return view('pesantrentype.edit', compact('pesantrentype'));	
+		return view('pesantrentype.edit', compact('pesantrentype'));
 	}
 
 	/**
@@ -80,7 +86,7 @@ class PesantrenTypesController extends Controller {
 	{
 		PesantrenType::destroy($id);
 
-		return redirect('admin/pesantrentypes');	
+		return redirect('admin/pesantrentypes');
 	}
 
 }

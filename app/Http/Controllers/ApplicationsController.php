@@ -27,10 +27,12 @@ class ApplicationsController extends Controller {
 	{
 		// get program studi from school
 		$program_study_id = School::where('user_id', Auth::user()->id)->pluck('program_study_id');
+		// get all universities
 		$univ = University::lists('university_name','id');
 
-		// get departement based on program study 
+		// get departement based on program study
 		$dep = Departement::has('program_studies','=', $program_study_id)->lists('departement_name','id');
+		//dd($dep);
 		$appl = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
 		// dd($appl);
 		return view('application.edit', compact('appl','univ','dep'));
