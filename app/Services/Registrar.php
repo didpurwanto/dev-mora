@@ -16,8 +16,8 @@ class Registrar implements RegistrarContract {
 	{
 		return Validator::make($data, [
 			'username' => 'required|max:20|min:3|unique_with:users,email',
-			'full_name' => 'required|max:100|min:5|unique',
-			'email' => 'required|unique|email|max:100',
+			'full_name' => 'required|max:100|min:5|unique:applicants',
+			'email' => 'required|email|max:100|unique:users',
 			'password' => 'required|confirmed|min:8',
 		], [
 			'username.required' => 'Username tidak boleh kosong.',
@@ -31,7 +31,7 @@ class Registrar implements RegistrarContract {
 			'full_name.max' => 'Nama Lengkap maksimal 100 karakter.',
 			'email.required' => 'Alamat email tidak boleh kosong.',
 			'email.email' => 'Alamat email harus valid.',
-			//'email.unique' => 'Alamat email ini sudah digunakan.',
+			'email.unique' => 'Alamat email ini sudah digunakan.',
 			'password.required' => 'Password tidak boleh kosong',
 			'password.confirmed' => 'Password tidak sesuai',
 			'password.min' => 'Password minimal delapan (8) karakter',

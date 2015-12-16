@@ -32,6 +32,10 @@ git commit -m => commit all changes
 git pull origin master => get from server
 git push origin master => sent to server
 
+
+clear cache manually:
+go to : ~/storage/framework/views
+and remove it
 ================================================================================================
 github:
 ================================================================================================
