@@ -105,4 +105,16 @@ class SummaryController extends Controller {
 
 		//return view('kartu',compact('user','date_birth'));
 	}
+
+	public function finalisasi()
+	{
+		$user = User::where('id', '=', Auth::user()->id)->firstOrFail();
+		//update if the table is final.
+		$user->finish = 1;
+
+		//Save record to the database
+		$user->save();
+
+		return redirect('prints');
+	}
 }

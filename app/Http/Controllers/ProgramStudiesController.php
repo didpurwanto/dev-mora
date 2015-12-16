@@ -9,6 +9,12 @@ use App\Http\Requests\ProgramStudyRequest;
 
 class ProgramStudiesController extends Controller {
 
+	public function __construct()
+	{
+		$this->middleware('auth');
+		$this->middleware('admin');
+	}
+	
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -68,7 +74,7 @@ class ProgramStudiesController extends Controller {
 	{
 		$dep = ProgramStudy::findOrFail($id);
 		$dep->update($request->all());
-		return redirect('admin/programstudies');	
+		return redirect('admin/programstudies');
 	}
 
 	/**
@@ -80,7 +86,7 @@ class ProgramStudiesController extends Controller {
 	public function destroy($id)
 	{
 		ProgramStudy::destroy($id);
-		
+
 		return redirect('admin/programstudies');
 
 	}
