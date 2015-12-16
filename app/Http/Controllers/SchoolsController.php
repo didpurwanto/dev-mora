@@ -12,6 +12,7 @@ use App\Kecamatan;
 use App\SchoolType;
 use App\ProgramStudy;
 use Auth;
+// use Carbon\Carbon;
 
 class SchoolsController extends Controller {
 
@@ -37,7 +38,9 @@ class SchoolsController extends Controller {
 
 		//$kab = Kabupaten::where('id',$sch->kabupaten_id)->lists('kabupaten_name','id');
 		//$kec = Kecamatan::where('id',$sch->kecamatan_id)->lists('kecamatan_name','id');
-
+		// $mytime = Carbon\Carbon::now();
+		// echo $mytime->toDateTimeString();
+		// dd($mytime);
 		return view('school.edit', compact('sch','prov','prog_stud','sch_type'));
 	}
 

@@ -22,14 +22,14 @@ class UpdateApplicantRequest extends Request {
 	public function rules()
 	{
 		return [
-			'full_name' => 'required|min:3',
+			// 'full_name' => 'required|min:3',
 			//'email' => 'required|email',
 			'place_birth' => 'required|min:3',
 			'date_birth' => 'date',
 			'recitation' => 'required|integer|min:0|max:30',
-			'weight' => 'required|integer|min:20',
-			'height'=> 'required|integer|min:100',
-			'contact' => 'required',
+			'weight' => 'required|integer|min:20|max:200',
+			'height'=> 'required|integer|min:100|max:210',
+			'contact' => 'required|numeric',
 			'address' => 'required',
 		];
 	}
@@ -42,7 +42,7 @@ class UpdateApplicantRequest extends Request {
 	public function messages()
 	{
 		return [
-			'full_name.required' => 'Nama Lengkap tidak boleh kosong',
+			// 'full_name.required' => 'Nama Lengkap tidak boleh kosong',
 			'full_name.min' => 'Nama lengkap harus lebih dari 3 huruf',
 			//'email.required' => 'Alamat E-mail tidak boleh kosong',
 			//'email.email' => 'Alamat E-mail tidak valid',
@@ -55,12 +55,18 @@ class UpdateApplicantRequest extends Request {
 			'recitation.min' => 'Jumlah Hafalan Al-Quran tidak boleh dibawah 0',
 			'recitation.max' => 'Jumlah Hafalan Al-Quran tidak boleh diatas 30',
 			'weight.required' => 'Berat Badan tidak boleh kosong',
-			'weight.integer' => 'Berat Badan harus dalam bentuk angka integer',
+			'weight.integer' => 'Berat Badan harus dalam bentuk angka integer',			
 			'weight.min' => 'Berat badan tidak boleh dibawah 20 Kg',
+			'weight.max' => 'Berat badan terlalu besar',
+			
 			'height.required'=> 'Tinggi Badan tidak boleh kosong',
 			'height.integer' => 'Tinggi Badan harus dalam bentuk angka integer',
 			'height.min' => 'Tinggi Badan tidak boleh dibawah 100 cm',
-			'contact.required' => 'Nomor yang bisa dihubungi tidak boleh kosong',
+			'height.max' => 'Tinggi badan maksimal 210',
+
+			'contact.required' => 'Nomor telepon tidak boleh kosong',
+			'contact.numeric' => 'Nomor telepon harus berbentuk angka',
+
 			'address.required' => 'Alamat tidak boleh kosong'
 		];
 	}

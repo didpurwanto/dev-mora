@@ -24,7 +24,7 @@ class SchoolRequest extends Request {
 		return [
 			'school_name' => 'required',
 			'school_principal_name' => 'required',
-			'nisn' => 'required',
+			'nisn' => 'required|numeric',
 			'school_status' => 'required',
 			'graduate_year' => 'required|numeric|min:2010|max:2016',
 			'school_type_id' => 'required',
@@ -47,6 +47,8 @@ class SchoolRequest extends Request {
 			'school_name.required' => 'Nama Sekolah tidak boleh kosong',
 			'school_principal_name.required' => 'Nama Kepala Sekolah tidak boleh kosong',
 			'nisn.required' => 'NISN tidak boleh kosong',
+			'nisn.numeric' => 'NISN harus berupa angka',
+
 			'school_status.required' => 'Status Sekolah tidak boleh kosong',
 			'graduate_year.required' => 'Tahun Lulus tidak boleh kosong',
 			'graduate_year.numeric' => 'Tahun Lulus harus berupa angka',

@@ -22,7 +22,7 @@ class ApplicantRequest extends Request {
 	public function rules()
 	{
 		return [
-			'full_name' => 'required|min:3',
+			// 'full_name' => 'required|min:3',
 			//'email' => 'required|email',
 			'place_birth' => 'required|min:3',
 			'date_birth' => 'date',
@@ -46,7 +46,7 @@ class ApplicantRequest extends Request {
 	public function messages()
 	{
 		return [
-			'full_name.required' => 'Nama Lengkap tidak boleh kosong',
+			// 'full_name.required' => 'Nama Lengkap tidak boleh kosong',
 			'full_name.min' => 'Nama lengkap harus lebih dari 3 huruf',
 			//'email.required' => 'Alamat E-mail tidak boleh kosong',
 			//'email.email' => 'Alamat E-mail tidak valid',

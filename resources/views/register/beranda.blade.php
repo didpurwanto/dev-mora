@@ -44,14 +44,20 @@
 
                   <hr />
 
-                  Petunjuk pengisian data:<br />
-                  1. Siapkan segala data yang dibutuhkan<br />
-                  2. Klik tombol 'Mulai Mengisi' di bawah<br />
-                  3. Lengkapi data Anda sampai halaman terakhir <br />
+                  <div class="panel-body">
+                    Petunjuk pengisian data:<br />
 
-                  <br />
-                  <br />
-
+                    1. Siapkan Informasi Biodata Diri<br />
+                    2. Siapkan Informasi Profil Keluarga<br />
+                    3. Siapkan Informasi Profil Pesantren<br />
+                    4. Siapkan Informasi Profil Sekolah<br />
+                    5. Siapkan Informasi Profil Nilai raport kelas 1 sampai 6<br />
+                    6. Rencanakan Universitas dan Jurusan yang akan dipilih<br />
+                    7. jika semua data telah siap, maka klik tombol 'Mulai Mengisi' di bawah<br />
+                    8. Kemudian lengkapi seluruh data sampai halaman terakhir dan cetak Formulir Pendaftaran <br />
+                    <br />
+                    <br />
+                  </div>
                   <a href="{!! URL::to('/applicants') !!}" type="button" class="btn btn-success">Mulai Mengisi</a>
 				        </font>
               </div>

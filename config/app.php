@@ -220,8 +220,8 @@ return [
 		| Agung
 		| - menambahkan excel library
 		*/
+		'Carbon' => 'Carbon\Carbon',
 		'Excel' => 'Maatwebsite\Excel\Facades\Excel'
-
 
 
 	],
