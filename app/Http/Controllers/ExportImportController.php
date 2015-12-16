@@ -14,11 +14,11 @@ class ExportImportController extends Controller {
 
 	public function __construct()
 	{
-		$this->middleware('auth');
+		//$this->middleware('auth');
 		$this->middleware('admin');
 	}
 
-	
+
 	public function importtestnumber()
 	{
 		$application = DB::table('applications')
