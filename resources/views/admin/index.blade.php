@@ -164,6 +164,11 @@
         </nav>
 
         <div id="page-wrapper">
+          @if (Session::has('pesan'))
+        		<div class="alert alert-danger">
+        			<p>{{ Session::get('pesan') }}</p>
+        		</div>
+        	@endif
             <!-- <div class="alert alert-success"> -->
             <!-- Content will be place right here! -->
             @yield('content')

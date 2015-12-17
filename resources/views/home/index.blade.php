@@ -86,7 +86,11 @@
             </div>
         </div>
     </header>
-
+    @if (Session::has('pesan'))
+      <div class="alert alert-danger">
+        <p>{{ Session::get('pesan') }}</p>
+      </div>
+    @endif
     <section class="bg-success" id="login">
         <div class="container">
             <div class="row">
@@ -353,7 +357,7 @@
           frmvalidator.addValidation("username_login","req","Username harus diisi!");
           frmvalidator.addValidation("password_login","req","Passwordharus diisi!");
     	</script>
-      
+
       <script>
       .....
       var $_token = $('#token').val();
@@ -361,11 +365,11 @@
       $.ajax({
                       type: 'post',
                       cache: false,
-                      headers: { 'X-XSRF-TOKEN' : $_token }, 
+                      headers: { 'X-XSRF-TOKEN' : $_token },
                       url: 'the_url_to_controller_thru_route/' + some_parameters_if_needed,
                       //contentType: "application/json; charset=utf-8",
                       //dataType: 'json',
-                      data: {personid: 873}, //assuming that you send some data like id of a person to controller 
+                      data: {personid: 873}, //assuming that you send some data like id of a person to controller
                                       success: function(data) {
       ....
       </script>

@@ -2,6 +2,7 @@
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException;
 
 class Handler extends ExceptionHandler {
 
@@ -36,6 +37,11 @@ class Handler extends ExceptionHandler {
 	 */
 	public function render($request, Exception $e)
 	{
+		if ($e instanceof TokenMismatchException){
+            // Catch it here and do what you want. For example...
+            return redirect()->back()->withInput()->with('pesan', 'Sesi anda telah habis, silahkan isi data atau login kembali.');
+    }
+
 		return parent::render($request, $e);
 	}
 
