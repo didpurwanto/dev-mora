@@ -32,7 +32,7 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/auth/login') }}">Administrator</a></li>
+					<!-- <li><a href="{{ url('/auth/login') }}">Administrator</a></li> -->
 					<li><a href="{{ url('/') }}">Beranda</a></li>
 				</ul>
 				<!--
