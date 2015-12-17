@@ -86,8 +86,8 @@ return [
 	*/
 
 	'custom' => [
-		'attribute-name' => [
-			'rule-name' => 'custom-message',
+		'saudara' => [
+			'greater_than' => 'Jumlah saudara harus sama dengan atau lebih besar.',
 		],
 	],
 

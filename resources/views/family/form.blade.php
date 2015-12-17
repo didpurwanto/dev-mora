@@ -168,7 +168,7 @@
 	</div>
  </div>
 </div>
-<div class="form-group {{ ! $errors->first('anak_ke') ?'': 'has-error' }}">
+<div class="form-group {{ ! $errors->first('anak_ke') ?'': 'has-error' }} {{ ! $errors->first('saudara') ?'': 'has-error' }}">
 	<div class="row">
 		<div class="col-md-3">
 		{!! Form::label('anak_ke', 'Anak Ke') !!}
@@ -188,7 +188,8 @@
     <div class="col-md-4 col-md-offset-1 column">
     	@if( $errors->first('anak_ke') )
   			<span class="help-block text-danger">{{ $errors->first('anak_ke') }}</span>
-      @elseif( $errors->first('saudara') )
+      @endif
+      @if( $errors->first('saudara') )
   			<span class="help-block text-danger">{{ $errors->first('saudara') }}</span>
   		@endif
   </div>

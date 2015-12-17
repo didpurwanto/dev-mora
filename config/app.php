@@ -153,6 +153,7 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+		'App\Providers\ValidatorServiceProvider',
 		/*
 		* Agung
 		* menambahkan Maatwebsite excel

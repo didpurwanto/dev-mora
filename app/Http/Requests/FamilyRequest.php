@@ -25,14 +25,14 @@ class FamilyRequest extends Request {
 		return [
 			'father_name' => 'required|string',
 			'father_age' => 'required|integer|min:20|max:100',
-			'father_contact' => 'integer',
+			'father_contact' => 'numeric',
 			'mother_name' => 'required',
 			'mother_age' => 'required|integer|min:20|max:100',
-			'mother_contact' => 'integer',
+			'mother_contact' => 'numeric',
 
 			'address' => 'required',
 			'anak_ke' => 'required|integer|min:1|max:20',
-			'saudara' => 'required|integer|min:1|max:20',
+			'saudara' => 'required|integer|greater_than:anak_ke|min:1|max:20',
 			'kabupaten' => 'required',
 			'kecamatan' => 'required',
 			'kelurahan' => 'required'
