@@ -1,0 +1,399 @@
+<?php $__env->startSection('css'); ?>
+		<?php echo Html::style('css/summarycss.css'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<table style="font-family:arial,helvetica,sans-serif;">
+	<tr align="center">
+		<td>
+			<b><font size="5 px">RANGKUMAN DATA CALON PESERTA PBSB</font></b>
+			<b><font size="5 px"> TAHUN <?php echo e(date('Y')); ?> </font></b>
+		</td>
+	</tr>
+</table>
+<hr>
+<table>
+	<tr>
+		<td width="400px">
+			<font size="4 px">Nama : <b><?php echo $user->applicant->full_name; ?></b></font> </br>
+			Jenis Kelamin : <b><?php echo ($user->applicant->gender == 1) ? 'Laki-laki' : 'Perempuan'; ?></b> </br>
+			Tempat/Tanggal Lahir : <b><?php echo $user->applicant->place_birth; ?> / <?php echo $date_birth; ?></b> </br>
+			Penyakit yang sedang/pernah diderita:  </br>
+			<b><?php echo $user->applicant->illness; ?></b><br />
+			<br />
+			Buta Warna : <b><?php echo ($user->applicant->color_blind == 1) ? 'Ya' : 'Tidak'; ?></b> </br>
+			Gol. Darah <b><?php echo $user->applicant->blood_type; ?></b> Berat <b><?php echo $user->applicant->weight; ?></b> Kg Tinggi <b><?php echo $user->applicant->height; ?></b> cm </br>
+			Riwayat Gangguan Mental : <b><?php echo ($user->applicant->mental_disorder == 1) ? 'Ya' : 'Tidak'; ?></b> </br>
+			Hafalan Al-Qurran : <b><?php echo $user->applicant->recitation; ?></b> Juz </br>
+			No Telp yang Bisa Dihubungi : <b><?php echo $user->applicant->contact; ?></b> </br>
+		</td>
+	</tr>
+</table>
+<hr>
+<table>
+	<tr>
+		<td width="200px">
+			Anak Ke <b><?php echo $user->family->anak_ke; ?></b> Dari <b><?php echo $user->family->saudara; ?></b> Bersaudara
+		</td>
+		<td  width="10px">&nbsp
+		</td>
+		<td  width="200px">
+		</td>
+		<td  width="100px">
+		</td>
+		<td  width="190px">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Ayah Kandung
+		</td>
+		<td>:
+		</td>
+		<td><b><?php echo ($user->family->father_deceased == 1) ? 'Alm. ' : ''; ?><?php echo $user->family->father_name; ?></b>
+		</td>
+		<td >Umur <b><?php echo $user->family->father_age; ?> </b> Tahun
+		</td>
+		<td >Pekerjaan : <b><?php echo $user->family->jobType->job_name; ?></b> </br>
+		Pendidikan Terakhir : <b><?php echo $user->family->educationLevel->level_name; ?></b> </br>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Ibu Kandung
+		</td>
+		<td>:
+		</td>
+		<td><b><?php echo ($user->family->mother_deceased == 1) ? 'Almh. ' : ''; ?><?php echo $user->family->mother_name; ?></b>
+		</td>
+		<td >Umur <b><?php echo $user->family->mother_age; ?></b> Tahun
+		</td>
+		<td >Pekerjaan : <b><?php echo $user->family->jobTypeIbu->job_name; ?></b> </br>
+		Pendidikan Terakhir : <b><?php echo $user->family->educationLevelIbu->level_name; ?></b> </br>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Penghasilan Orang Tua/Wali
+		</td>
+		<td>:
+		</td>
+		<td><b><?php echo $user->family->rangeSalary->range_name; ?></b>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Alamat Orang Tua/Wali
+		</td>
+		<td>:
+		</td>
+		<td><b><?php echo $user->family->address; ?></b> </br>
+			Kel./Desa : <b><?php echo $user->family->kelurahan; ?></b> </br>
+			Kecamatan : <b><?php echo $user->family->kecamatan; ?></b> </br>
+			Kab./Kota : <b><?php echo $user->family->kabupaten; ?></b> </br>
+			Provinsi  : <b><?php echo $user->family->province->province_name; ?></b>
+		</td>
+	</tr>
+</table>
+
+<hr>
+
+<table>
+	<tr>
+		<td width="200px">
+			Asal Pondok Pesantren
+		</td>
+		<td width="10px">:
+		</td>
+		<td width="290px"><b><?php echo $user->pesantren->pesantren_name; ?></b>
+		</td>
+		<td width="200px" align="right">
+			NSPP : <b><?php echo $user->pesantren->nspp; ?></b>
+		</td>
+
+	</tr>
+	<tr>
+		<td>
+			Alamat Pondok Pesantren
+		</td>
+		<td>:
+		</td>
+		<td><b><?php echo $user->pesantren->pesantren_address; ?></b> </br>
+			Kel./Desa : <b><?php echo $user->pesantren->kelurahan; ?></b> </br>
+			Kecamatan : <b><?php echo $user->pesantren->kecamatan; ?></b> </br>
+			Kab./Kota : <b><?php echo $user->pesantren->kabupaten; ?></b> </br>
+			Provinsi  : <b><?php echo $user->pesantren->province->province_name; ?></b>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Nama Pimpinan PP
+		</td>
+		<td>:
+		</td>
+		<td><b><?php echo $user->pesantren->kiai_name; ?></b> </br>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			No Telp PP
+		</td>
+		<td>:
+		</td>
+		<td><b><?php echo $user->pesantren->no_telp; ?></b> </br>
+		</td>
+	</tr>
+</table>
+
+<hr>
+
+<table>
+	<tr>
+		<td width="200px">
+			Asal Sekolah
+		</td>
+		<td width="10px">:
+		</td>
+		<td width="200px"><b><?php echo $user->school->school_name; ?></b>
+		</td>
+		<td width="50px">
+			Jenis</br>
+			Lokasi
+		</td>
+		<td width="10px">:</br>
+		:
+		</td>
+		<td width="80px"><b><?php echo $user->school->schoolType->type_name; ?></b></br>
+		<b><?php echo ($user->school->inside_pondok == 1) ? 'DIDALAM' : 'DILUAR'; ?></b>
+		</td>
+		<td width="50px">
+			Status</br>
+			NISN
+		</td>
+		<td width="10px">:</br>
+		:
+		</td>
+		<td width="80px"><b><?php echo ($user->school->school_status == 1) ? 'NEGERI' : 'SWASTA'; ?></b></br>
+		<b><?php echo $user->school->nisn; ?></b>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Alamat Sekolah
+		</td>
+		<td>:
+		</td>
+		<td><b><?php echo $user->school->school_address; ?></b> </br>
+			Kel./Desa : <b><?php echo $user->school->kelurahan; ?></b> </br>
+			Kecamatan : <b><?php echo $user->school->kecamatan; ?></b> </br>
+			Kab./Kota : <b><?php echo $user->school->kabupaten; ?></b> </br>
+			Provinsi  : <b><?php echo $user->school->province->province_name; ?></b>
+		</td>
+	</tr>
+	<tr>
+	<tr>
+		<td>
+			Nama Kepala Sekolah
+		</td>
+		<td>:
+		</td>
+		<td><b><?php echo $user->school->school_principal_name; ?></b> </br>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			No Telp Sekolah
+		</td>
+		<td>:
+		</td>
+		<td><b><?php echo $user->school->no_telp; ?></b></br>
+		</td>
+	</tr>
+</table>
+
+<hr>
+<table>
+	<tr>
+		<td width="200px">Pilihan Perguruan Tinggi</td>
+		 <td width="10px">:</td>
+		 <td width="390px"><b><?php echo $user->application->university->university_name; ?></b></td>
+	</tr>
+	<tr>
+		<td width="200px">Pilihan Jurusan 1 <b></b>
+		</td>
+		<td width="10px">:</td>
+		<td width="390px"><b><?php echo $user->application->departement->departement_name; ?></b></td>
+		<td align="right" width="100px">(Kode - <b>ISIAN</b>)
+		</td>
+	</tr>
+	<tr>
+		<td>Pilihan Jurusan 2 <b></b>
+		</td>
+		<td>:</td>
+		<td width="390px"><b><?php echo $user->application->departement2->departement_name; ?></b></td>
+		<td align="right" width="100px">(Kode - <b>ISIAN</b>)
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Bersedia untuk dipindah Jurusan
+		</td>
+		<td>:</td>
+		<td><b><?php echo ($user->application->aggree_to_auto_move == 1) ? 'YA' : 'TIDAK'; ?></b></td>
+	</tr>
+</table>
+
+<hr>
+<table border="1">
+	<tr align="center" >
+		<td rowspan="2" width="200">Mata Pelajaran
+		</td>
+		<td colspan="2">Kelas I
+		</td>
+		<td colspan="2">Kelas II
+		</td>
+		<td colspan="2">Kelas III
+		</td>
+	</tr>
+	<tr  align="center">
+		<td width="80">Sem I
+		</td>
+		<td width="80">Sem II
+		</td>
+		<td width="80">Sem III
+		</td>
+		<td width="80">Sem IV
+		</td>
+		<td width="80">Sem V
+		</td>
+		<td width="80">Sem VI
+		</td>
+	</tr>
+	<tr  align="center">
+		<td width="80" align="left">&nbsp<?php echo e($listSubjects[0]); ?>
+
+		</td>
+		<td width="80"><b><?php echo e($subject_1[0]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_1[1]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_1[2]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_1[3]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_1[4]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_1[5]); ?></b>
+		</td>
+	</tr>
+	<tr  align="center">
+		<td width="80" align="left">&nbsp<?php echo e($listSubjects[1]); ?>
+
+		</td>
+		<td width="80"><b><?php echo e($subject_2[0]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_2[1]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_2[2]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_2[3]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_2[4]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_2[5]); ?></b>
+		</td>
+	</tr>
+	<tr  align="center">
+		<td width="80" align="left">&nbsp<?php echo e($listSubjects[2]); ?>
+
+		</td>
+		<td width="80"><b><?php echo e($subject_3[0]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_3[1]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_3[2]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_3[3]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_3[4]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_3[5]); ?></b>
+		</td>
+	</tr>
+	<tr  align="center">
+		<td width="80" align="left">&nbsp<?php echo e($listSubjects[3]); ?>
+
+		</td>
+		<td width="80"><b><?php echo e($subject_4[0]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_4[1]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_4[2]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_4[3]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_4[4]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_4[5]); ?></b>
+		</td>
+	</tr>
+	<tr  align="center">
+		<td width="80" align="left">&nbsp<?php echo e($listSubjects[4]); ?>
+
+		</td>
+		<td width="80"><b><?php echo e($subject_5[0]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_5[1]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_5[2]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_5[3]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_5[4]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($subject_5[5]); ?></b>
+		</td>
+	</tr>
+	<tr  align="center">
+		<td width="80" align="left">&nbsp<?php echo e($listSubjects[5]); ?>
+
+		</td>
+		<td width="80"><b><?php echo e($ranking[0]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($ranking[1]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($ranking[2]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($ranking[3]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($ranking[4]); ?></b>
+		</td>
+		<td width="80"><b><?php echo e($ranking[5]); ?></b>
+		</td>
+	</tr>
+</table>
+<br/>
+<br/>
+
+<?php if($user->finish==0): ?>
+	<div class="alert alert-danger">
+		<p align="center">Pastikan semua data yang masukan sudah benar. Jika sudah BENAR, silahkan klik FINALISASI DATA SAYA untuk menyimpan secara permanen data anda, data tidak dapat diubah setelah FINALISASI.</p>
+	</div>
+
+	<div class="row clearfix">
+		<div class="col-md-12 column" align="center">
+		<?php echo Form::open(['method' => 'GET', 'url' => '/finalisasi']); ?>
+
+				<?php echo Form::submit('FINALISASI DATA SAYA', ['class' => 'btn btn-primary form-button btn-lg']); ?>
+
+		<?php echo Form::close(); ?>
+
+	</div>
+	</div>
+	<br/>
+	<br/>
+<?php endif; ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('register.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -71,7 +71,7 @@
 				{!! Form::label('date_birth', 'Tanggal Lahir') !!}
 				</div>
 				<div class="col-md-4">
-				{!! Form::text('date_birth', null,['placeholder' => 'YYYY-MM-DD', 'class' => 'form-control form_date', 'data-date-format' => 'yyyy-mm-dd', 'data-date-viewmode' => 'years']) !!}
+				{!! Form::text('date_birth', null,['placeholder' => 'YYYY-MM-DD', 'class' => 'input-group date form_date', 'data-date-format' => 'yyyy-mm-dd', 'data-date-viewmode' => 'years']) !!}
 				</div>
 				@if( $errors->first('date_birth') )
 					<span class="help-block text-danger">{{ $errors->first('date_birth') }}</span>
@@ -230,21 +230,43 @@
 @stop
 
 @section('script')
-	{!! Html::script('js/bootstrap-datepicker.min.js', array('type' => 'text/javascript')) !!}
+	{!! Html::script('datepicker/sample in bootstrap v3/jquery/jquery-1.8.3.min.js', array('type' => 'text/javascript')) !!}
+	{!! Html::script('datepicker/sample in bootstrap v3/bootstrap/js/bootstrap.min.js', array('type' => 'text/javascript')) !!}
+	{!! Html::script('datepicker/js/bootstrap-datetimepicker.js', array('type' => 'text/javascript')) !!}
+	{!! Html::script('/datepicker/js/locales/bootstrap-datetimepicker.id.js', array('type' => 'text/javascript')) !!}
 	<script type="text/javascript">
-	  $(function() {
-		$('#date_birth' ).datepicker({
-		  //language:  'en',
-		  weekStart: 1,
-		  todayBtn:  1,
-		  autoclose: 1,
-		  todayHighlight: 0,
-		  startView: 2,
-		  minView: 2,
-		  forceParse: 0
-		  });
+	  $('.form_datetime').datetimepicker({
+	      //language:  'fr',
+	      weekStart: 1,
+	      todayBtn:  1,
+	  autoclose: 1,
+	  todayHighlight: 1,
+	  startView: 2,
+	  forceParse: 0,
+	      showMeridian: 1
 	  });
-    </script>
+	$('.form_date').datetimepicker({
+	      language:  'fr',
+	      weekStart: 1,
+	      todayBtn:  1,
+	  autoclose: 1,
+	  todayHighlight: 1,
+	  startView: 2,
+	  minView: 2,
+	  forceParse: 0
+	  });
+	$('.form_time').datetimepicker({
+	      language:  'fr',
+	      weekStart: 1,
+	      todayBtn:  1,
+	  autoclose: 1,
+	  todayHighlight: 1,
+	  startView: 1,
+	  minView: 0,
+	  maxView: 1,
+	  forceParse: 0
+	  });
+	</script>
 
 	<script type="text/javascript">
     $(document).ready(function() {

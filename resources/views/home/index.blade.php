@@ -78,11 +78,21 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>PORTAL PENDAFTARAN BEASISWA PBSB</h1>
-                <br /><br />
+                <font face="verdana" size="6.5 px">
+                <b>
+                Pendaftaran Program <br />
+                Beasiswa Santri Berprestasi (PBSB) <br />
+                Kementerian Agama <br />
+                2015
+                </b>
+                </font>
+       
+                <br /><br /><br /><br />
 
                 <a href="#daftar" class="btn btn-success btn-xl page-scroll">Buat Akun Sekarang</a>
                 <a href="#login" class="btn btn-success btn-xl page-scroll">&nbsp&nbsp Login &nbsp Aplikasi &nbsp</a>
+                <br /><br /><br /><br /><br /><br /><br /><br />
+
             </div>
         </div>
     </header>

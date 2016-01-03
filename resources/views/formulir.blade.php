@@ -137,7 +137,31 @@ td {
 		</td>
 		<td align="right" width="260px">
 			<b><font size="20px">FORMULIR REGISTRASI</font></b><br />
-			No Registrasi : 123123123123
+			No Registrasi : 
+			<table border="1">
+				<tr>
+					<td>1
+					</td>
+					<td>2
+					</td>
+					<td>3
+					</td>
+					<td>4
+					</td>
+					<td>5
+					</td>
+					<td>6
+					</td>
+					<td>7
+					</td>
+					<td>8
+					</td>
+					<td>9
+					</td>
+					<td>0
+					</td>
+				</tr>
+			</table>
 		</td>
 	</tr>
 </table>
