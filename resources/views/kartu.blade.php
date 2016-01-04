@@ -154,6 +154,43 @@ td {
 </table>
 
 <hr>
+<!-- PROBLEM No 11 EMAIL -->
+<table>		
+	<tr align="center">
+		<td width="470px">		
+		</td>
+		<td width="233">		
+		</td>
+	</tr>
+	<tr align="center">
+			  
+		<td width="470px">		
+		</td>
+		<td width="233px">
+			ttd
+		</td>
+	</tr>
+</table>
+<br />
+<br />
+<br />
+<table>		
+	<tr align="center">
+		<td width="470px">		
+		</td>
+		<td width="233">
+			_______________________
+		</td>
+	</tr>
+	<tr align="center">
+		<td width="470px">		
+		</td>
+		<td width="233px">
+			Petugas Verifikasi Kemenag Wilayah Provinsi
+		</td>
+	</tr>
+</table>
+<!-- END PROBLEM No 11 EMAIL -->
 <table>
 	<tr>
 		<td>
