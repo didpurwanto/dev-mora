@@ -1,0 +1,17 @@
+<div class="form-group">
+	<?php echo Form::label('program_name', 'Nama Program :'); ?>
+
+	<?php echo Form::text('program_name', null, ['class' => 'form-control']); ?>
+
+</div>
+<div class="form-group">
+	<?php echo Form::label('list_subject', 'Daftar Pelajaran :'); ?>
+
+	<?php echo Form::textarea('list_subject',null, ['class' => 'form-control']); ?>
+
+</div>
+
+<div class="form-group">
+	<?php echo Form::submit($text, ['class' => 'btn btn-primary form-control']); ?>
+
+</div>

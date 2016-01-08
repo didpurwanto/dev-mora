@@ -1,0 +1,17 @@
+<div class="form-group">
+	<?php echo Form::label('id', 'ID level pendidikan :'); ?>
+
+	<?php echo Form::text('id',null, ['class' => 'form-control']); ?>
+
+</div>
+<div class="form-group">
+	<?php echo Form::label('level_name', 'Tingkat pendidikan :'); ?>
+
+	<?php echo Form::text('level_name',null, ['class' => 'form-control']); ?>
+
+</div>
+
+<div class="form-group">
+	<?php echo Form::submit($text, ['class' => 'btn btn-primary form-control']); ?>
+
+</div>

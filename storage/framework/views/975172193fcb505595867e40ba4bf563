@@ -1,0 +1,35 @@
+<div class="form-group">
+	<?php echo Form::label('username', 'Nama Pengguna :'); ?>
+
+	<?php echo Form::text('username', null, ['class' => 'form-control']); ?>
+
+</div>
+<div class="form-group">
+	<?php echo Form::label('email', 'Alamat E-Mail :'); ?>
+
+	<?php echo Form::text('email', null, [ 'class'=> 'form-control', 'placeholder'=>'Alamat email' ]); ?>
+
+ </div>
+<div class="form-group">
+	<?php echo Form::label('password', 'Password :'); ?>
+
+	<?php echo Form::password('password', [ 'class'=> 'form-control']); ?>
+
+</div>
+<div class="form-group">
+	<?php echo Form::label('password_confirmation', 'Konfirmasi Password :'); ?>
+
+	<?php echo Form::password('password_confirmation', [ 'class'=> 'form-control']); ?>
+
+</div>
+<div class="form-group">
+	<?php echo Form::label('role', 'Hak Akses :'); ?>
+
+	<?php echo Form::select('role', ['255'=> 'Administrator','200' => 'Manager Pusat','100' => 'Manager Propinsi'], $user->role, ['class' => 'form-control']); ?>
+
+</div>
+
+<div class="form-group">
+	<?php echo Form::submit($text, ['class' => 'btn btn-primary form-control']); ?>
+
+</div>

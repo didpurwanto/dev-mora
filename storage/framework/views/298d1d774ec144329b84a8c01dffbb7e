@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+       <title>PBSB ONLINE</title>
+	   <?php echo Html::style('css/bootstrap.min.css'); ?>
+
+	   <?php echo $__env->yieldContent('css'); ?>
+</head>
+
+<body>
+	<div class="container">
+		<?php if(Session::has('flash_text')): ?>
+			<div class="alert alert-success"><?php echo e(Session::get('flash_text')); ?></div>
+		<?php endif; ?>
+		
+		<?php echo $__env->yieldContent('content'); ?>
+	</div>
+</body>
+	<?php echo Html::script('js/jquery-1.11.1.min.js', array('type' => 'text/javascript')); ?>
+
+	<?php echo Html::script('js/bootstrap.min.js', array('type' => 'text/javascript')); ?>
+
+	<?php echo $__env->yieldContent('script'); ?>
+</html>

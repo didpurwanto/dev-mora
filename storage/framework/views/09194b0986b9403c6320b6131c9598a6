@@ -1,0 +1,313 @@
+<?php $__env->startSection('css'); ?>
+	<?php echo Html::style('css/bootstrap-datepicker.min.css'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+	<h2>Biodata Pribadi</h2>
+	<hr />
+
+	<?php echo Form::open(['method' => 'POST','url' => '/applicants']); ?>
+
+		<div class="form-group <?php echo e(! $errors->first('full_name') ? '': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('full_name', 'Nama Lengkap'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::text('full_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Lengkap']); ?>
+
+				</div>
+				<?php if( $errors->first('full_name') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('full_name')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('email') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('email', 'Alamat E-mail'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::email('email',null ,['class' => 'form-control', 'placeholder' => 'Alamat E-mail']); ?>
+
+				</div>
+				<?php if( $errors->first('email') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('email')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('gender') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('gender', 'Jenis Kelamin'); ?>&nbsp;&nbsp;
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::radio('gender', 1, 1); ?>
+
+				<?php echo Form::label('Laki-laki','Laki-laki'); ?>&nbsp;&nbsp;&nbsp;&nbsp;
+				<?php echo Form::radio('gender', 0, 0); ?>
+
+				<?php echo Form::label('Perampuan','Perempuan'); ?>&nbsp;&nbsp;&nbsp;&nbsp;
+				</div>
+				<?php if( $errors->first('gender') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('gender')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('place_birth') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('place_birth', 'Tempat Lahir'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::text('place_birth',null, ['class' => 'form-control','placeholder' => 'Tempat Lahir' ]); ?>
+
+				</div>
+				<?php if( $errors->first('place_birth') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('place_birth')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('date_birth', 'Tanggal Lahir'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::text('date_birth', null,['placeholder' => 'YYYY-MM-DD', 'class' => 'form-control form_date', 'data-date-format' => 'yyyy-mm-dd', 'data-date-viewmode' => 'years']); ?>
+
+				</div>
+				<?php if( $errors->first('date_birth') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('date_birth')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('recitation') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('recitation', 'Jumlah Hafalan Al-Quran'); ?>
+
+				</div>
+				<div class="col-md-3 form-inline">
+				<?php echo Form::select('recitation', $listRecitation,0, ['class' => 'form-control', 'placeholder' => '0']); ?> &nbsp;Juz
+				</div>
+				<?php if( $errors->first('recitation') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('recitation')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('color_blind') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('color_blind', 'Buta Warna'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::select('color_blind', array('1' => 'Ya', '0' => 'Tidak'),1,['class' => 'form-control']); ?>
+
+				</div>
+				<?php if( $errors->first('color_blind') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('color_blind')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('mental_disorder') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('mental_disorder', 'Riwayat Gangguan Mental'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::select('mental_disorder', array('1' => 'Ya', '0' => 'Tidak'),0, ['class' => 'form-control']); ?>
+
+				</div>
+				<?php if( $errors->first('mental_disorder') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('mental_disorder')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('illness') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('illness', 'Penyakit yang sedang/pernah diderita'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::textarea('illness', null,['class' => 'form-control', 'placeholder' => 'DBD, Tipus, ','cols' => '50', 'rows' => '2']); ?>
+
+				</div>
+				<?php if( $errors->first('illness') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('illness')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('blood_type') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('blood_type', 'Golongan Darah'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::select('blood_type', array('A' => 'A', 'B' => 'B','AB' => 'AB','O' => 'O'),1,['class' => 'form-control']); ?>
+
+				</div>
+				<?php if( $errors->first('blood_type') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('blood_type')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('weight') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('weight', 'Berat Badan'); ?>
+
+				</div>
+				<div class="col-md-3 form-inline">
+				<?php echo Form::text('weight', null ,['class' => 'form-control', 'placeholder' => '00']); ?>&nbsp;&nbsp; Kg
+				</div>
+				<?php if( $errors->first('weight') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('weight')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('height') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('height', 'Tinggi Badan'); ?>
+
+				</div>
+				<div class="col-md-3 form-inline">
+				<?php echo Form::text('height', null ,['class' => 'form-control', 'placeholder' => '000']); ?>&nbsp;&nbsp; Cm
+				</div>
+				<?php if( $errors->first('height') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('height')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('contact') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('contact', 'Telepon yang bisa dihubungi'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::text('contact', null ,['class' => 'form-control','placeholder' => '08XXXXXXXXXX']); ?>
+
+				</div>
+				<?php if( $errors->first('contact') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('contact')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('marriage_status') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('marriage_status', 'Sudah Menikah'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::select('marriage_status', array('1' => 'Sudah', '0' => 'Belum'),0, ['class' => 'form-control']); ?>
+
+				</div>
+				<?php if( $errors->first('marriage_status') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('marriage_status')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('address') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('address', 'Alamat'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::textarea('address', null, ['class' => 'form-control', 'placeholder' => 'Jl. Sakti No. 05 RT/RW 005/005 Kel. Sekijang','cols' => '50', 'rows' => '2']); ?>
+
+				</div>
+				<?php if( $errors->first('address') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('address')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('province_id', 'Provinsi'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::select('province_id', $prov, 'Provinsi',['class' => 'form-control province']); ?>
+
+				</div>
+				<?php if( $errors->first('province_id') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('province_id')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<br />
+		<div class="form-group">
+			<?php echo Form::submit('Lanjutkan', ['class' => 'btn btn-primary btn-large form-button btn-lg']); ?>
+
+		</div>
+
+	<?php echo Form::close(); ?>
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php $__env->startSection('script'); ?>
+	<?php echo Html::script('js/bootstrap-datepicker.min.js', array('type' => 'text/javascript')); ?>
+
+	<script type="text/javascript">
+	  $(function() {
+		$('#date_birth' ).datepicker({
+		  //language:  'en',
+		  weekStart: 1,
+		  todayBtn:  0,
+		  autoclose: 1,
+		  todayHighlight: 0,
+		  startView: 2,
+		  minView: 2,
+		  forceParse: 0
+		  });
+	  });
+    </script>
+
+	<script type="text/javascript">
+    $(document).ready(function() {
+        $('.province').change(function() {
+            $.getJSON("/families/provinces/" + $('.province').val(), function(data) {
+                var $stations = $('.kabupaten');
+                $stations.empty();
+                $.each(data, function(index, value) {
+                    $stations.append('<option value="' + index +'">' + value + '</option>');
+                });
+            $('.kabupaten').trigger("change"); /* trigger next drop down list not in the example */
+            });
+        });
+    });
+	</script>
+
+	<script type="text/javascript">
+    $(document).ready(function() {
+        $('.kabupaten').change(function() {
+            $.getJSON("/families/kabupatens/" + $('.kabupaten').val(), function(data) {
+                var $stations = $('.kecamatan');
+                $stations.empty();
+                $.each(data, function(index, value) {
+                    $stations.append('<option value="' + index +'">' + value + '</option>');
+                });
+            $('.kecamatan').trigger("change"); /* trigger next drop down list not in the example */
+            });
+        });
+    });
+	</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('register.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

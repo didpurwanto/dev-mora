@@ -1,0 +1,12 @@
+<?php $__env->startSection('content'); ?>
+	<h2>Pilihan Jurusan</h2>
+	<hr />
+	
+	<?php echo Form::open(['url' => '/applications']); ?>
+
+		<?php echo $__env->make('application.form', ['text' => 'Next'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo Form::close(); ?>
+
+	<?php echo $__env->make('errors.list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

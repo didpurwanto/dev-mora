@@ -1,0 +1,14 @@
+<?php $__env->startSection('content'); ?>
+	<h2>Membuat Program Studi Baru</h2>
+	<hr />
+	
+	<?php echo Form::open(['url' => '/programstudi']); ?>
+
+		<?php echo $__env->make('programstudi.form', ['text' => 'Save'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo Form::close(); ?>
+
+
+	<?php echo $__env->make('errors.list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

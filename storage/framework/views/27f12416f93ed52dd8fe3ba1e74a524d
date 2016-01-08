@@ -1,0 +1,148 @@
+<div class="form-group <?php echo e(! $errors->first('pesantren_name') ? '': 'has-error'); ?>">
+	<div class="row">
+		<div class="col-md-3">
+		<?php echo Form::label('pesantren_name', 'Nama Pesantren'); ?>
+
+		</div>
+		<div class="col-md-4">
+		<?php echo Form::text('pesantren_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Pesantren']); ?>
+
+		</div>
+		<?php if( $errors->first('pesantren_name') ): ?>
+			<span class="help-block text-danger"><?php echo e($errors->first('pesantren_name')); ?></span>
+		<?php endif; ?>
+	</div>
+</div>
+<div class="form-group <?php echo e(! $errors->first('kiai_name') ? '': 'has-error'); ?>">
+	<div class="row">
+		<div class="col-md-3">
+		<?php echo Form::label('kiai_name', 'Nama Pimpinan'); ?>
+
+		</div>
+		<div class="col-md-4">
+		<?php echo Form::text('kiai_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Kiyai']); ?>
+
+		</div>
+		<?php if( $errors->first('kiai_name') ): ?>
+			<span class="help-block text-danger"><?php echo e($errors->first('kiai_name')); ?></span>
+		<?php endif; ?>
+	</div>
+</div>
+<div class="form-group <?php echo e(! $errors->first('nspp') ? '': 'has-error'); ?>">
+	<div class="row">
+		<div class="col-md-3">
+		<?php echo Form::label('nspp', 'NSPP'); ?>
+
+		</div>
+		<div class="col-md-4">
+		<?php echo Form::text('nspp', null,['class' => 'form-control', 'placeholder' => 'Nomor Statistik Pondok Pesantren']); ?>
+
+		</div>
+		<?php if( $errors->first('nspp') ): ?>
+			<span class="help-block text-danger"><?php echo e($errors->first('nspp')); ?></span>
+		<?php endif; ?>
+	</div>
+</div>
+<div class="form-group <?php echo e(! $errors->first('pesantren_type') ? '': 'has-error'); ?>">
+	<div class="row">
+		<div class="col-md-3">
+		<?php echo Form::label('pesantren_type', 'Jenis Pesantren'); ?>
+
+		</div>
+		<div class="col-md-4">
+		<?php echo Form::select('pesantren_type', $pes_type,$pes->pesantren_type,['class' => 'form-control']); ?>
+
+		</div>
+	</div>
+</div>
+<div class="form-group <?php echo e(! $errors->first('no_telp') ? '': 'has-error'); ?>">
+	<div class="row">
+		<div class="col-md-3">
+		<?php echo Form::label('no_telp', 'No. Telp Pesantren'); ?>
+
+		</div>
+		<div class="col-md-4">
+		<?php echo Form::text('no_telp', null,['class' => 'form-control', 'placeholder' => '']); ?>
+
+		</div>
+		<?php if( $errors->first('no_telp') ): ?>
+			<span class="help-block text-danger"><?php echo e($errors->first('no_telp')); ?></span>
+		<?php endif; ?>
+	</div>
+</div>
+<div class="form-group <?php echo e(! $errors->first('pesantren_address') ? '': 'has-error'); ?>">
+	<div class="row">
+		<div class="col-md-3">
+		<?php echo Form::label('pesantren_address', 'Alamat Pesantren'); ?>
+
+		</div>
+		<div class="col-md-4">
+		<?php echo Form::textarea('pesantren_address', null,['class' => 'form-control', 'placeholder' => 'Jl. Keramat Jati, No. 5, RT/RW 05/05, Kel. Sukajadi', 'cols' => '50', 'rows' => '1']); ?>
+
+		</div>
+		<?php if( $errors->first('pesantren_address') ): ?>
+			<span class="help-block text-danger"><?php echo e($errors->first('pesantren_address')); ?></span>
+		<?php endif; ?>
+	</div>
+</div>
+<div class="form-group <?php echo e(! $errors->first('kelurahan') ?'': 'has-error'); ?>">
+	<div class="row">
+		<div class="col-md-3">
+		<?php echo Form::label('Kelurahan', 'Desa/Kelurahan'); ?>
+
+		</div>
+		<div class="col-md-4">
+		<?php echo Form::text('kelurahan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kelurahan']); ?>
+
+		</div>
+		<?php if( $errors->first('kelurahan') ): ?>
+			<span class="help-block text-danger"><?php echo e($errors->first('kelurahan')); ?></span>
+		<?php endif; ?>
+	</div>
+</div>
+<div class="form-group <?php echo e(! $errors->first('kecamatan') ?'': 'has-error'); ?>">
+	<div class="row">
+		<div class="col-md-3">
+		<?php echo Form::label('kecamatan', 'Kecamatan'); ?>
+
+		</div>
+		<div class="col-md-4">
+		<?php echo Form::text('kecamatan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kecamatan']); ?>
+
+		</div>
+		<?php if( $errors->first('kecamatan') ): ?>
+			<span class="help-block text-danger"><?php echo e($errors->first('kecamatan')); ?></span>
+		<?php endif; ?>
+	</div>
+</div>
+<div class="form-group <?php echo e(! $errors->first('kabupaten') ?'': 'has-error'); ?>">
+	<div class="row">
+		<div class="col-md-3">
+		<?php echo Form::label('kabupaten', 'Kabupaten/Kota'); ?>
+
+		</div>
+		<div class="col-md-4">
+		<?php echo Form::text('kabupaten', null, ['class' => 'form-control', 'placeholder' => 'Nama Kabupaten']); ?>
+
+		</div>
+		<?php if( $errors->first('kabupaten') ): ?>
+			<span class="help-block text-danger"><?php echo e($errors->first('kabupaten')); ?></span>
+		<?php endif; ?>
+	</div>
+</div>
+<div class="form-group <?php echo e(! $errors->first('province_id') ? '': 'has-error'); ?>">
+	<div class="row">
+		<div class="col-md-3">
+		<?php echo Form::label('province_id', 'Provinsi'); ?>
+
+		</div>
+		<div class="col-md-4">
+		<?php echo Form::select('province_id', $prov, $pes->province_id,['class' => 'form-control']); ?>
+
+		</div>
+	</div>
+</div>
+<div class="form-group">
+	<?php echo Form::submit($text, ['class' => 'btn btn-primary form-button']); ?>
+
+</div>
