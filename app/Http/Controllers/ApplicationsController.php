@@ -27,11 +27,15 @@ class ApplicationsController extends Controller {
 	{
 		// get program studi from school
 		$program_study_id = School::where('user_id', Auth::user()->id)->pluck('program_study_id');
+		//dd($program_study_id);
 		// get all universities
 		$univ = University::lists('university_name','id');
 
+		$dep = $this->listDepart($program_study_id);
+		//dd($dep);
+
 		// get departement based on program study
-		$dep = Departement::has('program_studies','=', $program_study_id)->lists('departement_name','id');
+		//$dep = Departement::has('program_studies','=', $program_study_id)->lists('departement_name','id');
 		//dd($dep);
 		$appl = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
 		// dd($appl);
@@ -61,7 +65,8 @@ class ApplicationsController extends Controller {
 	public function getDepartements($university_id)
     {
         $departs = Departement::where('university_id', $university_id)->get();
-        //dd($kabupatens);
+				//dd($departs);
+
 		    $options = array();
 
         foreach ($departs as $depart) {
@@ -72,4 +77,7 @@ class ApplicationsController extends Controller {
         return $options;
     }
 
+		public function listDepart($program_study_id){
+				return Departement::lists('departement_name','id');
+		}
 }

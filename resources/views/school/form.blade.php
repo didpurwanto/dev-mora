@@ -53,7 +53,7 @@
 		{!! Form::label('graduate_year', 'Tahun Lulus Sekolah') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::text('graduate_year',null ,['class' => 'form-control', 'placeholder' => '2015']) !!}
+		{!! Form::select('graduate_year', [date("Y") => date("Y"), date("Y")-1 => date("Y")-1], $sch->graduate_year,['class' => 'form-control']) !!}
 		</div>
 		@if( $errors->first('graduate_year') )
 			<span class="help-block text-danger">{{ $errors->first('graduate_year') }}</span>
@@ -167,5 +167,5 @@
 </div>
 
 <div class="form-group">
-	{!! Form::submit($text, ['class' => 'btn btn-primary form-button']) !!}
+	{!! Form::submit($text, ['class' => 'btn btn-primary btn-large form-button']) !!}
 </div>

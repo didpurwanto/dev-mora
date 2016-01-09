@@ -70,6 +70,6 @@
 	</table>
 
 	<div class="form-group">
-		{!! Form::submit($text, ['class' => 'btn btn-primary form-button']) !!}
+		{!! Form::submit($text, ['class' => 'btn btn-primary btn-large form-button']) !!}
 	</div>
 </div>

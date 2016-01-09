@@ -86,7 +86,7 @@
 				<div class="col-md-3">
 				{!! Form::label('recitation', 'Jumlah Hafalan Al-Quran') !!}
 				</div>
-				<div class="col-md-3 form-inline">
+				<div class="col-md-2 form-inline">
 				{!! Form::select('recitation',$listRecitation, $app->recitation, ['class' => 'form-control', 'placeholder' => '00']) !!} &nbsp;Juz
 				</div>
 				@if( $errors->first('recitation') )
@@ -138,7 +138,7 @@
 				<div class="col-md-3">
 				{!! Form::label('blood_type', 'Golongan Darah') !!}
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-2">
 				{!! Form::select('blood_type', array('A' => 'A', 'B' => 'B','AB' => 'AB','O' => 'O'),$app->blood_type,['class' => 'form-control']) !!}
 				</div>
 				@if( $errors->first('blood_type') )
@@ -151,9 +151,12 @@
 				<div class="col-md-3">
 				{!! Form::label('weight', 'Berat Badan') !!}
 				</div>
-				<div class="col-md-3 form-inline">
-				{!! Form::text('weight', null ,['class' => 'form-control', 'placeholder' => '00']) !!}&nbsp;&nbsp; Kg
+				<div class="col-md-1">
+				{!! Form::text('weight', null ,['class' => 'form-control', 'placeholder' => '00']) !!}
 				</div>
+				<div class="col-xs-1">
+				   &nbsp;&nbsp;<b>Kg</b>
+		    </div>
 				@if( $errors->first('weight') )
 					<span class="help-block text-danger">{{ $errors->first('weight') }}</span>
 				@endif
@@ -164,9 +167,12 @@
 				<div class="col-md-3">
 				{!! Form::label('height', 'Tinggi Badan') !!}
 				</div>
-				<div class="col-md-3 form-inline">
-				{!! Form::text('height', null ,['class' => 'form-control', 'placeholder' => '000']) !!}&nbsp;&nbsp; Cm
+				<div class="col-md-1">
+				{!! Form::text('height', null ,['class' => 'form-control', 'placeholder' => '000']) !!}
 				</div>
+				<div class="col-xs-1">
+				   &nbsp;&nbsp;<b>Cm</b>
+		    </div>
 				@if( $errors->first('height') )
 					<span class="help-block text-danger">{{ $errors->first('height') }}</span>
 				@endif
@@ -245,34 +251,4 @@
 		  });
 	  });
     </script>
-
-	<script type="text/javascript">
-    $(document).ready(function() {
-        $("#province_id").change(function() {
-            $.getJSON("/families/provinces/" + $("#province_id").val(), function(data) {
-                var $stations = $("#kabupaten_id");
-                $stations.empty();
-                $.each(data, function(index, value) {
-                    $stations.append('<option value="' + index +'">' + value + '</option>');
-                });
-            $("#kabupaten_id").trigger("change"); /* trigger next drop down list not in the example */
-            });
-        });
-    });
-	</script>
-
-	<script type="text/javascript">
-    $(document).ready(function() {
-        $("#kabupaten_id").change(function() {
-            $.getJSON("/families/kabupatens/" + $("#kabupaten_id").val(), function(data) {
-                var $stations = $("#kecamatan_id");
-                $stations.empty();
-                $.each(data, function(index, value) {
-                    $stations.append('<option value="' + index +'">' + value + '</option>');
-                });
-            $("#kecamatan_id").trigger("change"); /* trigger next drop down list not in the example */
-            });
-        });
-    });
-	</script>
 @stop

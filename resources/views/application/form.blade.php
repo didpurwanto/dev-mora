@@ -13,7 +13,7 @@
 		<div class="col-md-3">
 		{!! Form::label('major_1_id', 'Pilihan Jurusan I') !!}
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-4">
 		{!! Form::select('major_1_id', array('0' => 'Jurusan 1') + $dep, $appl->major_1_id, ['class' => 'form-control']) !!}
 		</div>
 	</div>
@@ -23,7 +23,7 @@
 		<div class="col-md-3">
 		{!! Form::label('major_2_id', 'Pilihan Jurusan II') !!}
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-4">
 		{!! Form::select('major_2_id', array('0' => 'Jurusan 2') + $dep, $appl->major_2_id, ['class' => 'form-control']) !!}
 		</div>
 	</div>
@@ -39,6 +39,10 @@
 	</div>
 </div>
 
+<div class="alert alert-danger">
+	<p>Pastikan <b>JURUSAN</b> yang anda pilih sesuai dengan Jurusan di Sekolah anda (<b>IPA/IPS/BAHASA/AGAMA</b>). <a href="{!! URL::to('/informasijurusan') !!}">Lihat Detil Jurusan</a></p>
+</div>
+
 <div class="form-group">
-	{!! Form::submit($text, ['class' => 'btn btn-primary form-button']) !!}
+	{!! Form::submit($text, ['class' => 'btn btn-primary btn-large form-button']) !!}
 </div>

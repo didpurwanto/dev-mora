@@ -143,6 +143,6 @@
 	</div>
 </div>
 <div class="form-group">
-	<?php echo Form::submit($text, ['class' => 'btn btn-primary form-button']); ?>
+	<?php echo Form::submit($text, ['class' => 'btn btn-primary btn-large form-button']); ?>
 
 </div>

@@ -62,7 +62,7 @@
 
 		</div>
 		<div class="col-md-4">
-		<?php echo Form::text('graduate_year',null ,['class' => 'form-control', 'placeholder' => '2015']); ?>
+		<?php echo Form::select('graduate_year', [date("Y") => date("Y"), date("Y")-1 => date("Y")-1],$sch->graduate_year,['class' => 'form-control']); ?>
 
 		</div>
 		<?php if( $errors->first('graduate_year') ): ?>
@@ -194,6 +194,6 @@
 </div>
 
 <div class="form-group">
-	<?php echo Form::submit($text, ['class' => 'btn btn-primary form-button']); ?>
+	<?php echo Form::submit($text, ['class' => 'btn btn-primary btn-large form-button']); ?>
 
 </div>
