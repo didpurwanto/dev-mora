@@ -113,6 +113,9 @@ Route::get('admin', [
 	'middleware' => 'admin'
 ]);
 
+Route::get('admin/changepassword', 'Auth\ChangePasswordsController@edit');
+Route::post('admin/changepassword', 'Auth\ChangePasswordsController@update');
+
 // User route resourcefull
 Route::resource('admin/users','UsersController',['except' => ['show']]);
 
