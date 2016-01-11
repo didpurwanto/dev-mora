@@ -75,23 +75,18 @@ class ExportImportController extends Controller {
 
 	            // $appl = Applicant::all();
 
-	 			$appl = DB::table('applicants')
-	 						->join('families', 'families.user_id', '=', 'applicants.user_id')
-	 						->join('pesantrens', 'pesantrens.user_id', '=', 'applicants.user_id')
-	 						->join('schools', 'schools.user_id', '=', 'applicants.user_id')
-	 						->join('applications', 'applications.user_id', '=', 'applicants.user_id' )
-	 						->get();
 	 			// dd($tab);
 
 	            $column = array(
-	            	'Nama',
 	            	'No Registrasi',
+	            	'nomor tes',
+	            	'Nama',
 	            	'Email',
-	            	'jenis_kelamin(1=L, 2=P)',
+	            	'jenis_kelamin',
 	            	'tempat lahir',
 	            	'tanggal lahir',
 	            	'jumlah hafalan',
-	            	'buta warna(0=tidak, 1=ya)',
+	            	'buta warna',
 	            	'gangguan mental',
 	            	'riwayat penyakit',
 	            	'gol darah',
@@ -100,18 +95,18 @@ class ExportImportController extends Controller {
 	            	'kontak',
 	            	'status menikah',
 	            	'alamat pendaftar',
-	            	'kode provinsi',
-	            	'kode kabupaten',
+	            	'provinsi',
+	            	'kabupaten',
 	            	'nama ayah',
 	            	'umur ayah',
-	            	'ayahsdh meninggal(1=ya, 0=tdk)',
+	            	'ayah almarhum',
 	            	'pendidikan ayah',
 	            	'ID pekerjaan ayah',
 	            	'ID rank gaji ayah',
 	            	'no tpl ayah',
 	            	'nama ibu',
 	            	'umur ibu',
-	            	'ibu sdh meninggal',
+	            	'ibu almarhum',
 	            	'pendidikan ibu',
 	            	'pekerjaan ibu',
 	            	'penghasilan ibu',
@@ -134,10 +129,98 @@ class ExportImportController extends Controller {
 	            	'jurusan 1',
 	            	'jurusan 2',
 	            	'bersedia dipindahkan',
-	            	'nomor tes'
+	            	'Nilai  Matematika',
+	            	'Nilai  Bahasa Indonesia',
+	            	'Nilai  Bahasa Inggris',
+	            	'Nilai  kewarganegaraan',
+	            	'Nilai  Pendidikan Agama',
+	            	'Ranking'
 	            	);
 
 	            $sheet->appendRow($column);
+
+	 			$appl = DB::table('applicants AS a')
+	 						->join('families AS f', 'f.user_id', '=', 'a.user_id')
+	 						->join('pesantrens AS p', 'p.user_id', '=', 'a.user_id')
+	 						->join('schools AS s', 's.user_id', '=', 'a.user_id')
+	 						->join('applications AS ap', 'ap.user_id', '=', 'a.user_id' )
+	 						->join('provinces', 'provinces.id', '=', 'a.province_id')
+	 						->join('raports', 'raports.user_id', '=', 'a.user_id')
+	 						->get();
+
+	 			foreach ($appl as $applicant) {
+
+	 				if ($applicant->color_blind == "1" ){
+	 					$applicant->color_blind = 'Ya';
+	 				}else {
+	 					$applicant->color_blind = 'Tidak';
+	 				}
+
+	 				if ($applicant->mental_disorder == "1" ){
+	 					$applicant->mental_disorder = 'Ya';
+	 				}else {
+	 					$applicant->mental_disorder = 'Tidak';
+	 				}
+
+
+	 				if ($applicant->gender == "1" ){
+	 					$applicant->gender = 'Laki-Laki';
+	 				}else {
+	 					$applicant->gender = 'perempuan';
+	 				}
+
+
+	 				if ($applicant->marriage_status == "1" ){
+	 					$applicant->marriage_status = 'Sudah';
+	 				}else {
+	 					$applicant->marriage_status = 'Belum';
+	 				}
+
+	 				if ($applicant->father_deceased == "1" ){
+	 					$applicant->father_deceased = 'Meninggal';
+	 				}else {
+	 					$applicant->father_deceased = 'Hidup';
+	 				}
+
+
+                	$applicant->father_education = DB::table('education_levels')->where('id', $applicant->father_education)->pluck('education_levels.level_name');
+		 			$applicant->father_job_id = DB::table('job_types')->where('id', $applicant->father_job_id)->pluck('job_types.job_name');
+		 			$applicant->father_salary_id = DB::table('range_salaries')->where('id', $applicant->father_salary_id)->pluck('range_salaries.range_name');
+
+	 				if ($applicant->mother_deceased == "1" ){
+	 					$applicant->mother_deceased = 'Meninggal';
+	 				}else {
+	 					$applicant->mother_deceased = 'Hidup';
+	 				}
+
+                	$applicant->mother_education = DB::table('education_levels')->where('id', $applicant->mother_education)->pluck('education_levels.level_name');
+                	$applicant->mother_job_id = DB::table('job_types')->where('id', $applicant->mother_job_id)->pluck('job_types.job_name');
+                	$applicant->mother_income_id = DB::table('range_salaries')->where('id', $applicant->mother_income_id)->pluck('range_salaries.range_name');
+
+                	$applicant->pesantren_type = DB::table('pesantren_types')->where('id', $applicant->pesantren_type)->pluck('pesantren_types.type_name');
+                	$applicant->school_type_id = DB::table('school_types')->where('id', $applicant->school_type_id)->pluck('school_types.type_name');
+
+                	$applicant->program_study_id = DB::table('program_studies')->where('id', $applicant->program_study_id)->pluck('program_studies.program_name');
+
+	 				if ($applicant->inside_pondok == "1" ){
+	 					$applicant->inside_pondok = 'Ya';
+	 				}else {
+	 					$applicant->inside_pondok = 'Tidak';
+	 				}
+
+					$applicant->university_id = DB::table('universities')->where('id', $applicant->university_id)->pluck('universities.university_name');
+					$applicant->major_1_id  = DB::table('departements')->where('id', $applicant->major_1_id)->pluck('departements.departement_name');
+					$applicant->major_2_id  = DB::table('departements')->where('id', $applicant->major_2_id)->pluck('departements.departement_name');
+
+	 				if ($applicant->aggree_to_auto_move == "1" ){
+	 					$applicant->aggree_to_auto_move = 'Ya';
+	 				}else {
+	 					$applicant->aggree_to_auto_move = 'Tidak';
+	 				}
+
+
+	 			}
+	 			// dd($appl);
 
 	            // getting last row number (the one we already filled and setting it to bold
 	            $sheet->row($sheet->getHighestRow(), function ($row) {
@@ -147,8 +230,9 @@ class ExportImportController extends Controller {
 	            // putting customers data as next rows
 	            foreach ($appl as $applicant) {
 	                $sheet->appendRow(array(
-	                	$applicant->full_name,
 	                	$applicant->registration_number,
+						$applicant->test_number,
+	                	$applicant->full_name,
 	                	$applicant->email,
 	                	$applicant->gender,
 	                	$applicant->place_birth,
@@ -163,7 +247,7 @@ class ExportImportController extends Controller {
 	                	$applicant->contact,
 	                	$applicant->marriage_status,
 	                	$applicant->address,
-	                	$applicant->province_id,
+	                	$applicant->province_name,
 	                	$applicant->kabupaten_id,
 	                	$applicant->father_name,
 	                	$applicant->father_age,
@@ -197,7 +281,12 @@ class ExportImportController extends Controller {
 						$applicant->major_1_id,
 						$applicant->major_2_id,
 						$applicant->aggree_to_auto_move,
-						$applicant->test_number
+						$applicant->subject_1,
+						$applicant->subject_2,
+						$applicant->subject_3,
+						$applicant->subject_4,
+						$applicant->subject_5,
+						$applicant->ranking,
 	                	));
 
 	            }
