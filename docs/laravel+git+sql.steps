@@ -36,6 +36,10 @@ git push origin master => sent to server
 clear cache manually:
 go to : ~/storage/framework/views
 and remove it
+
+#availabe routes
+php artisan route:list
+
 ================================================================================================
 github:
 ================================================================================================

@@ -83,7 +83,7 @@
                 Pendaftaran Program <br />
                 Beasiswa Santri Berprestasi (PBSB) <br />
                 Kementerian Agama <br />
-                2015
+                2016
                 </b>
                 </font>
        

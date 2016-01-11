@@ -22,7 +22,7 @@
 		<div class="col-lg-12">
 				<div class="panel panel-default">
 						<div class="panel-heading">
-								Daftar Jurusan
+								
 						</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
@@ -33,24 +33,26 @@
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 											<thead>
 												<tr>
-													<th>Nama Jurusan</th>
 													<th>Nama Universitas</th>
+													<th>Nama Jurusan</th>
+													<th>Status</th>
 													<th>Aksi</th>
 												</tr>
 											</thead>
 											<tbody>
 												@foreach ($dep as $depart)
 												<tr>
-													<td class="center col-md-3">
-														{{ $depart->departement_name }}
-												  </td>
-													<td>
+													<td class="center col-md-4">
 														{{ $depart->getUniversityName() }}
+													</td>
+													<td class="center col-md-4">
+														{{ $depart->departement_name }}
+												     </td>
+													<td class="center col-md-2">
+														{{ $depart->status }}
 													</td>
 													<td class="center col-md-1">
 															<a class="btn btn-xs btn-success" href="{!! URL::to('admin/departements/'.$depart->id.'/edit') !!}"><i class="fa fa-edit fa-fw"></i> Edit</a>
-															<!-- &nbsp;&nbsp; -->
-															<!-- <a class="btn btn-xs btn-danger" href="{!! URL::to('admin/departements/'.$depart->id) !!}" data-token="{{csrf_token()}}" data-method="delete" data-confirm="Anda yakin menghapus data Jurusan?"><i class="fa fa-remove fa-fw"></i> Hapus</a> -->
 													</td>
 												</tr>
 													@endforeach

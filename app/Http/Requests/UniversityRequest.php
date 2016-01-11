@@ -23,7 +23,8 @@ class UniversityRequest extends Request {
 	{
 		return [
 			'university_code' => 'required',
-			'university_name' => 'required'
+			'university_name' => 'required',
+
 		];
 	}
 
@@ -31,7 +32,8 @@ class UniversityRequest extends Request {
 	{
 		return [
 			'university_code.required' => 'Kode Universitas tidak boleh kosong',
-			'university_name.required' => 'Nama Universitas tidak boleh kosong'
+			'university_name.required' => 'Nama Universitas tidak boleh kosong',
+
 		];
 	}
 }

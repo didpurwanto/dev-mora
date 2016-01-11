@@ -13,7 +13,7 @@
 
 <div class="row">
 		<div class="col-lg-12">
-				<h1 class="page-header">Kode dan Nama Universitas</h1>
+				<h1 class="page-header">Daftar Universitas</h1>
 		</div>
 		<!-- /.col-lg-12 -->
 </div>
@@ -22,7 +22,7 @@
 		<div class="col-lg-12">
 				<div class="panel panel-default">
 						<div class="panel-heading">
-								Kode dan Nama Universitas
+								
 						</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
@@ -35,6 +35,7 @@
 												<tr>
 													<th>Kode Universitas</th>
 													<th>Nama Universitas</th>
+													<th>Status</th>
 													<th>Aksi</th>
 												</tr>
 											</thead>
@@ -47,6 +48,10 @@
 													<td>
 														{{ $university->university_name }}
 													</td>
+													<td class="center col-md-2">
+														{{ $university->status }}
+													</td>
+
 													<td class="center col-md-1">
 															<a class="btn btn-xs btn-success" href="{!! URL::to('admin/universities/'.$university->id.'/edit') !!}"><i class="fa fa-edit fa-fw"></i> Edit</a>
 															<!-- &nbsp;&nbsp; -->

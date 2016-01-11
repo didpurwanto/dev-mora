@@ -9,7 +9,9 @@ class University extends Model {
 
 	protected $fillable = [
 		'university_code',
-		'university_name'
+		'university_name',
+		'status'
+
 	];
 
 	public function departements()

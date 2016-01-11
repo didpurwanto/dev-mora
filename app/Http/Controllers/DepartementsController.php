@@ -28,6 +28,19 @@ class DepartementsController extends Controller {
 		$dep = Departement::all();
 		//$listProgram = ProgramStudy::lists('program_name');
 		//dd($dep['university_name'] = University::getUniversityName($dep->university_id));
+		
+		foreach ($dep as $dept){
+			// echo $dept;	
+			if ($dept['status'] == 1)
+			{
+				$dept['status'] = 'Aktif';	
+			}
+			else {
+				$dept['status'] = 'Tidak Aktif';
+			}
+		}
+		// dd($dep);
+    		
 
 		return view('departement.dep', compact('dep'));
 	}
@@ -69,8 +82,12 @@ class DepartementsController extends Controller {
 
 		//$univ = new University;
 		//dd($univ);
+
+		// dd($request);
+
 		$depart['university_id'] = $request->input('university_id');
 		$depart['departement_name'] = $request->input('departement_name');
+		$depart['status'] = $request->input('status');
 		//dd($depart);
 
 		$data = Departement::create($depart);
@@ -128,7 +145,13 @@ class DepartementsController extends Controller {
 		// Validate with the parameters
 		//$this->validate($request, ['departement_name' => 'required']);
 		//Save record to the database
-		$dep->update($request->all());
+		$dep->university_id = $request->input('university_id');
+		$dep->departement_name = $request->input('departement_name');
+		$dep->status = $request->input('status');
+		$dep->save();
+
+		// $dep->update($request->all());
+		// dd($dep);
 
 		$data2[] = $dep->program_studies()->sync($request->input('study_list'));
 		//Return to universities controller

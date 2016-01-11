@@ -40,7 +40,7 @@ function push {
 # -------------------------------------------- err
 function pull {
     echo "Pull from github"
-    git pull openshift master
+    git pull origin master
 }
 
 

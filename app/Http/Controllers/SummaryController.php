@@ -11,6 +11,8 @@ use Auth;
 use App\Raport;
 use App\School;
 use App\ProgramStudy;
+use Session;
+use Redirect;
 
 class SummaryController extends Controller {
 
@@ -84,9 +86,12 @@ class SummaryController extends Controller {
 
 		//Make user logout after prints
 		Auth::logout();
+
 		return $pdf->download('Formulir Peserta.pdf');
 
-		//return view('formulir', compact('user','date_birth','listSubjects','subject_1','subject_2','subject_3','subject_4','subject_5','ranking'));
+		// Session::flash('download.in.the.next.request', $pdf->download('Formulir Peserta.pdf'));
+		// return redirect::to('/');
+
 	}
 
 	public function cetakKartu()

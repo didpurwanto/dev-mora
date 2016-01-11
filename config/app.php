@@ -222,8 +222,8 @@ return [
 		| - menambahkan excel library
 		*/
 		'Carbon' => 'Carbon\Carbon',
-		'Excel' => 'Maatwebsite\Excel\Facades\Excel'
-
+		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
+	    'Redirect'  => 'Illuminate\Support\Facades\Redirect'
 
 	],
 

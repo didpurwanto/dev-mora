@@ -101,7 +101,7 @@ td {
 
 		<td align="right" width="300px">
 			No. Peserta : 
-			<table border="1">
+			<table border="0.5">
 				<tbody>
 					<tr>
 						<td>1

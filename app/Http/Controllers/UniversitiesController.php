@@ -22,6 +22,17 @@ class UniversitiesController extends Controller {
 	public function index()
 	{
 		$univ = University::all();
+
+		foreach ($univ as $unv){
+			if ($unv['status'] == 1)
+			{
+				$unv['status'] = 'Aktif';	
+			}
+			else {
+				$unv['status'] = 'Tidak Aktif';
+			}
+		}
+
 		return view('university.univ', compact('univ'));
 	}
 
@@ -86,6 +97,8 @@ class UniversitiesController extends Controller {
 	 */
 	public function update($id, UniversityRequest $request)
 	{
+		// dd($request);
+
 		//Find or Fail to get ID
 		$univ = University::findOrFail($id);
 
