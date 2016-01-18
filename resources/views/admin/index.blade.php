@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>DEVMORA - ADMIN</title>
+    <title>Program Beasiswa Santri Berprestasi (PBSB) - Administrator</title>
 
     <!-- Bootstrap Core CSS -->
     {!! Html::style('bower_components/bootstrap/dist/css/bootstrap.min.css') !!}
