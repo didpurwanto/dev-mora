@@ -11,6 +11,9 @@ use Auth;
 use App\Raport;
 use App\School;
 use App\ProgramStudy;
+use App\Province;
+use DB;
+use App\Setting;
 use Session;
 use Redirect;
 
@@ -113,13 +116,36 @@ class SummaryController extends Controller {
 
 	public function finalisasi()
 	{
-		$user = User::where('id', '=', Auth::user()->id)->firstOrFail();
-		//update if the table is final.
-		$user->finish = 1;
+		//Generate Registasi Number
+		$tahun = date("y");
+		$bulan = date("m");
+		$hari = date("d");
+		$prov = Applicant::where('user_id', '=', Auth::user()->id)->pluck('province_id');
+		$provinsi = Province::where('id', '=', $prov)->pluck('province_code');
+		$nomor = DB::table('settings')->pluck('nomor_registrasi');
+		//get four digit number to display
+		$nomor4digit = $this->getNomorRegistrasi($nomor);
+		//dd($nomor);
+		$nomor_reg = $tahun.$bulan.$hari.$provinsi.$nomor4digit;
+		$registrasi = Applicant::where('user_id', '=', Auth::user()->id)->firstOrFail();
+	  $registrasi->registration_number = $nomor_reg;
+    $registrasi->save();
 
+		//update number registration
+		DB::table('settings')->increment('nomor_registrasi');
+
+		//update if the table is final.
+		$user = User::where('id', '=', Auth::user()->id)->firstOrFail();
+		$user->finish = 1;
 		//Save record to the database
 		$user->save();
 
 		return redirect('prints');
 	}
+
+
+	public function getNomorRegistrasi($value)
+    {
+        return str_pad($value, 4, '0', STR_PAD_LEFT);
+    }
 }

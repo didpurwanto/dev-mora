@@ -85,7 +85,7 @@
 
 				</div>
 				<div class="col-md-4">
-				<?php echo Form::text('date_birth',$app->date_birth,['class' => 'form-control']); ?>
+				<?php echo Form::text('date_birth',$app->date_birth,['class' => 'form-control', 'id' => 'date_birth', 'name' => 'date_birth']); ?>
 
 				</div>
 				<?php if( $errors->first('date_birth') ): ?>
@@ -278,12 +278,13 @@
 
 	<script>
 	  $(function() {
-		$( '#date_birth' ).datepicker({
+		$("#date_birth" ).datepicker({
 			format: "yyyy-mm-dd",
 			//language: "id",
-			orientation: "bottom left",
-		  autoclose: 1,
-			defaultViewDate: { year: 2010, month: 04, day: 25 }
+			orientation: "bottom right",
+		  autoClose: 1,
+			endDate: "-19y",
+			//defaultViewDate: { year: 2010, month: 04, day: 25 }
 		  });
 	  });
     </script>

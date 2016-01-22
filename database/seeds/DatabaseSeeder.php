@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder {
 		//$this->call('KabupatenSeeder');
 		//$this->call('KecamatanSeeder');
 		$this->call('UserSeeder');
+		$this->call('SettingSeeder');
 	}
 
 
@@ -99,6 +100,20 @@ class DatabaseSeeder extends Seeder {
 // 		]);
 // 	}
 // }
+
+class SettingSeeder extends Seeder {
+	public function run()
+	{
+		DB::table('settings')->delete();
+
+		$setttings = [
+			['id'=>1, 'nomor_registrasi' => 0001]
+		];
+
+		User::insert($settins);
+	}
+}
+
 
 class UserSeeder extends Seeder {
 	public function run()
