@@ -163,11 +163,14 @@
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Pengaturan Aplikasi<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li class="{!! Request::is('provinces') ? 'active' : '' !!}">
+                                <li class="{!! Request::is('tahunlahir') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/tahunlahir') !!}">Pengaturan Tahun Lahir</a>
                                 </li>
-                                <li class="{!! Request::is('universities') ? 'active' : '' !!}">
+                                <li class="{!! Request::is('tahunlulus') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/tahunlulus') !!}">Pengaturan Tahun Lulus</a>
+                                </li>
+                                <li class="{!! Request::is('pendaftaran') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/pendaftaran/1') !!}">Pengaturan Pendaftaran</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

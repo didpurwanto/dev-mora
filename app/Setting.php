@@ -12,5 +12,4 @@ class Setting extends Model {
 		'nomor_registrasi'
 
 	];
-
 }

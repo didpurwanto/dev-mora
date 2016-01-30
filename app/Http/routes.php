@@ -149,4 +149,7 @@ Route::resource('admin/schooltypes','SchoolTypesController',['except' => ['show'
 Route::resource('admin/tahunlahir','BornYearsController',['except' => ['show','create','destroy']]);
 Route::resource('admin/tahunlulus','GraduateYearsController',['except' => ['show','create','destroy']]);
 
+Route::get('admin/pendaftaran/{id}','AdminController@pendaftaran');
+Route::patch('admin/pendaftaran/{id}','AdminController@pendaftaranupdate');
+
 Route::get('admin/departementlist','AdminController@departementlist');

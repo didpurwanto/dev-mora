@@ -31,6 +31,9 @@ class UpdateApplicantRequest extends Request {
 			'height'=> 'required|integer|min:100|max:210',
 			'contact' => 'required|numeric',
 			'address' => 'required',
+			'kabupaten' => 'required',
+			'kecamatan' => 'required',
+			'kelurahan' => 'required'
 		];
 	}
 
@@ -55,10 +58,10 @@ class UpdateApplicantRequest extends Request {
 			'recitation.min' => 'Jumlah Hafalan Al-Quran tidak boleh dibawah 0',
 			'recitation.max' => 'Jumlah Hafalan Al-Quran tidak boleh diatas 30',
 			'weight.required' => 'Berat Badan tidak boleh kosong',
-			'weight.integer' => 'Berat Badan harus dalam bentuk angka integer',			
+			'weight.integer' => 'Berat Badan harus dalam bentuk angka integer',
 			'weight.min' => 'Berat badan tidak boleh dibawah 20 Kg',
 			'weight.max' => 'Berat badan terlalu besar',
-			
+
 			'height.required'=> 'Tinggi Badan tidak boleh kosong',
 			'height.integer' => 'Tinggi Badan harus dalam bentuk angka integer',
 			'height.min' => 'Tinggi Badan tidak boleh dibawah 100 cm',
@@ -67,7 +70,10 @@ class UpdateApplicantRequest extends Request {
 			'contact.required' => 'Nomor telepon tidak boleh kosong',
 			'contact.numeric' => 'Nomor telepon harus berbentuk angka',
 
-			'address.required' => 'Alamat tidak boleh kosong'
+			'address.required' => 'Alamat tidak boleh kosong',
+			'kabupaten.required' => 'Nama Kabupaten tidak boleh kosong',
+			'kecamatan.required' => 'Nama Kecamatan tidak boleh kosong',
+			'kelurahan.required' => 'Nama Kelurahan tidak boleh kosong'
 		];
 	}
 

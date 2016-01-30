@@ -169,11 +169,14 @@
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Pengaturan Aplikasi<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li class="<?php echo Request::is('provinces') ? 'active' : ''; ?>">
+                                <li class="<?php echo Request::is('tahunlahir') ? 'active' : ''; ?>">
                                     <a href="<?php echo URL::to('admin/tahunlahir'); ?>">Pengaturan Tahun Lahir</a>
                                 </li>
-                                <li class="<?php echo Request::is('universities') ? 'active' : ''; ?>">
+                                <li class="<?php echo Request::is('tahunlulus') ? 'active' : ''; ?>">
                                     <a href="<?php echo URL::to('admin/tahunlulus'); ?>">Pengaturan Tahun Lulus</a>
+                                </li>
+                                <li class="<?php echo Request::is('pendaftaran') ? 'active' : ''; ?>">
+                                    <a href="<?php echo URL::to('admin/pendaftaran/1'); ?>">Pengaturan Pendaftaran</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

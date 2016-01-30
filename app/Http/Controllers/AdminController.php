@@ -13,8 +13,15 @@ use App\Http\Requests\UniversityRequest;
 use App\Http\Requests\DepartementRequest;
 use App\Http\Requests\AdminDepartementRequest;
 use Input;
+use App\Setting;
 
 class AdminController extends Controller {
+
+	public function __construct()
+	{
+		//$this->middleware('auth');
+		$this->middleware('admin');
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -143,5 +150,31 @@ class AdminController extends Controller {
 			->get();
 
 		return view('admin.pesantren', compact('pesantren'));
+	}
+
+	// method for setting application in registration
+
+	public function pendaftaran($id){
+		$pendaftaran2 = Setting::findOrfail($id);
+		//dd($pendaftaran2);
+		//$pendaftaran = $pendaftaran2->tutup_pendaftaran;
+		$pendaftaran = array();
+		$pendaftaran +=  [0 => 'Buka'];
+		$pendaftaran +=  [1 => 'Tutup'];
+
+		return view('admin.pendaftaran', compact('pendaftaran','pendaftaran2'));
+	}
+
+	// save registration option
+	public function pendaftaranupdate($id, Request $request){
+		$pendaftaran = Setting::findOrfail($id);
+
+		//dd($pendaftaran);
+		//$pendaftaran2 = $request
+		//dd($request);
+		$pendaftaran->tutup_pendaftaran = $request->tutup_pendaftaran;
+		$pendaftaran->save();
+
+		return redirect('admin/pendaftaran/1');
 	}
 }
