@@ -160,7 +160,18 @@
                                 </li>
                             </ul>
                         </li>
-
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Pengaturan Aplikasi<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li class="{!! Request::is('provinces') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/tahunlahir') !!}">Pengaturan Tahun Lahir</a>
+                                </li>
+                                <li class="{!! Request::is('universities') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/tahunlulus') !!}">Pengaturan Tahun Lulus</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

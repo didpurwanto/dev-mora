@@ -146,4 +146,7 @@ Route::resource('admin/pesantrentypes','PesantrenTypesController',['except' => [
 Route::resource('admin/rangesalaries','RangeSalariesController',['except' => ['show']]);
 Route::resource('admin/schooltypes','SchoolTypesController',['except' => ['show']]);
 
+Route::resource('admin/tahunlahir','BornYearsController',['except' => ['show','create','destroy']]);
+Route::resource('admin/tahunlulus','GraduateYearsController',['except' => ['show','create','destroy']]);
+
 Route::get('admin/departementlist','AdminController@departementlist');

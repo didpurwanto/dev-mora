@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use App\Applicant;
+use App\Pesantren;
 use App\User;
 use PDF;
 use Auth;
@@ -120,7 +120,7 @@ class SummaryController extends Controller {
 		$tahun = date("y");
 		$bulan = date("m");
 		$hari = date("d");
-		$prov = Applicant::where('user_id', '=', Auth::user()->id)->pluck('province_id');
+		$prov = Pesantren::where('user_id', '=', Auth::user()->id)->pluck('province_id');
 		$provinsi = Province::where('id', '=', $prov)->pluck('province_code');
 		$nomor = DB::table('settings')->pluck('nomor_registrasi');
 		//get four digit number to display

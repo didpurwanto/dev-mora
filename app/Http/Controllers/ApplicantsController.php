@@ -13,7 +13,7 @@ use App\Kecamatan;
 use App\Http\Requests\ApplicantRequest;
 use App\Http\Requests\UpdateApplicantRequest;
 use App\Family;
-
+use App\Setting;
 
 class ApplicantsController extends Controller {
 
@@ -77,15 +77,37 @@ class ApplicantsController extends Controller {
 		//$app = Applicant::findOrFail($id);
 
 		$prov = Province::lists('province_name','id');
-		$kab = Kabupaten::where('id',$app->kabupaten_id)->lists('kabupaten_name','id');
-		$kec = Kecamatan::where('id',$app->kecamatan_id)->lists('kecamatan_name','id');
+		//$kab = Kabupaten::where('id',$app->kabupaten_id)->lists('kabupaten_name','id');
+		//$kec = Kecamatan::where('id',$app->kecamatan_id)->lists('kecamatan_name','id');
+
+		$tahun_lahir = Setting::pluck('tahun_lahir');
+		$tahun_ini = date('Y');
+
+		$tanggal = array();
+		for ($i=1; $i < 32; $i++) {
+			$tanggal +=  [$i => $i];
+		}
+
+		$bulan = array();
+		for ($i=1; $i < 13; $i++) {
+			$bulan +=  [$i => $i];
+		}
+
+		$tahun = array();
+		for ($i=$tahun_lahir; $i <= $tahun_ini; $i++) {
+			$tahun +=  [$i => $i];
+		}
 
 		$listRecitation = array();
 		for ($i=0; $i < 31; $i++) {
 			$listRecitation +=  [$i => $i];
 		}
 
-		return view('applicant.edit', compact('app','prov','kab','kec','listRecitation'));
+		// pecah pelajaran dengan tanda ';'
+		$tanggal_lahir = explode("-",$app->date_birth);
+		//dd($tanggal_lahir);
+
+		return view('applicant.edit', compact('app','prov','tanggal','bulan','tahun','tanggal_lahir','listRecitation'));
 	}
 
 	/**
@@ -98,8 +120,13 @@ class ApplicantsController extends Controller {
 	{
 		$app = Applicant::where('user_id', '=', Auth::user()->id)->firstOrFail();
 		//$app = Applicant::findOrFail($id);
+
+		$tanggal_lahir = [$request->tahun,$request->bulan,$request->tanggal];
+		$tanggal_lahir1 = implode("-",$tanggal_lahir);
+		$app->date_birth = $tanggal_lahir1;
+
 		//Save record to the database
-		$form = $app->update($request->all());
+		$form = $app->update($request->except('date_birth','tanggal','bulan','tahun'));
 
 		//update if the table is filled with content it should.
 		$app->finish = 1;

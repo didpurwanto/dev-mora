@@ -2,10 +2,6 @@
 
 
 @section('css')
-	{!! Html::style('css/bootstrap-datepicker.min.css') !!}
-	{!! Html::style('css/bootstrap-datepicker.standalone.min.css') !!}
-	{!! Html::style('css/bootstrap-datepicker3.min.css') !!}
-	{!! Html::style('css/bootstrap-datepicker3.standalone.min.css') !!}
 @stop
 
 @section('content')
@@ -71,10 +67,12 @@
 		<div class="form-group {{ ! $errors->first('date_birth') ?'': 'has-error' }}">
 			<div class="row">
 				<div class="col-md-3">
-				{!! Form::label('date_birth', 'Tanggal Lahir') !!}
+				{!! Form::label('date_birth232', 'Tanggal Lahir') !!}
 				</div>
-				<div class="col-md-4">
-				{!! Form::text('date_birth',$app->date_birth,['class' => 'form-control', 'id' => 'date_birth', 'name' => 'date_birth']) !!}
+				<div class="col-md-5 form-inline">
+					{!! Form::select('tanggal',$tanggal,$tanggal_lahir[2],['class' => 'form-control']) !!} &nbsp;
+					<b>Bln&nbsp;</b>{!! Form::select('bulan',$bulan,$tanggal_lahir[1],['class' => 'form-control']) !!} &nbsp;
+					<b>Thn&nbsp;</b>{!! Form::select('tahun',$tahun,$tanggal_lahir[0], ['class' => 'form-control']) !!} &nbsp;
 				</div>
 				@if( $errors->first('date_birth') )
 					<span class="help-block text-danger">{{ $errors->first('date_birth') }}</span>
@@ -239,17 +237,4 @@
 @stop
 
 @section('script')
-	{!! Html::script('js/bootstrap-datepicker.min.js', array('type' => 'text/javascript')) !!}
-	<script>
-	  $(function() {
-		$("#date_birth" ).datepicker({
-			format: "yyyy-mm-dd",
-			//language: "id",
-			orientation: "bottom right",
-		  autoClose: 1,
-			endDate: "-19y",
-			//defaultViewDate: { year: 2010, month: 04, day: 25 }
-		  });
-	  });
-    </script>
 @stop
