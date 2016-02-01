@@ -2,10 +2,6 @@
 
 
 @section('css')
-	{!! Html::style('css/bootstrap-datepicker.min.css') !!}
-	{!! Html::style('css/bootstrap-datepicker.standalone.min.css') !!}
-	{!! Html::style('css/bootstrap-datepicker3.min.css') !!}
-	{!! Html::style('css/bootstrap-datepicker3.standalone.min.css') !!}
 @stop
 
 @section('content')
@@ -71,10 +67,12 @@
 		<div class="form-group {{ ! $errors->first('date_birth') ?'': 'has-error' }}">
 			<div class="row">
 				<div class="col-md-3">
-				{!! Form::label('date_birth', 'Tanggal Lahir') !!}
+				{!! Form::label('date_birth232', 'Tanggal Lahir') !!}
 				</div>
-				<div class="col-md-4">
-				{!! Form::text('date_birth',$app->date_birth,['class' => 'form-control']) !!}
+				<div class="col-md-5 form-inline">
+					{!! Form::select('tanggal',$tanggal,$tanggal_lahir[2],['class' => 'form-control']) !!} &nbsp;
+					<b>Bln&nbsp;</b>{!! Form::select('bulan',$bulan,$tanggal_lahir[1],['class' => 'form-control']) !!} &nbsp;
+					<b>Thn&nbsp;</b>{!! Form::select('tahun',$tahun,$tanggal_lahir[0], ['class' => 'form-control']) !!} &nbsp;
 				</div>
 				@if( $errors->first('date_birth') )
 					<span class="help-block text-danger">{{ $errors->first('date_birth') }}</span>
@@ -217,6 +215,45 @@
 				@endif
 			</div>
 		</div>
+		<div class="form-group {{ ! $errors->first('kelurahan') ?'': 'has-error' }}">
+			<div class="row">
+				<div class="col-md-3">
+				{!! Form::label('Kelurahan', 'Desa/Kelurahan') !!}
+				</div>
+				<div class="col-md-4">
+				{!! Form::text('kelurahan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kelurahan']) !!}
+				</div>
+				@if( $errors->first('kelurahan') )
+					<span class="help-block text-danger">{{ $errors->first('kelurahan') }}</span>
+				@endif
+			</div>
+		</div>
+		<div class="form-group {{ ! $errors->first('kecamatan') ?'': 'has-error' }}">
+			<div class="row">
+				<div class="col-md-3">
+				{!! Form::label('kecamatan', 'Kecamatan') !!}
+				</div>
+				<div class="col-md-4">
+				{!! Form::text('kecamatan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kecamatan']) !!}
+				</div>
+				@if( $errors->first('kecamatan') )
+					<span class="help-block text-danger">{{ $errors->first('kecamatan') }}</span>
+				@endif
+			</div>
+		</div>
+		<div class="form-group {{ ! $errors->first('kabupaten') ?'': 'has-error' }}">
+			<div class="row">
+				<div class="col-md-3">
+				{!! Form::label('kabupaten', 'Kabupaten/Kota') !!}
+				</div>
+				<div class="col-md-4">
+				{!! Form::text('kabupaten', null, ['class' => 'form-control', 'placeholder' => 'Nama Kabupaten']) !!}
+				</div>
+				@if( $errors->first('kabupaten') )
+					<span class="help-block text-danger">{{ $errors->first('kabupaten') }}</span>
+				@endif
+			</div>
+		</div>
 		<div class="form-group {{ ! $errors->first('province_id') ?'': 'has-error' }}">
 			<div class="row">
 				<div class="col-md-3">
@@ -239,16 +276,4 @@
 @stop
 
 @section('script')
-	{!! Html::script('js/bootstrap-datepicker.min.js', array('type' => 'text/javascript')) !!}
-	<script>
-	  $(function() {
-		$( '#date_birth' ).datepicker({
-			format: "yyyy-mm-dd",
-			//language: "id",
-			orientation: "bottom left",
-		  autoclose: 1,
-			defaultViewDate: { year: 2010, month: 04, day: 25 }
-		  });
-	  });
-    </script>
 @stop

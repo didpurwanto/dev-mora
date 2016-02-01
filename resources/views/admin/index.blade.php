@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>DEVMORA - ADMIN</title>
+    <title>Program Beasiswa Santri Berprestasi (PBSB) - Administrator</title>
 
     <!-- Bootstrap Core CSS -->
     {!! Html::style('bower_components/bootstrap/dist/css/bootstrap.min.css') !!}
@@ -160,7 +160,21 @@
                                 </li>
                             </ul>
                         </li>
-
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Pengaturan Aplikasi<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li class="{!! Request::is('tahunlahir') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/tahunlahir') !!}">Pengaturan Tahun Lahir</a>
+                                </li>
+                                <li class="{!! Request::is('tahunlulus') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/tahunlulus') !!}">Pengaturan Tahun Lulus</a>
+                                </li>
+                                <li class="{!! Request::is('pendaftaran') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/pendaftaran/1') !!}">Pengaturan Pendaftaran</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

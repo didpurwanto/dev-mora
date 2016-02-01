@@ -86,7 +86,7 @@
                 2016
                 </b>
                 </font>
-       
+
                 <br /><br /><br /><br />
 
                 <a href="#daftar" class="btn btn-success btn-xl page-scroll">Buat Akun Sekarang</a>
@@ -100,6 +100,12 @@
       <div class="alert alert-danger">
         <p>{{ Session::get('pesan') }}</p>
       </div>
+    @endif
+    @if ($pendaftaran == 1)
+        <br />
+        <div class="alert alert-danger">
+          <p align="center">PENDAFTARAN TELAH DITUTUP</p>
+        </div>
     @endif
     <section class="bg-success" id="login">
         <div class="container">
@@ -145,6 +151,7 @@
         </div>
     </section>
 
+    @if ($pendaftaran == 0)
     <section class="bg-success" id="daftar">
         <div class="container">
             <div class="row">
@@ -254,7 +261,7 @@
             </div>
         </div>
     </section>
-
+  @endif
     <section id="services">
         <div class="container">
             <div class="row">

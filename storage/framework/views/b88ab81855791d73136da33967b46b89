@@ -16,6 +16,14 @@
 	<?php echo Form::select('study_list[]', $listProgram, null, ['class' => 'form-control', 'multiple']); ?>
 
 </div>
+ <div class="form-group">
+    <?php echo Form::label('status','Status:'); ?>
+
+    <?php echo Form::radio('status', true, null, ['class' => 'class="btn btn-default']),'&nbsp', 'Aktif'; ?>
+
+    <?php echo Form::radio('status', false, null, ['class' => 'class="btn btn-default']),'&nbsp','non Aktif'; ?>
+
+</div>
 
 <div class="form-group">
 	<?php echo Form::submit($text, ['class' => 'btn btn-primary form-control']); ?>

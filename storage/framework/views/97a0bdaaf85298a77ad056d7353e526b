@@ -1,12 +1,4 @@
 <?php $__env->startSection('css'); ?>
-	<?php echo Html::style('css/bootstrap-datepicker.min.css'); ?>
-
-	<?php echo Html::style('css/bootstrap-datepicker.standalone.min.css'); ?>
-
-	<?php echo Html::style('css/bootstrap-datepicker3.min.css'); ?>
-
-	<?php echo Html::style('css/bootstrap-datepicker3.standalone.min.css'); ?>
-
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -81,12 +73,13 @@
 		<div class="form-group <?php echo e(! $errors->first('date_birth') ?'': 'has-error'); ?>">
 			<div class="row">
 				<div class="col-md-3">
-				<?php echo Form::label('date_birth', 'Tanggal Lahir'); ?>
+				<?php echo Form::label('date_birth232', 'Tanggal Lahir'); ?>
 
 				</div>
-				<div class="col-md-4">
-				<?php echo Form::text('date_birth',$app->date_birth,['class' => 'form-control']); ?>
-
+				<div class="col-md-5 form-inline">
+					<?php echo Form::select('tanggal',$tanggal,$tanggal_lahir[2],['class' => 'form-control']); ?> &nbsp;
+					<b>Bln&nbsp;</b><?php echo Form::select('bulan',$bulan,$tanggal_lahir[1],['class' => 'form-control']); ?> &nbsp;
+					<b>Thn&nbsp;</b><?php echo Form::select('tahun',$tahun,$tanggal_lahir[0], ['class' => 'form-control']); ?> &nbsp;
 				</div>
 				<?php if( $errors->first('date_birth') ): ?>
 					<span class="help-block text-danger"><?php echo e($errors->first('date_birth')); ?></span>
@@ -248,6 +241,51 @@
 				<?php endif; ?>
 			</div>
 		</div>
+		<div class="form-group <?php echo e(! $errors->first('kelurahan') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('Kelurahan', 'Desa/Kelurahan'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::text('kelurahan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kelurahan']); ?>
+
+				</div>
+				<?php if( $errors->first('kelurahan') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('kelurahan')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('kecamatan') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('kecamatan', 'Kecamatan'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::text('kecamatan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kecamatan']); ?>
+
+				</div>
+				<?php if( $errors->first('kecamatan') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('kecamatan')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="form-group <?php echo e(! $errors->first('kabupaten') ?'': 'has-error'); ?>">
+			<div class="row">
+				<div class="col-md-3">
+				<?php echo Form::label('kabupaten', 'Kabupaten/Kota'); ?>
+
+				</div>
+				<div class="col-md-4">
+				<?php echo Form::text('kabupaten', null, ['class' => 'form-control', 'placeholder' => 'Nama Kabupaten']); ?>
+
+				</div>
+				<?php if( $errors->first('kabupaten') ): ?>
+					<span class="help-block text-danger"><?php echo e($errors->first('kabupaten')); ?></span>
+				<?php endif; ?>
+			</div>
+		</div>
 		<div class="form-group <?php echo e(! $errors->first('province_id') ?'': 'has-error'); ?>">
 			<div class="row">
 				<div class="col-md-3">
@@ -274,19 +312,6 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('script'); ?>
-	<?php echo Html::script('js/bootstrap-datepicker.min.js', array('type' => 'text/javascript')); ?>
-
-	<script>
-	  $(function() {
-		$( '#date_birth' ).datepicker({
-			format: "yyyy-mm-dd",
-			//language: "id",
-			orientation: "bottom left",
-		  autoclose: 1,
-			defaultViewDate: { year: 2010, month: 04, day: 25 }
-		  });
-	  });
-    </script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('register.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -62,7 +62,7 @@
 
 		</div>
 		<div class="col-md-4">
-		<?php echo Form::select('graduate_year', [date("Y") => date("Y"), date("Y")-1 => date("Y")-1],$sch->graduate_year,['class' => 'form-control']); ?>
+		<?php echo Form::select('graduate_year', [date("Y") => date("Y"), date("Y")-1 => date("Y")-1], $sch->graduate_year,['class' => 'form-control']); ?>
 
 		</div>
 		<?php if( $errors->first('graduate_year') ): ?>

@@ -1,4 +1,5 @@
 <?php namespace App\Http\Controllers;
+use DB;
 
 class WelcomeController extends Controller {
 
@@ -20,7 +21,9 @@ class WelcomeController extends Controller {
 	public function index()
 	{
 		// return view('welcome');
-		return view('home.index');
+		$pendaftaran = DB::table('settings')->pluck('tutup_pendaftaran');
+		//dd($pendaftaran);
+		return view('home.index',compact('pendaftaran'));
 	}
 
 }

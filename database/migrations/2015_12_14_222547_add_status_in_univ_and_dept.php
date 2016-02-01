@@ -20,7 +20,7 @@ class AddStatusInUnivAndDept extends Migration {
 		Schema::table('departements', function(Blueprint $table)
 		{
 			$table->string('status')->after('departement_name');
-		});		
+		});
 	}
 
 	/**
@@ -30,7 +30,15 @@ class AddStatusInUnivAndDept extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::table('universities', function(Blueprint $table)
+		{
+			$table->dropColumn('status');
+		});
+
+		Schema::table('departements', function(Blueprint $table)
+		{
+			$table->dropColumn('status');
+		});
 	}
 
 }
