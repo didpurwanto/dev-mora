@@ -38,6 +38,10 @@
 								<br>							
 							</div>
 								<div class="dataTable_wrapper">
+							<div class="col-md-2 col-md-offset-5">
+								<a class="btn btn-success" href="{!! URL::to('admin/DownloadProvince') !!}"><i class="glyphicon glyphicon-download-alt"></i> Download in excel</a>
+							</div>
+
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 											<thead>
 												<tr>
