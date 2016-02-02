@@ -86,7 +86,7 @@
                 2016
                 </b>
                 </font>
-       
+
                 <br /><br /><br /><br />
 
                 <a href="#daftar" class="btn btn-success btn-xl page-scroll">Buat Akun Sekarang</a>
@@ -100,6 +100,12 @@
       <div class="alert alert-danger">
         <p><?php echo e(Session::get('pesan')); ?></p>
       </div>
+    <?php endif; ?>
+    <?php if($pendaftaran == 1): ?>
+        <br />
+        <div class="alert alert-danger">
+          <p align="center">PENDAFTARAN TELAH DITUTUP</p>
+        </div>
     <?php endif; ?>
     <section class="bg-success" id="login">
         <div class="container">
@@ -145,6 +151,7 @@
         </div>
     </section>
 
+    <?php if($pendaftaran == 0): ?>
     <section class="bg-success" id="daftar">
         <div class="container">
             <div class="row">
@@ -261,7 +268,7 @@
             </div>
         </div>
     </section>
-
+  <?php endif; ?>
     <section id="services">
         <div class="container">
             <div class="row">

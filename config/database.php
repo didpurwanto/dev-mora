@@ -58,7 +58,7 @@ return [
 			'port'      => '3306',
 			'database'  => 'dev-mora',
 			'username'  => 'root',
-			'password'  => 'henri',
+			'password'  => 'bismillah',
 
 
 			'charset'   => 'utf8',
