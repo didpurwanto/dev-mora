@@ -66,20 +66,32 @@ class AdminController extends Controller {
 
 		// $id = 1;
 		$id = Input::get('university_id');
-
+		// dd($id);
 		$univ_list= University::lists('university_name','id');
-		// $univ_list = University::all();//lists('university_name','id');
+
+		if($id == "0"){
+			// dd($id);
+			$dept = DB::table('departements')
+				->select(['departements.departement_name', 'universities.university_name',DB::raw('count(applications.major_1_id) as total'), 'departements.id'
+					])
+	            ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
+	            ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
+	            ->groupBy('departements.id')
+	            ->get();
+		}
+		else{
+			// dd($id);
+			$dept = DB::table('departements')
+				->select(['departements.departement_name', 'universities.university_name',DB::raw('count(applications.major_1_id) as total'), 'departements.id'
+					])
+	            ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
+	            ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
+	            ->where('departements.university_id', $id)
+	            ->groupBy('departements.id')
+	            ->get();
+		}
 
 
-		// $id =1;
-		$dept = DB::table('departements')
-			->select(['departements.departement_name', 'universities.university_name',DB::raw('count(applications.major_1_id) as total'), 'departements.id'
-				])
-            ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
-            ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
-            ->where('departements.university_id', $id)
-            ->groupBy('departements.id')
-            ->get();
 
          // dd($id);
 
@@ -258,7 +270,7 @@ class AdminController extends Controller {
 	public function list_pesantren_excel()
 	{
 		Excel::create('Rekap Pesantren', function($excel){
-	        $excel->setTitle('List Pendaftar PBSB');
+	        $excel->setTitle('Rekapitulasi Biodata Pesantren');
 	        $excel->setCreator('Agung Laksono')->setCompany('Kemenag');
 	        $excel->sheet('Daftar Pesantren', function ($sheet){
     			$pesantren = DB::table('pesantrens')
@@ -303,5 +315,34 @@ class AdminController extends Controller {
 	        });
 		})->export('xls');
 
+	}
+
+	public function list_departement_excel()
+	{
+		Excel::create('Rekapitulasi Pendaftar per Jurusan', function($excel){
+			$excel->setTitle('Rekapitulasi Pendaftar per Jurusan');
+			$excel->setCreator('Agung Laksono')->setCompany('kemenag');
+			$excel->sheet('Rekap Jurusan', function($sheet){
+
+				$id = Input::get('university_id');
+
+				dd($id);
+				
+				$univ_list= University::lists('university_name','id');
+				// $univ_list = University::all();//lists('university_name','id');
+
+
+				// $id =1;
+				$dept = DB::table('departements')
+					->select(['departements.departement_name', 'universities.university_name',DB::raw('count(applications.major_1_id) as total'), 'departements.id'
+						])
+		            ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
+		            ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
+		            ->where('departements.university_id', $id)
+		            ->groupBy('departements.id')
+		            ->get();
+
+			});
+		});
 	}
 }

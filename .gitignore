@@ -5,3 +5,4 @@ public/images/photos/*
 README.md
 database.php
 *.md
+/storage
