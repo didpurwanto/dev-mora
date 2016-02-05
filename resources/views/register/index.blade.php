@@ -56,7 +56,7 @@
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li>
-                    <a href="#"><i class="fa fa-user"></i>&nbsp;&nbsp;{!! strtoupper(\Auth::user()->username); !!}</a>
+                    <a href="#"><i class="fa fa-user"></i>&nbsp;&nbsp;{!! ucfirst(\Auth::user()->username); !!}</a>
                 </li>
                 <li>
                     <a href="{!! URL::to('/auth/logout') !!}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>

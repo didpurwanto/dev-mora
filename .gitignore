@@ -3,5 +3,7 @@
 .env
 public/images/photos/*
 README.md
-config/database.php
+database.php
 *.md
+storage
+docs/laravel+git+sql.steps

@@ -153,3 +153,6 @@ Route::get('admin/pendaftaran/{id}','AdminController@pendaftaran');
 Route::patch('admin/pendaftaran/{id}','AdminController@pendaftaranupdate');
 
 Route::get('admin/departementlist','AdminController@departementlist');
+Route::get('admin/DownloadProvince','AdminController@list_provinces_excel');
+Route::get('admin/DonwloadPesantren','AdminController@list_pesantren_excel');
+Route::get('admin/DonwloadDepartement','AdminController@list_departement_excel');

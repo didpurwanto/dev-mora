@@ -1,7 +1,0 @@
-<?php $__env->startSection('content'); ?>
-	<h2>Daftar Departement</h2>
-	<hr />
-	<article><?php echo e($dep->university_name); ?></article>
-	<article><?php echo e($dep->departement_name); ?></article>
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

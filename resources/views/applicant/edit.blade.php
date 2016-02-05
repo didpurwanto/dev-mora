@@ -14,7 +14,7 @@
 				<div class="col-md-3">
 				{!! Form::label('full_name', 'Nama Lengkap') !!}
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 				{!! Form::text('full_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Lengkap','disabled' => 'disabled']) !!}
 				</div>
 				@if( $errors->first('full_name') )
@@ -27,7 +27,7 @@
 				<div class="col-md-3">
 				{!! Form::label('email', 'Alamat E-mail') !!}
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 				{!! Form::email('email',Auth::user()->email ,['class' => 'form-control', 'placeholder' => 'Alamat E-mail', 'disabled' => 'disabled']) !!}
 				</div>
 				@if( $errors->first('email') )
@@ -40,7 +40,7 @@
 				<div class="col-md-3">
 				{!! Form::label('gender', 'Jenis Kelamin') !!}&nbsp;&nbsp;
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 				{!! Form::radio('gender', 1, 1) !!}
 				{!! Form::label('Laki-laki','Laki-laki')!!}&nbsp;&nbsp;&nbsp;&nbsp;
 				{!! Form::radio('gender', 0, 0) !!}
@@ -56,8 +56,8 @@
 				<div class="col-md-3">
 				{!! Form::label('place_birth', 'Tempat Lahir') !!}
 				</div>
-				<div class="col-md-4">
-				{!! Form::text('place_birth',null, ['class' => 'form-control','placeholder' => 'Tempat Lahir' ]) !!}
+				<div class="col-md-5">
+				{!! Form::text('place_birth',null, ['class' => 'form-control','placeholder' => '...' ]) !!}
 				</div>
 				@if( $errors->first('place_birth') )
 					<span class="help-block text-danger">{{ $errors->first('place_birth') }}</span>
@@ -67,7 +67,7 @@
 		<div class="form-group {{ ! $errors->first('date_birth') ?'': 'has-error' }}">
 			<div class="row">
 				<div class="col-md-3">
-				{!! Form::label('date_birth232', 'Tanggal Lahir') !!}
+				{!! Form::label('date_birth', 'Tanggal Lahir') !!}
 				</div>
 				<div class="col-md-5 form-inline">
 					{!! Form::select('tanggal',$tanggal,$tanggal_lahir[2],['class' => 'form-control']) !!} &nbsp;
@@ -84,7 +84,7 @@
 				<div class="col-md-3">
 				{!! Form::label('recitation', 'Jumlah Hafalan Al-Quran') !!}
 				</div>
-				<div class="col-md-2 form-inline">
+				<div class="col-md-3 form-inline">
 				{!! Form::select('recitation',$listRecitation, $app->recitation, ['class' => 'form-control', 'placeholder' => '00']) !!} &nbsp;Juz
 				</div>
 				@if( $errors->first('recitation') )
@@ -97,7 +97,7 @@
 				<div class="col-md-3">
 				{!! Form::label('color_blind', 'Buta Warna') !!}
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-2">
 				{!! Form::select('color_blind', array('1' => 'Ya', '0' => 'Tidak'),$app->color_blind,['class' => 'form-control']) !!}
 				</div>
 				@if( $errors->first('color_blind') )
@@ -110,7 +110,7 @@
 				<div class="col-md-3">
 				{!! Form::label('mental_disorder', 'Riwayat Gangguan Mental') !!}
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-2">
 				{!! Form::select('mental_disorder', array('1' => 'Ya', '0' => 'Tidak'),$app->mental_disorder, ['class' => 'form-control']) !!}
 				</div>
 				@if( $errors->first('mental_disorder') )
@@ -123,8 +123,8 @@
 				<div class="col-md-3">
 				{!! Form::label('illness', 'Penyakit yang sedang/pernah diderita') !!}
 				</div>
-				<div class="col-md-4">
-				{!! Form::textarea('illness', null,['class' => 'form-control', 'placeholder' => 'DBD, Tipus, ','cols' => '50', 'rows' => '2']) !!}
+				<div class="col-md-5">
+				{!! Form::textarea('illness', null,['class' => 'form-control', 'placeholder' => 'Pisahkan dengan tanda koma, contoh: DBD, Tipus ','cols' => '50', 'rows' => '2']) !!}
 				</div>
 				@if( $errors->first('illness') )
 					<span class="help-block text-danger">{{ $errors->first('illness') }}</span>
@@ -181,8 +181,8 @@
 				<div class="col-md-3">
 				{!! Form::label('contact', 'Telepon yang bisa dihubungi') !!}
 				</div>
-				<div class="col-md-4">
-				{!! Form::text('contact', null ,['class' => 'form-control','placeholder' => '08XXXXXXXXXX']) !!}
+				<div class="col-md-5">
+				{!! Form::text('contact', null ,['class' => 'form-control','placeholder' => 'Contoh: 08xxxxxxx']) !!}
 				</div>
 				@if( $errors->first('contact') )
 					<span class="help-block text-danger">{{ $errors->first('contact') }}</span>
@@ -194,7 +194,7 @@
 				<div class="col-md-3">
 				{!! Form::label('marriage_status', 'Sudah Menikah') !!}
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 				{!! Form::select('marriage_status', array('0' => 'Belum', '1' => 'Sudah'),$app->marriage_status, ['class' => 'form-control']) !!}
 				</div>
 				@if( $errors->first('marriage_status') )
@@ -207,8 +207,8 @@
 				<div class="col-md-3">
 				{!! Form::label('address', 'Alamat') !!}
 				</div>
-				<div class="col-md-4">
-				{!! Form::textarea('address', null, ['class' => 'form-control', 'placeholder' => 'Jl. Sakti No. 05 RT/RW 005/005','cols' => '50', 'rows' => '2']) !!}
+				<div class="col-md-5">
+				{!! Form::textarea('address', null, ['class' => 'form-control', 'placeholder' => 'Contoh: Jl. Lap Banteng No. 05 RT:1/RW:3','cols' => '50', 'rows' => '2']) !!}
 				</div>
 				@if( $errors->first('address') )
 					<span class="help-block text-danger">{{ $errors->first('address') }}</span>
@@ -220,8 +220,8 @@
 				<div class="col-md-3">
 				{!! Form::label('Kelurahan', 'Desa/Kelurahan') !!}
 				</div>
-				<div class="col-md-4">
-				{!! Form::text('kelurahan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kelurahan']) !!}
+				<div class="col-md-5">
+				{!! Form::text('kelurahan', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
 				</div>
 				@if( $errors->first('kelurahan') )
 					<span class="help-block text-danger">{{ $errors->first('kelurahan') }}</span>
@@ -233,8 +233,8 @@
 				<div class="col-md-3">
 				{!! Form::label('kecamatan', 'Kecamatan') !!}
 				</div>
-				<div class="col-md-4">
-				{!! Form::text('kecamatan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kecamatan']) !!}
+				<div class="col-md-5">
+				{!! Form::text('kecamatan', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
 				</div>
 				@if( $errors->first('kecamatan') )
 					<span class="help-block text-danger">{{ $errors->first('kecamatan') }}</span>
@@ -246,8 +246,8 @@
 				<div class="col-md-3">
 				{!! Form::label('kabupaten', 'Kabupaten/Kota') !!}
 				</div>
-				<div class="col-md-4">
-				{!! Form::text('kabupaten', null, ['class' => 'form-control', 'placeholder' => 'Nama Kabupaten']) !!}
+				<div class="col-md-5">
+				{!! Form::text('kabupaten', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
 				</div>
 				@if( $errors->first('kabupaten') )
 					<span class="help-block text-danger">{{ $errors->first('kabupaten') }}</span>
@@ -259,7 +259,7 @@
 				<div class="col-md-3">
 				{!! Form::label('province_id', 'Provinsi') !!}
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 				{!! Form::select('province_id', $prov, $app->province_id,['class' => 'form-control']) !!}
 				</div>
 				@if( $errors->first('province_id') )

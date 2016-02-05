@@ -93,7 +93,11 @@ class ApplicantsController extends Controller {
 			$bulan +=  [$i => $i];
 		}
 
+		if (is_null($tahun_lahir)) {
+			$tahun_lahir = $tahun_ini-18;
+		}	 			
 		$tahun = array();
+
 		for ($i=$tahun_lahir; $i <= $tahun_ini; $i++) {
 			$tahun +=  [$i => $i];
 		}
