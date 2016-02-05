@@ -194,6 +194,9 @@
                             <div id='myform_username_errorloc' class="error_strings">
                               @if($errors->any())
                                 <ul class="alert alert-danger">
+                                @if ($errors->first('jenis_pesantren'))
+                                    <li>{{ $errors->first('jenis_pesantren') }}</li>
+                                @endif
                                 @if ($errors->first('username'))
                                     <li>{{ $errors->first('username') }}</li>
                                 @endif
@@ -213,6 +216,15 @@
                           </td>
                         </tr>
                       </table>
+                      <table align="center">
+                          <tr>
+                            <td>
+                              <p style="color:red">Pilih Jenis Pesantren Anda !</p>
+                              {!! Form::select('jenis_pesantren', ['0' => 'Jenis Pesantren'] + $jenis_pesantren,'' ,['class' => 'form-control']) !!}
+                            </td>
+                          </tr>
+                        </table>
+                        <br />
 					            <table align="center">
                         <tr>
                           <td>
@@ -283,25 +295,22 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="/logo/kampus/itb.png" alt="" />
-                        <p class="text-muted"><a href="http://itb.ac.id">Institut Teknologi Bandung</p>
+                        <p class="text-muted"><a href="http://itb.ac.id">Institut Teknologi Bandung</a></p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="logo/kampus/unair.png" alt="" />
-                        <p class="text-muted"><a href="http://unair.ac.id">Universitas Airlangga</p>
+                        <p class="text-muted"><a href="http://unair.ac.id">Universitas Airlangga</a></p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="logo/kampus/ipb.png" alt="" />
-                        <p class="text-muted"><a href="http://ipb.ac.id">Institut Pertanian Bogor</p>
+                        <p class="text-muted"><a href="http://ipb.ac.id">Institut Pertanian Bogor</a></p>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </section>
@@ -332,7 +341,7 @@
         <table align="center">
           <tr>
             <td>
-              Copyright (c) 2015 by devmora PBSB All right reserved
+              Copyright &copy; <?php echo date('Y'); ?> by devmora PBSB All right reserved
             </td>
           </tr>
         </table>

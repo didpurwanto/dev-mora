@@ -101,7 +101,7 @@
         <p><?php echo e(Session::get('pesan')); ?></p>
       </div>
     <?php endif; ?>
-    <?php if($pendaftaran == 0): ?>
+    <?php if($pendaftaran == 1): ?>
         <br />
         <div class="alert alert-danger">
           <p align="center">PENDAFTARAN TELAH DITUTUP</p>
@@ -151,7 +151,7 @@
         </div>
     </section>
 
-    <?php if($pendaftaran == 1): ?>
+    <?php if($pendaftaran == 0): ?>
     <section class="bg-success" id="daftar">
         <div class="container">
             <div class="row">
@@ -201,6 +201,9 @@
                             <div id='myform_username_errorloc' class="error_strings">
                               <?php if($errors->any()): ?>
                                 <ul class="alert alert-danger">
+                                <?php if($errors->first('jenis_pesantren')): ?>
+                                    <li><?php echo e($errors->first('jenis_pesantren')); ?></li>
+                                <?php endif; ?>
                                 <?php if($errors->first('username')): ?>
                                     <li><?php echo e($errors->first('username')); ?></li>
                                 <?php endif; ?>
@@ -220,6 +223,16 @@
                           </td>
                         </tr>
                       </table>
+                      <table align="center">
+                          <tr>
+                            <td>
+                              <p style="color:red">Pilih Jenis Pesantren Anda !</p>
+                              <?php echo Form::select('jenis_pesantren', ['0' => 'Jenis Pesantren'] + $jenis_pesantren,'' ,['class' => 'form-control']); ?>
+
+                            </td>
+                          </tr>
+                        </table>
+                        <br />
 					            <table align="center">
                         <tr>
                           <td>
@@ -290,25 +303,22 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="/logo/kampus/itb.png" alt="" />
-                        <p class="text-muted"><a href="http://itb.ac.id">Institut Teknologi Bandung</p>
+                        <p class="text-muted"><a href="http://itb.ac.id">Institut Teknologi Bandung</a></p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="logo/kampus/unair.png" alt="" />
-                        <p class="text-muted"><a href="http://unair.ac.id">Universitas Airlangga</p>
+                        <p class="text-muted"><a href="http://unair.ac.id">Universitas Airlangga</a></p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="logo/kampus/ipb.png" alt="" />
-                        <p class="text-muted"><a href="http://ipb.ac.id">Institut Pertanian Bogor</p>
+                        <p class="text-muted"><a href="http://ipb.ac.id">Institut Pertanian Bogor</a></p>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </section>
@@ -339,7 +349,7 @@
         <table align="center">
           <tr>
             <td>
-              Copyright (c) 2015 by devmora PBSB All right reserved
+              Copyright &copy; <?php echo date('Y'); ?> by devmora PBSB All right reserved
             </td>
           </tr>
         </table>

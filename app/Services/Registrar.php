@@ -19,6 +19,7 @@ class Registrar implements RegistrarContract {
 			'full_name' => 'required|max:100|min:5',
 			'email' => 'required|email|max:100|unique:users',
 			'password' => 'required|confirmed|min:8',
+			'jenis_pesantren' => 'required|not_in:0',
 		], [
 			'username.required' => 'Username tidak boleh kosong.',
 			'unique_with' => 'Data-data yang anda masukan sudah terdaftar. Silahkan klik lupa password pada saat login, jika anda sudah pernah mendaftar.',
@@ -35,6 +36,8 @@ class Registrar implements RegistrarContract {
 			'password.required' => 'Password tidak boleh kosong',
 			'password.confirmed' => 'Password tidak sesuai',
 			'password.min' => 'Password minimal delapan (8) karakter',
+			'jenis_pesantren.required' => 'Jenis Pesantren harus dipilih',
+			'jenis_pesantren.not_in' => 'Jenis Pesantren harus dipilih',
 			]);
 	}
 

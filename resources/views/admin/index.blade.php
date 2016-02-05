@@ -163,9 +163,9 @@
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Pengaturan Aplikasi<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li class="{!! Request::is('tahunlahir') ? 'active' : '' !!}">
+                                <!-- <li class="{!! Request::is('tahunlahir') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/tahunlahir') !!}">Pengaturan Tahun Lahir</a>
-                                </li>
+                                </li> -->
                                 <li class="{!! Request::is('tahunlulus') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/tahunlulus') !!}">Pengaturan Tahun Lulus</a>
                                 </li>
