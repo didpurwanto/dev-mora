@@ -3,5 +3,5 @@
 .env
 public/images/photos/*
 README.md
-database.php
+config/database.php
 *.md
