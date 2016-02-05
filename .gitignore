@@ -5,5 +5,5 @@ public/images/photos/*
 README.md
 database.php
 *.md
-/storage
+storage
 docs/laravel+git+sql.steps
