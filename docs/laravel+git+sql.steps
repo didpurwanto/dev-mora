@@ -77,3 +77,20 @@ rhc ssh -a laravelapp
 sourcevode location: app-root ->repo
 
 curl -s https://getcomposer.org/installer | php -- --quiet --install-dir=$OPENSHIFT_DATA_DIR  
+
+
+
+================================================================================================
+SQL
+================================================================================================
+http://stackoverflow.com/questions/3019698/reset-id-autoincrement-phpmyadmin
+ALTER TABLE `table_name` AUTO_INCREMENT=1
+
+make the table empty and also reset the autoincrement
+truncate families
+
+================================================================================================
+PHP
+================================================================================================
+- upper case in the first word only-
+string ucfirst ( string $str )

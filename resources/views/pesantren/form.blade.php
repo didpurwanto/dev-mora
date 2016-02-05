@@ -66,7 +66,8 @@
 		{!! Form::label('pesantren_address', 'Alamat Pesantren') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::textarea('pesantren_address', null,['class' => 'form-control', 'placeholder' => 'Jl. Keramat Jati, No. 5, RT/RW 05/05, Kel. Sukajadi', 'cols' => '50', 'rows' => '1']) !!}
+		{!! Form::textarea('pesantren_address', null, ['class' => 'form-control', 'placeholder' => 'Contoh: Jl. Lap Banteng No. 05 RT:1/RW:3','cols' => '50', 'rows' => '2']) !!}
+		<!-- {!! Form::textarea('pesantren_address', null,['class' => 'form-control', 'placeholder' => 'Jl. Keramat Jati, No. 5, RT/RW 05/05, Kel. Sukajadi', 'cols' => '50', 'rows' => '1']) !!} -->
 		</div>
 		@if( $errors->first('pesantren_address') )
 			<span class="help-block text-danger">{{ $errors->first('pesantren_address') }}</span>

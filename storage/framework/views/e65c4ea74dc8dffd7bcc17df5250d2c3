@@ -13,7 +13,7 @@
 				<?php echo Form::label('full_name', 'Nama Lengkap'); ?>
 
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 				<?php echo Form::text('full_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Lengkap','disabled' => 'disabled']); ?>
 
 				</div>
@@ -28,7 +28,7 @@
 				<?php echo Form::label('email', 'Alamat E-mail'); ?>
 
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 				<?php echo Form::email('email',Auth::user()->email ,['class' => 'form-control', 'placeholder' => 'Alamat E-mail', 'disabled' => 'disabled']); ?>
 
 				</div>
@@ -42,7 +42,7 @@
 				<div class="col-md-3">
 				<?php echo Form::label('gender', 'Jenis Kelamin'); ?>&nbsp;&nbsp;
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 				<?php echo Form::radio('gender', 1, 1); ?>
 
 				<?php echo Form::label('Laki-laki','Laki-laki'); ?>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -61,8 +61,8 @@
 				<?php echo Form::label('place_birth', 'Tempat Lahir'); ?>
 
 				</div>
-				<div class="col-md-4">
-				<?php echo Form::text('place_birth',null, ['class' => 'form-control','placeholder' => 'Tempat Lahir' ]); ?>
+				<div class="col-md-5">
+				<?php echo Form::text('place_birth',null, ['class' => 'form-control','placeholder' => '...' ]); ?>
 
 				</div>
 				<?php if( $errors->first('place_birth') ): ?>
@@ -73,7 +73,7 @@
 		<div class="form-group <?php echo e(! $errors->first('date_birth') ?'': 'has-error'); ?>">
 			<div class="row">
 				<div class="col-md-3">
-				<?php echo Form::label('date_birth232', 'Tanggal Lahir'); ?>
+				<?php echo Form::label('date_birth', 'Tanggal Lahir'); ?>
 
 				</div>
 				<div class="col-md-5 form-inline">
@@ -92,7 +92,7 @@
 				<?php echo Form::label('recitation', 'Jumlah Hafalan Al-Quran'); ?>
 
 				</div>
-				<div class="col-md-2 form-inline">
+				<div class="col-md-3 form-inline">
 				<?php echo Form::select('recitation',$listRecitation, $app->recitation, ['class' => 'form-control', 'placeholder' => '00']); ?> &nbsp;Juz
 				</div>
 				<?php if( $errors->first('recitation') ): ?>
@@ -106,7 +106,7 @@
 				<?php echo Form::label('color_blind', 'Buta Warna'); ?>
 
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-2">
 				<?php echo Form::select('color_blind', array('1' => 'Ya', '0' => 'Tidak'),$app->color_blind,['class' => 'form-control']); ?>
 
 				</div>
@@ -121,7 +121,7 @@
 				<?php echo Form::label('mental_disorder', 'Riwayat Gangguan Mental'); ?>
 
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-2">
 				<?php echo Form::select('mental_disorder', array('1' => 'Ya', '0' => 'Tidak'),$app->mental_disorder, ['class' => 'form-control']); ?>
 
 				</div>
@@ -136,8 +136,8 @@
 				<?php echo Form::label('illness', 'Penyakit yang sedang/pernah diderita'); ?>
 
 				</div>
-				<div class="col-md-4">
-				<?php echo Form::textarea('illness', null,['class' => 'form-control', 'placeholder' => 'DBD, Tipus, ','cols' => '50', 'rows' => '2']); ?>
+				<div class="col-md-5">
+				<?php echo Form::textarea('illness', null,['class' => 'form-control', 'placeholder' => 'Pisahkan dengan tanda koma, contoh: DBD, Tipus ','cols' => '50', 'rows' => '2']); ?>
 
 				</div>
 				<?php if( $errors->first('illness') ): ?>
@@ -202,8 +202,8 @@
 				<?php echo Form::label('contact', 'Telepon yang bisa dihubungi'); ?>
 
 				</div>
-				<div class="col-md-4">
-				<?php echo Form::text('contact', null ,['class' => 'form-control','placeholder' => '08XXXXXXXXXX']); ?>
+				<div class="col-md-5">
+				<?php echo Form::text('contact', null ,['class' => 'form-control','placeholder' => 'Contoh: 08xxxxxxx']); ?>
 
 				</div>
 				<?php if( $errors->first('contact') ): ?>
@@ -217,7 +217,7 @@
 				<?php echo Form::label('marriage_status', 'Sudah Menikah'); ?>
 
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 				<?php echo Form::select('marriage_status', array('0' => 'Belum', '1' => 'Sudah'),$app->marriage_status, ['class' => 'form-control']); ?>
 
 				</div>
@@ -232,8 +232,8 @@
 				<?php echo Form::label('address', 'Alamat'); ?>
 
 				</div>
-				<div class="col-md-4">
-				<?php echo Form::textarea('address', null, ['class' => 'form-control', 'placeholder' => 'Jl. Sakti No. 05 RT/RW 005/005','cols' => '50', 'rows' => '2']); ?>
+				<div class="col-md-5">
+				<?php echo Form::textarea('address', null, ['class' => 'form-control', 'placeholder' => 'Contoh: Jl. Lap Banteng No. 05 RT:1/RW:3','cols' => '50', 'rows' => '2']); ?>
 
 				</div>
 				<?php if( $errors->first('address') ): ?>
@@ -247,8 +247,8 @@
 				<?php echo Form::label('Kelurahan', 'Desa/Kelurahan'); ?>
 
 				</div>
-				<div class="col-md-4">
-				<?php echo Form::text('kelurahan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kelurahan']); ?>
+				<div class="col-md-5">
+				<?php echo Form::text('kelurahan', null, ['class' => 'form-control', 'placeholder' => '...']); ?>
 
 				</div>
 				<?php if( $errors->first('kelurahan') ): ?>
@@ -262,8 +262,8 @@
 				<?php echo Form::label('kecamatan', 'Kecamatan'); ?>
 
 				</div>
-				<div class="col-md-4">
-				<?php echo Form::text('kecamatan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kecamatan']); ?>
+				<div class="col-md-5">
+				<?php echo Form::text('kecamatan', null, ['class' => 'form-control', 'placeholder' => '...']); ?>
 
 				</div>
 				<?php if( $errors->first('kecamatan') ): ?>
@@ -277,8 +277,8 @@
 				<?php echo Form::label('kabupaten', 'Kabupaten/Kota'); ?>
 
 				</div>
-				<div class="col-md-4">
-				<?php echo Form::text('kabupaten', null, ['class' => 'form-control', 'placeholder' => 'Nama Kabupaten']); ?>
+				<div class="col-md-5">
+				<?php echo Form::text('kabupaten', null, ['class' => 'form-control', 'placeholder' => '...']); ?>
 
 				</div>
 				<?php if( $errors->first('kabupaten') ): ?>
@@ -292,7 +292,7 @@
 				<?php echo Form::label('province_id', 'Provinsi'); ?>
 
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-5">
 				<?php echo Form::select('province_id', $prov, $app->province_id,['class' => 'form-control']); ?>
 
 				</div>
