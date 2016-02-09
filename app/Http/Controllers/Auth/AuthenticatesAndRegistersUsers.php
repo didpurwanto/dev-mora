@@ -58,7 +58,7 @@ trait AuthenticatesAndRegistersUsers {
 		//DB::table('applicants')->where('user_id', Auth::user()->id)->update(array('full_name' => ));
 		//DB::table('applicants')->insert(array('full_name' => $request->nama_lengkap));
 		DB::table('families')->insert(array('user_id' => Auth::user()->id));
-		DB::table('pesantrens')->insert(array('user_id' => Auth::user()->id));
+		// DB::table('pesantrens')->insert(array('user_id' => Auth::user()->id));
 		DB::table('schools')->insert(array('user_id' => Auth::user()->id));
 		DB::table('raports')->insert(array('user_id' => Auth::user()->id));
 		DB::table('applications')->insert(array('user_id' => Auth::user()->id));

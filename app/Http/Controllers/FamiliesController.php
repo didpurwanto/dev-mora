@@ -25,11 +25,12 @@ class FamiliesController extends Controller {
 
 	public function edit()
 	{
+
 		$fam = Family::where('user_id', '=', Auth::user()->id)->firstOrFail();
 		//$fam = Family::findOrFail($user_id);
 
 		//$idsaja = $fam->id;
-		//dd($idsaja);
+		// dd($fa);
 
 		$prov = Province::lists('province_name','id');
 		$edu_level = EducationLevel::lists('level_name','id');

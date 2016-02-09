@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-
+use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -36,6 +36,13 @@ class PesantrensController extends Controller {
 		$kec = Kecamatan::where('id',$pes->kecamatan_id)->lists('kecamatan_name','id');
 
 		$pes_type = PesantrenType::lists('type_name','id');
+		// $pes_type = PesantrenType::where('id', '=', $pes->pesantren_type);
+
+		// $pes_type = DB::table('pesantren_types')
+		// 	->select('type_name')
+		// 	->where('id',$pes->pesantren_type)
+		// 	->get();
+		// // dd($pes_type);
 
 		return view('pesantren.edit', compact('pes','prov','pes_type','kab','kec'));
 	}

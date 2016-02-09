@@ -43,7 +43,8 @@
 		{!! Form::label('pesantren_type', 'Jenis Pesantren') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('pesantren_type', $pes_type,$pes->pesantren_type,['class' => 'form-control']) !!}
+		<!-- {!! Form::text('"agung"', null,['class' => 'form-control', 'placeholder' => '']) !!} -->
+		{!! Form::select('pesantren_type', $pes_type,$pes->pesantren_type,['class' => 'form-control','disabled' => true]) !!}
 		</div>
 	</div>
 </div>
