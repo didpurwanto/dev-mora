@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Pesantren;
+use App\Applicant;
 use App\User;
 use PDF;
 use Auth;
@@ -125,9 +126,9 @@ class SummaryController extends Controller {
 		$nomor = DB::table('settings')->pluck('nomor_registrasi');
 		//get four digit number to display
 		$nomor4digit = $this->getNomorRegistrasi($nomor);
-		//dd($nomor);
 		$nomor_reg = $tahun.$bulan.$hari.$provinsi.$nomor4digit;
 		$registrasi = Applicant::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		// dd($registrasi);
 	  $registrasi->registration_number = $nomor_reg;
     $registrasi->save();
 

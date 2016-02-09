@@ -109,7 +109,8 @@
 		{!! Form::label('school_address', 'Alamat') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::textarea('school_address', null,['class' => 'form-control', 'placeholder' => 'Jl. Keramat Jati, No. 5, RT/RW 05/05, Kel. Sukajadi', 'cols' => '50', 'rows' => '1']) !!}
+		<!-- {!! Form::textarea('school_address', null,['class' => 'form-control', 'placeholder' => 'Jl. Keramat Jati, No. 5, RT/RW 05/05, Kel. Sukajadi', 'cols' => '50', 'rows' => '1']) !!} -->
+		{!! Form::textarea('school_address', null, ['class' => 'form-control', 'placeholder' => 'Contoh: Jl. Lap Banteng No. 05 RT:1/RW:3','cols' => '50', 'rows' => '2']) !!}
 		</div>
 		@if( $errors->first('school_address') )
 			<span class="help-block text-danger">{{ $errors->first('school_address') }}</span>
