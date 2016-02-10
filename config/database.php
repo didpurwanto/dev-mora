@@ -54,13 +54,15 @@ return [
 			'username'  => getenv('OPENSHIFT_MYSQL_DB_USERNAME'),
 			'password'  => getenv('OPENSHIFT_MYSQL_DB_PASSWORD'),
 
+
+
 			// 'host'      => 'localhost',
 			// 'port'      => '3306',
 			// 'database'  => 'dev-mora',
 			// 'username'  => 'root',
 			// 'password'  => 'bismillah',
 
-  
+   
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
