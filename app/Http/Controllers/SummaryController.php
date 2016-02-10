@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Pesantren;
 use App\Applicant;
+use App\Application;
 use App\User;
 use PDF;
 use Auth;
@@ -56,10 +57,17 @@ class SummaryController extends Controller {
 
 	public function cetak()
 	{
+		$apps = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		// dd($testnumber);
+		$pass = 1;
+		if (is_null($apps->test_number))
+		{
+			$pass = 0;
+		}
 		//$applicant = Applicant::findOrFail($id);
 		$user = User::where('id', '=', Auth::user()->id)->firstOrFail();
 
-		return view('prints',compact('user'));
+		return view('prints',compact('user', 'pass'));
 	}
 
 	public function cetakFormulir(){

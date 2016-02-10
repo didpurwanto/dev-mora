@@ -69,6 +69,15 @@
 		</tbody>
 	</table>
 
+	<p><small>
+	`	<font color="red">
+		*ps: 
+		Semua nilai rapor harus diatas 60 dengan maksimal 100. 
+		Rangking harus diisi dengan angka antara 1 dan 10.<br>
+		</font>
+		</small>
+	</p>
+
 	<div class="form-group">
 		{!! Form::submit($text, ['class' => 'btn btn-primary btn-large form-button']) !!}
 	</div>

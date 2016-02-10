@@ -9,17 +9,27 @@
 		<br />
 		<br />
 		<br />
+	    @if ($pass == 1)
+	        <br />
+			<div class="col-md-5 col-md-offset-1 column" >
+				{!! Form::open(['method' => 'GET', 'url' => '/cetakformulir']) !!}
+	    			{!! Form::submit('Cetak Formulir Registrasi', ['class' => 'btn btn-primary form-button btn-lg']) !!}
+				{!! Form::close() !!}
+			</div>
+			<div class="col-md-5 col-md-offset-1 column">
+				{!! Form::open(['method' => 'GET', 'url' => '/cetakkartu']) !!}
+	    			{!! Form::submit('Cetak Kartu Peserta', ['class' => 'btn btn-primary form-button btn-lg']) !!}
+				{!! Form::close() !!}
+			</div>
+	    @endif
+	    @if ($pass == 0)
+			<div class="col-md-6 col-md-offset-4">
+				{!! Form::open(['method' => 'GET', 'url' => '/cetakformulir']) !!}
+	    			{!! Form::submit('Cetak Formulir Registrasi', ['class' => 'btn btn-primary form-button btn-lg']) !!}
+				{!! Form::close() !!}
+			</div>
+	    @endif	    
 
-		<div class="col-md-5 col-md-offset-1 column">
-			{!! Form::open(['method' => 'GET', 'url' => '/cetakformulir']) !!}
-    			{!! Form::submit('Cetak Formulir Registrasi', ['class' => 'btn btn-primary form-button btn-lg']) !!}
-			{!! Form::close() !!}
-		</div>
-		<div class="col-md-5 col-md-offset-1 column">
-			{!! Form::open(['method' => 'GET', 'url' => '/cetakkartu']) !!}
-    			{!! Form::submit('Cetak Kartu Peserta', ['class' => 'btn btn-primary form-button btn-lg']) !!}
-			{!! Form::close() !!}
-		</div>
 		<br />
 		<br />
 		<br />

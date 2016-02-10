@@ -143,7 +143,7 @@
                       </table>
                       <br />
                       <button type="submit" class="btn btn-default btn-xl wow tada">Login Aplikasi</button>
-                      <a href="{{ url('/password/email') }}">Anda Lupa Password?</a>
+                      <a href="{{ url('/password/email') }}">Lupa Password?</a>
 
                   </form>
                 </div>
@@ -219,8 +219,9 @@
                       <table align="center">
                           <tr>
                             <td>
-                              <p style="color:red">Pilih Jenis Pesantren Anda !</p>
-                              {!! Form::select('jenis_pesantren', ['0' => 'Jenis Pesantren'] + $jenis_pesantren,'' ,['class' => 'form-control']) !!}
+                              <p style="color:red">Pilih Jenis Pesantren Anda !</p >
+                              {!! Form::select('jenis_pesantren', $jenis_pesantren,['class' => 'form-control']) !!}
+
                             </td>
                           </tr>
                         </table>
