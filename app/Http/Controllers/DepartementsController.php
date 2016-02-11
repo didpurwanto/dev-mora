@@ -150,7 +150,7 @@ class DepartementsController extends Controller {
 		$dep->university_id = $request->input('university_id');
 		$dep->departement_name = $request->input('departement_name');
 		$dep['departement_code'] = $request->input('departement_code');
-		$dep->status = $request->input('status');
+		$dep['status'] = $request->input('status');
 		$dep->save();
 
 		// $dep->update($request->all());
