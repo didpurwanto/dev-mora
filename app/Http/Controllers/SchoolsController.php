@@ -12,6 +12,8 @@ use App\Kecamatan;
 use App\SchoolType;
 use App\ProgramStudy;
 use Auth;
+use App\Pesantren;
+use App\PesantrenType;
 
 // use Carbon\Carbon;
 
@@ -37,12 +39,22 @@ class SchoolsController extends Controller {
 
 		$sch = School::where('user_id', '=', Auth::user()->id)->firstOrFail();
 
+		$pesantre_type = Pesantren::where('user_id', '=', Auth::user()->id)->pluck('pesantren_type');
+		$tahunlulus = PesantrenType::where('id','=',$pesantre_type)->pluck('max_graduate');
+
+		$tahun_ini = date('Y');
+		$tahun = array();		
+		for ($i=$tahunlulus; $i <= $tahun_ini; $i++) {
+			$tahun +=  [$i => $i];
+		}
+		// dd($sch);
+
 		//$kab = Kabupaten::where('id',$sch->kabupaten_id)->lists('kabupaten_name','id');
 		//$kec = Kecamatan::where('id',$sch->kecamatan_id)->lists('kecamatan_name','id');
 		// $mytime = Carbon\Carbon::now();
 		// echo $mytime->toDateTimeString();
 		// dd($mytime);
-		return view('school.edit', compact('sch','prov','prog_stud','sch_type'));
+		return view('school.edit', compact('sch','prov','prog_stud','sch_type', 'tahun'));
 	}
 
 	/**

@@ -47,13 +47,26 @@
 		</div>
 	</div>
 </div>
-<div class="form-group {{ ! $errors->first('graduate_year') ? '': 'has-error' }}">
+<!-- <div class="form-group {{ ! $errors->first('graduate_year') ? '': 'has-error' }}">
 	<div class="row">
 		<div class="col-md-3">
 		{!! Form::label('graduate_year', 'Tahun Lulus Sekolah') !!}
 		</div>
 		<div class="col-md-4">
 		{!! Form::select('graduate_year', [date("Y") => date("Y"), date("Y")-1 => date("Y")-1], $sch->graduate_year,['class' => 'form-control']) !!}
+		</div>
+		@if( $errors->first('graduate_year') )
+			<span class="help-block text-danger">{{ $errors->first('graduate_year') }}</span>
+		@endif
+	</div>
+</div> -->
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3">
+		{!! Form::label('graduate_year', 'Tahun Lulus Sekolah') !!}
+		</div>
+		<div class="col-md-3 form-inline">
+		{!! Form::select('graduate_year',$tahun, $sch->graduate_year, ['class' => 'form-control',]) !!}
 		</div>
 		@if( $errors->first('graduate_year') )
 			<span class="help-block text-danger">{{ $errors->first('graduate_year') }}</span>

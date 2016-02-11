@@ -15,6 +15,7 @@ use App\Http\Requests\UpdateApplicantRequest;
 use App\Family;
 use App\Setting;
 use App\Pesantren;
+use App\PesantrenType;
 
 class ApplicantsController extends Controller {
 
@@ -99,17 +100,13 @@ class ApplicantsController extends Controller {
 		}	 			
 		// if pesantren type == muadalah or salafy muadalah
 		$pesantre_type = Pesantren::where('user_id', '=', Auth::user()->id)->pluck('pesantren_type');
-		if ($pesantre_type = 1 or $pesantre_type =2){
-			$limit=2;
-		}
-		else{
-			$limit = 2;
-		}
+		$umur = PesantrenType::where('id','=',$pesantre_type)->pluck('max_age');
+
 		$tahun = array();		
-		for ($i=$tahun_lahir-$limit; $i <= $tahun_ini-15; $i++) {
+		for ($i=$tahun_ini-$umur; $i <= $tahun_ini-15; $i++) {
 			$tahun +=  [$i => $i];
 		}
-
+		// dd($tahun);
 		$listRecitation = array();
 		for ($i=0; $i < 31; $i++) {
 			$listRecitation +=  [$i => $i];
