@@ -219,9 +219,10 @@
                       <table align="center">
                           <tr>
                             <td>
-                              <p style="color:red">Pilih Jenis Pesantren Anda !</p >
-                              {!! Form::select('jenis_pesantren', $jenis_pesantren,['class' => 'form-control']) !!}
-
+                              <div class="col-lg-12">
+                                <p style="color:red">Pilih Jenis Pesantren Anda !</p >
+                                {!! Form::select('jenis_pesantren', $jenis_pesantren,0,['class' => 'form-control']) !!}
+                               </div>
                             </td>
                           </tr>
                         </table>

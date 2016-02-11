@@ -87,6 +87,7 @@ class DepartementsController extends Controller {
 
 		$depart['university_id'] = $request->input('university_id');
 		$depart['departement_name'] = $request->input('departement_name');
+		$depart['departement_code'] = $request->input('departement_code');
 		$depart['status'] = $request->input('status');
 		//dd($depart);
 
@@ -140,6 +141,7 @@ class DepartementsController extends Controller {
 	 */
 	public function update($id, DepartementRequest $request)
 	{
+
 		//Find or Fail to get ID
 		$dep = Departement::findOrFail($id);
 		// Validate with the parameters
@@ -147,13 +149,14 @@ class DepartementsController extends Controller {
 		//Save record to the database
 		$dep->university_id = $request->input('university_id');
 		$dep->departement_name = $request->input('departement_name');
+		$dep['departement_code'] = $request->input('departement_code');
 		$dep->status = $request->input('status');
 		$dep->save();
 
 		// $dep->update($request->all());
-		// dd($dep);
 
-		$data2[] = $dep->program_studies()->sync($request->input('study_list'));
+		$data2 = $dep->program_studies()->sync($request->input('study_list'));
+		dd($data2);
 		//Return to universities controller
 		return redirect('admin/departements');
 	}
