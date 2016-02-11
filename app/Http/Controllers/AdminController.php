@@ -82,7 +82,7 @@ class AdminController extends Controller {
 	            ->groupBy('departements.id')
 	            ->get();
 		
-		        $univ = "Semua Universitas";
+		        $univ = "Semua";
 		        $totalAktif= Departement::where('status', '=', 1)->count();
 		        $totalNonAktif= Departement::where('status', '=', '')->count();
 		}

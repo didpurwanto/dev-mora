@@ -32,16 +32,14 @@
 								{!! Form::select('university_id', array_merge(['0' => 'Pilih Universitas'], $univ_list), 0,['class' => 'form-control']) !!}
 								<br>
 								{!! Form::submit('Tampilkan data', ['class' => 'btn btn-primary form-control']) !!}
-								<div class="col-md-2 col-md-offset-2">
+<!-- 								<div class="col-md-2 col-md-offset-2">
 								<br>
-									<a class="btn btn-success" href="{!! URL::to('admin/DownloadProvince') !!}"><i class="glyphicon glyphicon-download-alt"></i> Download in excel</a>
-								</div>
+									<a class="btn btn-success" href="{!! URL::to('admin/DonwloadDepartement') !!}"><i class="glyphicon glyphicon-download-alt"></i> Download in excel</a>
+								</div> -->
 	
 								{!! Form::close() !!}
-							<br>
-							<br>
 								 <br>
-								<p class="navbar-text">Nama Universitas : {!! $univ !!}<br>Jumlah Jurusan Aktif : {!! $totalAktif !!}</p>
+								<p class="navbar-text" align="center" style="font-size:14px"><b>Universitas : {!! $univ !!}<br>Jumlah Jurusan Aktif : {!! $totalAktif !!}</b></p>
 							<br>
 							</div>
 
