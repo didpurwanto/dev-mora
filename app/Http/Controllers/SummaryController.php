@@ -99,12 +99,27 @@ class SummaryController extends Controller {
 		//Make user logout after prints
 		Auth::logout();
 
-		return $pdf->download('Formulir Peserta.pdf');
+		return $pdf->stream('Formulir Peserta.pdf');
 
 		// Session::flash('download.in.the.next.request', $pdf->download('Formulir Peserta.pdf'));
 		// return redirect::to('/');
 
 	}
+
+	// public function cetakFormulir()
+	// {
+	// 	$cetak = app('App\Http\Controllers\SummaryController')->cetakFormulir2();
+	// 	// return view('welcome');
+
+	// 	// dd($cetak);
+	// 	$pendaftaran = DB::table('settings')->pluck('tutup_pendaftaran');
+		
+	// 	//list jenis pesantren
+	// 	$jenis_pesantren = DB::table('pesantren_types')->lists('type_name','id');
+	// 	//dd($pendaftaran);
+	// 	return view('home.index',compact('pendaftaran','jenis_pesantren'));
+	// }
+
 
 	public function cetakKartu()
 	{
