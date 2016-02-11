@@ -59,11 +59,10 @@
 												</tr>
 											</thead>
 											<tbody>
-												
 												@foreach ($dept as $departement)
 												<tr>
 													<td class="center col-md-1">
-														1
+														{{ $counter = $counter+1 }}
 												    </td>
 													<td class="center col-md-6">
 														{{ $departement->departement_name }}
@@ -79,6 +78,7 @@
 													</td>
 												</tr>
 													@endforeach
+													
 											</tbody>
 								   </table>
 						 </div>

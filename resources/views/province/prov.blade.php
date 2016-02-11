@@ -35,7 +35,7 @@
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 											<thead>
 												<tr>
-													<th>Kode Provinsi</th>
+													<th>No</th>
 													<th>Nama Provinsi</th>
 													<th>Aksi</th>
 												</tr>
@@ -43,8 +43,8 @@
 											<tbody>
 												@foreach ($prov as $province)
 												<tr>
-													<td class="center col-md-2">
-														{{ $province->province_code, ['size' => 4] }}
+													<td class="center col-md-1">
+														{{ $counter = $counter+1, ['size' => 4] }}
 												  </td>
 													<td>
 														{{ $province->province_name }}

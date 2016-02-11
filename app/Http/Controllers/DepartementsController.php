@@ -40,9 +40,9 @@ class DepartementsController extends Controller {
 			}
 		}
 		// dd($dep);
-    		
+		$counter = 0;    		
 
-		return view('departement.dep', compact('dep'));
+		return view('departement.dep', compact('dep', 'counter'));
 	}
 
 	/**

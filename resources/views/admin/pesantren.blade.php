@@ -43,7 +43,7 @@
 										@foreach ($pesantren as $ponpes)
 										<tr>
 											<td class="center col-md-1">
-												{{ $ponpes->id, ['size' => 3] }}
+												{{ $counter = $counter+1, ['size' => 3] }}
 										    </td>
 											<td class="center col-md-3">
 												{{ $ponpes->pesantren_name }}

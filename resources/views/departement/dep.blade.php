@@ -33,6 +33,7 @@
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 											<thead>
 												<tr>
+													<th>No</th>
 													<th>Nama Universitas</th>
 													<th>Nama Jurusan</th>
 													<th>Status</th>
@@ -42,6 +43,9 @@
 											<tbody>
 												@foreach ($dep as $depart)
 												<tr>
+													<td class="center col-md-1">
+														{{ $counter = $counter+1 }}
+													</td>
 													<td class="center col-md-4">
 														{{ $depart->getUniversityName() }}
 													</td>

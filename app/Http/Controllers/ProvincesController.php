@@ -22,7 +22,8 @@ class ProvincesController extends Controller {
 	public function index()
 	{
 		$prov = Province::all();
-		return view('province.prov', compact('prov'));
+		$counter = 0;
+		return view('province.prov', compact('prov', 'counter'));
 	}
 
 	/**

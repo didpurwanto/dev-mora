@@ -92,7 +92,7 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Laporan Rekapitulasi<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!! URL::to('admin/listprovinces') !!}">Rekap Propinsi</a>
+                                    <a href="{!! URL::to('admin/listprovinces') !!}">Rekap Provinsi</a>
                                 </li>
                                 <li>
                                     <a href="{!! URL::to('admin/listuniversities/') !!}">Rekap Universitas</a>

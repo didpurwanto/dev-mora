@@ -35,13 +35,13 @@
 									</td>
 									<br>								
 								@endforeach
-								<br>							
 							</div>
 								<div class="dataTable_wrapper">
 										<div class="col-md-2 col-md-offset-5">
 											<a class="btn btn-success" href="{!! URL::to('admin/DownloadProvince') !!}"><i class="glyphicon glyphicon-download-alt"></i> Download in excel</a>
+											<!-- <br>
+											<p class="navbar-text" align="center" style="font-size:14px"><b>Jumlah pendaftar : {!! $totalApplication !!}</b></p> -->
 										</div>
-
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 											<thead>
 												<tr>
@@ -57,7 +57,7 @@
 												@foreach ($prov_list as $province)
 												<tr>
 													<td class="center col-md-1">
-														{{ $province->id, ['size' => 3] }}
+														{{ $counter = $counter+1, ['size' => 3] }}
 												    </td>
 													<td class="center col-md-8">
 														{{ $province->province_name }}
@@ -84,7 +84,6 @@
  	</div>
  	<!-- /.col-lg-12 -->
 </div>
- <!-- /.row -->
 
 @stop
 

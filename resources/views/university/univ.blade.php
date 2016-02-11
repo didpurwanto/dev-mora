@@ -33,6 +33,7 @@
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 											<thead>
 												<tr>
+													<th>No</th>
 													<th>Kode Universitas</th>
 													<th>Nama Universitas</th>
 													<th>Status</th>
@@ -42,9 +43,12 @@
 											<tbody>
 												@foreach ($univ as $university)
 												<tr>
+													<td class="center col-md-1">
+														{{ $counter= $counter+1, ['size' => 5] }}
+												  	</td>
 													<td class="center col-md-3">
 														{{ $university->university_code, ['size' => 5] }}
-												  </td>
+												  	</td>
 													<td>
 														{{ $university->university_name }}
 													</td>

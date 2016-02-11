@@ -61,7 +61,9 @@ class AdminController extends Controller {
         // $count = User::where('votes', '>', 100)->count();
          // dd($totalNonAktif);
 		// dd($dept);
-         return view('admin.departement', compact('dept', 'univ_list', 'univ', 'totalAktif', 'totalNonAktif'));
+ 		$counter = 0;
+
+         return view('admin.departement', compact('dept', 'univ_list', 'univ', 'totalAktif', 'totalNonAktif', 'counter'));
 	}
 
 	public function departementlist2()
@@ -87,7 +89,6 @@ class AdminController extends Controller {
 		        $totalNonAktif= Departement::where('status', '=', '')->count();
 		}
 		else{
-			// dd($id);
 			$dept = DB::table('departements')
 				->select(['departements.departement_name', 'universities.university_name', 'departements.departement_code' ,DB::raw('count(applications.major_1_id) as total'), 'departements.id'
 					])
@@ -102,26 +103,16 @@ class AdminController extends Controller {
 	            	->where('id', '=', $id)
 	            	->pluck('university_name');
 
-		        // $univ = University::where('id', '=', $id)
-		        // 	->select('university_name');
-	            // $univ = serialize( DB::table('universities')
-	            // 	->select('university_name')
-	            // 	->where('id', '=', $id)
-	            // 	->get());
-
-
 		        $totalAktif= Departement::where('status', '=', 1)
 		        	->where('departements.university_id', '=', $id)->count();
+
 		        $totalNonAktif= Departement::where('status', '=', '')
 		        	->where('departements.university_id', '=', $id)->count();
 		        // dd($univ);
 		}
+	 		$counter = 0;
 
-
-
-         // dd($id);
-
-            return view('admin.departement', compact('dept', 'univ_list', 'univ', 'totalAktif', 'totalNonAktif'));
+            return view('admin.departement', compact('dept', 'univ_list', 'univ', 'totalAktif', 'totalNonAktif', 'counter'));
 	}
 
 
@@ -169,7 +160,9 @@ class AdminController extends Controller {
 			}
  		}
 
-		return view('admin.listprovinces', compact('univ','prov', 'prov_list', 'data'));
+	 		$totalApplication= Application::where('user_id', '>', 0)->count();
+	 		$counter = 0;
+		return view('admin.listprovinces', compact('univ','prov', 'prov_list', 'data', 'totalApplication', 'counter'));
 	}
 
 	public function pesantren()
@@ -178,8 +171,8 @@ class AdminController extends Controller {
 			->join('pesantren_types', 'pesantren_types.id', '=', 'pesantrens.pesantren_type')
 			->join('provinces', 'provinces.id', '=', 'pesantrens.province_id')
 			->get();
-
-		return view('admin.pesantren', compact('pesantren'));
+		$counter = 0;
+		return view('admin.pesantren', compact('pesantren', 'counter'));
 	}
 
 	// method for setting application in registration

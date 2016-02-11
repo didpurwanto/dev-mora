@@ -32,8 +32,8 @@ class UniversitiesController extends Controller {
 				$unv['status'] = 'Tidak Aktif';
 			}
 		}
-
-		return view('university.univ', compact('univ'));
+		$counter = 0;
+		return view('university.univ', compact('univ', 'counter'));
 	}
 
 	/**
@@ -73,7 +73,8 @@ class UniversitiesController extends Controller {
 		//Find or Fail to get ID
 		$univ = University::findOrFail($id);
 		//Sent data to view
-		return view('university.show', compact('univ'));
+		$counter = 0;
+		return view('university.show', compact('univ', 'counter'));
 	}
 
 	/**
