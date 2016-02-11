@@ -9,7 +9,10 @@ class PesantrenType extends Model {
 
 	protected $fillable = [
 		'id',
-		'type_name'
+		'type_name',
+		'max_age',
+		'max_graduate'
+
 	];
 	
 	public function pesantrens()

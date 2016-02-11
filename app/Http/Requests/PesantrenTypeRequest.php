@@ -22,7 +22,10 @@ class PesantrenTypeRequest extends Request {
 	public function rules()
 	{
 		return [
-			'type_name' => 'required'
+			'type_name' => 'required',
+			'max_age' => 'required',
+			'max_graduate' => 'required'
+
 		];
 	}
 

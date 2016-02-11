@@ -141,10 +141,6 @@
                                     <a href="{!! URL::to('admin/jobtypes') !!}">Jenis Pekerjaan</a>
                                 </li>
 
-                                <li class="{!! Request::is('pesantrentypes') ? 'active' : '' !!}">
-                                    <a href="{!! URL::to('admin/pesantrentypes') !!}">Jenis Pesantren</a>
-                                </li>
-
                                 <li class="{!! Request::is('programstudies') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/programstudies') !!}">Program Study</a>
                                 </li>
@@ -166,12 +162,18 @@
                                 <!-- <li class="{!! Request::is('tahunlahir') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/tahunlahir') !!}">Pengaturan Tahun Lahir</a>
                                 </li> -->
+
+                                <li class="{!! Request::is('pesantrentypes') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/pesantrentypes') !!}">Pengaturan Jenis Pesantren</a>
+                                </li>
+                                
                                 <li class="{!! Request::is('tahunlulus') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/tahunlulus') !!}">Pengaturan Tahun Lulus</a>
                                 </li>
                                 <li class="{!! Request::is('pendaftaran') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/pendaftaran/1') !!}">Pengaturan Pendaftaran</a>
                                 </li>
+
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

@@ -4,7 +4,15 @@
 </div>
 <div class="form-group">
 	{!! Form::label('type_name', 'Jenis Pesantren :') !!}
-	{!! Form::text('type_name',null, ['class' => 'form-control']) !!}
+	{!! Form::text('type_name',null, ['class' => 'form-control', 'placeholder' => 'Contoh: Muadalah']) !!}
+</div>
+<div class="form-group">
+	{!! Form::label('max_age', 'Maksimal Umur Pendaftar :') !!}
+	{!! Form::text('max_age',null, ['class' => 'form-control','placeholder' => 'Contoh: 18']) !!}
+</div>
+<div class="form-group">
+	{!! Form::label('max_graduate', 'Maksimal tahun lulus pendaftar :') !!}
+	{!! Form::text('max_graduate',null, ['class' => 'form-control', 'placeholder' => 'Contoh: 2016']) !!}
 </div>
 
 <div class="form-group">
