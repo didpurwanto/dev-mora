@@ -225,7 +225,7 @@
 		</td>
 		<td width="10px">:</td>
 		<td width="390px"><b>{!!$user->application->departement->departement_name!!}</b></td>
-		<td align="right" width="100px">(Kode - <b>{!!$user->application->departement->departement_name!!}</b>)
+		<td align="right" width="100px">(Kode - <b>{!!$user->application->departement->departement_code!!}</b>)
 		</td>
 	</tr>
 	<tr>
@@ -233,7 +233,7 @@
 		</td>
 		<td>:</td>
 		<td width="390px"><b>{!!$user->application->departement2->departement_name!!}</b></td>
-		<td align="right" width="100px">(Kode - <b>ISIAN</b>)
+		<td align="right" width="100px">(Kode - <b>{!!$user->application->departement->departement_code!!}</b>)
 		</td>
 	</tr>
 	<tr>

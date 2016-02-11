@@ -73,7 +73,7 @@
 	`	<font color="red">
 		*ps: 
 		Semua nilai rapor harus diatas 60 dengan maksimal 100. 
-		Rangking harus diisi dengan angka antara 1 dan 10.<br>
+		Rangking harus diisi dengan angka antara 1 sampai 10.<br>
 		</font>
 		</small>
 	</p>
