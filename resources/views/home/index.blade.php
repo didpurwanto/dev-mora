@@ -306,6 +306,18 @@
                         <p class="text-muted"><a href="http://unair.ac.id">Universitas Airlangga</a></p>
                     </div>
                 </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="logo/kampus/unair.png" alt="" />
+                        <p class="text-muted"><a href="http://unair.ac.id">Universitas Airlangga</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="logo/kampus/unair.png" alt="" />
+                        <p class="text-muted"><a href="http://unair.ac.id">Universitas Airlangga</a></p>
+                    </div>
+                </div>
 
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">

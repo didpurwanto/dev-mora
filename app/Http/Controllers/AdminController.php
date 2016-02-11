@@ -49,16 +49,19 @@ class AdminController extends Controller {
 
 		// $id =1;
 		$dept = DB::table('departements')
-			->select(['departements.departement_name', 'universities.university_name',DB::raw('count(applications.major_1_id) as total'), 'departements.id'
+			->select(['departements.departement_name', 'universities.university_name', 'departements.departement_code' ,DB::raw('count(applications.major_1_id) as total'), 'departements.id'
 				])
             ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
             ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
             ->groupBy('departements.id')
             ->get();
-
-         // dd($univ_list);
+        $univ = "Semua Universitas";
+        $totalAktif= Departement::where('status', '=', 1)->count();
+        $totalNonAktif= Departement::where('status', '=', '')->count();
+        // $count = User::where('votes', '>', 100)->count();
+         // dd($totalNonAktif);
 		// dd($dept);
-         return view('admin.departement', compact('dept', 'univ_list'));
+         return view('admin.departement', compact('dept', 'univ_list', 'univ', 'totalAktif', 'totalNonAktif'));
 	}
 
 	public function departementlist2()
@@ -72,41 +75,55 @@ class AdminController extends Controller {
 		if($id == "0"){
 			// dd($id);
 			$dept = DB::table('departements')
-				->select(['departements.departement_name', 'universities.university_name',DB::raw('count(applications.major_1_id) as total'), 'departements.id'
+				->select(['departements.departement_name', 'universities.university_name', 'departements.departement_code' ,DB::raw('count(applications.major_1_id) as total'), 'departements.id'
 					])
 	            ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
 	            ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
 	            ->groupBy('departements.id')
 	            ->get();
+		
+		        $univ = "Semua Universitas";
+		        $totalAktif= Departement::where('status', '=', 1)->count();
+		        $totalNonAktif= Departement::where('status', '=', '')->count();
 		}
 		else{
 			// dd($id);
 			$dept = DB::table('departements')
-				->select(['departements.departement_name', 'universities.university_name',DB::raw('count(applications.major_1_id) as total'), 'departements.id'
+				->select(['departements.departement_name', 'universities.university_name', 'departements.departement_code' ,DB::raw('count(applications.major_1_id) as total'), 'departements.id'
 					])
 	            ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
 	            ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
 	            ->where('departements.university_id', $id)
+	            ->where('departements.status', 1)
 	            ->groupBy('departements.id')
 	            ->get();
+
+				$univ = DB::table('universities')
+	            	->where('id', '=', $id)
+	            	->pluck('university_name');
+
+		        // $univ = University::where('id', '=', $id)
+		        // 	->select('university_name');
+	            // $univ = serialize( DB::table('universities')
+	            // 	->select('university_name')
+	            // 	->where('id', '=', $id)
+	            // 	->get());
+
+
+		        $totalAktif= Departement::where('status', '=', 1)
+		        	->where('departements.university_id', '=', $id)->count();
+		        $totalNonAktif= Departement::where('status', '=', '')
+		        	->where('departements.university_id', '=', $id)->count();
+		        // dd($univ);
 		}
 
 
 
          // dd($id);
 
-            return view('admin.departement', compact('dept', 'univ_list'));
+            return view('admin.departement', compact('dept', 'univ_list', 'univ', 'totalAktif', 'totalNonAktif'));
 	}
 
-
-
-// select provinces.province_name, count(applicants.id) from provinces
-// left join applicants on provinces.id = applicants.province_id
-// group by provinces.id;
-
-// select provinces.province_name, count(applicants.id) from provinces
-// left join applicants on provinces.id = applicants.province_id
-// group by provinces.id;
 
 	public function listprovinces()
 	{

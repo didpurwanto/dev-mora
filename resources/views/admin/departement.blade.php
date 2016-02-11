@@ -24,12 +24,27 @@
 		<div class="col-lg-12">
 				<div class="panel panel-default">
 						<div class="panel-body">
+							<div class="col-md-4 col-md-offset-4" >
+							<br>
+	
+								{!! Form::model(null,['method' => 'POST','url' => 'admin/listdepartement']) !!}
+								<!-- {!! Form::label('university_name', 'Pilih Universitas :') !!} -->
+								{!! Form::select('university_id', array_merge(['0' => 'Pilih Universitas'], $univ_list), 0,['class' => 'form-control']) !!}
+								<br>
+								{!! Form::submit('Tampilkan data', ['class' => 'btn btn-primary form-control']) !!}
+								<div class="col-md-2 col-md-offset-2">
+								<br>
+									<a class="btn btn-success" href="{!! URL::to('admin/DownloadProvince') !!}"><i class="glyphicon glyphicon-download-alt"></i> Download in excel</a>
+								</div>
+	
+								{!! Form::close() !!}
+							<br>
+							<br>
+								 <br>
+								<p class="navbar-text">Nama Universitas : {!! $univ !!}<br>Jumlah Jurusan Aktif : {!! $totalAktif !!}</p>
+							<br>
+							</div>
 
-						{!! Form::model(null,['method' => 'POST','url' => 'admin/listdepartement']) !!}
-								{!! Form::label('university_name', 'Pilih Universitas :') !!}
-								{!! Form::select('university_id', array_merge(['0' => 'Pilih Universitas'], $univ_list), ['class' => 'form-control']) !!}
-								{!! Form::submit('Klik disini untuk menampilkan data', ['class' => 'btn btn-primary form-control']) !!}
-						{!! Form::close() !!}
 							</div>
 								<div class="dataTable_wrapper">
 <!-- 									<div class="col-md-2 col-md-offset-5">
@@ -39,7 +54,6 @@
 											<thead>
 												<tr>
 													<th>No</th>
-													<th>Universitas</th>
 													<th>Jurusan</th>
 													<th>Kode</th>
 													<th>Bidang</th>
@@ -54,13 +68,10 @@
 														1
 												    </td>
 													<td class="center col-md-6">
-														{{ $departement->university_name }}
-													</td>
-													<td class="center col-md-6">
 														{{ $departement->departement_name }}
 													</td>
 													<td class="center col-md-2">
-														{{ $departement->id }}
+														{{ $departement->departement_code }}
 													</td>
 													<td class="center col-md-2">
 															IPA

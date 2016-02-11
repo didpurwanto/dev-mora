@@ -156,7 +156,7 @@ class DepartementsController extends Controller {
 		// $dep->update($request->all());
 
 		$data2 = $dep->program_studies()->sync($request->input('study_list'));
-		dd($data2);
+		// dd($data2);
 		//Return to universities controller
 		return redirect('admin/departements');
 	}
