@@ -112,6 +112,8 @@ td .content {
   color:white;
   font-size: 120%;
   background: black;
+  text-align:center; 
+  vertical-align:middle;  
 }
 
 

@@ -25,17 +25,17 @@ textarea {
     width:100%;
 }
 
-.content{
+/*.content{
     display:table;
     width:100%;
     border-collapse:separate;
     height:80%;
-}
+}*/
 
 .Col{
     display:table-cell;
     width:30%;
-    height:100%;
+    height:30%;
 }
 
 #header,#footer{
@@ -48,6 +48,30 @@ textarea {
 
 td {
     vertical-align: top;
+    position:relative;
+	font-size: 12px;
+
+}
+
+table.fixed { 
+	table-layout:fixed; 
+	border-style: solid;
+    border-color: white;
+	width: 350px;
+	
+}
+
+td .content {
+  /*position: absolute;*/
+  top: 0;
+  bottom: 0;
+  left: 60;
+  right: 0;
+  color:black;
+  font-size: 80%;
+  background: white;
+  text-align:center; 
+  vertical-align:middle;  
 }
 
 </style>
@@ -68,12 +92,13 @@ td {
 		</td>
 		<td align="right" width="250px">
 			<b><font size="30px">TANDA PESERTA</font></b><br />
-			<font size="12px">No Registrasi : 123123123123</font>
+			<font size="12px">No Registrasi : {!! $registration_number !!}</font>
 		</td>
 	</tr>
 </table>
 
 <hr>
+<br>
 
 <table>
 	<tr>
@@ -86,44 +111,35 @@ td {
 			<br />
 			Pilihan 1 :
 			<b>{!!$user->application->departement->departement_name!!}</b>
-			(Kode - <b>ISIAN</b> )
+			(Kode - <b>{!!$user->application->departement->departement_code!!}</b> )
 
 			<br />
 			<br />
 			Pilihan 2 :
 			<b>{!!$user->application->departement2->departement_name!!}</b>
-			(Kode - <b>ISIAN</b> )
+			(Kode - <b>{!!$user->application->departement2->departement_code!!}</b> )
 
 			<br />
 			<br />
 			Bersedia untuk Dipindah Jurusan = <b>{!!($user->application->aggree_to_auto_move == 1) ? 'YA' : 'TIDAK'!!}</b>
 		</td>
 
-		<td align="right" width="300px">
+		<td align="right" width="350px">
 			No. Peserta : 
-			<table border="0.5">
+			<!-- <table class="fixed" border="1" cellspacing="1%" cellpadding="2%" > -->
+			<table class="fixed" border="1">
 				<tbody>
 					<tr>
-						<td>1
-						</td>
-						<td>2
-						</td>
-						<td>3
-						</td>
-						<td>4
-						</td>
-						<td>5
-						</td>
-						<td>6
-						</td>
-						<td>7
-						</td>
-						<td>8
-						</td>
-						<td>9
-						</td>
-						<td>0
-						</td>
+						<td class="content">{!! $test_num[0] !!}</td>
+						<td class="content">{!! $test_num[1] !!}</td>
+						<td class="content">{!! $test_num[2] !!}</td>
+						<td class="content">{!! $test_num[3] !!}</td>
+						<td class="content">{!! $test_num[4] !!}</td>
+						<td class="content">{!! $test_num[5] !!}</td>
+						<td class="content">{!! $test_num[6] !!}</td>
+						<td class="content">{!! "" !!}</td>
+						<td class="content">{!! "" !!}</td>
+						<td class="content">{!! "" !!}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -132,8 +148,9 @@ td {
 		</td>
 	</tr>
 </table>
+<br>
 <hr>
-
+<br>
 <table>
 	<tr>
 		<td width="200px">
@@ -176,12 +193,13 @@ td {
 		</td>
 		<td>:
 		</td>
-		<td><b>{!!$user->pesantren->pesantren_contact!!}</b> <br />
+		<td><b>{!! $user->pesantren->no_telp !!}</b> <br />
 		</td>
 	</tr>
 </table>
 
 <hr>
+
 <!-- PROBLEM No 11 EMAIL -->
 <table>		
 	<tr align="center">
@@ -235,7 +253,7 @@ td {
 
 <br>
 <br>
-<center>------------------------------<wbr>------------------Potong disini; serah kanformulir bagian bawah kepada petugas pendaftaran tes ------------------------------<wbr>--------------------</center>
+<center><font color="red">------------------------------<wbr>------------------Potong disini; serahkan formulir bagian bawah kepada petugas pendaftaran tes --------------------------------------------------</font></center>
 <br>
 <br>
 
@@ -251,12 +269,13 @@ td {
 		</td>
 		<td align="right" width="250px">
 			<b><font size="30px">TANDA PESERTA</font></b><br />
-			<font size="12px">No Registrasi : 123123123123</font>
+			<font size="12px">No Registrasi : {!! $registration_number !!}</font>
 		</td>
 	</tr>
 </table>
 
 <hr>
+<br>
 
 <table>
 	<tr>
@@ -269,44 +288,34 @@ td {
 			<br />
 			Pilihan 1 :
 			<b>{!!$user->application->departement->departement_name!!}</b>
-			(Kode - <b>ISIAN</b> )
+			(Kode - <b>{!!$user->application->departement->departement_code!!}</b> )
 
 			<br />
 			<br />
 			Pilihan 2 :
 			<b>{!!$user->application->departement2->departement_name!!}</b>
-			(Kode - <b>ISIAN</b> )
+			(Kode - <b>{!!$user->application->departement2->departement_code!!}</b> )
 
 			<br />
 			<br />
 			Bersedia untuk Dipindah Jurusan = <b>{!!($user->application->aggree_to_auto_move == 1) ? 'YA' : 'TIDAK'!!}</b>
 		</td>
 
-		<td align="right" width="300px">
+		<td align="right" width="350px">
 			No. Peserta : 
-			<table border="1">
+			<table class="fixed" border="1">
 				<tbody>
 					<tr>
-						<td>1
-						</td>
-						<td>2
-						</td>
-						<td>3
-						</td>
-						<td>4
-						</td>
-						<td>5
-						</td>
-						<td>6
-						</td>
-						<td>7
-						</td>
-						<td>8
-						</td>
-						<td>9
-						</td>
-						<td>0
-						</td>
+						<td class="content">{!! $test_num[0] !!}</td>
+						<td class="content">{!! $test_num[1] !!}</td>
+						<td class="content">{!! $test_num[2] !!}</td>
+						<td class="content">{!! $test_num[3] !!}</td>
+						<td class="content">{!! $test_num[4] !!}</td>
+						<td class="content">{!! $test_num[5] !!}</td>
+						<td class="content">{!! $test_num[6] !!}</td>
+						<td class="content">{!! "" !!}</td>
+						<td class="content">{!! "" !!}</td>
+						<td class="content">{!! "" !!}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -315,7 +324,10 @@ td {
 		</td>
 	</tr>
 </table>
+
+<br>
 <hr>
+<br>
 
 <table>
 	<tr>
@@ -359,10 +371,11 @@ td {
 		</td>
 		<td>:
 		</td>
-		<td><b>{!!$user->pesantren->pesantren_contact!!}</b> <br />
+		<td><b>{!!$user->pesantren->no_telp!!}</b> <br />
 		</td>
 	</tr>
 </table>
+
 
 <hr>
 <!-- PROBLEM No 11 EMAIL -->

@@ -132,15 +132,16 @@ class SummaryController extends Controller {
 		//$fam = Family::where('applicant_id',$id)->get();
 		$date_birth = explode("-",$user->applicant->date_birth);
 		$date_birth = $date_birth[2].'-'.$date_birth[1].'-'.$date_birth[0];
+		$registration_number = Applicant::where('user_id','=',Auth::user()->id)->pluck('registration_number');
 
 		$test_number = Application::where('user_id','=',Auth::user()->id)->pluck('test_number');
 		$test_num = str_split($test_number); 
 		// dd($test_num);
-		$pdf = PDF::loadView('kartu',compact('user','date_birth', 'test_num'))->setPaper('legal');
+		$pdf = PDF::loadView('kartu',compact('user','date_birth', 'test_num', 'registration_number'))->setPaper('legal');
 
 		//Make user logout after prints
 		// Auth::logout();
-
+		// dd($user->pesantren->no_telp);
 		return $pdf->stream('Kartu Peserta.pdf');
 
 		//return view('kartu',compact('user','date_birth'));
