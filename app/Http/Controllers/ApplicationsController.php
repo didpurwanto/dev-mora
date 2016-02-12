@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-
+use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -30,9 +30,12 @@ class ApplicationsController extends Controller {
 		//dd($program_study_id);
 		// get all universities
 		$univ = University::lists('university_name','id');
+		// $univ =DB::table('universities')
+		// 	->where('status','=',1)
+		// 	->get();
 
 		$dep = $this->listDepart($program_study_id);
-		//dd($dep);
+		// dd($dep);
 
 		// get departement based on program study
 		//$dep = Departement::has('program_studies','=', $program_study_id)->lists('departement_name','id');

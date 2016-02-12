@@ -96,12 +96,24 @@ textarea {
     width:100%;
 }
 
-.content{
+/*.content{
     display:table;
     width:100%;
     border-collapse:separate;
     height:80%;
+}*/
+
+td .content {
+  /*position: absolute;*/
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color:white;
+  font-size: 120%;
+  background: black;
 }
+
 
 .Col{
     display:table-cell;
@@ -121,6 +133,13 @@ td {
     vertical-align: top;
 }
 
+table.fixed { 
+	table-layout:fixed; 
+	border-style: solid;
+    border-color: white;
+	width: 260px;
+}
+
 </style>
 </head>
 <body>
@@ -138,28 +157,18 @@ td {
 		<td align="right" width="260px">
 			<b><font size="20px">FORMULIR REGISTRASI</font></b><br />
 			No Registrasi : 
-			<table border="1">
+			<table class="fixed" border="1" cellspacing="5%" cellpadding="6%">
 				<tr>
-					<td>1
-					</td>
-					<td>2
-					</td>
-					<td>3
-					</td>
-					<td>4
-					</td>
-					<td>5
-					</td>
-					<td>6
-					</td>
-					<td>7
-					</td>
-					<td>8
-					</td>
-					<td>9
-					</td>
-					<td>0
-					</td>
+					<td>{!! $reg_num[0] !!}</td>
+					<td>{!! $reg_num[1] !!}</td>
+					<td>{!! $reg_num[2] !!}</td>
+					<td>{!! $reg_num[3] !!}</td>
+					<td>{!! $reg_num[4] !!}</td>
+					<td>{!! $reg_num[5] !!}</td>
+					<td>{!! $reg_num[6] !!}</td>
+					<td>{!! $reg_num[7] !!}</td>
+					<td>{!! $reg_num[8] !!}</td>
+					<td>{!! $reg_num[9] !!}</td>
 				</tr>
 			</table>
 		</td>

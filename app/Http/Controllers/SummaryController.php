@@ -93,11 +93,15 @@ class SummaryController extends Controller {
 		$subject_5 = explode(";",$raports['subject_5']);
 		$ranking = explode(";",$raports['ranking']);
 
+		//tampilkan registration number
+		$registration_number = Applicant::where('user_id','=',Auth::user()->id)->pluck('registration_number');
+		$reg_num = str_split($registration_number); 
+
 		//cetak langsung download dalam bentuk PDF
-		$pdf = PDF::loadView('formulir', compact('user','date_birth','listSubjects','subject_1','subject_2','subject_3','subject_4','subject_5','ranking'))->setPaper('legal');
+		$pdf = PDF::loadView('formulir', compact('user','date_birth','listSubjects','subject_1','subject_2','subject_3','subject_4','subject_5','ranking', 'reg_num'))->setPaper('legal');
 
 		//Make user logout after prints
-		Auth::logout();
+		// Auth::logout();
 
 		return $pdf->stream('Formulir Peserta.pdf');
 
