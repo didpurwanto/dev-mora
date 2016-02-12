@@ -1,14 +1,17 @@
-<div class="form-group">
+<div class="form-group {{ ! $errors->first('university_id') ?'': 'has-error' }}">
 	<div class="row">
 		<div class="col-md-3">
 		{!! Form::label('university_id', 'Nama Universitas') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('university_id', array('default' => 'Pilih Universitas') + $univ, $appl->university_id, ['class' => 'form-control']) !!}
+		{!! Form::select('university_id', array('0' => 'Pilih Universitas') + $univ, $appl->university_id, ['class' => 'form-control']) !!}
 		</div>
+		@if( $errors->first('university_id') )
+			<span class="help-block text-danger">{{ $errors->first('university_id') }}</span>
+		@endif
 	</div>
 </div>
-<div class="form-group">
+<div class="form-group {{ ! $errors->first('major_1_id') ?'': 'has-error' }}">
 	<div class="row">
 		<div class="col-md-3">
 		{!! Form::label('major_1_id', 'Pilihan Jurusan I') !!}
@@ -16,9 +19,12 @@
 		<div class="col-md-4">
 		{!! Form::select('major_1_id', array('0' => 'Jurusan 1') + $dep, $appl->major_1_id, ['class' => 'form-control']) !!}
 		</div>
+		@if( $errors->first('major_1_id') )
+			<span class="help-block text-danger">{{ $errors->first('major_1_id') }}</span>
+		@endif
 	</div>
 </div>
-<div class="form-group">
+<div class="form-group {{ ! $errors->first('major_2_id') ?'': 'has-error' }}">
 	<div class="row">
 		<div class="col-md-3">
 		{!! Form::label('major_2_id', 'Pilihan Jurusan II') !!}
@@ -26,6 +32,9 @@
 		<div class="col-md-4">
 		{!! Form::select('major_2_id', array('0' => 'Jurusan 2') + $dep, $appl->major_2_id, ['class' => 'form-control']) !!}
 		</div>
+		@if( $errors->first('major_2_id') )
+			<span class="help-block text-danger">{{ $errors->first('major_2_id') }}</span>
+		@endif
 	</div>
 </div>
 <div class="form-group">

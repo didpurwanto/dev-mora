@@ -29,7 +29,7 @@ class ApplicationsController extends Controller {
 		$program_study_id = School::where('user_id', Auth::user()->id)->pluck('program_study_id');
 		//dd($program_study_id);
 		// get all universities
-		$univ = University::lists('university_name','id');
+		$univ = University::where('status', 1)->lists('university_name','id');
 		// $univ =DB::table('universities')
 		// 	->where('status','=',1)
 		// 	->get();
@@ -67,7 +67,7 @@ class ApplicationsController extends Controller {
 
 	public function getDepartements($university_id)
     {
-        $departs = Departement::where('university_id', $university_id)->get();
+        $departs = Departement::where('university_id', $university_id)->where('status', '1')->get();
 				//dd($departs);
 
 		    $options = array();
