@@ -96,4 +96,35 @@ class ApplicationsController extends Controller {
 		return view('detiljurusan', compact('deps'));
 	}
 
+    {
+    	#get id jurusan and the where id_jurusan in departement jurusan
+		$program_study_id = School::where('user_id', Auth::user()->id)->pluck('program_study_id');
+		// select departement_name
+		// from departements as a
+		// left join departements_program_studies as b
+		// on b.departement_id= a.id
+		// where a.university_id=1 and b.program_study_id = 1
+		$departs = DB::table('departements')
+			->select('departement_name')
+			->leftJoin('departements_program_studies', 'departements_program_studies.departement_id','=', 'departements.id')
+			->where('university_id', '=', $university_id)
+			->where('program_study_id', '=', $program_study_id)
+			->where('status', '=', 1)
+			->get();
+
+		// dd($dep);
+        // $departs = Departement::where('university_id', $university_id)->where('status', '1')->get();
+		// dd($departs);
+
+	    $options = array();
+	    $counter = 0;
+        foreach ($departs as $depart) {
+            $options += array($counter => $depart->departement_name);
+            $counter = $counter + 1;
+        }
+
+		// dd($options);
+        return $options;
+    }
+
 }
