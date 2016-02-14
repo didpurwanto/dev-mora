@@ -48,9 +48,9 @@
 	</div>
 </div>
 
-<div class="alert alert-danger">
+<!-- <div class="alert alert-danger">
 	<p>Pastikan <b>JURUSAN</b> yang anda pilih sesuai dengan Jurusan di Sekolah anda (<b>IPA/IPS/BAHASA/AGAMA</b>). <a href="{!! URL::to('/informasijurusan') !!}">Lihat Detil Jurusan</a></p>
-</div>
+</div> -->
 
 <div class="form-group">
 	{!! Form::submit($text, ['class' => 'btn btn-primary btn-large form-button']) !!}
