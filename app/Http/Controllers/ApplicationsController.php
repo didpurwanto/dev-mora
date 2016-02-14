@@ -66,21 +66,34 @@ class ApplicationsController extends Controller {
 	}
 
 	public function getDepartements($university_id)
-    {
-        $departs = Departement::where('university_id', $university_id)->where('status', '1')->get();
-				//dd($departs);
+  {
+    $departs = Departement::where('university_id', $university_id)->where('status', '1')->get();
+		//dd($departs);
 
-		    $options = array();
+    $options = array();
 
-        foreach ($departs as $depart) {
-            $options += array($depart->id => $depart->departement_name);
-        }
-
-		//dd($options);
-        return $options;
+    foreach ($departs as $depart){
+        $options += array($depart->id => $depart->departement_name);
     }
 
-		public function listDepart($program_study_id){
-				return Departement::lists('departement_name','id');
-		}
+		//dd($options);
+    return $options;
+  }
+
+	public function listDepart($program_study_id)
+	{
+			return Departement::lists('departement_name','id');
+	}
+
+	public function jurusan()
+	{
+		$univ = array();
+		$dep = array();
+		$deps = Departement::where('status', '1')->get();
+		//$univs = University::where('status', 1)->lists('university_name','id');
+		//dd($deps);
+
+		return view('detiljurusan', compact('deps'));
+	}
+
 }

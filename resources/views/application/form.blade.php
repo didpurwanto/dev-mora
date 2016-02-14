@@ -49,7 +49,7 @@
 </div>
 
 <div class="alert alert-danger">
-	<p>Pastikan <b>JURUSAN</b> yang anda pilih sesuai dengan Jurusan di Sekolah anda (<b>IPA/IPS/BAHASA/AGAMA</b>). <a href="{!! URL::to('/informasijurusan') !!}">Lihat Detil Jurusan</a></p>
+	<p>Pastikan <b>JURUSAN</b> yang anda pilih sesuai dengan Jurusan di Sekolah anda (<b>IPA/IPS/BAHASA/AGAMA</b>). <a target="_blank" href="{!! URL::to('/informasijurusan') !!}">Lihat Detil Jurusan</a></p>
 </div>
 
 <div class="form-group">

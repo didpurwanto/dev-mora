@@ -22,6 +22,7 @@
             $.getJSON("/applications/universities/" + $("#university_id").val(), function(data) {
                 var $stations = $("#major_1_id");
                 $stations.empty();
+								$stations.append('<option value="0">Jurusan 1</option>');
                 $.each(data, function(index, value) {
                     $stations.append('<option value="' + index +'">' + value + '</option>');
                 });
@@ -37,6 +38,7 @@
             $.getJSON("/applications/universities/" + $("#university_id").val(), function(data) {
                 var $stations = $("#major_2_id");
                 $stations.empty();
+								$stations.append('<option value="0">Jurusan 2</option>');
                 $.each(data, function(index, value) {
                     $stations.append('<option value="' + index +'">' + value + '</option>');
                 });
