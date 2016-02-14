@@ -53,6 +53,7 @@ class ApplicationsController extends Controller {
 	 */
 	public function update(ApplicationRequest $request)
 	{
+		// dd($request);
 		$appl = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
 		//Save record to the database
 		$form = $appl->update($request->all());
@@ -101,7 +102,7 @@ class ApplicationsController extends Controller {
     	#get id jurusan and the where id_jurusan in departement jurusan
 		$program_study_id = School::where('user_id', Auth::user()->id)->pluck('program_study_id');
 		$departs = DB::table('departements')
-			->select('departement_name')
+			->select('departement_id', 'departement_name')
 			->leftJoin('departements_program_studies', 'departements_program_studies.departement_id','=', 'departements.id')
 			->where('university_id', '=', $university_id)
 			->where('program_study_id', '=', $program_study_id)
@@ -110,10 +111,8 @@ class ApplicationsController extends Controller {
 
 
 	    $options = array();
-	    $counter = 0;
         foreach ($departs as $depart) {
-            $options += array($counter => $depart->departement_name);
-            $counter = $counter + 1;
+            $options += array($depart->departement_id => $depart->departement_name);
         }
 
 		// dd($options);
