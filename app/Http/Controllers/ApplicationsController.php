@@ -65,20 +65,20 @@ class ApplicationsController extends Controller {
 		return redirect('summary');
 	}
 
-	public function getDepartements($university_id)
-  {
-    $departs = Departement::where('university_id', $university_id)->where('status', '1')->get();
-		//dd($departs);
+	// public function getDepartements($university_id)
+ //  {
+ //    $departs = Departement::where('university_id', $university_id)->where('status', '1')->get();
+	// 	//dd($departs);
 
-    $options = array();
+ //    $options = array();
 
-    foreach ($departs as $depart){
-        $options += array($depart->id => $depart->departement_name);
-    }
+ //    foreach ($departs as $depart){
+ //        $options += array($depart->id => $depart->departement_name);
+ //    }
 
 		//dd($options);
-    return $options;
-  }
+  //   return $options;
+  // }
 
 	public function listDepart($program_study_id)
 	{
@@ -95,15 +95,11 @@ class ApplicationsController extends Controller {
 
 		return view('detiljurusan', compact('deps'));
 	}
-
+	
+	public function getDepartements($university_id)
     {
     	#get id jurusan and the where id_jurusan in departement jurusan
 		$program_study_id = School::where('user_id', Auth::user()->id)->pluck('program_study_id');
-		// select departement_name
-		// from departements as a
-		// left join departements_program_studies as b
-		// on b.departement_id= a.id
-		// where a.university_id=1 and b.program_study_id = 1
 		$departs = DB::table('departements')
 			->select('departement_name')
 			->leftJoin('departements_program_studies', 'departements_program_studies.departement_id','=', 'departements.id')
@@ -112,9 +108,6 @@ class ApplicationsController extends Controller {
 			->where('status', '=', 1)
 			->get();
 
-		// dd($dep);
-        // $departs = Departement::where('university_id', $university_id)->where('status', '1')->get();
-		// dd($departs);
 
 	    $options = array();
 	    $counter = 0;
