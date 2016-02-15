@@ -22,6 +22,7 @@ class ProgramStudyRequest extends Request {
 	public function rules()
 	{
 		return [
+			'prodi_code' => 'required',
 			'program_name' => 'required',
 			'list_subject' => 'required'
 		];
@@ -30,7 +31,8 @@ class ProgramStudyRequest extends Request {
 	public function messages()
 	{
 		return [
-			'program_name.required' => 'Nama Departemen tidak boleh kosong',
+			'prodi_code.required' => 'Kode program studi tidak boleh kosong',
+			'program_name.required' => 'Nama Program studitidak boleh kosong',
 			'list_subject.required' => 'Daftar Pelajaran tidak boleh kosong'
 		];
 	}

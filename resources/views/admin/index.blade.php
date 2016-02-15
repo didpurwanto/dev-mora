@@ -104,7 +104,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Upload dan Download Data<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-file-excel-o fa-fw"></i> Download/Upload Data<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{!! URL::to('admin/import') !!}">Upload Nomor Ujian</a>
@@ -117,7 +117,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Master Data<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bars fa-fw"></i> Master Data<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li class="{!! Request::is('provinces') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/provinces') !!}">Daftar Provinsi</a>
@@ -128,21 +128,26 @@
                                 <li class="{!! Request::is('departements') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/departements') !!}">Daftar Jurusan</a>
                                 </li>
+                                <li class="{!! Request::is('programstudies') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/programstudies') !!}">Program Study</a>
+                                </li>
+
+                                <li class="{!! Request::is('pesantrentypes') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/pesantrentypes') !!}">Pengaturan Jenis Pesantren</a>
+                                </li>
+
+
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Data Tambahan<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-book fa-fw"></i> Data Tambahan<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li class="{!! Request::is('edicationlevels') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/educationlevels') !!}">Tingkat Pendidikan</a>
                                 </li>
                                 <li class="{!! Request::is('jobtypes') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/jobtypes') !!}">Jenis Pekerjaan</a>
-                                </li>
-
-                                <li class="{!! Request::is('programstudies') ? 'active' : '' !!}">
-                                    <a href="{!! URL::to('admin/programstudies') !!}">Program Study</a>
                                 </li>
 
                                 <li class="{!! Request::is('rangesalaries') ? 'active' : '' !!}">
@@ -162,14 +167,10 @@
                                 <!-- <li class="{!! Request::is('tahunlahir') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/tahunlahir') !!}">Pengaturan Tahun Lahir</a>
                                 </li> -->
-
-                                <li class="{!! Request::is('pesantrentypes') ? 'active' : '' !!}">
-                                    <a href="{!! URL::to('admin/pesantrentypes') !!}">Pengaturan Jenis Pesantren</a>
-                                </li>
                                 
-                                <li class="{!! Request::is('tahunlulus') ? 'active' : '' !!}">
+<!--                                 <li class="{!! Request::is('tahunlulus') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/tahunlulus') !!}">Pengaturan Tahun Lulus</a>
-                                </li>
+                                </li> -->
                                 <li class="{!! Request::is('pendaftaran') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/pendaftaran/1') !!}">Pengaturan Pendaftaran</a>
                                 </li>

@@ -32,6 +32,7 @@
 						<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 							<thead>
 								<tr>
+									<th>Kode Bidang</th>
 									<th>Bidang</th>
 									<th>Subjek Penilaian</th>
 									<th>Aksi</th>
@@ -42,9 +43,12 @@
 								@foreach ($programs as $program)
 								<tr>
 									<td class="center col-md-1">
+										{{ $program->prodi_code, ['size' => 3] }}
+								    </td>
+									<td class="center col-md-2">
 										{{ $program->program_name, ['size' => 3] }}
 								    </td>
-									<td class="center col-md-8">
+									<td class="center col-md-7">
 										{{ $program->list_subject, ['size' => 5] }}
 									</td>
 									<td class="center col-md-2">

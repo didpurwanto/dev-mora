@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 use DB;
+use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -7,6 +8,8 @@ use Illuminate\Http\Request;
 use Excel;
 use App\Applicant;
 use App\Application;
+use App\Unviersity;
+use App\Pesantren;
 use Input;
 use Session;
 
@@ -23,6 +26,7 @@ class ExportImportController extends Controller {
 	{
 		$application = DB::table('applications')
 					->join('applicants', 'applications.user_id', '=', 'applicants.user_id')
+					->whereNotNull('test_number')
 					->get();
 
 		return view('admin/importform', compact('application'));
@@ -32,9 +36,9 @@ class ExportImportController extends Controller {
 	{
 		$application = DB::table('applications')
 				->join('applicants', 'applications.user_id', '=', 'applicants.user_id')
-				->whereNotNull('applications.test_number')
+				->whereNotNull('test_number')
 				->get();
-		dd($application);
+		// dd($application);
 		return view('admin/importform', compact('application'));
 	}
 
@@ -42,14 +46,90 @@ class ExportImportController extends Controller {
 	{
 	    try
 	     {
+	     	$array = array();
 	     	// $file = Input::file('file');
 			Excel::load(Input::file('file'), function($reader) {
 			//dd($reader);
 	        foreach ($reader->toObject() as $row)
 	        {
-	           print $row->user_id;
-        	   Application::where('user_id',$row->user_id)
-        	   			->update(['test_number'=> $row->test_number]);
+
+	        	//generate kode pt
+	        	$kodept = DB::table('departements')
+	        		->join('universities', 'departements.university_id', '=' ,'universities.id')
+	        		->join('applications', 'applications.major_1_id', '=', 'departements.id')
+	        		->join('applicants', 'applicants.user_id', '=', 'applications.user_id')
+
+	        		->join('pesantrens', 'applicants.user_id', '=', 'pesantrens.user_id')
+	        		->join('provinces', 'provinces.id', '=', 'pesantrens.province_id')
+
+	        		->join('schools', 'applicants.user_id', '=', 'schools.user_id')
+	        		->join('program_studies', 'schools.program_study_id', '=', 'program_studies.id' )
+
+	        		->where('applicants.registration_number', '=', $row->nomor_registrasi)
+
+	        		->select('universities.university_code', 'program_studies.prodi_code', 'provinces.province_code')
+	        		->get();
+
+	        	// dd($kodept);
+	        	// kd pt =3, kd prov=2, kd prodi=2 .. make it united
+
+	        	$test_number = "";
+	        	
+	        	if (strlen($kodept[0]->university_code) == 3){
+	        		$ptcode	= $kodept[0]->university_code;
+	        	}
+	        	elseif(strlen($kodept[0]->university_code) <3){
+	        		$prov =  substr_replace($kodept[0]->university_code, (3-strlen($kodept[0]->university_code) *"0") , 0, 0);	        		
+	        	}
+	        	else
+	        	{
+	        		$ptcode = substr($kodept[0]->university_code , 0,3); 	        		
+	        	}
+	        	$test_number.= $ptcode;
+
+
+	        	if (strlen($kodept[0]->province_code) == 2) {
+	        		$prov = $kodept[0]->province_code;
+	        	}
+	        	elseif(strlen($kodept[0]->province_code) < 2) {
+	        		if (strlen($kodept[0]->province_code) == 0){
+	        			$add= "00";
+	        		}
+	        		else{
+	        			$add = "0";
+	        		}
+	        		$prov =  substr_replace($kodept[0]->province_code, $add, 0, 0);
+	        	}
+	        	else
+	        	{
+	        		$prov = substr($kodept[0]->province_code , 0,2); 	        		
+	        	}
+	        	$test_number.= $prov;
+
+	        	if (strlen($kodept[0]->prodi_code) == 2) {
+	        		$prodi = $kodept[0]->prodi_code;
+	        	}
+	        	elseif (strlen($kodept[0]->prodi_code) < 2) {
+	        		if (strlen($kodept[0]->prodi_code) == 0){
+	        			$add= "00";
+	        		}
+	        		else{
+	        			$add = "0";
+	        		}
+
+	        		$prodi =  substr_replace($kodept[0]->prodi_code, $add, 0, 0);
+	        	}
+	        	else
+	        	{
+	        		$prov = substr($kodept[0]->prodi_code , 0,2); 	        		
+	        	}
+	        	$test_number.= $prodi;
+
+	        	//save to db
+	        	DB::table('applications')
+	        	->join('applicants', 'applicants.user_id', '=', 'applications.user_id')
+	            ->where('registration_number', $row->nomor_registrasi)
+    	        ->update(['test_number' => $test_number ]);
 	        }
 	        Session::flash('message', 'Data is uploaded successfully.');
 	       });
@@ -57,6 +137,7 @@ class ExportImportController extends Controller {
 	      }
 	      catch (\Exception $e)
 	      {
+	      	// dd()
 	        Session::flash('message', $e->getMessage());
 	        return redirect('admin/import');
 	      }
@@ -199,13 +280,18 @@ class ExportImportController extends Controller {
 
                 	$applicant->pesantren_type = DB::table('pesantren_types')->where('id', $applicant->pesantren_type)->pluck('pesantren_types.type_name');
                 	$applicant->school_type_id = DB::table('school_types')->where('id', $applicant->school_type_id)->pluck('school_types.type_name');
-
                 	$applicant->program_study_id = DB::table('program_studies')->where('id', $applicant->program_study_id)->pluck('program_studies.program_name');
 
 	 				if ($applicant->inside_pondok == "1" ){
 	 					$applicant->inside_pondok = 'Ya';
 	 				}else {
 	 					$applicant->inside_pondok = 'Tidak';
+	 				}
+
+	 				if ($applicant->school_status == "1" ){
+	 					$applicant->school_status = 'Negeri';
+	 				}else {
+	 					$applicant->school_status = 'Swasta';
 	 				}
 
 					$applicant->university_id = DB::table('universities')->where('id', $applicant->university_id)->pluck('universities.university_name');
