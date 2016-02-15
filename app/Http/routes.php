@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'WelcomeController@index');
-Route::get('detiljurusan', 'ApplicationsController@jurusan');
+//Route::get('detiljurusan', 'ApplicationsController@jurusan');
 
 
 /*

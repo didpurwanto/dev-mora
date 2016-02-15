@@ -34,12 +34,17 @@ class ApplicationsController extends Controller {
 		// 	->where('status','=',1)
 		// 	->get();
 
-		$dep = $this->listDepart($program_study_id);
+		//$dep = $this->listDepart($program_study_id);
 		// dd($dep);
+		// useful for refresh after error on validation
+		$dep = DB::table('departements')
+			//->select('departement_name','id')
+			->leftJoin('departements_program_studies', 'departements_program_studies.departement_id','=', 'departements.id')
+			//->where('university_id', '=', $university_id)
+			->where('program_study_id', '=', $program_study_id)
+			->where('status', '=', 1)
+			->lists('departement_name','id');
 
-		// get departement based on program study
-		//$dep = Departement::has('program_studies','=', $program_study_id)->lists('departement_name','id');
-		//dd($dep);
 		$appl = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
 		// dd($appl);
 		return view('application.edit', compact('appl','univ','dep'));
@@ -81,22 +86,22 @@ class ApplicationsController extends Controller {
   //   return $options;
   // }
 
-	public function listDepart($program_study_id)
-	{
-			return Departement::lists('departement_name','id');
-	}
+	//public function listDepart($program_study_id)
+	//{
+	//		return Departement::lists('departement_name','id');
+	//}
 
-	public function jurusan()
-	{
-		$univ = array();
-		$dep = array();
-		$deps = Departement::where('status', '1')->get();
+	//public function jurusan()
+	//{
+		//$univ = array();
+		//$dep = array();
+		//$deps = Departement::where('status', '1')->get();
 		//$univs = University::where('status', 1)->lists('university_name','id');
 		//dd($deps);
 
-		return view('detiljurusan', compact('deps'));
-	}
-	
+		//return view('detiljurusan', compact('deps'));
+	//}
+
 	public function getDepartements($university_id)
     {
     	#get id jurusan and the where id_jurusan in departement jurusan
@@ -108,15 +113,15 @@ class ApplicationsController extends Controller {
 			->where('program_study_id', '=', $program_study_id)
 			->where('status', '=', 1)
 			->get();
-
+			//dd($departs);
 
 	    $options = array();
-        foreach ($departs as $depart) {
-            $options += array($depart->departement_id => $depart->departement_name);
-        }
+      foreach ($departs as $depart) {
+          $options += array($depart->departement_id => $depart->departement_name);
+      }
 
-		// dd($options);
-        return $options;
+		 //dd($options);
+    	return $options;
     }
 
 }
