@@ -9,6 +9,7 @@ class ProgramStudy extends Model {
 	public $timestamps = false;
 
 	protected $fillable = [
+		'prodi_code',
 		'program_name',
 		'list_subject'
 	];

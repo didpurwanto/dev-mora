@@ -104,7 +104,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Upload dan Download Data<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-file-excel-o fa-fw"></i> Download/Upload Data<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{!! URL::to('admin/import') !!}">Upload Nomor Ujian</a>
@@ -117,7 +117,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Master Data<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bars fa-fw"></i> Master Data<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li class="{!! Request::is('provinces') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/provinces') !!}">Daftar Provinsi</a>
@@ -167,9 +167,9 @@
                                     <a href="{!! URL::to('admin/pesantrentypes') !!}">Pengaturan Jenis Pesantren</a>
                                 </li>
                                 
-                                <li class="{!! Request::is('tahunlulus') ? 'active' : '' !!}">
+<!--                                 <li class="{!! Request::is('tahunlulus') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/tahunlulus') !!}">Pengaturan Tahun Lulus</a>
-                                </li>
+                                </li> -->
                                 <li class="{!! Request::is('pendaftaran') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/pendaftaran/1') !!}">Pengaturan Pendaftaran</a>
                                 </li>

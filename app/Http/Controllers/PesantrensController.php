@@ -32,8 +32,8 @@ class PesantrensController extends Controller {
 		$pes = Pesantren::where('user_id', '=', Auth::user()->id)->firstOrFail();
 
 		$prov = Province::lists('province_name','id');
-		$kab = Kabupaten::where('id',$pes->kabupaten_id)->lists('kabupaten_name','id');
-		$kec = Kecamatan::where('id',$pes->kecamatan_id)->lists('kecamatan_name','id');
+		// $kab = Kabupaten::where('id',$pes->kabupaten_id)->lists('kabupaten_name','id');
+		// $kec = Kecamatan::where('id',$pes->kecamatan_id)->lists('kecamatan_name','id');
 
 		$pes_type = PesantrenType::lists('type_name','id');
 		// $pes_type = PesantrenType::where('id', '=', $pes->pesantren_type);

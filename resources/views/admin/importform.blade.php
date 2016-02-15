@@ -25,7 +25,7 @@
 				<div class="panel panel-default">
 						<div class="panel-body">
 						<div class="alert alert-warning" role="alert">
-							Import hanya bisa dilakukan menggunakan Ms Excel
+							File import harus dalam format excel(xls)
 						</div>
 							<form action="upload" enctype="multipart/form-data" method="POST">
 							    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -39,20 +39,20 @@
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 											<thead>
 												<tr>
+													<th>Nama Pendaftar</th>
 													<th>no registrasi</th>
-													<th>Nama</th>
 													<th>No test</th>
 												</tr>
 											</thead>
 											<tbody>
 												@foreach ($application as $apl)
 												<tr>
-													<td class="center col-md-1">
-														{{ $apl->registration_number }}
-												    </td>
 													<td class="center col-md-3">
 														{{ $apl->full_name }}
 													</td>
+													<td class="center col-md-1">
+														{{ $apl->registration_number }}
+												    </td>
 													<td class="center col-md-3">
 														{{ $apl->test_number }}
 													</td>
