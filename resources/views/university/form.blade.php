@@ -1,5 +1,5 @@
 <div class="form-group">
-	{!! Form::label('university_code', 'Kode Universitas :') !!}
+	{!! Form::label('university_code', 'Kode Universitas(Harus 3 digit) :') !!}
 	{!! Form::text('university_code',null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">

@@ -36,6 +36,7 @@
 											<thead>
 												<tr>
 													<th>No</th>
+													<th>kode</th>
 													<th>Nama Provinsi</th>
 													<th>Aksi</th>
 												</tr>
@@ -46,6 +47,10 @@
 													<td class="center col-md-1">
 														{{ $counter = $counter+1, ['size' => 4] }}
 												  </td>
+													<td class="center col-md-1">
+														{{ $province->province_code }}
+												  </td>
+
 													<td>
 														{{ $province->province_name }}
 													</td>
