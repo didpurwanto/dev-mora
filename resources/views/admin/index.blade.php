@@ -167,7 +167,7 @@
                                 <!-- <li class="{!! Request::is('tahunlahir') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/tahunlahir') !!}">Pengaturan Tahun Lahir</a>
                                 </li> -->
-                                
+
 <!--                                 <li class="{!! Request::is('tahunlulus') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/tahunlulus') !!}">Pengaturan Tahun Lulus</a>
                                 </li> -->

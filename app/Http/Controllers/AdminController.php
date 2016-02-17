@@ -83,7 +83,7 @@ class AdminController extends Controller {
 	            ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
 	            ->groupBy('departements.id')
 	            ->get();
-		
+
 		        $univ = "Semua";
 		        $totalAktif= Departement::where('status', '=', 1)->count();
 		        $totalNonAktif= Departement::where('status', '=', '')->count();
@@ -181,11 +181,11 @@ class AdminController extends Controller {
 		$pendaftaran2 = Setting::findOrfail($id);
 		//dd($pendaftaran2);
 		//$pendaftaran = $pendaftaran2->tutup_pendaftaran;
-		$pendaftaran = array();
-		$pendaftaran +=  [0 => 'Buka'];
-		$pendaftaran +=  [1 => 'Tutup'];
+		//$pendaftaran = array();
+		//$pendaftaran +=  [0 => 'Buka'];
+		//$pendaftaran +=  [1 => 'Tutup'];
 
-		return view('admin.pendaftaran', compact('pendaftaran','pendaftaran2'));
+		return view('admin.pendaftaran', compact('pendaftaran2'));
 	}
 
 	// save registration option
@@ -195,7 +195,7 @@ class AdminController extends Controller {
 		//dd($pendaftaran);
 		//$pendaftaran2 = $request
 		//dd($request);
-		$pendaftaran->tutup_pendaftaran = $request->tutup_pendaftaran;
+		$pendaftaran->tanggal_tutup = $request->tanggal;
 		$pendaftaran->save();
 
 		return redirect('admin/pendaftaran/1');
@@ -207,12 +207,12 @@ class AdminController extends Controller {
 	        $excel->setTitle('List Pendaftar PBSB');
 	        $excel->setCreator('Agung Laksono')->setCompany('Kemenag');
 	        $excel->sheet('biodata pendaftar', function ($sheet){
-				#show all provinces	        
+				#show all provinces
 				$prov_list = DB::table('provinces')
 					->select(['provinces.province_name', DB::raw('count(applicants.id) as total'), 'provinces.id'])
 					->leftJoin('applicants', 'provinces.id','=', 'applicants.province_id' )
 					->groupBy('provinces.id')
-					->get();	        	
+					->get();
 
 				$data = array();
 				$univ = DB::table('universities')
@@ -241,16 +241,16 @@ class AdminController extends Controller {
 
 						$data[$province->province_name][$university->university_name] = $value;
 					}
-		 		}	        	
+		 		}
 
 				$column = array(
 					'No',
 					'Nama Provinsi',
-				);  
+				);
 	 			foreach ($univ as $university) {
-					array_push($column, $university->university_code);        	
+					array_push($column, $university->university_code);
 	 			}
-				array_push($column, 'Total');        	
+				array_push($column, 'Total');
 
 	            $sheet->appendRow($column);
 
@@ -289,7 +289,7 @@ class AdminController extends Controller {
 					->get();
 
 				// dd($pesantren);
-				$column = array( 
+				$column = array(
 					'Nama Pesantren',
 					'Nama Pimpinan',
 					'NSPP',
@@ -337,7 +337,7 @@ class AdminController extends Controller {
 				$id = Input::get('university_id');
 
 				dd($id);
-				
+
 				$univ_list= University::lists('university_name','id');
 				// $univ_list = University::all();//lists('university_name','id');
 

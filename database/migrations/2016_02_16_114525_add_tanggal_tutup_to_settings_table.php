@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTutupPendaftaranToSettingTable extends Migration {
+class AddTanggalTutupToSettingsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,7 +14,7 @@ class AddTutupPendaftaranToSettingTable extends Migration {
 	{
 		Schema::table('settings', function(Blueprint $table)
 		{
-			$table->integer('tutup_pendaftaran')->after('id');
+			$table->date('tanggal_tutup')->after('nomor_registrasi');
 		});
 	}
 
@@ -25,10 +25,7 @@ class AddTutupPendaftaranToSettingTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('settings', function(Blueprint $table)
-		{
-			$table->dropColumn('tutup_pendaftaran');
-		});
+		$table->dropColumn('tanggal_tutup');
 	}
 
 }
