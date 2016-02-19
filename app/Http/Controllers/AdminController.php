@@ -180,12 +180,12 @@ class AdminController extends Controller {
 	public function pendaftaran($id){
 		$pendaftaran2 = Setting::findOrfail($id);
 		//dd($pendaftaran2);
-		//$pendaftaran = $pendaftaran2->tutup_pendaftaran;
-		//$pendaftaran = array();
-		//$pendaftaran +=  [0 => 'Buka'];
-		//$pendaftaran +=  [1 => 'Tutup'];
+		$pendaftaran = $pendaftaran2->tutup_pendaftaran;
+		$pendaftaran = array();
+		$pendaftaran +=  [0 => 'Buka'];
+		$pendaftaran +=  [1 => 'Tutup'];
 
-		return view('admin.pendaftaran', compact('pendaftaran2'));
+		return view('admin.pendaftaran', compact('pendaftaran2','pendaftaran'));
 	}
 
 	// save registration option
@@ -195,7 +195,8 @@ class AdminController extends Controller {
 		//dd($pendaftaran);
 		//$pendaftaran2 = $request
 		//dd($request);
-		$pendaftaran->tanggal_tutup = $request->tanggal;
+		$pendaftaran->tanggal_tutup = $request->tanggal_tutup;
+		$pendaftaran->tutup_pendaftaran = $request->tutup_pendaftaran;
 		$pendaftaran->save();
 
 		return redirect('admin/pendaftaran/1');

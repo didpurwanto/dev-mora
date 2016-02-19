@@ -151,7 +151,7 @@
         </div>
     </section>
 
-    @if ($pendaftaran == 0)
+    @if ($pendaftaran == 0 or !isDateLewat)
     <section class="bg-success" id="daftar">
         <div class="container">
             <div class="row">
