@@ -28,7 +28,7 @@ class WelcomeController extends Controller {
 		$today = date("Y-m-d");
 		//dd($pendaftaran);
 		$isDateLewat=false;
-		if (strtotime($today) <= strtotime($tanggal_tutup)){
+		if (strtotime($today) >= strtotime($tanggal_tutup)){
 			$isDateLewat=true;
 		}
 		//dd($isDateLewat);

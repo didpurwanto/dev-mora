@@ -101,7 +101,7 @@
         <p>{{ Session::get('pesan') }}</p>
       </div>
     @endif
-    @if ($pendaftaran == 1)
+    @if (($pendaftaran == 1) or ($isDateLewat))
         <br />
         <div class="alert alert-danger">
           <p align="center">PENDAFTARAN TELAH DITUTUP</p>
@@ -151,7 +151,7 @@
         </div>
     </section>
 
-    @if ($pendaftaran == 0 or !isDateLewat)
+    @if (($pendaftaran == 0) and (!$isDateLewat))
     <section class="bg-success" id="daftar">
         <div class="container">
             <div class="row">
