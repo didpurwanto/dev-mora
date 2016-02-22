@@ -26,7 +26,7 @@ class ExportImportController extends Controller {
 	{
 		$application = DB::table('applications')
 					->join('applicants', 'applications.user_id', '=', 'applicants.user_id')
-					->whereNotNull('test_number')
+					->whereNotNull('applications.test_number')
 					->get();
 
 		return view('admin/importform', compact('application'));
@@ -36,7 +36,7 @@ class ExportImportController extends Controller {
 	{
 		$application = DB::table('applications')
 				->join('applicants', 'applications.user_id', '=', 'applicants.user_id')
-				->whereNotNull('test_number')
+				->whereNotNull('applications.test_number')
 				->get();
 		// dd($application);
 		return view('admin/importform', compact('application'));
