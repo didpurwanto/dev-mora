@@ -159,7 +159,7 @@ table.fixed {
 		<td align="right" width="260px">
 			<b><font size="20px">FORMULIR REGISTRASI</font></b><br />
 			No Registrasi : 
-			<table class="fixed" border="1" cellspacing="5%" cellpadding="6%">
+			<table class="fixed" border="1" cellspacing="2%" cellpadding="6%">
 				<tr>
 					<td>{!! $reg_num[0] !!}</td>
 					<td>{!! $reg_num[1] !!}</td>
@@ -171,6 +171,8 @@ table.fixed {
 					<td>{!! $reg_num[7] !!}</td>
 					<td>{!! $reg_num[8] !!}</td>
 					<td>{!! $reg_num[9] !!}</td>
+					<td>{!! $reg_num[10] !!}</td>
+					<td>{!! $reg_num[11] !!}</td>
 				</tr>
 			</table>
 		</td>
@@ -193,8 +195,8 @@ table.fixed {
 			No Telp yang Bisa Dihubungi : <b>{!! $user->applicant->contact !!}</b> <br />
 		</td>
 		<td align="right" width="350px">
-			No. Peserta : <b>ISIAN</b><br />
-			<i><small>(Diberikan oleh panitia seleksi)</small></i><br />
+			<!-- No. Peserta : <b>ISIAN</b> --><br />
+			<!-- <i><small>(Diberikan oleh panitia seleksi)</small></i> --><br />
 			<img src="images/pasphoto.png" height="120px" width="100px">
 		</td>
 	</tr>
@@ -220,7 +222,7 @@ table.fixed {
 		</td>
 		<td width="10px">:
 		</td>
-		<td width="200px"><b>{!!($user->family->father_deceased == 1) ? 'Alm. ' : ''!!}{!!$user->family->father_name !!}</b>
+		<td width="100px"><b>{!!($user->family->father_deceased == 1) ? 'Alm. ' : ''!!}{!!$user->family->father_name !!}</b>
 		</td>
 		<td >Umur <b>{!!$user->family->father_age!!} </b> Tahun
 		</td>
