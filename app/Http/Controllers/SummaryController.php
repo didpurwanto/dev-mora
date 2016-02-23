@@ -95,7 +95,7 @@ class SummaryController extends Controller {
 
 		//tampilkan registration number
 		$registration_number = Applicant::where('user_id','=',Auth::user()->id)->pluck('registration_number');
-		$reg_num = str_split($registration_number); 
+		$reg_num = str_split($registration_number);
 
 		//cetak langsung download dalam bentuk PDF
 		$pdf = PDF::loadView('formulir', compact('user','date_birth','listSubjects','subject_1','subject_2','subject_3','subject_4','subject_5','ranking', 'reg_num'))->setPaper('legal');
@@ -103,7 +103,7 @@ class SummaryController extends Controller {
 		//Make user logout after prints
 		Auth::logout();
 
-		return $pdf->stream('Formulir Peserta.pdf');
+		return $pdf->download('Formulir Peserta.pdf');
 
 		// Session::flash('download.in.the.next.request', $pdf->download('Formulir Peserta.pdf'));
 		// return redirect::to('/');
@@ -117,7 +117,7 @@ class SummaryController extends Controller {
 
 	// 	// dd($cetak);
 	// 	$pendaftaran = DB::table('settings')->pluck('tutup_pendaftaran');
-		
+
 	// 	//list jenis pesantren
 	// 	$jenis_pesantren = DB::table('pesantren_types')->lists('type_name','id');
 	// 	//dd($pendaftaran);
@@ -135,14 +135,14 @@ class SummaryController extends Controller {
 		$registration_number = Applicant::where('user_id','=',Auth::user()->id)->pluck('registration_number');
 
 		$test_number = Application::where('user_id','=',Auth::user()->id)->pluck('test_number');
-		$test_num = str_split($test_number); 
+		$test_num = str_split($test_number);
 		// dd($test_num);
 		$pdf = PDF::loadView('kartu',compact('user','date_birth', 'test_num', 'registration_number'))->setPaper('legal');
 
 		//Make user logout after prints
-		// Auth::logout();
+		Auth::logout();
 		// dd($user->pesantren->no_telp);
-		return $pdf->stream('Kartu Peserta.pdf');
+		return $pdf->download('Kartu Peserta.pdf');
 
 		//return view('kartu',compact('user','date_birth'));
 	}
