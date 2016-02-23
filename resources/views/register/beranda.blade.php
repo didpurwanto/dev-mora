@@ -45,7 +45,7 @@
                     2. Informasi Profil Keluarga<br />
                     3. Informasi Profil Pesantren<br />
                     4. Informasi Profil Sekolah<br />
-                    5. Informasi Profil Nilai raport kelas 1 sampai 6<br />
+                    5. Informasi Profil Nilai raport kelas X sampai XII<br />
                     6. Rencanakan Universitas dan Jurusan yang akan dipilih<br />
                     7. jika semua informasi telah siap, maka klik tombol <b>'Mulai Mengisi'</b> di bawah ini<br />
                     8. Kemudian lengkapi seluruh data sampai halaman terakhir dan cetak Formulir Pendaftaran <br />
