@@ -34,16 +34,16 @@ class WelcomeController extends Controller {
 		//dd($isDateLewat);
 
 		// cek jumlah
-		//$nomor_registrasi = DB::table('settings')->pluck('nomor_registrasi');
-		$is9999=false;
-		//if (9999 >= $nomor_registrasi ){
-		//	$is9999=true;
-		//}
+		$nomor_registrasi = DB::table('settings')->pluck('nomor_registrasi');
+		$is6000=false;
+		if (6000 <= $nomor_registrasi ){
+			$is6000=true;
+		}
 
 		//list jenis pesantren
 		$jenis_pesantren = DB::table('pesantren_types')->lists('type_name','id');
 		//dd($pendaftaran);
-		return view('home.index',compact('pendaftaran','jenis_pesantren','isDateLewat'));
+		return view('home.index',compact('pendaftaran','jenis_pesantren','isDateLewat','is6000'));
 	}
 
 }
