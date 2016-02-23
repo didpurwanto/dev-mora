@@ -233,7 +233,7 @@
 		</td>
 		<td>:</td>
 		<td width="390px"><b>{!!$user->application->departement2->departement_name!!}</b></td>
-		<td align="right" width="100px">(Kode - <b>{!!$user->application->departement->departement_code!!}</b>)
+		<td align="right" width="100px">(Kode - <b>{!!$user->application->departement2->departement_code!!}</b>)
 		</td>
 	</tr>
 	<tr>
