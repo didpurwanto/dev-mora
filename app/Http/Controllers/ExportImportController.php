@@ -27,8 +27,9 @@ class ExportImportController extends Controller {
 		$application = DB::table('applications')
 					->join('applicants', 'applications.user_id', '=', 'applicants.user_id')
 					->whereNotNull('applications.test_number')
+					->select('full_name', 'registration_number', 'applications.test_number')
 					->get();
-
+		// dd($application);
 		return view('admin/importform', compact('application'));
 	}
 
@@ -125,11 +126,12 @@ class ExportImportController extends Controller {
 	        	}
 	        	$test_number.= $prodi;
 
+	        	// dd($test_number);
 	        	//save to db
 	        	DB::table('applications')
 	        	->join('applicants', 'applicants.user_id', '=', 'applications.user_id')
 	            ->where('registration_number', $row->nomor_registrasi)
-    	        ->update(['test_number' => $test_number ]);
+    	        ->update(['applications.test_number' => $test_number ]);
 	        }
 	        Session::flash('message', 'Data is uploaded successfully.');
 	       });
