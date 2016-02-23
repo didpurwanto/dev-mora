@@ -178,10 +178,10 @@ class PesantrenTypeSeeder extends Seeder {
 		DB::table('pesantren_types')->delete();
 
 		$types = [
-			['id'=>1,'type_name' => 'Muadalah'],
-			['id'=>2,'type_name' => 'Salafiyah Muadalah'],
-			['id'=>3,'type_name' => 'Kombinasi'],
-			['id'=>4,'type_name' => 'Lain-lain']
+			['id'=>1,'type_name' => 'Muadalah', 'max_age' => 19, 'max_graduate'=> 2015],
+			['id'=>2,'type_name' => 'Salafiyah Muadalah', 'max_age' => 19, 'max_graduate'=> 2016],
+			['id'=>3,'type_name' => 'Kombinasi', 'max_age' => 19, 'max_graduate'=> 2016],
+			['id'=>4,'type_name' => 'Lain-lain', 'max_age' => 19, 'max_graduate'=> 2016]
 		];
 
 
