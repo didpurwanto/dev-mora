@@ -12,6 +12,8 @@ use App\Province;
 use App\Kabupaten;
 use App\Kecamatan;
 use App\User;
+use App\Setting;
+
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
@@ -106,11 +108,11 @@ class SettingSeeder extends Seeder {
 	{
 		DB::table('settings')->delete();
 
-		$setttings = [
+		$settings = [
 			['id'=>1, 'nomor_registrasi' => 0001]
 		];
 
-		User::insert($settins);
+		Setting::insert($settings);
 	}
 }
 
@@ -197,7 +199,7 @@ class ProgramStudySeeder extends Seeder {
 			['id'=>1, 'program_name' => 'IPA', 		'prodi_code'=> '11', 	'list_subject'	=>  'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
 			['id'=>2, 'program_name' => 'IPS', 		'prodi_code'=> '12', 	'list_subject'	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
 			['id'=>3, 'program_name' => 'BAHASA', 	'prodi_code'=> '13', 	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
-			['id'=>4, 'program_name' => 'AGAMA', 	'prodi_code'=> '14', 	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking']
+			['id'=>4, 'program_name' => 'AGAMA', 	'prodi_code'=> '14', 	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
 			['id'=>5,'program_name'  => 'DLL', 		'prodi_code'=> '99',	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking']
 		];
 
