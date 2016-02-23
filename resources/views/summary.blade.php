@@ -373,7 +373,7 @@
 
 @if ($user->finish==0)
 	<div class="alert alert-danger">
-		<p align="center">Pastikan semua data yang masukan sudah benar. Jika sudah BENAR, silahkan klik FINALISASI DATA SAYA untuk menyimpan secara permanen data anda, data tidak dapat diubah setelah FINALISASI.</p>
+		<p align="center">Pastikan semua data yang masukan sudah benar. <br> Jika sudah YAKIN, klik FINALISASI DATA SAYA untuk menyimpan secara permanen dan data tidak dapat diubah setelahnya.</p>
 	</div>
 
 	<div class="row clearfix">
