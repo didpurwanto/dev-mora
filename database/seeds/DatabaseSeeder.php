@@ -109,7 +109,7 @@ class SettingSeeder extends Seeder {
 		DB::table('settings')->delete();
 
 		$settings = [
-			['id'=>1, 'nomor_registrasi' => 0001]
+			['id'=>1, 'nomor_registrasi' => 0001, 'tanggal_tutup' => '2016-05-12']
 		];
 
 		Setting::insert($settings);
