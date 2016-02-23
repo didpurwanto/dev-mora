@@ -101,7 +101,7 @@ class SummaryController extends Controller {
 		$pdf = PDF::loadView('formulir', compact('user','date_birth','listSubjects','subject_1','subject_2','subject_3','subject_4','subject_5','ranking', 'reg_num'))->setPaper('legal');
 
 		//Make user logout after prints
-		// Auth::logout();
+		Auth::logout();
 
 		return $pdf->stream('Formulir Peserta.pdf');
 
