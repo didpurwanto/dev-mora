@@ -121,8 +121,8 @@ class UserSeeder extends Seeder {
 		DB::table('users')->delete();
 
 		$users = [
-			['id'=>1, 'username' => 'devmora2015', 'email' => 'mhi.henri@yahoo.com', 'password' => '$2y$10$FvCQF4.RhYvmCOtscWHLauD4ugpCeelWfphaVRp20R4vz8huE/Mba', 'role' => '255'],
-			['id'=>2, 'username' => 'devmora2016', 'email' => 'mhi.henri2@yahoo.com', 'password' => '$2y$10$FvCQF4.RhYvmCOtscWHLauD4ugpCeelWfphaVRp20R4vz8huE/Mba', 'role' => '255']
+			['id'=>1, 'username' => 'mahasantri', 'email' => 'mhi.henri@yahoo.com', 'password' => '$2y$10$FvCQF4.RhYvmCOtscWHLauD4ugpCeelWfphaVRp20R4vz8huE/Mba', 'role' => '255'],
+			['id'=>2, 'username' => 'santricerdas', 'email' => 'agung.smarts@gmail.com', 'password' => '$2y$10$FvCQF4.RhYvmCOtscWHLauD4ugpCeelWfphaVRp20R4vz8huE/Mba', 'role' => '255']
 		];
 
 		User::insert($users);
@@ -177,7 +177,7 @@ class PesantrenTypeSeeder extends Seeder {
 
 		$types = [
 			['id'=>1,'type_name' => 'Muadalah'],
-			['id'=>2,'type_name' => 'SalafiyahMuadalah'],
+			['id'=>2,'type_name' => 'Salafiyah Muadalah'],
 			['id'=>3,'type_name' => 'Kombinasi'],
 			['id'=>4,'type_name' => 'Lain-lain']
 		];
@@ -194,11 +194,11 @@ class ProgramStudySeeder extends Seeder {
 		DB::table('program_studies')->delete();
 
 		$programs = [
-			['id'=>1, 'program_name' => 'IPA', 'list_subject' 		=>  'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
-			['id'=>2, 'program_name' => 'IPS', 'list_subject' 		=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
-			['id'=>3, 'program_name' => 'BAHASA', 'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
-			['id'=>4, 'program_name' => 'AGAMA', 'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
-			['id'=>5,'program_name' => 'Paket C', 'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking']
+			['id'=>1, 'program_name' => 'IPA', 		'prodi_code'=> '11', 	'list_subject'	=>  'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
+			['id'=>2, 'program_name' => 'IPS', 		'prodi_code'=> '12', 	'list_subject'	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
+			['id'=>3, 'program_name' => 'BAHASA', 	'prodi_code'=> '13', 	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
+			['id'=>4, 'program_name' => 'AGAMA', 	'prodi_code'=> '14', 	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking']
+			['id'=>5,'program_name'  => 'DLL', 		'prodi_code'=> '99',	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking']
 		];
 
 		ProgramStudy::insert($programs);
@@ -246,40 +246,40 @@ class ProvinceSeeder extends Seeder {
 		DB::table('provinces')->delete();
 
 		$prov = [
-			['id'=>1, 'province_name'=>'Nanggroe Aceh Darussalam'],
-			['id'=>2, 'province_name'=>'Sumatera Utara'],
-			['id'=>3, 'province_name'=>'Sumatera Barat'],
-			['id'=>4, 'province_name'=>'Riau'],
-			['id'=>5, 'province_name'=>'Kepulauan Riau'],
-			['id'=>6, 'province_name'=>'Kepulauan Bangka-Belitung'],
-			['id'=>7, 'province_name'=>'Jambi'],
-			['id'=>8, 'province_name'=>'Bengkulu'],
-			['id'=>9, 'province_name'=>'Sumatera Selatan'],
-			['id'=>10, 'province_name'=>'Lampung'],
-			['id'=>11, 'province_name'=>'Banten'],
-			['id'=>12, 'province_name'=>'DKI Jakarta'],
-			['id'=>13, 'province_name'=>'Jawa Barat'],
-			['id'=>14, 'province_name'=>'Jawa Tengah'],
-			['id'=>15, 'province_name'=>'Daerah Istimewa Yogyakarta  '],
-			['id'=>16, 'province_name'=>'Jawa Timur'],
-			['id'=>17, 'province_name'=>'Bali'],
-			['id'=>18, 'province_name'=>'Nusa Tenggara Barat'],
-			['id'=>19, 'province_name'=>'Nusa Tenggara Timur'],
-			['id'=>20, 'province_name'=>'Kalimantan Barat'],
-			['id'=>21, 'province_name'=>'Kalimantan Tengah'],
-			['id'=>22, 'province_name'=>'Kalimantan Selatan'],
-			['id'=>23, 'province_name'=>'Kalimantan Timur'],
-			['id'=>24, 'province_name'=>'Gorontalo'],
-			['id'=>25, 'province_name'=>'Sulawesi Selatan'],
-			['id'=>26, 'province_name'=>'Sulawesi Tenggara'],
-			['id'=>27, 'province_name'=>'Sulawesi Tengah'],
-			['id'=>28, 'province_name'=>'Sulawesi Utara'],
-			['id'=>29, 'province_name'=>'Sulawesi Barat'],
-			['id'=>30, 'province_name'=>'Maluku'],
-			['id'=>31, 'province_name'=>'Maluku Utara'],
-			['id'=>32, 'province_name'=>'Papua Barat'],
-			['id'=>33, 'province_name'=>'Papua'],
-			['id'=>34, 'province_name'=>'Kalimantan Utara']
+			['id'=>1, 'province_name'=>'Nanggroe Aceh Darussalam', 'province_code'=> '11'],
+			['id'=>2, 'province_name'=>'Sumatera Utara', 'province_code'=>'12'],
+			['id'=>3, 'province_name'=>'Sumatera Barat', 'province_code'=>'13'],
+			['id'=>4, 'province_name'=>'Riau', 'province_code'=>'14'],
+			['id'=>5, 'province_name'=>'Jambi', 'province_code'=>'15'],
+			['id'=>6, 'province_name'=>'Sumatera Selatan', 'province_code'=>'16'],
+			['id'=>7, 'province_name'=>'Bengkulu', 'province_code'=>'17'],
+			['id'=>8, 'province_name'=>'Lampung', 'province_code'=>'18'],
+			['id'=>9, 'province_name'=>'Kepulauan Bangka-Belitung', 'province_code'=>'19'],
+			['id'=>10, 'province_name'=>'Kepulauan Riau', 'province_code'=>'21'],
+			['id'=>11, 'province_name'=>'DKI Jakarta', 'province_code'=>'31'],
+			['id'=>12, 'province_name'=>'Jawa Barat', 'province_code'=>'32'],
+			['id'=>13, 'province_name'=>'Jawa Tengah', 'province_code'=>'33'],
+			['id'=>14, 'province_name'=>'Daerah Istimewa Yogyakarta  ', 'province_code'=>'34'],
+			['id'=>15, 'province_name'=>'Jawa Timur', 'province_code'=>'35'],
+			['id'=>16, 'province_name'=>'Banten', 'province_code'=>'36'],
+			['id'=>17, 'province_name'=>'Bali', 'province_code'=>'51'],
+			['id'=>18, 'province_name'=>'Nusa Tenggara Barat', 'province_code'=>'52'],
+			['id'=>19, 'province_name'=>'Nusa Tenggara Timur', 'province_code'=>'53'],
+			['id'=>20, 'province_name'=>'Kalimantan Barat', 'province_code'=>'61'],
+			['id'=>21, 'province_name'=>'Kalimantan Tengah', 'province_code'=>'62'],
+			['id'=>22, 'province_name'=>'Kalimantan Selatan', 'province_code'=>'63'],
+			['id'=>23, 'province_name'=>'Kalimantan Timur', 'province_code'=>'64'],
+			['id'=>24, 'province_name'=>'Kalimantan Utara', 'province_code'=>'65'],
+			['id'=>25, 'province_name'=>'Sulawesi Utara', 'province_code'=>'71'],
+			['id'=>26, 'province_name'=>'Sulawesi Tengah', 'province_code'=>'72'],
+			['id'=>27, 'province_name'=>'Sulawesi Selatan', 'province_code'=>'73'],
+			['id'=>28, 'province_name'=>'Sulawesi Tenggara', 'province_code'=>'74'],
+			['id'=>29, 'province_name'=>'Gorontalo', 'province_code'=>'75'],
+			['id'=>30, 'province_name'=>'Sulawesi Barat', 'province_code'=>'76'],
+			['id'=>31, 'province_name'=>'Maluku', 'province_code'=>'81'],
+			['id'=>32, 'province_name'=>'Maluku Utara', 'province_code'=>'82'],
+			['id'=>33, 'province_name'=>'Papua', 'province_code'=>'91'],
+			['id'=>34, 'province_name'=>'Papua Barat', 'province_code'=>'92'],
 		];
 
 		Province::insert($prov);
