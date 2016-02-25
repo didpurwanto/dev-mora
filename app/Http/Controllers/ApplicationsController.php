@@ -28,13 +28,33 @@ class ApplicationsController extends Controller {
 		// get program studi from school
 		$program_study_id = School::where('user_id', Auth::user()->id)->pluck('program_study_id');
 		//dd($program_study_id);
-		// get all universities
-		$univ = University::where('status', 1)->lists('university_name','id');
-		// $univ =DB::table('universities')
-		// 	->where('status','=',1)
-		// 	->get();
 
-		//$dep = $this->listDepart($program_study_id);
+		// get all universities
+		#logic here.
+		#scenario: only show uin makasar if applicant and pesanten from east indonesia
+
+		#check, is applicant born and pesantren from east indo? 
+		#id above 24 mean east indo province 
+		$fromEastIndo = DB::table('applicants')
+							->leftJoin('pesantrens', 'pesantrens.user_id','=','applicants.user_id')
+							->where('applicants.province_id','>', 24)
+							->where('pesantrens.province_id','>', 24)
+							->select('applicants.province_id', 'pesantrens.province_id')
+							->get();
+		// dd($fromEastIndo);
+		#hidden university with university_code = 17
+		if( empty( $fromEastIndo ) )
+		{
+			$univ = University::where('status', 1)
+				->where('university_code', '!=', 17)
+				->lists('university_name','id');
+		}
+		else
+		{
+			$univ = University::where('status', 1)->lists('university_name','id');
+		}
+		#todo: later only show universities which have departement
+
 		// dd($dep);
 		// useful for refresh after error on validation
 		$dep = DB::table('departements')

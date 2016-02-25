@@ -13,7 +13,7 @@ use App\Kabupaten;
 use App\Kecamatan;
 use App\User;
 use App\Setting;
-
+use App\University;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
@@ -43,65 +43,12 @@ class DatabaseSeeder extends Seeder {
 		//$this->call('KecamatanSeeder');
 		$this->call('UserSeeder');
 		$this->call('SettingSeeder');
+		$this->call('UniversitySeeder');
+
 	}
 
 
 }
-
-// class ApplicationTableSeeder extends Seeder {
-// 	public function run()
-// 	{
-// 		DB::table('applicants') ->delete();
-// 		Applicant::create([
-// 			'id' => 1,
-// 			'full_name' => 'The Name',
-//            	'email' => 'thename@email.com',
-// 			'gender' => '1',
-// 			'place_birth' => 'Jakarta',
-// 			'date_birth' => '1998-10-10',
-// 			'recitation' => 10,
-// 			'color_blind' => 0,
-// 			'mental_disorder' => 0,
-// 			'illness' => '-',
-// 			'blood_type' => 'O',
-// 			'weight' => 90,
-// 			'height' => 200,
-// 			'contact' => '085648999',
-// 			'marriage_status' => '0',
-//            	'address' => 'address applicant',
-// 			'province_id' => 1,
-// 			'kecamatan_id' => 1,
-// 			'profile_photo' => 'url photo',
-// 			'registration_number' => '1212121212'
-// 		]);
-// 	}
-// }
-
-// class FamilyTableSeeder extends Seeder {
-// 	public function run()
-// 	{
-// 		DB::table('families')->delete();
-// 		Family::create([
-// 			'id' => 1
-// 			'applicant_id'=>'1',
-// 			'father_name'=>'Drajat sudrajat',
-// 			'father_age'=>'30',
-// 			'father_deceased'=>1,
-// 			'father_education'=>4,
-// 			'father_job_id'=>4,
-// 			'father_salary_id'=>2,
-// 			'mother_name'=>'Sumiati',
-// 			'mother_age'=>'23',
-// 			'mother_deceased'=>1,
-// 			'mother_education'=>1,
-// 			'mother_job_id'=>2,
-// 			'mother_income_id'=>2,
-// 			'address'=>'Alamat',
-// 			'province_id'=>1,
-// 			'kecamatan_id'=>2
-// 		]);
-// 	}
-// }
 
 class SettingSeeder extends Seeder {
 	public function run()
@@ -171,6 +118,29 @@ class JobTypeSeeder extends Seeder{
 	}
 }
 
+class UniversitySeeder extends Seeder{
+	public function run()
+	{
+		DB::table('universities')->delete();
+
+		$universities = [
+			['id'=>1,'university_code'  => '11', 'status' => '1','university_name' => 'UIN Syarif Hidayatullah Jakarta'],
+			['id'=>2,'university_code'  => '12', 'status' => '1','university_name' => 'UIN Sunan Gunung Djati Bandung'],
+			['id'=>3,'university_code'  => '13', 'status' => '1','university_name' => 'IAIN Walisongo Semarang'],
+			['id'=>4,'university_code'  => '14', 'status' => '1','university_name' => 'UIN Sunan Kalijaga Yogyakarta'],
+			['id'=>5,'university_code'  => '15', 'status' => '1','university_name' => 'UIN Sunan Ampel Surabaya'],
+			['id'=>6,'university_code'  => '16', 'status' => '1','university_name' => 'UIN Maulana Malik Ibrahim Malang'],
+			['id'=>7,'university_code'  => '17', 'status' => '1','university_name' => 'UIN Alauddin Makassar'],
+			['id'=>8,'university_code'  => '21', 'status' => '1','university_name' => 'Institut Pertanian Bogor (IPB)'],
+			['id'=>9,'university_code'  => '22', 'status' => '1','university_name' => 'Universitas Pendidikan Indonesia (UPI) Bandung'],
+			['id'=>10,'university_code' => '23', 'status' => '1','university_name' => 'Universitas Gadjah Mada (UGM) Yogyakarta'],
+			['id'=>11,'university_code' => '24', 'status' => '1','university_name' => 'Institut Teknologi 10 Nopember (ITS) Surabaya'],
+			['id'=>12,'university_code' => '25', 'status' => '1','university_name' => 'Universitas Airlangga Surabaya']
+		];
+
+		University::insert($universities);
+	}
+}
 
 class PesantrenTypeSeeder extends Seeder {
 	public function run()
@@ -234,8 +204,8 @@ class SchoolTypeSeeder extends Seeder {
 			['id'=>2, 'type_name' => 'SMA'],
 			['id'=>3,'type_name' => 'SMK'],
 			['id'=>4, 'type_name' => 'PPM'],
-			['id'=>5, 'type_name' => 'PPS'],
-			['id'=>6, 'type_name' => 'Lain-lain']
+			['id'=>5, 'type_name' => 'PPS/Paket C']
+			// ['id'=>6, 'type_name' => 'Lain-lain']
 		];
 
 		SchoolType::insert($types);
@@ -272,16 +242,16 @@ class ProvinceSeeder extends Seeder {
 			['id'=>22, 'province_name'=>'Kalimantan Selatan', 'province_code'=>'63'],
 			['id'=>23, 'province_name'=>'Kalimantan Timur', 'province_code'=>'64'],
 			['id'=>24, 'province_name'=>'Kalimantan Utara', 'province_code'=>'65'],
-			['id'=>25, 'province_name'=>'Sulawesi Utara', 'province_code'=>'71'],
-			['id'=>26, 'province_name'=>'Sulawesi Tengah', 'province_code'=>'72'],
-			['id'=>27, 'province_name'=>'Sulawesi Selatan', 'province_code'=>'73'],
-			['id'=>28, 'province_name'=>'Sulawesi Tenggara', 'province_code'=>'74'],
-			['id'=>29, 'province_name'=>'Gorontalo', 'province_code'=>'75'],
-			['id'=>30, 'province_name'=>'Sulawesi Barat', 'province_code'=>'76'],
-			['id'=>31, 'province_name'=>'Maluku', 'province_code'=>'81'],
-			['id'=>32, 'province_name'=>'Maluku Utara', 'province_code'=>'82'],
-			['id'=>33, 'province_name'=>'Papua', 'province_code'=>'91'],
-			['id'=>34, 'province_name'=>'Papua Barat', 'province_code'=>'92'],
+			['id'=>25, 'province_name'=>'Sulawesi Utara', 'province_code'=>'71'], //timur
+			['id'=>26, 'province_name'=>'Sulawesi Tengah', 'province_code'=>'72'], //timur
+			['id'=>27, 'province_name'=>'Sulawesi Selatan', 'province_code'=>'73'], //timur
+			['id'=>28, 'province_name'=>'Sulawesi Tenggara', 'province_code'=>'74'], //timur
+			['id'=>29, 'province_name'=>'Gorontalo', 'province_code'=>'75'], //timur
+			['id'=>30, 'province_name'=>'Sulawesi Barat', 'province_code'=>'76'], //timur
+			['id'=>31, 'province_name'=>'Maluku', 'province_code'=>'81'], //timur
+			['id'=>32, 'province_name'=>'Maluku Utara', 'province_code'=>'82'], //timur
+			['id'=>33, 'province_name'=>'Papua', 'province_code'=>'91'], //timur
+			['id'=>34, 'province_name'=>'Papua Barat', 'province_code'=>'92'], //timur
 		];
 
 		Province::insert($prov);
@@ -7364,3 +7334,58 @@ class KecamatanSeeder extends Seeder {
 
 }
 */
+
+// class ApplicationTableSeeder extends Seeder {
+// 	public function run()
+// 	{
+// 		DB::table('applicants') ->delete();
+// 		Applicant::create([
+// 			'id' => 1,
+// 			'full_name' => 'The Name',
+//            	'email' => 'thename@email.com',
+// 			'gender' => '1',
+// 			'place_birth' => 'Jakarta',
+// 			'date_birth' => '1998-10-10',
+// 			'recitation' => 10,
+// 			'color_blind' => 0,
+// 			'mental_disorder' => 0,
+// 			'illness' => '-',
+// 			'blood_type' => 'O',
+// 			'weight' => 90,
+// 			'height' => 200,
+// 			'contact' => '085648999',
+// 			'marriage_status' => '0',
+//            	'address' => 'address applicant',
+// 			'province_id' => 1,
+// 			'kecamatan_id' => 1,
+// 			'profile_photo' => 'url photo',
+// 			'registration_number' => '1212121212'
+// 		]);
+// 	}
+// }
+
+// class FamilyTableSeeder extends Seeder {
+// 	public function run()
+// 	{
+// 		DB::table('families')->delete();
+// 		Family::create([
+// 			'id' => 1
+// 			'applicant_id'=>'1',
+// 			'father_name'=>'Drajat sudrajat',
+// 			'father_age'=>'30',
+// 			'father_deceased'=>1,
+// 			'father_education'=>4,
+// 			'father_job_id'=>4,
+// 			'father_salary_id'=>2,
+// 			'mother_name'=>'Sumiati',
+// 			'mother_age'=>'23',
+// 			'mother_deceased'=>1,
+// 			'mother_education'=>1,
+// 			'mother_job_id'=>2,
+// 			'mother_income_id'=>2,
+// 			'address'=>'Alamat',
+// 			'province_id'=>1,
+// 			'kecamatan_id'=>2
+// 		]);
+// 	}
+// }
