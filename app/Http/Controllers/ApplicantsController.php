@@ -14,8 +14,8 @@ use App\Http\Requests\ApplicantRequest;
 use App\Http\Requests\UpdateApplicantRequest;
 use App\Family;
 use App\Setting;
-use App\Pesantren;
-use App\PesantrenType;
+use App\School;
+use App\SchoolType;
 
 class ApplicantsController extends Controller {
 
@@ -82,7 +82,7 @@ class ApplicantsController extends Controller {
 		//$kab = Kabupaten::where('id',$app->kabupaten_id)->lists('kabupaten_name','id');
 		//$kec = Kecamatan::where('id',$app->kecamatan_id)->lists('kecamatan_name','id');
 
-		$tahun_lahir = Setting::pluck('tahun_lahir');
+		//$tahun_lahir = Setting::pluck('tahun_lahir');
 		$tahun_ini = date('Y');
 
 		$tanggal = array();
@@ -95,14 +95,14 @@ class ApplicantsController extends Controller {
 			$bulan +=  [$i => $i];
 		}
 
-		if (is_null($tahun_lahir)) {
-			$tahun_lahir = $tahun_ini-18;
-		}	 			
+		//if (is_null($tahun_lahir)) {
+		//	$tahun_lahir = $tahun_ini-18;
+		//}
 		// if pesantren type == muadalah or salafy muadalah
-		$pesantre_type = Pesantren::where('user_id', '=', Auth::user()->id)->pluck('pesantren_type');
-		$umur = PesantrenType::where('id','=',$pesantre_type)->pluck('max_age');
+		$school_type = School::where('user_id', '=', Auth::user()->id)->pluck('school_type_id');
+		$umur = SchoolType::where('id','=',$school_type)->pluck('max_age');
 
-		$tahun = array();		
+		$tahun = array();
 		for ($i=$tahun_ini-$umur; $i <= $tahun_ini-15; $i++) {
 			$tahun +=  [$i => $i];
 		}

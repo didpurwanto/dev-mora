@@ -79,7 +79,7 @@
 		{!! Form::label('school_type_id', 'Jenis Sekolah') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('school_type_id', $sch_type,$sch->school_type_id,['class' => 'form-control']) !!}
+		{!! Form::select('school_type_id', $sch_type,$sch->school_type_id,['class' => 'form-control','disabled' => true]) !!}
 		</div>
 	</div>
 </div>
@@ -109,7 +109,7 @@
 		{!! Form::label('no_telp', 'No. Telp Sekolah') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::text('no_telp', null,['class' => 'form-control', 'placeholder' => '']) !!}
+		{!! Form::text('no_telp', null,['class' => 'form-control', 'placeholder' => '021234556 (Tanpa tanda strip ("-"))']) !!}
 		</div>
 		@if( $errors->first('no_telp') )
 			<span class="help-block text-danger">{{ $errors->first('no_telp') }}</span>

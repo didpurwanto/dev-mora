@@ -148,10 +148,10 @@
       	<div class="form-group {{ ! $errors->first('mother_income_id') ? '': 'has-error' }}">
       			<div class="row">
       				<div class="col-md-3">
-      				{!! Form::label('mother_income_id', 'Penghasilan perbulan Ibu') !!}
+      				{!! Form::label('mother_salary_id', 'Penghasilan perbulan Ibu') !!}
       				</div>
       				<div class="col-md-4">
-      				{!! Form::select('mother_income_id', $salary,$fam->mother_income_id, ['class' => 'form-control']) !!}
+      				{!! Form::select('mother_salary_id', $salary,$fam->mother_salary_id, ['class' => 'form-control']) !!}
       				</div>
       			</div>
       	</div>

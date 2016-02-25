@@ -14,7 +14,7 @@ class AddFinishToFamiliesTable extends Migration {
 	{
 		Schema::table('families', function(Blueprint $table)
 		{
-			$table->smallInteger('finish');
+			$table->smallInteger('finish')->after('province_id');
 		});
 	}
 

@@ -29,12 +29,10 @@ class CreateFamilies extends Migration {
 			$table->boolean('mother_deceased');
 			$table->integer('mother_education');
 			$table->integer('mother_job_id');
-			$table->integer('mother_income_id');
+			$table->integer('mother_salary_id');
 
 			$table->string('address', 100);
 			$table->integer('province_id');
-			$table->integer('kabupaten_id');
-			$table->integer('kecamatan_id');
 
 			$table->timestamps();
 		});

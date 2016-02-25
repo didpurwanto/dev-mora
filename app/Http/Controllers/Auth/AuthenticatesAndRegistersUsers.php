@@ -58,12 +58,12 @@ trait AuthenticatesAndRegistersUsers {
 		//DB::table('applicants')->where('user_id', Auth::user()->id)->update(array('full_name' => ));
 		//DB::table('applicants')->insert(array('full_name' => $request->nama_lengkap));
 		DB::table('families')->insert(array('user_id' => Auth::user()->id));
-		// DB::table('pesantrens')->insert(array('user_id' => Auth::user()->id));
-		DB::table('schools')->insert(array('user_id' => Auth::user()->id));
+		DB::table('pesantrens')->insert(array('user_id' => Auth::user()->id));
+		//DB::table('schools')->insert(array('user_id' => Auth::user()->id));
 		DB::table('raports')->insert(array('user_id' => Auth::user()->id));
 		DB::table('applications')->insert(array('user_id' => Auth::user()->id));
 
-		DB::table('pesantrens')->insert(array('user_id' => Auth::user()->id, 'pesantren_type' => $request->jenis_pesantren));
+		DB::table('schools')->insert(array('user_id' => Auth::user()->id, 'school_type_id' => $request->jenis_school));
 
 		return redirect($this->redirectPath());
 	}

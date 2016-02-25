@@ -25,7 +25,10 @@ class AddProgramStudyCodeToProgramStudy extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::table('program_studies', function(Blueprint $table)
+		{
+			$table->dropColumn('prodi_code');
+		});
 	}
 
 }

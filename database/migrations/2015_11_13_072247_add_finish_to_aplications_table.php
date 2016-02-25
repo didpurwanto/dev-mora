@@ -14,7 +14,7 @@ class AddFinishToAplicationsTable extends Migration {
 	{
 		Schema::table('applications', function(Blueprint $table)
 		{
-			$table->smallInteger('finish');
+			$table->smallInteger('finish')->after('test_number');
 		});
 	}
 

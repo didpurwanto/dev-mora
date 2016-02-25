@@ -14,8 +14,8 @@ class AddFatherMotherContactToFamiliesTable extends Migration {
 	{
 		Schema::table('families', function(Blueprint $table)
 		{
-			$table->string('father_contact',100);
-			$table->string('mother_contact',100);
+			$table->string('father_contact',100)->after('father_salary_id');
+			$table->string('mother_contact',100)->after('mother_salary_id');
 		});
 	}
 

@@ -14,7 +14,7 @@ class AddFinishToUsersTable extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-			$table->smallInteger('finish');
+			$table->smallInteger('finish')->after('role');
 		});
 	}
 

@@ -18,4 +18,17 @@ class ChangeDatatypeDepartementcode extends Migration {
 			})	;
 	}
 
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::table('departements', function(Blueprint $table)
+		{
+			$table->dropColumn('departement_code');
+		});
+	}
+
 }

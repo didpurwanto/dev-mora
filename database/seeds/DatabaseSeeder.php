@@ -148,10 +148,10 @@ class PesantrenTypeSeeder extends Seeder {
 		DB::table('pesantren_types')->delete();
 
 		$types = [
-			['id'=>1,'type_name' => 'Muadalah', 'max_age' => 19, 'max_graduate'=> 2015],
-			['id'=>2,'type_name' => 'Salafiyah Muadalah', 'max_age' => 19, 'max_graduate'=> 2016],
-			['id'=>3,'type_name' => 'Kombinasi', 'max_age' => 19, 'max_graduate'=> 2016],
-			['id'=>4,'type_name' => 'Lain-lain', 'max_age' => 19, 'max_graduate'=> 2016]
+			['id'=>1,'type_name' => 'Muadalah'],
+			['id'=>2,'type_name' => 'Salafiyah Muadalah'],
+			['id'=>3,'type_name' => 'Kombinasi'],
+			['id'=>4,'type_name' => 'Lain-lain']
 		];
 
 
@@ -200,11 +200,11 @@ class SchoolTypeSeeder extends Seeder {
 		DB::table('school_types')->delete();
 
 		$types = [
-			['id'=>1, 'type_name' => 'MA'],
-			['id'=>2, 'type_name' => 'SMA'],
-			['id'=>3,'type_name' => 'SMK'],
-			['id'=>4, 'type_name' => 'PPM'],
-			['id'=>5, 'type_name' => 'PPS/Paket C']
+			['id'=>1, 'type_name' => 'MA', 'max_age' => 19, 'max_graduate'=> 2015],
+			['id'=>2, 'type_name' => 'SMA', 'max_age' => 19, 'max_graduate'=> 2016],
+			['id'=>3,'type_name' => 'SMK', 'max_age' => 19, 'max_graduate'=> 2016],
+			['id'=>4, 'type_name' => 'PPM', 'max_age' => 19, 'max_graduate'=> 2016],
+			['id'=>5, 'type_name' => 'PPS/Paket C', 'max_age' => 19, 'max_graduate'=> 2016]
 			// ['id'=>6, 'type_name' => 'Lain-lain']
 		];
 

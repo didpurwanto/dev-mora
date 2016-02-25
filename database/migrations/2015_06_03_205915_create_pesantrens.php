@@ -22,8 +22,6 @@ class CreatePesantrens extends Migration {
 			$table->string('pesantren_type', 20);
 			$table->string('pesantren_address',255);
 			$table->integer('province_id');
-			$table->integer('kabupaten_id');
-			$table->integer('kecamatan_id');
 			$table->timestamps();
 		});
 	}

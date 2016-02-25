@@ -41,9 +41,9 @@ class WelcomeController extends Controller {
 		}
 
 		//list jenis pesantren
-		$jenis_pesantren = DB::table('pesantren_types')->lists('type_name','id');
+		$jenis_school = DB::table('school_types')->lists('type_name','id');
 		//dd($pendaftaran);
-		return view('home.index',compact('pendaftaran','jenis_pesantren','isDateLewat','is6000'));
+		return view('home.index',compact('pendaftaran','jenis_school','isDateLewat','is6000'));
 	}
 
 }

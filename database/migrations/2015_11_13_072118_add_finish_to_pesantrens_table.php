@@ -14,7 +14,7 @@ class AddFinishToPesantrensTable extends Migration {
 	{
 		Schema::table('pesantrens', function(Blueprint $table)
 		{
-			$table->smallInteger('finish');
+			$table->smallInteger('finish')->after('province_id');
 		});
 	}
 

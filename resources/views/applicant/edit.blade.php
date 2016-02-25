@@ -45,7 +45,7 @@
 				{!! Form::radio('gender', 1, 1) !!}
 				{!! Form::label('Laki-laki','Laki-laki')!!}&nbsp;&nbsp;&nbsp;&nbsp;
 				{!! Form::radio('gender', 0, 0) !!}
-				{!! Form::label('Perampuan','Perempuan') !!}&nbsp;&nbsp;&nbsp;&nbsp;
+				{!! Form::label('Perempuan','Perempuan') !!}&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				@if( $errors->first('gender') )
 					<span class="help-block text-danger">{{ $errors->first('gender') }}</span>

@@ -14,7 +14,7 @@ class AddFinishToRaportsTable extends Migration {
 	{
 		Schema::table('raports', function(Blueprint $table)
 		{
-			$table->smallInteger('finish');
+			$table->smallInteger('finish')->after('ranking');
 		});
 	}
 

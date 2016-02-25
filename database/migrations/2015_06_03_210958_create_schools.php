@@ -26,8 +26,6 @@ class CreateSchools extends Migration {
 			$table->boolean('inside_pondok');
 			$table->string('school_address',255);
 			$table->integer('province_id');
-			$table->integer('kabupaten_id');
-			$table->integer('kecamatan_id');
 			$table->timestamps();
 		});
 	}

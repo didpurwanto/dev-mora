@@ -88,8 +88,9 @@
                 </font>
 
                 <br /><br /><br /><br />
-
+                @if (($pendaftaran == 1) or ($isDateLewat) or ($is6000))
                 <a href="#daftar" class="btn btn-success btn-xl page-scroll">Buat Akun Sekarang</a>
+                @endif
                 <a href="#login" class="btn btn-success btn-xl page-scroll">&nbsp&nbsp Login &nbsp Aplikasi &nbsp</a>
                 <br /><br /><br /><br /><br /><br /><br /><br />
 
@@ -194,8 +195,8 @@
                             <div id='myform_username_errorloc' class="error_strings">
                               @if($errors->any())
                                 <ul class="alert alert-danger">
-                                @if ($errors->first('jenis_pesantren'))
-                                    <li>{{ $errors->first('jenis_pesantren') }}</li>
+                                @if ($errors->first('jenis_school'))
+                                    <li>{{ $errors->first('jenis_school') }}</li>
                                 @endif
                                 @if ($errors->first('username'))
                                     <li>{{ $errors->first('username') }}</li>
@@ -220,8 +221,8 @@
                           <tr>
                             <td>
                               <div class="col-lg-12">
-                                <p style="color:red">Pilih Jenis Pesantren Anda !</p >
-                                {!! Form::select('jenis_pesantren', $jenis_pesantren,0,['class' => 'form-control']) !!}
+                                <p style="color:red">Pilih Jenis Sekolah/Madrasah Anda !</p >
+                                {!! Form::select('jenis_school', $jenis_school,1,['class' => 'form-control']) !!}
                                </div>
                             </td>
                           </tr>

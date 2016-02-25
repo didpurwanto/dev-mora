@@ -35,15 +35,16 @@ class SchoolsController extends Controller {
 	{
 		$prov = Province::lists('province_name','id');
 		$sch_type = SchoolType::lists('type_name','id');
+		$pesantren_type = PesantrenType::lists('type_name','id');
 		$prog_stud = ProgramStudy::lists('program_name','id');
 
 		$sch = School::where('user_id', '=', Auth::user()->id)->firstOrFail();
 
-		$pesantre_type = Pesantren::where('user_id', '=', Auth::user()->id)->pluck('pesantren_type');
-		$tahunlulus = PesantrenType::where('id','=',$pesantre_type)->pluck('max_graduate');
+		$school_type = School::where('user_id', '=', Auth::user()->id)->pluck('school_type_id');
+		$tahunlulus = SchoolType::where('id','=',$school_type)->pluck('max_graduate');
 
 		$tahun_ini = date('Y');
-		$tahun = array();		
+		$tahun = array();
 		for ($i=$tahunlulus; $i <= $tahun_ini; $i++) {
 			$tahun +=  [$i => $i];
 		}
@@ -54,7 +55,7 @@ class SchoolsController extends Controller {
 		// $mytime = Carbon\Carbon::now();
 		// echo $mytime->toDateTimeString();
 		// dd($mytime);
-		return view('school.edit', compact('sch','prov','prog_stud','sch_type', 'tahun'));
+		return view('school.edit', compact('sch','prov','prog_stud','pesantren_type', 'tahun','school_type','sch_type'));
 	}
 
 	/**
