@@ -88,7 +88,7 @@
                 </font>
 
                 <br /><br /><br /><br />
-                @if ((!($pendaftaran == 1)) or (!$isDateLewat) or (!$is6000))
+                @if ($close == 0)
                 <a href="#daftar" class="btn btn-success btn-xl page-scroll">Buat Akun Sekarang</a>
                 @endif
                 <a href="#login" class="btn btn-success btn-xl page-scroll">&nbsp&nbsp Login &nbsp Aplikasi &nbsp</a>
@@ -102,7 +102,7 @@
         <p>{{ Session::get('pesan') }}</p>
       </div>
     @endif
-    @if ((!($pendaftaran == 1)) or (!$isDateLewat) or (!$is6000))
+    @if ($close == 1)
         <br />
         <div class="alert alert-danger">
           <p align="center">PENDAFTARAN TELAH DITUTUP</p>
@@ -152,36 +152,14 @@
         </div>
     </section>
 
-    @if (($pendaftaran == 0) or (!$isDateLewat) or (!$is6000))
     <section class="bg-success" id="daftar">
+      @if ($close == 0)
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                   <h1>Buat Akun</h1>
                     <h3 class="section-heading">Silahkan lengkapi data Anda di bawah ini!</h3>
                     <br />
-                    <!--
-                    {!! Form::open(['url' => '/auth/register', 'method' => 'POST']) !!}
-                        <div class="form-group">
-                            {!! Form::text('username', null, [ 'class'=> 'form-control', 'placeholder'=>'Isi Username Anda!', 'cols' => '10' ]) !!}
-                        </div>
-                       <div class="form-group">
-                            {!! Form::text('email', null, [ 'class'=> 'form-control', 'placeholder'=>'Isi alamat email Anda!' ]) !!}
-                        </div>
-                       <div class="form-group">
-                            {!! Form::password('password', [ 'class'=> 'form-control', 'placeholder'=>'Isi Password Anda!' ]) !!}
-                        </div>
-                        <div class="form-group" >
-                            {!! Form::password('password2', [ 'class'=> 'form-control', 'placeholder'=>'Konfirmasi Password Anda!' ]) !!}
-                        </div>
-
-                       <div class="form-group" >
-                            {!! Form::submit('Buat akun sekarang',['class'=>'btn btn-default btn-xl wow tada']) !!}
-                        </div>
-
-                    {!! Form::close() !!}
-
-                    -->
               <form role="form" action="{!! url('auth/register') !!}" method="POST" name="myform" id="myform" enctype="multipart/form-data">
                     <?php
                         $encrypter = app('Illuminate\Encryption\Encrypter');
