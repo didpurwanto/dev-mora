@@ -266,13 +266,14 @@
         </div>
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="/logo/kampus/its.png" alt="" />
                         <p class="text-muted"><a href="http://its.ac.id">Institut Teknologi Sepuluh Nopember</a></p>
-
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="logo/kampus/unair.png" alt="" />
@@ -290,16 +291,19 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="/logo/kampus/uinmalang.png" alt="" />
-                        <p class="text-muted"><a href="http://uin-malang.ac.id">UIN Maulana Malik Ibrahim Malang</a></p>
+                        <p class="text-muted"><a href="http://uin-malang.ac.id">UIN Maulana Malik Ibrahim</a></p>
                     </div>
                 </div>
+            </div>
+
+            <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="/logo/kampus/jakarta.png" alt="" />
-                        <p class="text-muted"><a href="http://uinjkt.ac.id">UIN Syarif Hidayatullah Jakarta</a></p>
+                        <p class="text-muted"><a href="http://uinjkt.ac.id">UIN Syarif Hidayatullah</a></p>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="logo/kampus/ipb.png" alt="" />
@@ -309,18 +313,19 @@
 
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <img src="/logo/kampus/upi.png" alt="" />
-                        <p class="text-muted"><a href="http://upi.edu">Universitas Pendidikan Indonesia</a></p>
+                        <img src="/logo/kampus/uinmakasar.png" alt="" />
+                        <p class="text-muted"><a href="http://www.uin-alauddin.ac.id">UIN Alauddin Makassar </a></p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <img src="logo/kampus/uinmakasar.png" alt="" />
-                        <p class="text-muted"><a href="http://www.uin-alauddin.ac.id">UIN Alauddin Makassar </a></p>
+                        <img src="/logo/kampus/upi.png" alt="" />
+                        <p class="text-muted"><a href="http://upi.edu">Universitas Pendidikan Indonesia</a></p>
                     </div>
                 </div>
             </div>
+            
         </div>
     </section>
 
