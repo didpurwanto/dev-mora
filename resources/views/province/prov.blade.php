@@ -14,7 +14,7 @@
 
 <div class="row">
 		<div class="col-lg-12">
-				<h1 class="page-header">Kode dan Nama Provinsi</h1>
+				<h1 class="page-header">Daftar Provinsi</h1>
 		</div>
 		<!-- /.col-lg-12 -->
 </div>
@@ -22,11 +22,11 @@
 <div class="row">
 		<div class="col-lg-12">
 				<div class="panel panel-default">
-						<div class="panel-heading">
+<!-- 						<div class="panel-heading">
 								Kode dan Nama Provinsi
 
 						</div>
-						<!-- /.panel-heading -->
+ -->						<!-- /.panel-heading -->
 						<div class="panel-body">
 							<div class="col-md-2 col-md-offset-5">
 								<a class="btn btn-success" href="{!! URL::to('admin/provinces/create') !!}"><i class="fa fa-floppy-o fa-fw"></i> Tambah Provinsi</a>

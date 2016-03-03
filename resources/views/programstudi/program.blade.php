@@ -32,7 +32,7 @@
 						<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 							<thead>
 								<tr>
-									<th>Kode Bidang</th>
+									<th>Kode</th>
 									<th>Bidang</th>
 									<th>Subjek Penilaian</th>
 									<th>Aksi</th>

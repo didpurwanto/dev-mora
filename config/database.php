@@ -51,7 +51,7 @@ return [
 			'host'      => env('DB_HOST','localhost'),
 			'database'  => env('DB_DATABASE','dev-mora'),
 			'username'  => env('DB_USERNAME','root'),
-			'password'  => env('DB_PASSWORD','henri'),
+			'password'  => env('DB_PASSWORD','bismillah'),
 			//'host'      => 'localhost',
 			//'port'      => '3306',
 			//'database'  => 'dev-mora',

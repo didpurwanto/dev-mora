@@ -1,5 +1,5 @@
 <div class="form-group">
-	{!! Form::label('prodi_code', 'Kode Program Studi( harus 2 Digit) :') !!}
+	{!! Form::label('prodi_code', 'Kode Program Studi( harus 1 Digit) :') !!}
 	{!! Form::text('prodi_code', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">

@@ -13,7 +13,7 @@
 
 <div class="row">
 		<div class="col-lg-12">
-				<h1 class="page-header">Tipe Sekolah</h1>
+				<h1 class="page-header">Jenis Sekolah</h1>
 		</div>
 		<!-- /.col-lg-12 -->
 </div>
@@ -21,20 +21,21 @@
 <div class="row">
 		<div class="col-lg-12">
 				<div class="panel panel-default">
-						<div class="panel-heading">
-									Tipe Sekolah
+						<!-- <div class="panel-heading">
+									Jenis Sekolah
 						</div>
-						<!-- /.panel-heading -->
+						 --><!-- /.panel-heading -->
 						<div class="panel-body">
 							<div class="col-md-2 col-md-offset-5">
-								<a class="btn btn-success" href="{!! URL::to('admin/schooltypes/create') !!}"><i class="fa fa-floppy-o fa-fw"></i> Tambah Tipe Sekolah</a>
+								<a class="btn btn-success" href="{!! URL::to('admin/schooltypes/create') !!}"><i class="fa fa-floppy-o fa-fw"></i> Tambah Jenis Sekolah</a>
 							</div>
 								<div class="dataTable_wrapper">
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 											<thead>
 												<tr>
-													<th>no</th>
-													<th>Tipe Sekolah</th>
+													<!-- <th>no</th> -->
+													<th>Kode</th>
+													<th>Jenis Sekolah</th>
 													<th>Batas umur</th>
 													<th>Batas tahun lulus</th>
 													<th>Aksi</th>
@@ -43,16 +44,19 @@
 											<tbody>
 												@foreach ($schooltype as $type)
 												<tr>
-													<td class="center col-md-1">
+<!-- 													<td class="center col-md-1">
 														{{ $type->id, ['size' => 5] }}
 												  </td>
+ -->													<td class="center col-md-1">
+														{{ $type->type_code }}
+													</td>
 													<td class="center col-md-4">
 														{{ $type->type_name }}
 													</td>
 													<td class="center col-md-2">
 														{{ $type->max_age }}
 													</td>
-													<td class="center col-md-3">
+													<td class="center col-md-2">
 														{{ $type->max_graduate }}
 													</td>
 													<td class="center col-md-2">

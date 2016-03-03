@@ -55,7 +55,7 @@ class ExportImportController extends Controller {
 	        {
 
 	        	//generate kode pt
-	        	$kodept = DB::table('departements')
+	        	$code_list = DB::table('departements')
 	        		->join('universities', 'departements.university_id', '=' ,'universities.id')
 	        		->join('applications', 'applications.major_1_id', '=', 'departements.id')
 	        		->join('applicants', 'applicants.user_id', '=', 'applications.user_id')
@@ -64,68 +64,59 @@ class ExportImportController extends Controller {
 	        		->join('provinces', 'provinces.id', '=', 'pesantrens.province_id')
 
 	        		->join('schools', 'applicants.user_id', '=', 'schools.user_id')
+	        		->join('school_types', 'schools.school_type_id', '=', 'school_types.id')
 	        		->join('program_studies', 'schools.program_study_id', '=', 'program_studies.id' )
 
 	        		->where('applicants.registration_number', '=', $row->nomor_registrasi)
 
-	        		->select('universities.university_code', 'program_studies.prodi_code', 'provinces.province_code')
+	        		->select('universities.university_code', 'program_studies.prodi_code', 'provinces.province_code', 'school_types.type_code')
 	        		->get();
 
-	        	// dd($kodept);
+	        	// dd($code_list);
 	        	// kd pt =3, kd prov=2, kd prodi=2 .. make it united
 
 	        	$test_number = "";
 	        	
-	        	if (strlen($kodept[0]->university_code) == 3){
-	        		$ptcode	= $kodept[0]->university_code;
-	        	}
-	        	elseif(strlen($kodept[0]->university_code) <3){
-	        		$prov =  substr_replace($kodept[0]->university_code, (3-strlen($kodept[0]->university_code) *"0") , 0, 0);	        		
+	        	//kode PT
+	        	if (strlen($code_list[0]->university_code) == 2){
+	        		$ptcode	= $code_list[0]->university_code;
 	        	}
 	        	else
 	        	{
-	        		$ptcode = substr($kodept[0]->university_code , 0,3); 	        		
+	        		$ptcode = "00";
 	        	}
 	        	$test_number.= $ptcode;
 
-
-	        	if (strlen($kodept[0]->province_code) == 2) {
-	        		$prov = $kodept[0]->province_code;
-	        	}
-	        	elseif(strlen($kodept[0]->province_code) < 2) {
-	        		if (strlen($kodept[0]->province_code) == 0){
-	        			$add= "00";
-	        		}
-	        		else{
-	        			$add = "0";
-	        		}
-	        		$prov =  substr_replace($kodept[0]->province_code, $add, 0, 0);
+	        	//kode province
+	        	if (strlen($code_list[0]->province_code) == 2) {
+	        		$prov = $code_list[0]->province_code;
 	        	}
 	        	else
 	        	{
-	        		$prov = substr($kodept[0]->province_code , 0,2); 	        		
+	        		$prov = "00";
 	        	}
 	        	$test_number.= $prov;
 
-	        	if (strlen($kodept[0]->prodi_code) == 2) {
-	        		$prodi = $kodept[0]->prodi_code;
-	        	}
-	        	elseif (strlen($kodept[0]->prodi_code) < 2) {
-	        		if (strlen($kodept[0]->prodi_code) == 0){
-	        			$add= "00";
-	        		}
-	        		else{
-	        			$add = "0";
-	        		}
-
-	        		$prodi =  substr_replace($kodept[0]->prodi_code, $add, 0, 0);
+	        	//school type code
+	        	if (strlen($code_list[0]->type_code) == 1) {
+	        		$school_type_code = $code_list[0]->type_code;
 	        	}
 	        	else
 	        	{
-	        		$prov = substr($kodept[0]->prodi_code , 0,2); 	        		
+	        		$school_type_code = "0";	
+	        	}
+	        	$test_number.= $school_type_code;
+
+	        	//prodi
+	        	if (strlen($code_list[0]->prodi_code) == 1) {
+	        		$prodi = $code_list[0]->prodi_code;
+	        	}
+	        	else
+	        	{
+	        		$prodi = "0";
 	        	}
 	        	$test_number.= $prodi;
-
+	        	
 	        	// dd($test_number);
 	        	//save to db
 	        	DB::table('applications')

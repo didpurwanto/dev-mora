@@ -1,9 +1,14 @@
 <div class="form-group">
-	{!! Form::label('id', 'ID Tipe Sekolah :') !!}
+	{!! Form::label('id', 'No') !!}
 	{!! Form::text('id',null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-	{!! Form::label('type_name', 'Tipe Sekolah :') !!}
+	{!! Form::label('type_code', 'Kode :') !!}
+	{!! Form::text('type_code',null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
+	{!! Form::label('type_name', 'Jenis Sekolah :') !!}
 	{!! Form::text('type_name',null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">

@@ -89,19 +89,18 @@
                             <a href="{!! URL::to('/admin') !!}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Laporan Rekapitulasi<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Laporan<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!! URL::to('admin/listprovinces') !!}">Rekap Provinsi</a>
+                                    <a href="{!! URL::to('admin/listprovinces') !!}">Laporan perprovinsi</a>
                                 </li>
                                 <li>
-                                    <a href="{!! URL::to('admin/listuniversities/') !!}">Rekap Universitas</a>
+                                    <a href="{!! URL::to('admin/listuniversities/') !!}">Laporan peruniversitas</a>
                                 </li>
                                 <li class="{!! Request::is('pesantren') ? 'active' : '' !!}">
-                                    <a href="{!! URL::to('admin/pesantren/') !!}">Rekap Pesantren</a>
+                                    <a href="{!! URL::to('admin/pesantren/') !!}">Daftar Pesantren</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-file-excel-o fa-fw"></i> Download/Upload Data<span class="fa arrow"></span></a>
@@ -129,10 +128,10 @@
                                     <a href="{!! URL::to('admin/departements') !!}">Daftar Jurusan</a>
                                 </li>
                                 <li class="{!! Request::is('programstudies') ? 'active' : '' !!}">
-                                    <a href="{!! URL::to('admin/programstudies') !!}">Program Study</a>
+                                    <a href="{!! URL::to('admin/programstudies') !!}">Daftar Prodi</a>
                                 </li>
                                 <li class="{!! Request::is('schooltypes') ? 'active' : '' !!}">
-                                    <a href="{!! URL::to('admin/schooltypes') !!}">Pengaturan Tipe Sekolah</a>
+                                    <a href="{!! URL::to('admin/schooltypes') !!}">Jenis Sekolah</a>
                                 </li>
                                                             </ul>
                             <!-- /.nav-second-level -->

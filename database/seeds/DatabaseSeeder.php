@@ -29,21 +29,21 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		// $this->call('UserTableSeeder');
-		// $this->call('ApplicationTableSeeder');
-		$this->call('EducationLevelSeeder');
-		$this->call('JobTypeSeeder');
-		$this->call('PesantrenTypeSeeder');
-		$this->call('ProgramStudySeeder');
-		$this->call('RangeSalarySeeder');
+		// // $this->call('UserTableSeeder');
+		// // $this->call('ApplicationTableSeeder');
+		// $this->call('EducationLevelSeeder');
+		// $this->call('JobTypeSeeder');
+		// $this->call('PesantrenTypeSeeder');
+		// $this->call('ProgramStudySeeder');
+		// $this->call('RangeSalarySeeder');
 		$this->call('SchoolTypeSeeder');
-		//$this->call('FamilyTableSeeder');
-		$this->call('ProvinceSeeder');
-		//$this->call('KabupatenSeeder');
-		//$this->call('KecamatanSeeder');
-		$this->call('UserSeeder');
-		$this->call('SettingSeeder');
-		$this->call('UniversitySeeder');
+		// //$this->call('FamilyTableSeeder');
+		// $this->call('ProvinceSeeder');
+		// //$this->call('KabupatenSeeder');
+		// //$this->call('KecamatanSeeder');
+		// $this->call('UserSeeder');
+		// $this->call('SettingSeeder');
+		// $this->call('UniversitySeeder');
 
 	}
 
@@ -166,11 +166,11 @@ class ProgramStudySeeder extends Seeder {
 		DB::table('program_studies')->delete();
 
 		$programs = [
-			['id'=>1, 'program_name' => 'IPA', 		'prodi_code'=> '11', 	'list_subject'	=>  'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
-			['id'=>2, 'program_name' => 'IPS', 		'prodi_code'=> '12', 	'list_subject'	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
-			['id'=>3, 'program_name' => 'BAHASA', 	'prodi_code'=> '13', 	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
-			['id'=>4, 'program_name' => 'AGAMA', 	'prodi_code'=> '14', 	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
-			['id'=>5,'program_name'  => 'DLL', 		'prodi_code'=> '99',	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking']
+			['id'=>1, 'program_name' => 'IPA', 		'prodi_code'=> '1', 	'list_subject'	=>  'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
+			['id'=>2, 'program_name' => 'IPS', 		'prodi_code'=> '2', 	'list_subject'	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
+			['id'=>3, 'program_name' => 'BAHASA', 	'prodi_code'=> '3', 	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
+			['id'=>4, 'program_name' => 'AGAMA', 	'prodi_code'=> '4', 	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
+			['id'=>5,'program_name'  => 'DLL', 		'prodi_code'=> '9',	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking']
 		];
 
 		ProgramStudy::insert($programs);
@@ -200,11 +200,11 @@ class SchoolTypeSeeder extends Seeder {
 		DB::table('school_types')->delete();
 
 		$types = [
-			['id'=>1, 'type_name' => 'Madrasah Aliyah(MA)', 'max_age' => 19, 'max_graduate'=> 2015],
-			['id'=>2, 'type_name' => 'Sekolah mengenah Atas(SMA)', 'max_age' => 19, 'max_graduate'=> 2016],
-			['id'=>3,'type_name' => 'Sekolah Menengah Kejujuran(SMK)', 'max_age' => 19, 'max_graduate'=> 2016],
-			['id'=>4, 'type_name' => 'Pondok Pesantren Muadalah(PPM)', 'max_age' => 19, 'max_graduate'=> 2016],
-			['id'=>5, 'type_name' => 'pondok pesantren salafiyah(PPS)/Paket C', 'max_age' => 19, 'max_graduate'=> 2016]
+			['id'=>1, 'type_code'=>'1', 'type_name' => 'Madrasah Aliyah(MA)', 'max_age' => 19, 'max_graduate'=> 2015],
+			['id'=>2, 'type_code'=>'2', 'type_name' => 'Sekolah mengenah Atas(SMA)', 'max_age' => 19, 'max_graduate'=> 2016],
+			['id'=>3, 'type_code'=>'3','type_name' => 'Sekolah Menengah Kejujuran(SMK)', 'max_age' => 19, 'max_graduate'=> 2016],
+			['id'=>4, 'type_code'=>'4', 'type_name' => 'Pondok Pesantren Muadalah(PPM)', 'max_age' => 19, 'max_graduate'=> 2016],
+			['id'=>5, 'type_code'=>'5', 'type_name' => 'pondok pesantren salafiyah(PPS)/Paket C', 'max_age' => 19, 'max_graduate'=> 2016]
 			// ['id'=>6, 'type_name' => 'Lain-lain']
 		];
 
