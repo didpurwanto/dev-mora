@@ -30,9 +30,9 @@ class WelcomeController extends Controller {
 			//skrng >= tanggal tutup
 		if (strtotime($today) >= strtotime($tanggal_tutup) ){
 			$isDateLewat=1;
-			echo "now=".strtotime($today);
-			echo "closedate=".strtotime($tanggal_tutup);
-		 	echo "isDateLewat=";
+			// echo "now=".strtotime($today);
+			// echo "closedate=".strtotime($tanggal_tutup);
+		 // 	echo "isDateLewat=";
 
 		}
 		//dd($isDateLewat);
@@ -42,7 +42,7 @@ class WelcomeController extends Controller {
 		$is6000=0;
 		if ($nomor_registrasi > 6000 ){
 			$is6000=1;
-		 	echo "is6000";
+		 	// echo "is6000";
 
 		}
 
@@ -53,9 +53,9 @@ class WelcomeController extends Controller {
 		{
 			//already close
 		 	$close=1;
-		 	echo "pendaftaran=".$pendaftaran;
-		 	echo "datelewat=".$isDateLewat;
-		 	echo "quota=".$is6000;
+		 	// echo "pendaftaran=".$pendaftaran;
+		 	// echo "datelewat=".$isDateLewat;
+		 	// echo "quota=".$is6000;
 		 	// dd("if");
 
 		}
