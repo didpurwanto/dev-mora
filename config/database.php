@@ -48,19 +48,15 @@ return [
 		'mysql' => [
 			'driver'    => 'mysql',
 
-			// 'host'      => getenv('OPENSHIFT_MYSQL_DB_HOST'),
-			// 'port'      => getenv('OPENSHIFT_MYSQL_DB_PORT'),
-			// 'database'  => getenv('OPENSHIFT_APP_NAME'),
-			// 'username'  => getenv('OPENSHIFT_MYSQL_DB_USERNAME'),
-			// 'password'  => getenv('OPENSHIFT_MYSQL_DB_PASSWORD'),
-
-			'host'      => 'localhost',
-			'port'      => '3306',
-			'database'  => 'dev-mora',
-			'username'  => 'root',
-			'password'  => 'bismillah',
-
-  
+			'host'      => getenv('DB_HOST','localhost'),
+			'database'  => getenv('DB_DATABASE','dev-mora'),
+			'username'  => getenv('DB_USERNAME','root'),
+			'password'  => getenv('DB_DATABASE','henri'),
+			//'host'      => 'localhost',
+			//'port'      => '3306',
+			//'database'  => 'dev-mora',
+			//'username'  => 'root',
+			//'password'  => 'henri',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
