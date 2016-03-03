@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PBSB Online -Dev</title>
+    <title>Portal Pendaftaran - Program Beasiswa Santri Berprestrasi (PBSB)</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -325,7 +325,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </section>
 
