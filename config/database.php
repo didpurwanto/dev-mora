@@ -48,10 +48,10 @@ return [
 		'mysql' => [
 			'driver'    => 'mysql',
 
-			'host'      => getenv('DB_HOST','localhost'),
-			'database'  => getenv('DB_DATABASE','dev-mora'),
-			'username'  => getenv('DB_USERNAME','root'),
-			'password'  => getenv('DB_DATABASE','henri'),
+			'host'      => env('DB_HOST','localhost'),
+			'database'  => env('DB_DATABASE','dev-mora'),
+			'username'  => env('DB_USERNAME','root'),
+			'password'  => env('DB_DATABASE','henri'),
 			//'host'      => 'localhost',
 			//'port'      => '3306',
 			//'database'  => 'dev-mora',
