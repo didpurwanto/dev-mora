@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Portal Pendaftaran - Program Beasiswa Santri Berprestrasi (PBSB)</title>
+    <title>Pendaftaran PBSB - Program Beasiswa Santri Berprestasi</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
