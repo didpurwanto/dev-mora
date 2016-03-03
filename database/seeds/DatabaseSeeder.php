@@ -29,21 +29,19 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		// // $this->call('UserTableSeeder');
-		// // $this->call('ApplicationTableSeeder');
-		// $this->call('EducationLevelSeeder');
-		// $this->call('JobTypeSeeder');
-		// $this->call('PesantrenTypeSeeder');
-		// $this->call('ProgramStudySeeder');
-		// $this->call('RangeSalarySeeder');
+		$this->call('UserTableSeeder');
+		$this->call('EducationLevelSeeder');
+		$this->call('JobTypeSeeder');
+		$this->call('PesantrenTypeSeeder');
+		$this->call('ProgramStudySeeder');
+		$this->call('RangeSalarySeeder');
 		$this->call('SchoolTypeSeeder');
-		// //$this->call('FamilyTableSeeder');
-		// $this->call('ProvinceSeeder');
-		// //$this->call('KabupatenSeeder');
-		// //$this->call('KecamatanSeeder');
-		// $this->call('UserSeeder');
-		// $this->call('SettingSeeder');
-		// $this->call('UniversitySeeder');
+		$this->call('ProvinceSeeder');
+		$this->call('UserSeeder');
+		$this->call('SettingSeeder');
+		$this->call('UniversitySeeder');
+		//$this->call('KabupatenSeeder');
+		//$this->call('KecamatanSeeder');
 
 	}
 

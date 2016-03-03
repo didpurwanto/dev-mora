@@ -101,7 +101,7 @@ class SummaryController extends Controller {
 		$pdf = PDF::loadView('formulir', compact('user','date_birth','listSubjects','subject_1','subject_2','subject_3','subject_4','subject_5','ranking', 'reg_num'))->setPaper('legal');
 
 		//Make user logout after prints
-		Auth::logout();
+		// Auth::logout();
 
 		return $pdf->download('Formulir Peserta.pdf');
 
@@ -140,7 +140,7 @@ class SummaryController extends Controller {
 		$pdf = PDF::loadView('kartu',compact('user','date_birth', 'test_num', 'registration_number'))->setPaper('legal');
 
 		//Make user logout after prints
-		Auth::logout();
+		// Auth::logout();
 		// dd($user->pesantren->no_telp);
 		return $pdf->download('Kartu Peserta.pdf');
 

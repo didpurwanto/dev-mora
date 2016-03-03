@@ -37,7 +37,7 @@
 		<br />
 		<br />
 		<div class="col-md-12 column alert alert-danger">
-			<p align="center">Anda secara otomatis akan <b>Keluar/Logout</b> dari aplikasi ketika mencetak <b>Formulir Peserta</b> atau <b>Kartu Peserta</b>.</p>
+			<p align="center">Segera <b>Keluar/Logout</b> dari aplikasi setelah selesai mencetak <b>Formulir Peserta</b> atau <b>Kartu Peserta</b>.</p>
 		</div>
 		<br />
 		<br />
