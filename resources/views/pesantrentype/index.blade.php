@@ -35,8 +35,6 @@
 												<tr>
 													<th>no</th>
 													<th>Tipe Pesantren</th>
-													<th>Batas umur</th>
-													<th>Batas tahun lulus</th>
 													<th>Aksi</th>
 												</tr>
 											</thead>
@@ -48,12 +46,6 @@
 												  </td>
 													<td class="center col-md-4">
 														{{ $type->type_name }}
-													</td>
-													<td class="center col-md-2">
-														{{ $type->max_age }}
-													</td>
-													<td class="center col-md-2">
-														{{ $type->max_graduate }}
 													</td>
 													<td class="center col-md-2">
 															<a class="btn btn-xs btn-success" href="{!! URL::to('admin/pesantrentypes/'.$type->id.'/edit') !!}"><i class="fa fa-edit fa-fw"></i> Edit</a>

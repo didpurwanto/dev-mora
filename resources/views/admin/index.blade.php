@@ -97,7 +97,7 @@
                                 <li>
                                     <a href="{!! URL::to('admin/listuniversities/') !!}">Rekap Universitas</a>
                                 </li>
-                                <li>
+                                <li class="{!! Request::is('pesantren') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/pesantren/') !!}">Rekap Pesantren</a>
                                 </li>
                             </ul>
@@ -131,13 +131,10 @@
                                 <li class="{!! Request::is('programstudies') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/programstudies') !!}">Program Study</a>
                                 </li>
-
-                                <li class="{!! Request::is('pesantrentypes') ? 'active' : '' !!}">
-                                    <a href="{!! URL::to('admin/pesantrentypes') !!}">Pengaturan Jenis Pesantren</a>
+                                <li class="{!! Request::is('schooltypes') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/schooltypes') !!}">Pengaturan Tipe Sekolah</a>
                                 </li>
-
-
-                            </ul>
+                                                            </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
@@ -149,12 +146,11 @@
                                 <li class="{!! Request::is('jobtypes') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/jobtypes') !!}">Jenis Pekerjaan</a>
                                 </li>
-
                                 <li class="{!! Request::is('rangesalaries') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/rangesalaries') !!}">Range Gaji</a>
                                 </li>
-                                <li class="{!! Request::is('schooltypes') ? 'active' : '' !!}">
-                                    <a href="{!! URL::to('admin/schooltypes') !!}">Tipe Sekolah</a>
+                                <li class="{!! Request::is('pesantrentypes') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/pesantrentypes') !!}">Jenis Pesantren</a>
                                 </li>
                                 <li class="{!! Request::is('users') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/users') !!}">Daftar Pengguna</a>
@@ -164,14 +160,7 @@
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Pengaturan Aplikasi<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <!-- <li class="{!! Request::is('tahunlahir') ? 'active' : '' !!}">
-                                    <a href="{!! URL::to('admin/tahunlahir') !!}">Pengaturan Tahun Lahir</a>
-                                </li> -->
-
-<!--                                 <li class="{!! Request::is('tahunlulus') ? 'active' : '' !!}">
-                                    <a href="{!! URL::to('admin/tahunlulus') !!}">Pengaturan Tahun Lulus</a>
-                                </li> -->
-                                <li class="{!! Request::is('pendaftaran') ? 'active' : '' !!}">
+                                <li>
                                     <a href="{!! URL::to('admin/pendaftaran/1') !!}">Pengaturan Pendaftaran</a>
                                 </li>
 
