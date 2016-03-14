@@ -181,7 +181,7 @@ table.fixed {
 <hr>
 <table>
 	<tr>
-		<td width="400px">
+	<td width="400px">
       <font size="20px"><b>{!! $user->applicant->full_name !!}</b></font> <br />
 			Jenis Kelamin : <b>{!! ($user->applicant->gender == 1) ? 'Laki-laki' : 'Perempuan' !!}</b> <br />
 			Tempat/Tanggal Lahir : <b>{!! $user->applicant->place_birth !!} / {!! $date_birth  !!}</b> <br />
@@ -194,10 +194,11 @@ table.fixed {
 			Hafalan Al-Qurran : <b>{!! $user->applicant->recitation !!}</b> Juz <br />
 			No Telp yang Bisa Dihubungi : <b>{!! $user->applicant->contact !!}</b> <br />
 		</td>
-		<td align="right" width="350px">
-			<!-- No. Peserta : <b>ISIAN</b> --><br />
-			<!-- <i><small>(Diberikan oleh panitia seleksi)</small></i> --><br />
-			<img src="images/pasphoto.png" height="120px" width="100px">
+		<td align="right" width="300px">
+			<!-- No. Peserta : <b>ISIAN</b><br /> -->
+			<!-- <i><small>(Diberikan oleh panitia seleksi)</small></i><br /> -->
+			<br>
+			<img src="images/foto.jpg" width="114px" height="150px">
 		</td>
 	</tr>
 </table>

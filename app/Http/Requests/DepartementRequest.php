@@ -22,6 +22,7 @@ class DepartementRequest extends Request {
 	public function rules()
 	{
 		return [
+			'status' => 'required',
 			'departement_name' => 'required'
 		];
 	}
@@ -29,7 +30,8 @@ class DepartementRequest extends Request {
 	public function messages()
 	{
 		return [
-			'departement_name.required' => 'Nama Departemen tidak boleh kosong'
+			'departement_name.required' => 'Nama Departemen tidak boleh kosong',
+			'status.required' => 'Silakan Pilih status Jurusan',
 		];
 	}
 

@@ -56,9 +56,12 @@
                     <li>
                         <a class="page-scroll" href="#login">Login</a>
                     </li>
+                    @if ($close == 0)
+
                     <li>
                         <a class="page-scroll" href="#daftar">Buat Akun</a>
                     </li>
+                    @endif
                     <li>
                         <a class="page-scroll" href="#services">PTN Mitra</a>
                     </li>

@@ -373,13 +373,13 @@
 
 @if ($user->finish==0)
 	<div class="alert alert-danger">
-		<p align="center">Pastikan semua data yang masukan sudah benar. <br> Jika sudah YAKIN, klik FINALISASI DATA SAYA untuk menyimpan secara permanen dan data tidak dapat diubah setelahnya.</p>
+		<p align="center">Pastikan semua data yang masukan sudah benar. <br> Jika sudah YAKIN, klik FINALISASI DATA untuk menyimpan secara permanen dan data tidak dapat diubah setelah tombol diklik.</p>
 	</div>
 
 	<div class="row clearfix">
 		<div class="col-md-12 column" align="center">
 		{!! Form::open(['method' => 'GET', 'url' => '/finalisasi']) !!}
-				{!! Form::submit('FINALISASI DATA SAYA', ['class' => 'btn btn-primary form-button btn-lg']) !!}
+				{!! Form::submit('FINALISASI DATA', ['class' => 'btn btn-primary form-button btn-lg']) !!}
 		{!! Form::close() !!}
 	</div>
 	</div>

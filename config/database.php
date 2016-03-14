@@ -49,7 +49,7 @@ return [
 			'driver'    => 'mysql',
 
 			'host'      => env('DB_HOST','localhost'),
-			'database'  => env('DB_DATABASE','dev-mora'),
+			'database'  => env('DB_DATABASE','mora'),
 			'username'  => env('DB_USERNAME','root'),
 			'password'  => env('DB_PASSWORD','bismillah'),
 			//'host'      => 'localhost',

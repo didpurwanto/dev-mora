@@ -269,7 +269,7 @@ class ExportImportController extends Controller {
 
                 	$applicant->mother_education = DB::table('education_levels')->where('id', $applicant->mother_education)->pluck('education_levels.level_name');
                 	$applicant->mother_job_id = DB::table('job_types')->where('id', $applicant->mother_job_id)->pluck('job_types.job_name');
-                	$applicant->mother_income_id = DB::table('range_salaries')->where('id', $applicant->mother_income_id)->pluck('range_salaries.range_name');
+                	$applicant->mother_income_id = DB::table('range_salaries')->where('id', $applicant->mother_salary_id)->pluck('range_salaries.range_name');
 
                 	$applicant->pesantren_type = DB::table('pesantren_types')->where('id', $applicant->pesantren_type)->pluck('pesantren_types.type_name');
                 	$applicant->school_type_id = DB::table('school_types')->where('id', $applicant->school_type_id)->pluck('school_types.type_name');
@@ -327,7 +327,7 @@ class ExportImportController extends Controller {
 	                	$applicant->marriage_status,
 	                	$applicant->address,
 	                	$applicant->province_name,
-	                	$applicant->kabupaten_id,
+	                	$applicant->kabupaten,
 	                	$applicant->father_name,
 	                	$applicant->father_age,
 	                	$applicant->father_deceased,

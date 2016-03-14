@@ -98,7 +98,7 @@ td .content {
 </table>
 
 <hr>
-<br>
+<!-- <br> -->
 
 <table>
 	<tr>
@@ -136,7 +136,7 @@ td .content {
 						<td class="content">{!! $test_num[3] !!}</td>
 						<td class="content">{!! $test_num[4] !!}</td>
 						<td class="content">{!! $test_num[5] !!}</td>
-						<td class="content">{!! $test_num[6] !!}</td>
+						<td class="content">{!! "" !!}</td>
 						<td class="content">{!! "" !!}</td>
 						<td class="content">{!! "" !!}</td>
 						<td class="content">{!! "" !!}</td>
@@ -144,7 +144,7 @@ td .content {
 				</tbody>
 			</table>
 			<i><small>(Diberikan oleh panitia seleksi)</small></i><br /><br />
-			<img src="images/pasphoto.png" height="120px" width="100px">
+			<img src="images/foto.jpg" width="114px" height="150px">
 		</td>
 	</tr>
 </table>
@@ -252,9 +252,9 @@ td .content {
 </table>
 
 <br>
-<br>
+<!-- <br> -->
 <center><font color="red">------------------------------<wbr>------------------Potong disini; serahkan formulir bagian bawah kepada petugas pendaftaran tes --------------------------------------------------</font></center>
-<br>
+<!-- <br> -->
 <br>
 
 <table style="font-family:arial,helvetica,sans-serif;">
@@ -275,7 +275,7 @@ td .content {
 </table>
 
 <hr>
-<br>
+<!-- <br> -->
 
 <table>
 	<tr>
@@ -312,7 +312,7 @@ td .content {
 						<td class="content">{!! $test_num[3] !!}</td>
 						<td class="content">{!! $test_num[4] !!}</td>
 						<td class="content">{!! $test_num[5] !!}</td>
-						<td class="content">{!! $test_num[6] !!}</td>
+						<td class="content">{!! "" !!}</td>
 						<td class="content">{!! "" !!}</td>
 						<td class="content">{!! "" !!}</td>
 						<td class="content">{!! "" !!}</td>
@@ -320,7 +320,7 @@ td .content {
 				</tbody>
 			</table>
 			<i><small>(Diberikan oleh panitia seleksi)</small></i><br /><br />
-			<img src="images/pasphoto.png" height="120px" width="100px">
+			<img src="images/foto.jpg" width="114px" height="150px">
 		</td>
 	</tr>
 </table>

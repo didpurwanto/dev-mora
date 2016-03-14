@@ -24,9 +24,9 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href={!! URL::to('admin/listprovinces/') !!}>
                 <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
+                    <span class="pull-left">Rekap Provinsi</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
                 </div>
@@ -46,9 +46,9 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href={!! URL::to('admin/pesantren/') !!}>
                 <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
+                    <span class="pull-left">Rekap Pesantren</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
                 </div>
@@ -70,7 +70,7 @@
             </div>
             <a href={!! URL::to('admin/listuniversities/') !!}>
                 <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
+                    <span class="pull-left">Rekap Universitas</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
                 </div>
@@ -92,7 +92,7 @@
             </div>
             <a href={!! URL::to('admin/departements') !!}>
                 <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
+                    <span class="pull-left">Rekap Jurusan</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
                 </div>
