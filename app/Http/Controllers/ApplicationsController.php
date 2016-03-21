@@ -57,16 +57,17 @@ class ApplicationsController extends Controller {
 
 		// dd($dep);
 		// useful for refresh after error on validation
-		$dep = DB::table('departements')
-			//->select('departement_name','id')
-			->leftJoin('departements_program_studies', 'departements_program_studies.departement_id','=', 'departements.id')
-			//->where('university_id', '=', $university_id)
-			->where('program_study_id', '=', $program_study_id)
-			->where('status', '=', 1)
-			->lists('departement_name','id');
+		// $dep = DB::table('departements')
+		// 	//->select('departement_name','id')
+		// 	->leftJoin('departements_program_studies', 'departements_program_studies.departement_id','=', 'departements.id')
+		// 	//->where('university_id', '=', $university_id)
+		// 	->where('program_study_id', '=', $program_study_id)
+		// 	->where('status', '=', 1)
+		// 	->lists('departement_name','id');
 
 		$appl = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
-		// dd($appl);
+		$dep = array();
+		// dd($dep);
 		return view('application.edit', compact('appl','univ','dep'));
 	}
 
