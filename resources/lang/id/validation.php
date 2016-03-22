@@ -37,7 +37,7 @@ return [
 	"email"                => ":attribute harus alamat e-mail yang valid.",
 	"filled"               => "The :attribute field is required.",
 	"exists"               => "The selected :attribute is invalid.",
-	"image"                => "The :attribute must be an image.",
+	"image"                => "Harap masukan sebuah gambar.",
 	"in"                   => "The selected :attribute is invalid.",
 	"integer"              => ":attribute harus dalam bentuk integer.",
 	"ip"                   => "The :attribute must be a valid IP address.",
@@ -66,7 +66,7 @@ return [
 	"same"                 => ":attribute dan :other harus sama.",
 	"size"                 => [
 		"numeric" => "The :attribute must be :size.",
-		"file"    => "The :attribute must be :size kilobytes.",
+		"file"    => "Gambar tidak boleh lebih dari 200KB.",
 		"string"  => "The :attribute must be :size characters.",
 		"array"   => "The :attribute must contain :size items.",
 	],

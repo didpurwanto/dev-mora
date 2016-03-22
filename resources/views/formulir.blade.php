@@ -112,8 +112,8 @@ td .content {
   color:white;
   font-size: 120%;
   background: black;
-  text-align:center; 
-  vertical-align:middle;  
+  text-align:center;
+  vertical-align:middle;
 }
 
 
@@ -135,8 +135,8 @@ td {
     vertical-align: top;
 }
 
-table.fixed { 
-	table-layout:fixed; 
+table.fixed {
+	table-layout:fixed;
 	border-style: solid;
     border-color: white;
 	width: 260px;
@@ -158,7 +158,7 @@ table.fixed {
 		</td>
 		<td align="right" width="260px">
 			<b><font size="20px">FORMULIR REGISTRASI</font></b><br />
-			No Registrasi : 
+			No Registrasi :
 			<table class="fixed" border="1" cellspacing="2%" cellpadding="6%">
 				<tr>
 					<td>{!! $reg_num[0] !!}</td>
@@ -198,7 +198,7 @@ table.fixed {
 			<!-- No. Peserta : <b>ISIAN</b><br /> -->
 			<!-- <i><small>(Diberikan oleh panitia seleksi)</small></i><br /> -->
 			<br>
-			<img src="images/foto.jpg" width="114px" height="150px">
+			<img src="{!! $user->applicant->profile_photo !!}" width="114px" height="150px">
 		</td>
 	</tr>
 </table>

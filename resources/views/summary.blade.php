@@ -29,6 +29,9 @@
 			Hafalan Al-Qurran : <b>{!! $user->applicant->recitation !!}</b> Juz </br>
 			No Telp yang Bisa Dihubungi : <b>{!! $user->applicant->contact !!}</b> </br>
 		</td>
+		<td>
+			<img src="{!! $user->applicant->profile_photo !!}" width="114px" height="150px">
+		</td>
 	</tr>
 </table>
 <hr>

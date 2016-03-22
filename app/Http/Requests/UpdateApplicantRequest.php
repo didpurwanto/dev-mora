@@ -33,7 +33,8 @@ class UpdateApplicantRequest extends Request {
 			'address' => 'required',
 			'kabupaten' => 'required',
 			'kecamatan' => 'required',
-			'kelurahan' => 'required'
+			'kelurahan' => 'required',
+			'image' => 'required|image|size:200'
 		];
 	}
 
@@ -73,7 +74,10 @@ class UpdateApplicantRequest extends Request {
 			'address.required' => 'Alamat tidak boleh kosong',
 			'kabupaten.required' => 'Nama Kabupaten tidak boleh kosong',
 			'kecamatan.required' => 'Nama Kecamatan tidak boleh kosong',
-			'kelurahan.required' => 'Nama Kelurahan tidak boleh kosong'
+			'kelurahan.required' => 'Nama Kelurahan tidak boleh kosong',
+
+			'image.required' => 'Gambar tidak boleh kosong.',
+			'image.image' => 'Harap masukan sebuah gambar.'
 		];
 	}
 
