@@ -34,7 +34,7 @@ class UpdateApplicantRequest extends Request {
 			'kabupaten' => 'required',
 			'kecamatan' => 'required',
 			'kelurahan' => 'required',
-			'image' => 'required|image|max:200'
+			'image' => 'image|max:200'
 		];
 	}
 
@@ -76,7 +76,7 @@ class UpdateApplicantRequest extends Request {
 			'kecamatan.required' => 'Nama Kecamatan tidak boleh kosong',
 			'kelurahan.required' => 'Nama Kelurahan tidak boleh kosong',
 
-			'image.required' => 'Gambar tidak boleh kosong.',
+			//'image.required' => 'Gambar tidak boleh kosong.',
 			'image.image' => 'Harap masukan sebuah gambar.'
 		];
 	}
