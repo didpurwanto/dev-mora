@@ -53,12 +53,12 @@ td {
 
 }
 
-table.fixed { 
-	table-layout:fixed; 
+table.fixed {
+	table-layout:fixed;
 	border-style: solid;
     border-color: white;
 	width: 350px;
-	
+
 }
 
 td .content {
@@ -70,8 +70,8 @@ td .content {
   color:black;
   font-size: 80%;
   background: white;
-  text-align:center; 
-  vertical-align:middle;  
+  text-align:center;
+  vertical-align:middle;
 }
 
 </style>
@@ -125,7 +125,7 @@ td .content {
 		</td>
 
 		<td align="right" width="350px">
-			No. Peserta : 
+			No. Peserta :
 			<!-- <table class="fixed" border="1" cellspacing="1%" cellpadding="2%" > -->
 			<table class="fixed" border="1">
 				<tbody>
@@ -144,7 +144,7 @@ td .content {
 				</tbody>
 			</table>
 			<i><small>(Diberikan oleh panitia seleksi)</small></i><br /><br />
-			<img src="images/foto.jpg" width="114px" height="150px">
+			<img src="{!! $user->applicant->profile_photo !!}" width="114px" height="150px">
 		</td>
 	</tr>
 </table>
@@ -201,16 +201,16 @@ td .content {
 <hr>
 
 <!-- PROBLEM No 11 EMAIL -->
-<table>		
+<table>
 	<tr align="center">
-		<td width="470px">		
+		<td width="470px">
 		</td>
-		<td width="233">		
+		<td width="233">
 		</td>
 	</tr>
 	<tr align="center">
-			  
-		<td width="470px">		
+
+		<td width="470px">
 		</td>
 		<td width="233px">
 			ttd
@@ -220,16 +220,16 @@ td .content {
 <br />
 <br />
 <br />
-<table>		
+<table>
 	<tr align="center">
-		<td width="470px">		
+		<td width="470px">
 		</td>
 		<td width="233">
 			_______________________
 		</td>
 	</tr>
 	<tr align="center">
-		<td width="470px">		
+		<td width="470px">
 		</td>
 		<td width="233px">
 			Petugas Verifikasi Kemenag Wilayah Provinsi
@@ -302,7 +302,7 @@ td .content {
 		</td>
 
 		<td align="right" width="350px">
-			No. Peserta : 
+			No. Peserta :
 			<table class="fixed" border="1">
 				<tbody>
 					<tr>
@@ -379,16 +379,16 @@ td .content {
 
 <hr>
 <!-- PROBLEM No 11 EMAIL -->
-<table>		
+<table>
 	<tr align="center">
-		<td width="470px">		
+		<td width="470px">
 		</td>
-		<td width="233">		
+		<td width="233">
 		</td>
 	</tr>
 	<tr align="center">
-			  
-		<td width="470px">		
+
+		<td width="470px">
 		</td>
 		<td width="233px">
 			ttd
@@ -398,16 +398,16 @@ td .content {
 <br />
 <br />
 <br />
-<table>		
+<table>
 	<tr align="center">
-		<td width="470px">		
+		<td width="470px">
 		</td>
 		<td width="233">
 			_______________________
 		</td>
 	</tr>
 	<tr align="center">
-		<td width="470px">		
+		<td width="470px">
 		</td>
 		<td width="233px">
 			Petugas Verifikasi Kemenag Wilayah Provinsi

@@ -135,7 +135,14 @@ class ApplicantsController extends Controller {
 		$app->date_birth = $tanggal_lahir1;
 
 		//Save record to the database
-		$form = $app->update($request->except('date_birth','tanggal','bulan','tahun'));
+		$form = $app->update($request->except('date_birth','tanggal','bulan','tahun','image'));
+
+		$imageName = $app->user_id . '.' . $request->file('image')->getClientOriginalExtension();
+		$request->file('image')->move(
+        base_path() . '/public/images/profil/', $imageName
+    );
+		$path = "images/profil/". $imageName;
+		$app->profile_photo = $path;
 
 		//update if the table is filled with content it should.
 		$app->finish = 1;

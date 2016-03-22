@@ -8,7 +8,7 @@
 	<h2>Biodata Pribadi</h2>
 	<hr />
 
-	{!! Form::model($app,['method' => 'PATCH','url' => ['/applicants']]) !!}
+	{!! Form::model($app,['method' => 'PATCH','url' => ['/applicants'],'files' =>true]) !!}
 		<div class="form-group {{ ! $errors->first('full_name') ?'': 'has-error' }}">
 			<div class="row">
 				<div class="col-md-3">
@@ -266,6 +266,20 @@
 				@if( $errors->first('province_id') )
 					<span class="help-block text-danger">{{ $errors->first('province_id') }}</span>
 				@endif
+			</div>
+		</div>
+		<br />
+		<div class="form-group {{ ! $errors->first('image') ?'': 'has-error' }}">
+			<div class="row">
+				<div class="col-md-3">
+		    {!! Form::label('Pas Photo (Maks. 200KB)') !!}
+				</div>
+				<div class="col-md-3">
+		    {!! Form::file('image', null) !!}
+			</div>
+			@if( $errors->first('image') )
+				<span class="help-block text-danger">{{ $errors->first('image') }}</span>
+			@endif
 			</div>
 		</div>
 		<br />

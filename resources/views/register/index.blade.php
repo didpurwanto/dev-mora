@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>DEVMORA</title>
+    <title>Pendaftaran PBSB - Program Beasiswa Santri Berprestasi</title>
 
     <!-- Bootstrap Core CSS -->
     {!! Html::style('css/bootstrap.min.css') !!}
