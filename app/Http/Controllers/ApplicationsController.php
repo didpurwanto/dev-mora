@@ -55,18 +55,25 @@ class ApplicationsController extends Controller {
 		}
 		#todo: later only show universities which have departement
 
-		// dd($dep);
+		//univ id
+		$already_select_university= Application::where('user_id',Auth::user()->id)->pluck('university_id');
+		// dd($already_select_university);
 		// useful for refresh after error on validation
-		// $dep = DB::table('departements')
-		// 	//->select('departement_name','id')
-		// 	->leftJoin('departements_program_studies', 'departements_program_studies.departement_id','=', 'departements.id')
-		// 	//->where('university_id', '=', $university_id)
-		// 	->where('program_study_id', '=', $program_study_id)
-		// 	->where('status', '=', 1)
-		// 	->lists('departement_name','id');
+		if($already_select_university == "0"){
+			$dep = array();
+		}
+		else
+		{
+			$dep = DB::table('departements')
+				//->select('departement_name','id')
+				->leftJoin('departements_program_studies', 'departements_program_studies.departement_id','=', 'departements.id')
+				->where('university_id', '=', $already_select_university)
+				->where('program_study_id', '=', $program_study_id)
+				->where('status', '=', 1)
+				->lists('departement_name','id');
+		}
 
 		$appl = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
-		$dep = array();
 		// dd($dep);
 		return view('application.edit', compact('appl','univ','dep'));
 	}
