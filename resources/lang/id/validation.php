@@ -43,7 +43,7 @@ return [
 	"ip"                   => "The :attribute must be a valid IP address.",
 	"max"                  => [
 		"numeric" => "The :attribute may not be greater than :max.",
-		"file"    => "The :attribute may not be greater than :max kilobytes.",
+		"file"    => "Gambar tidak boleh lebih dari 200 KB.",
 		"string"  => "The :attribute may not be greater than :max characters.",
 		"array"   => "The :attribute may not have more than :max items.",
 	],
@@ -66,7 +66,7 @@ return [
 	"same"                 => ":attribute dan :other harus sama.",
 	"size"                 => [
 		"numeric" => "The :attribute must be :size.",
-		"file"    => "Gambar tidak boleh lebih dari 200KB.",
+		"file"    => "Gambar tidak boleh lebih dari 200 KB.",
 		"string"  => "The :attribute must be :size characters.",
 		"array"   => "The :attribute must contain :size items.",
 	],

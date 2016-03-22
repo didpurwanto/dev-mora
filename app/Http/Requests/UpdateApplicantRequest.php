@@ -34,7 +34,7 @@ class UpdateApplicantRequest extends Request {
 			'kabupaten' => 'required',
 			'kecamatan' => 'required',
 			'kelurahan' => 'required',
-			'image' => 'required|image|size:200'
+			'image' => 'required|image|max:200'
 		];
 	}
 
