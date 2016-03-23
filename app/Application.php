@@ -22,4 +22,10 @@ class Application extends Model {
 	{
 		return $this->hasOne('App\Departement','id','major_2_id');
 	}
+
+	public function test_location()
+	{
+		return $this->belongsTo('App\TestLocation');
+	}
+
 }
