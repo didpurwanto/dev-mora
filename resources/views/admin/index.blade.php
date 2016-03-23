@@ -133,6 +133,9 @@
                                 <li class="{!! Request::is('schooltypes') ? 'active' : '' !!}">
                                     <a href="{!! URL::to('admin/schooltypes') !!}">Jenis Sekolah</a>
                                 </li>
+                                <li class="{!! Request::is('testlocations') ? 'active' : '' !!}">
+                                    <a href="{!! URL::to('admin/testlocations') !!}">Lokasi Tes CBT</a>
+                                </li>
                                                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

@@ -122,7 +122,10 @@ td .content {
 			<br />
 			<br />
 			Bersedia untuk Dipindah Jurusan = <b>{!!($user->application->aggree_to_auto_move == 1) ? 'YA' : 'TIDAK'!!}</b>
-		</td>
+      <br />
+      <br />
+      Lokasi Tes= <b>{!! $user->application->test_location->location_name !!} - Provinsi {!! $user->application->test_location->province->province_name !!}</b>
+    </td>
 
 		<td align="right" width="350px">
 			No. Peserta :
@@ -299,7 +302,10 @@ td .content {
 			<br />
 			<br />
 			Bersedia untuk Dipindah Jurusan = <b>{!!($user->application->aggree_to_auto_move == 1) ? 'YA' : 'TIDAK'!!}</b>
-		</td>
+      <br />
+      <br />
+      Lokasi Tes = <b>{!! $user->application->test_location->location_name !!} - Provinsi {!! $user->application->test_location->province->province_name !!}</b>
+    </td>
 
 		<td align="right" width="350px">
 			No. Peserta :

@@ -10,6 +10,8 @@ use App\University;
 use App\Departement;
 use App\School;
 use App\ProgramStudy;
+use App\Province;
+use App\TestLocation;
 use Auth;
 
 class ApplicationsController extends Controller {
@@ -33,8 +35,8 @@ class ApplicationsController extends Controller {
 		#logic here.
 		#scenario: only show uin makasar if applicant and pesanten from east indonesia
 
-		#check, is applicant born and pesantren from east indo? 
-		#id above 24 mean east indo province 
+		#check, is applicant born and pesantren from east indo?
+		#id above 24 mean east indo province
 		$fromEastIndo = DB::table('applicants')
 							->leftJoin('pesantrens', 'pesantrens.user_id','=','applicants.user_id')
 							->where('applicants.province_id','>', 24)
@@ -151,5 +153,6 @@ class ApplicationsController extends Controller {
 		 //dd($options);
     	return $options;
     }
+
 
 }

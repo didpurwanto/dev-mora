@@ -58,10 +58,21 @@ Route::patch('raports', 'RaportsController@update');
 //Route::resource('applications','ApplicationsController',['except' => ['index', 'show', 'create']]);
 Route::get('applications', 'ApplicationsController@edit');
 Route::patch('applications', 'ApplicationsController@update');
+
+//Test Location Route
+//Route::resource('applications','ApplicationsController',['except' => ['index', 'show', 'create']]);
+Route::get('locationtests', 'ApplicantsController@editlokasi');
+Route::patch('locationtests', 'ApplicantsController@updatelokasi');
+
 /*
 | Route for dynamic drop down departemen
 */
 Route::get('applications/universities/{id}', 'ApplicationsController@getDepartements');
+
+/*
+| Route for dynamic drop down lokasi tes
+*/
+Route::get('applicants/lokasites/{id}', 'ApplicantsController@getListTestLocation');
 
 //Summary Route
 Route::get('summary', 'SummaryController@index');
@@ -146,6 +157,7 @@ Route::resource('admin/jobtypes','JobTypesController',['except' => ['show']]);
 Route::resource('admin/pesantrentypes','PesantrenTypesController',['except' => ['show']]);
 Route::resource('admin/rangesalaries','RangeSalariesController',['except' => ['show']]);
 Route::resource('admin/schooltypes','SchoolTypesController',['except' => ['show']]);
+Route::resource('admin/testlocations','TestLocationsController',['except' => ['show']]);
 
 //Route::resource('admin/tahunlahir','BornYearsController',['except' => ['show','create','destroy']]);
 Route::resource('admin/tahunlulus','GraduateYearsController',['except' => ['show','create','destroy']]);

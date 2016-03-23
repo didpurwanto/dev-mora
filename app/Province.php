@@ -36,5 +36,10 @@ class Province extends Model {
 	public function applicants()
 	{
          return $this->hasMany('App\Applicant');
-    }
+  }
+
+	public function test_locations()
+	{
+         return $this->hasMany('App\TestLocation');
+  }
 }

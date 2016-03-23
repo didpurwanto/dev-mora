@@ -16,6 +16,8 @@ use App\Family;
 use App\Setting;
 use App\School;
 use App\SchoolType;
+use App\TestLocation;
+use App\Application;
 
 class ApplicantsController extends Controller {
 
@@ -203,5 +205,54 @@ class ApplicantsController extends Controller {
 			 return ['success' => true, 'file' => asset($destinationPath.$filename)];
 		 }
 
+	}
+
+	public function editlokasi()
+	{
+		$application = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		$applicant = Applicant::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		//for location test
+		$prov = Province::lists('province_name','id');
+
+		$location = TestLocation::lists('location_name','id');
+
+		return view('locationtest.edit', compact('prov','applicant','application','location'));
+	}
+
+	public function updatelokasi(Request $request)
+	{
+		//$appl = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		//Save record to the database
+		//$form = $appl->update($request->loca());
+
+		$registrasi = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		// dd($registrasi);
+	  $registrasi->test_location_id = $request->location_name;
+		//dd($request->location_name);
+    $registrasi->save();
+
+		//update number registration
+		DB::table('test_locations')->increment('counter');
+
+		//Return
+		return redirect('summary');
+	}
+
+	public function getListTestLocation($province_id)
+	{
+		//$listTestLocations = TestLocation::where('province_id', $province_id)->get();
+		$listTestLocations = DB::table('test_locations')
+												->select('id', 'location_name')
+												->where('province_id', '=', $province_id)
+												->where('quota', '<', 'counter')
+												->get();
+		//dd($listTestLocations);
+		$options = array();
+		foreach ($listTestLocations as $listTestLocation) {
+				$options += array($listTestLocation->id => $listTestLocation->location_name);
+		}
+
+		//dd($options);
+		return $options;
 	}
 }

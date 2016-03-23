@@ -28,7 +28,7 @@
 	    			{!! Form::submit('Cetak Formulir Registrasi', ['class' => 'btn btn-primary form-button btn-lg']) !!}
 				{!! Form::close() !!}
 			</div>
-	    @endif	    
+	    @endif
 
 		<br />
 		<br />
@@ -37,11 +37,11 @@
 		<br />
 		<br />
 		<div class="col-md-12 column alert alert-danger">
-			<p align="center">Segera <b>Keluar/Logout</b> dari aplikasi setelah selesai mencetak 
+			<p align="center">Segera <b>Keluar/Logout</b> dari aplikasi setelah selesai mencetak
 			<b>Formulir Peserta
 			@if ($pass ==1 )
 				</b> atau <b>Kartu Peserta</b>
-			@endif	
+			@endif
 			.
 			</p>
 		</div>

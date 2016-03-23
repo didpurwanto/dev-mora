@@ -28,10 +28,14 @@
 			Riwayat Gangguan Mental : <b>{!! ($user->applicant->mental_disorder == 1) ? 'Ya' : 'Tidak' !!}</b> </br>
 			Hafalan Al-Qurran : <b>{!! $user->applicant->recitation !!}</b> Juz </br>
 			No Telp yang Bisa Dihubungi : <b>{!! $user->applicant->contact !!}</b> </br>
+			<br />
+			Lokasi Tes Computer Based Test (CBT) = <b>{!! $user->application->test_location->location_name !!} - Provinsi {!! $user->application->test_location->province->province_name !!}</b>
+
 		</td>
 		<td>
 			<img src="{!! $user->applicant->profile_photo !!}" width="114px" height="150px">
 		</td>
+
 	</tr>
 </table>
 <hr>
