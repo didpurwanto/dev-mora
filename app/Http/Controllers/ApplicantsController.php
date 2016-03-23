@@ -136,11 +136,17 @@ class ApplicantsController extends Controller {
 
 		//Save record to the database
 		$form = $app->update($request->except('date_birth','tanggal','bulan','tahun','image'));
+		$imageName = "";
 
-		$imageName = $app->user_id . '.' . $request->file('image')->getClientOriginalExtension();
-		$request->file('image')->move(
-        base_path() . '/public/images/profil/', $imageName
-    );
+		//dd($request->file('image'));
+		if($request->file('image')!=null){
+			$imageName = $app->user_id . '.' . $request->file('image')->getClientOriginalExtension();
+			$request->file('image')->move(
+	        base_path() . '/public/images/profil/', $imageName
+	    );
+		}else{
+			$imageName = "foto.jpg";
+		}
 		$path = "images/profil/". $imageName;
 		$app->profile_photo = $path;
 
