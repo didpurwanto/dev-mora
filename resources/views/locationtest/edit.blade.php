@@ -6,7 +6,7 @@
 	<h4 style="color:red" >Anda hanya di perbolehkan untuk memilih lokasi ujian satu kali (tidak bisa mengedit)</h4>
 	<br />
 	{!! Form::model($application,['method' => 'PATCH','url' => ['/locationtests']]) !!}
-		@include ('locationtest.formedit', ['text' => 'Selanjutnya'])
+		@include ('locationtest.form', ['text' => 'Selanjutnya'])
 	{!! Form::close() !!}
 @stop
 
