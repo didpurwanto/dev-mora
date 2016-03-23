@@ -232,7 +232,8 @@ class ApplicantsController extends Controller {
     $registrasi->save();
 
 		//update number registration
-		DB::table('test_locations')->increment('counter');
+		$registrasi2 = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		DB::table('test_locations')->where('id', '=', $registrasi2->test_location_id)->increment('counter');
 
 		//Return
 		return redirect('summary');
@@ -244,7 +245,7 @@ class ApplicantsController extends Controller {
 		$listTestLocations = DB::table('test_locations')
 												->select('id', 'location_name')
 												->where('province_id', '=', $province_id)
-												->where('quota', '<', 'counter')
+												->where('quota', '>', 'counter')
 												->get();
 		//dd($listTestLocations);
 		$options = array();

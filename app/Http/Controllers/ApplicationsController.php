@@ -98,7 +98,7 @@ class ApplicationsController extends Controller {
 		//sava the update
 		$appl->save();
 		//
-		return redirect('summary');
+		return redirect('locationtests');
 	}
 
 	// public function getDepartements($university_id)

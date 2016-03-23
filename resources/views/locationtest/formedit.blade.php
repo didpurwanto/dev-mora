@@ -4,7 +4,7 @@
 				{!! Form::label('province_id', 'Provinsi') !!}
 		</div>
 		<div class="col-md-4">
-				{!! Form::select('province_id', $prov, null,['class' => 'form-control']) !!}
+				{!! Form::select('province_id', $prov, $application->test_location->province->id,['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>
@@ -14,7 +14,7 @@
 			{!! Form::label('location_name', 'Nama Lokasi') !!}
 		</div>
 		<div class="col-md-4">
-			{!! Form::select('location_name',array('0' => 'Lokasi Tes'),null, ['class' => 'form-control']) !!}
+			{!! Form::select('location_name',array('0' => 'Lokasi Tes')+$location,$application->test_location_id, ['class' => 'form-control']) !!}
 		</div>
 	</div>
 </div>
