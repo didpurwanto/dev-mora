@@ -108,7 +108,7 @@
     @if ($close == 1)
         <br />
         <div class="alert alert-danger">
-          <p align="center">PENDAFTARAN TELAH DITUTUP</p>
+          <p align="center">PENDAFTARAN BELUM DIBUKA / TELAH DITUTUP</p>
         </div>
     @endif
     <section class="bg-success" id="login">
