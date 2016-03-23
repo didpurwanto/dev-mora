@@ -140,7 +140,7 @@ class ApplicantsController extends Controller {
 
 		//dd($request->file('image'));
 		if($request->file('image')!=null){
-			$imageName = $app->full_name . '.' . $request->file('image')->getClientOriginalExtension();
+			$imageName = $app->full_name .'-'. $app->user_id .'.' . $request->file('image')->getClientOriginalExtension();
 			$request->file('image')->move(
 	        base_path() . '/public/images/profil/', $imageName
 	    );
