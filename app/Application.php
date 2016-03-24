@@ -28,4 +28,9 @@ class Application extends Model {
 		return $this->belongsTo('App\TestLocation');
 	}
 
+	public function isFinishLocation()
+	{
+		return ($this->test_location_id != 0);
+	}
+
 }

@@ -61,7 +61,7 @@ Route::patch('applications', 'ApplicationsController@update');
 
 //Test Location Route
 //Route::resource('applications','ApplicationsController',['except' => ['index', 'show', 'create']]);
-Route::get('locationtests', 'ApplicantsController@editlokasi');
+Route::get('locationtests', ['uses' => 'ApplicantsController@editlokasi', 'middleware' => 'locationfinish']);
 Route::patch('locationtests', 'ApplicantsController@updatelokasi');
 
 /*
