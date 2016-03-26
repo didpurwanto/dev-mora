@@ -212,6 +212,14 @@
 					            <table align="center">
                         <tr>
                           <td>
+                            <input class="form-control" size="40" placeholder="Masukkan NSPP pesantren Anda!" name="username" id="username">
+                          </td>
+                        </tr>
+                      </table>
+                      <br>
+                      <table align="center">
+                        <tr>
+                          <td>
                             <input class="form-control" size="40" placeholder="Masukkan Username Anda!" name="username" id="username">
                           </td>
                         </tr>
