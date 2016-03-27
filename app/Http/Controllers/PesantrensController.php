@@ -11,6 +11,7 @@ use App\Kecamatan;
 use App\PesantrenType;
 use App\Pesantren;
 use Auth;
+use App\Applicant;
 
 class PesantrensController extends Controller {
 
@@ -29,7 +30,14 @@ class PesantrensController extends Controller {
 	public function edit()
 	{
 		//$fam = Family::where('user_id', '=', Auth::user()->id)->firstOrFail();
-		$pes = Pesantren::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		$pes_id = Applicant::where('user_id', '=', Auth::user()->id)->pluck('pesantren_id'); 
+		$pes = Pesantren::where('id', '=', $pes_id)->firstOrFail();
+		// $pes = DB::table('pesantrens')
+		// 	->leftjoin('applicants', 'applicants.pesantren_id', '=', 'pesantrens.id')
+		// 	->where('applicants.user_id', '=', Auth::user()->id)
+		// 	->get();
+
+		// dd($pes[0]->pesantren_name);
 
 		$prov = Province::lists('province_name','id');
 		// $kab = Kabupaten::where('id',$pes->kabupaten_id)->lists('kabupaten_name','id');
@@ -55,15 +63,15 @@ class PesantrensController extends Controller {
 	 */
 	public function update(PesantrenRequest $request)
 	{
-		$pes = Pesantren::where('user_id', '=', Auth::user()->id)->firstOrFail();
+		// $pes = Pesantren::where('user_id', '=', Auth::user()->id)->firstOrFail();
 
-		//Save record to the database
-		$form = $pes->update($request->all());
+		// //Save record to the database
+		// $form = $pes->update($request->all());
 
-		//update if the table is filled with content it should.
-		$pes->finish = 1;
-		//sava the update
-		$pes->save();
+		// //update if the table is filled with content it should.
+		// $pes->finish = 1;
+		// //sava the update
+		// $pes->save();
 		//
 		return redirect('schools');
 	}

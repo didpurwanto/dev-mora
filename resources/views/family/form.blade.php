@@ -13,30 +13,30 @@
   				@endif
   			</div>
   	</div>
-  	<div class="form-group {{ ! $errors->first('father_age') ? '': 'has-error' }}">
-  			<div class="row">
-  				<div class="col-md-3">
-  				{!! Form::label('father_age', 'Usia') !!}
-  				</div>
-  				<div class="col-md-4 form-inline">
-  				{!! Form::text('father_age', null,['class' => 'form-control']) !!} &nbsp;&nbsp;Tahun
-  				</div>
-  				@if( $errors->first('father_age') )
-  					<span class="help-block text-danger">{{ $errors->first('father_age') }}</span>
-  				@endif
-  			</div>
-  	</div>
-  	<div class="form-group {{ ! $errors->first('father_deceased') ? '': 'has-error' }}">
-  			<div class="row">
-  				<div class="col-md-3">
-  				{!! Form::label('father_deceased', 'Almarhum') !!}
-  				</div>
-  				<div class="col-md-4">
-  				{!! Form::select('father_deceased', array('1' => 'Ya', '0' => 'Tidak'),$fam->father_deceased, ['class' => 'form-control', 'id'=>'father_deceased', 'name'=>'father_deceased']) !!}
-  				</div>
-  			</div>
-  	</div>
+    <div class="form-group {{ ! $errors->first('father_deceased') ? '': 'has-error' }}">
+        <div class="row">
+          <div class="col-md-3">
+          {!! Form::label('father_deceased', 'Almarhum') !!}
+          </div>
+          <div class="col-md-4">
+          {!! Form::select('father_deceased', array('1' => 'Ya', '0' => 'Tidak'),$fam->father_deceased, ['class' => 'form-control', 'id'=>'father_deceased', 'name'=>'father_deceased']) !!}
+          </div>
+        </div>
+    </div>
     <div id="fatherDetails">
+      <div class="form-group {{ ! $errors->first('father_age') ? '': 'has-error' }}">
+          <div class="row">
+            <div class="col-md-3">
+            {!! Form::label('father_age', 'Usia') !!}
+            </div>
+            <div class="col-md-4 form-inline">
+            {!! Form::text('father_age', null,['class' => 'form-control']) !!} &nbsp;&nbsp;Tahun
+            </div>
+            @if( $errors->first('father_age') )
+              <span class="help-block text-danger">{{ $errors->first('father_age') }}</span>
+            @endif
+          </div>
+      </div>
       	<div class="form-group {{ ! $errors->first('father_education') ? '': 'has-error' }}">
       			<div class="row">
       				<div class="col-md-3">
@@ -98,19 +98,6 @@
   				@endif
   			</div>
   	</div>
-  	<div class="form-group {{ ! $errors->first('mother_name') ? '': 'has-error' }}">
-  			<div class="row">
-  				<div class="col-md-3">
-  				{!! Form::label('mother_age', 'Usia') !!}
-  				</div>
-  				<div class="col-md-4 form-inline">
-  				{!! Form::text('mother_age', null,['class' => 'form-control']) !!}&nbsp;&nbsp; Tahun
-  				</div>
-  				@if( $errors->first('mother_name') )
-  					<span class="help-block text-danger">{{ $errors->first('mother_name') }}</span>
-  				@endif
-  			</div>
-  	</div>
   	<div class="form-group {{ ! $errors->first('mother_deceased') ? '': 'has-error' }}">
   			<div class="row">
   				<div class="col-md-3">
@@ -122,6 +109,19 @@
   			</div>
   	</div>
     <div id="motherDetails">
+        <div class="form-group {{ ! $errors->first('mother_age') ? '': 'has-error' }}">
+            <div class="row">
+              <div class="col-md-3">
+              {!! Form::label('mother_age', 'Usia') !!}
+              </div>
+              <div class="col-md-4 form-inline">
+              {!! Form::text('mother_age', null,['class' => 'form-control']) !!}&nbsp;&nbsp; Tahun
+              </div>
+              @if( $errors->first('mother_name') )
+                <span class="help-block text-danger">{{ $errors->first('mother_name') }}</span>
+              @endif
+            </div>
+        </div>
       	<div class="form-group {{ ! $errors->first('mother_education') ? '': 'has-error' }}">
       			<div class="row">
       				<div class="col-md-3">

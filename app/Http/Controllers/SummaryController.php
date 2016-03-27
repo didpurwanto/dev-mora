@@ -32,6 +32,9 @@ class SummaryController extends Controller {
 		//$app = Applicant::where('user_id', '=', Auth::user()->id)->firstOrFail();
 		$user = User::where('id', '=', Auth::user()->id)->firstOrFail();
 
+		$pesantren_id = Applicant::where('user_id', '=', Auth::user()->id)->pluck('pesantren_id');
+		$pesantren = Pesantren::where('id', '=', $pesantren_id)->firstOrFail();
+		// dd($pesantren);
 		//$fam = Family::where('applicant_id',$id)->get();
 		$date_birth = explode("-",$user->applicant->date_birth);
 		$date_birth = $date_birth[2].'-'.$date_birth[1].'-'.$date_birth[0];
@@ -52,7 +55,7 @@ class SummaryController extends Controller {
 		$subject_5 = explode(";",$raports['subject_5']);
 		$ranking = explode(";",$raports['ranking']);
 
-		return view('summary', compact('user','date_birth','listSubjects','subject_1','subject_2','subject_3','subject_4','subject_5','ranking'));
+		return view('summary', compact('user','date_birth','listSubjects','subject_1','subject_2','subject_3','subject_4','subject_5','ranking', 'pesantren'));
 	}
 
 	public function cetak()
@@ -78,6 +81,8 @@ class SummaryController extends Controller {
 		$date_birth = $date_birth[2].'-'.$date_birth[1].'-'.$date_birth[0];
 		//dd($date_birth);
 		//dd($user->family->jobType->job_name);
+		$pesantren_id = Applicant::where('user_id', '=', Auth::user()->id)->pluck('pesantren_id');
+		$pesantren = Pesantren::where('id', '=', $pesantren_id)->firstOrFail();
 
 		// get program studi yang diambil sebagai referensi pelajaran yang akan di isi rapor
 		$getProgramStudyId = School::where('user_id', Auth::user()->id)->pluck('program_study_id');
@@ -98,7 +103,7 @@ class SummaryController extends Controller {
 		$reg_num = str_split($registration_number);
 
 		//cetak langsung download dalam bentuk PDF
-		$pdf = PDF::loadView('formulir', compact('user','date_birth','listSubjects','subject_1','subject_2','subject_3','subject_4','subject_5','ranking', 'reg_num'))->setPaper('legal');
+		$pdf = PDF::loadView('formulir', compact('user','date_birth','listSubjects','subject_1','subject_2','subject_3','subject_4','subject_5','ranking', 'reg_num', 'pesantren'))->setPaper('legal');
 
 		//Make user logout after prints
 		// Auth::logout();
@@ -153,7 +158,9 @@ class SummaryController extends Controller {
 		$tahun = date("y");
 		$bulan = date("m");
 		$hari = date("d");
-		$prov = Pesantren::where('user_id', '=', Auth::user()->id)->pluck('province_id');
+		$prov = DB::table('pesantrens')
+			->join('applicants', 'applicants.pesantren_id', '=', 'pesantrens.id')
+			->where('user_id', '=', Auth::user()->id)->pluck('pesantrens.province_id');
 		$provinsi = Province::where('id', '=', $prov)->pluck('province_code');
 		$nomor = DB::table('settings')->pluck('nomor_registrasi');
 		//get four digit number to display

@@ -114,10 +114,10 @@
 		</td>
 		<td width="10px">:
 		</td>
-		<td width="290px"><b>{!!$user->pesantren->pesantren_name!!}</b>
+		<td width="290px"><b>{!!$pesantren->pesantren_name!!}</b>
 		</td>
 		<td width="200px" align="right">
-			NSPP : <b>{!!$user->pesantren->nspp!!}</b>
+			NSPP : <b>{!!$pesantren->nspp!!}</b>
 		</td>
 
 	</tr>
@@ -127,11 +127,11 @@
 		</td>
 		<td>:
 		</td>
-		<td><b>{!!$user->pesantren->pesantren_address!!}</b> </br>
-			Kel./Desa : <b>{!!$user->pesantren->kelurahan!!}</b> </br>
-			Kecamatan : <b>{!!$user->pesantren->kecamatan!!}</b> </br>
-			Kab./Kota : <b>{!!$user->pesantren->kabupaten!!}</b> </br>
-			Provinsi  : <b>{!!$user->pesantren->province->province_name!!}</b>
+		<td><b>{!!$pesantren->pesantren_address!!}</b> </br>
+			Kel./Desa : <b>{!!$pesantren->kelurahan!!}</b> </br>
+			Kecamatan : <b>{!!$pesantren->kecamatan!!}</b> </br>
+			Kab./Kota : <b>{!!$pesantren->kabupaten!!}</b> </br>
+			Provinsi  : <b>{!!$pesantren->province->province_name!!}</b>
 		</td>
 	</tr>
 	<tr>
@@ -140,7 +140,7 @@
 		</td>
 		<td>:
 		</td>
-		<td><b>{!!$user->pesantren->kiai_name!!}</b> </br>
+		<td><b>{!!$pesantren->kiai_name!!}</b> </br>
 		</td>
 	</tr>
 	<tr>
@@ -149,7 +149,7 @@
 		</td>
 		<td>:
 		</td>
-		<td><b>{!!$user->pesantren->no_telp!!}</b> </br>
+		<td><b>{!!$pesantren->no_telp!!}</b> </br>
 		</td>
 	</tr>
 </table>

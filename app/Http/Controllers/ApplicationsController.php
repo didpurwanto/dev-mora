@@ -38,7 +38,7 @@ class ApplicationsController extends Controller {
 		#check, is applicant born and pesantren from east indo?
 		#id above 24 mean east indo province
 		$fromEastIndo = DB::table('applicants')
-							->leftJoin('pesantrens', 'pesantrens.user_id','=','applicants.user_id')
+							->leftJoin('pesantrens', 'pesantrens.id','=','applicants.pesantren_id')
 							->where('applicants.province_id','>', 24)
 							->where('pesantrens.province_id','>', 24)
 							->select('applicants.province_id', 'pesantrens.province_id')

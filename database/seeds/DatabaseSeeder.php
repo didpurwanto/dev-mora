@@ -31,17 +31,17 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		// $this->call('EducationLevelSeeder');
-		// $this->call('JobTypeSeeder');
-		// $this->call('PesantrenTypeSeeder');
-		// $this->call('ProgramStudySeeder');
-		// $this->call('RangeSalarySeeder');
-		// $this->call('SchoolTypeSeeder');
-		// $this->call('ProvinceSeeder');
-		// $this->call('UserSeeder');
-		// $this->call('SettingSeeder');
-		// $this->call('UniversitySeeder');
-		// $this->call('DepartementSeeder');
+		$this->call('EducationLevelSeeder');
+		$this->call('JobTypeSeeder');
+		$this->call('PesantrenTypeSeeder');
+		$this->call('ProgramStudySeeder');
+		$this->call('RangeSalarySeeder');
+		$this->call('SchoolTypeSeeder');
+		$this->call('ProvinceSeeder');
+		$this->call('UserSeeder');
+		$this->call('SettingSeeder');
+		$this->call('UniversitySeeder');
+		$this->call('DepartementSeeder');
 
 		$this->call('PesantrenSeeder');
 
@@ -144,90 +144,90 @@ class UniversitySeeder extends Seeder{
 	}
 }
 
+
 class DepartementSeeder extends Seeder{
 	public function run()
 	{
 		DB::table('departements')->delete();
 		$departements = [
 			// uin syarif
-			['id'=>1,'university_id'  => '1', 'departement_name' => 'PENDIDIKAN DOKTER', 'departement_code' =>'', 'status' => '1'],
-			['id'=>2,'university_id'  => '1', 'departement_name' => 'KESEHATAN MASYARAKAT', 'departement_code' =>'', 'status' => '1'],
-			['id'=>3,'university_id'  => '1', 'departement_name' => 'FARMASI', 'departement_code' =>'', 'status' => '1'],
-			['id'=>4,'university_id'  => '1', 'departement_name' => 'KEPERAWATAN', 'departement_code' =>'', 'status' => '1'],
+			['id'=>1,'university_id'  => '1', 'departement_name' => 'PENDIDIKAN DOKTER', 'departement_code' =>'11101', 'status' => '1'],
+			['id'=>2,'university_id'  => '1', 'departement_name' => 'KESEHATAN MASYARAKAT', 'departement_code' =>'11102', 'status' => '1'],
+			['id'=>3,'university_id'  => '1', 'departement_name' => 'FARMASI', 'departement_code' =>'11103', 'status' => '1'],
+			['id'=>4,'university_id'  => '1', 'departement_name' => 'KEPERAWATAN', 'departement_code' =>'11104', 'status' => '1'],
 			// UIN bandung
-			['id'=>5,'university_id'  => '2', 'departement_name' => 'TASAWUF PSIKOTERAPI', 'departement_code' =>'', 'status' => '1'],
+			['id'=>5,'university_id'  => '2', 'departement_name' => 'TASAWUF PSIKOTERAPI', 'departement_code' =>'12401', 'status' => '1'],
 			// UIN semarang
-			['id'=>6,'university_id'  => '3', 'departement_name' => 'ILMU FALAK', 'departement_code' =>'', 'status' => '1'],
+			['id'=>6,'university_id'  => '3', 'departement_name' => 'ILMU FALAK', 'departement_code' =>'13401', 'status' => '1'],
 			// UIN jogja
-			['id'=>7,'university_id'  => '4', 'departement_name' => 'ILMU ALQURAN DAN TAFSIR', 'departement_code' =>'', 'status' => '1'],
-			['id'=>8,'university_id'  => '4', 'departement_name' => 'ILMU HADITS', 'departement_code' =>'', 'status' => '1'],
+			['id'=>7,'university_id'  => '4', 'departement_name' => 'ILMU ALQURAN DAN TAFSIR', 'departement_code' =>'14401', 'status' => '1'],
+			['id'=>8,'university_id'  => '4', 'departement_name' => 'ILMU HADITS', 'departement_code' =>'14402', 'status' => '1'],
 			//uin sby
-			['id'=>9,'university_id'  => '5', 'departement_name' => 'BIMBINGAN DAN KONSELING ISLAM', 'departement_code' =>'', 'status' => '1'],
-			['id'=>10,'university_id'  => '5', 'departement_name' => 'PENGEMBANGAN MASYARAKAT ISLAM', 'departement_code' =>'', 'status' => '1'],
+			['id'=>9,'university_id'  => '5', 'departement_name' => 'BIMBINGAN DAN KONSELING ISLAM', 'departement_code' =>'15401', 'status' => '1'],
+			['id'=>10,'university_id'  => '5', 'departement_name' => 'PENGEMBANGAN MASYARAKAT ISLAM', 'departement_code' =>'15402', 'status' => '1'],
 			// UIN malang
-			['id'=>11,'university_id'  => '6', 'departement_name' => 'TEKNIK INFORMATIKA', 'departement_code' =>'', 'status' => '1'],
-			['id'=>12,'university_id'  => '6', 'departement_name' => 'PERBANKAN SYARIAH', 'departement_code' =>'', 'status' => '1'],
-			['id'=>13,'university_id'  => '6', 'departement_name' => 'HUKUM BISNIS SYARIAH', 'departement_code' =>'', 'status' => '1'],
-			['id'=>14,'university_id'  => '6', 'departement_name' => 'BAHASA DAN SASTRA ARAB', 'departement_code' =>'', 'status' => '1'],
+			['id'=>11,'university_id'  => '6', 'departement_name' => 'TEKNIK INFORMATIKA', 'departement_code' =>'16101', 'status' => '1'],
+			['id'=>12,'university_id'  => '6', 'departement_name' => 'PERBANKAN SYARIAH', 'departement_code' =>'16401', 'status' => '1'],
+			['id'=>13,'university_id'  => '6', 'departement_name' => 'HUKUM BISNIS SYARIAH', 'departement_code' =>'16402', 'status' => '1'],
+			['id'=>14,'university_id'  => '6', 'departement_name' => 'BAHASA DAN SASTRA ARAB', 'departement_code' =>'16403', 'status' => '1'],
 			// uin makasar
-			['id'=>15,'university_id'  => '7', 'departement_name' => 'KEPERAWATAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>16,'university_id'  => '7', 'departement_name' => 'FARMASI', 'departement_code' =>'', 'status' => '1'],
-			['id'=>17,'university_id'  => '7', 'departement_name' => 'KESEHATAN MASYARAKATAN', 'departement_code' =>'', 'status' => '1'],
+			['id'=>15,'university_id'  => '7', 'departement_name' => 'KEPERAWATAN', 'departement_code' =>'17101', 'status' => '1'],
+			['id'=>16,'university_id'  => '7', 'departement_name' => 'FARMASI', 'departement_code' =>'17102', 'status' => '1'],
+			['id'=>17,'university_id'  => '7', 'departement_name' => 'KESEHATAN MASYARAKATAN', 'departement_code' =>'17103', 'status' => '1'],
 			// IPB
-			['id'=>18,'university_id'  => '8', 'departement_name' => 'MANAJEMEN SUMBER DAYA LAHAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>19,'university_id'  => '8', 'departement_name' => 'AGRONOMI DAN HORTIKULTURA', 'departement_code' =>'', 'status' => '1'],
-			['id'=>20,'university_id'  => '8', 'departement_name' => 'PROTEKSI TANAMAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>21,'university_id'  => '8', 'departement_name' => 'TEKNOLOGI DAN MANAJMEN PERIKANAN DAN BUDIDAYA', 'departement_code' =>'', 'status' => '1'],
-			['id'=>22,'university_id'  => '8', 'departement_name' => 'MANAJEMEN SUMBER DAYA PERAIRAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>23,'university_id'  => '8', 'departement_name' => 'TEKNOLOGI HASIL PERAIRAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>24,'university_id'  => '8', 'departement_name' => 'ILMU DAN TEKNOLOGI KELAUTAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>25,'university_id'  => '8', 'departement_name' => 'ILMU TEKNOLOGI PETERNAKAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>26,'university_id'  => '8', 'departement_name' => 'NUTRISI DAN TEKNOLOGI PAKAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>27,'university_id'  => '8', 'departement_name' => 'TEKNIK MESIN DAN BIOSISTEM', 'departement_code' =>'', 'status' => '1'],
-			['id'=>28,'university_id'  => '8', 'departement_name' => 'TEKNOLOGI PANGAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>29,'university_id'  => '8', 'departement_name' => 'TEKNOLOGI INDUSTRI PERTANIAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>30,'university_id'  => '8', 'departement_name' => 'TEKNIK SIPIL DAN LINGKUNGAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>31,'university_id'  => '8', 'departement_name' => 'ILMU GIZI', 'departement_code' =>'', 'status' => '1'],
-			['id'=>32,'university_id'  => '8', 'departement_name' => 'ILMU KELUARGA DAN KONSUMEN', 'departement_code' =>'', 'status' => '1'],
+			['id'=>18,'university_id'  => '8', 'departement_name' => 'MANAJEMEN SUMBER DAYA LAHAN', 'departement_code' =>'21101', 'status' => '1'],
+			['id'=>19,'university_id'  => '8', 'departement_name' => 'AGRONOMI DAN HORTIKULTURA', 'departement_code' =>'21102', 'status' => '1'],
+			['id'=>20,'university_id'  => '8', 'departement_name' => 'PROTEKSI TANAMAN', 'departement_code' =>'21103', 'status' => '1'],
+			['id'=>21,'university_id'  => '8', 'departement_name' => 'TEKNOLOGI DAN MANAJMEN PERIKANAN DAN BUDIDAYA', 'departement_code' =>'21104', 'status' => '1'],
+			['id'=>22,'university_id'  => '8', 'departement_name' => 'MANAJEMEN SUMBER DAYA PERAIRAN', 'departement_code' =>'21105', 'status' => '1'],
+			['id'=>23,'university_id'  => '8', 'departement_name' => 'TEKNOLOGI HASIL PERAIRAN', 'departement_code' =>'21106', 'status' => '1'],
+			['id'=>24,'university_id'  => '8', 'departement_name' => 'ILMU DAN TEKNOLOGI KELAUTAN', 'departement_code' =>'21107', 'status' => '1'],
+			['id'=>25,'university_id'  => '8', 'departement_name' => 'ILMU TEKNOLOGI PETERNAKAN', 'departement_code' =>'21108', 'status' => '1'],
+			['id'=>26,'university_id'  => '8', 'departement_name' => 'NUTRISI DAN TEKNOLOGI PAKAN', 'departement_code' =>'21109', 'status' => '1'],
+			['id'=>27,'university_id'  => '8', 'departement_name' => 'TEKNIK MESIN DAN BIOSISTEM', 'departement_code' =>'21110', 'status' => '1'],
+			['id'=>28,'university_id'  => '8', 'departement_name' => 'TEKNOLOGI PANGAN', 'departement_code' =>'21111', 'status' => '1'],
+			['id'=>29,'university_id'  => '8', 'departement_name' => 'TEKNOLOGI INDUSTRI PERTANIAN', 'departement_code' =>'21112', 'status' => '1'],
+			['id'=>30,'university_id'  => '8', 'departement_name' => 'TEKNIK SIPIL DAN LINGKUNGAN', 'departement_code' =>'21113', 'status' => '1'],
+			['id'=>31,'university_id'  => '8', 'departement_name' => 'ILMU GIZI', 'departement_code' =>'21114', 'status' => '1'],
+			['id'=>32,'university_id'  => '8', 'departement_name' => 'ILMU KELUARGA DAN KONSUMEN', 'departement_code' =>'21115', 'status' => '1'],
 			//UPI
-			['id'=>33,'university_id'  => '9', 'departement_name' => 'BIMBINGAN DAN KONSELING', 'departement_code' =>'', 'status' => '1'],
-			['id'=>34,'university_id'  => '9', 'departement_name' => 'TEKNOLOGI PENDIDIKAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>35,'university_id'  => '9', 'departement_name' => 'ADMINISTRASI PENDIDIKAN', 'departement_code' =>'', 'status' => '1'],
+			['id'=>33,'university_id'  => '9', 'departement_name' => 'BIMBINGAN DAN KONSELING', 'departement_code' =>'22101', 'status' => '1'],
+			['id'=>34,'university_id'  => '9', 'departement_name' => 'TEKNOLOGI PENDIDIKAN', 'departement_code' =>'22102', 'status' => '1'],
+			['id'=>35,'university_id'  => '9', 'departement_name' => 'ADMINISTRASI PENDIDIKAN', 'departement_code' =>'22103', 'status' => '1'],
 			// UGM
-			['id'=>36,'university_id'  => '10', 'departement_name' => 'PENDIDIKAN DOKTER', 'departement_code' =>'', 'status' => '1'],
-			['id'=>37,'university_id'  => '10', 'departement_name' => 'ILMU KEPERAWATAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>38,'university_id'  => '10', 'departement_name' => 'PENDIDIKAN DOKTER HEWAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>39,'university_id'  => '10', 'departement_name' => 'FARMASI', 'departement_code' =>'', 'status' => '1'],
-			['id'=>40,'university_id'  => '10', 'departement_name' => 'MANAJEMEN SUMBER DAYA PERIKANAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>41,'university_id'  => '10', 'departement_name' => 'TEKNOLOGI PENGOLAHAN HASIL PANGAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>42,'university_id'  => '10', 'departement_name' => 'TEKNOLOGI INDUSTRI PERTANIAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>43,'university_id'  => '10', 'departement_name' => 'AKUNTANSI', 'departement_code' =>'', 'status' => '1'],
-			['id'=>44,'university_id'  => '10', 'departement_name' => 'ILMU EKONOMI', 'departement_code' =>'', 'status' => '1'],
-			['id'=>45,'university_id'  => '10', 'departement_name' => 'PSIKOLOGI', 'departement_code' =>'', 'status' => '1'],
-			['id'=>46,'university_id'  => '10', 'departement_name' => 'ILMU KOMUNIKASI', 'departement_code' =>'', 'status' => '1'],
+			['id'=>36,'university_id'  => '10', 'departement_name' => 'PENDIDIKAN DOKTER', 'departement_code' =>'23101', 'status' => '1'],
+			['id'=>37,'university_id'  => '10', 'departement_name' => 'ILMU KEPERAWATAN', 'departement_code' =>'23102', 'status' => '1'],
+			['id'=>38,'university_id'  => '10', 'departement_name' => 'PENDIDIKAN DOKTER HEWAN', 'departement_code' =>'23103', 'status' => '1'],
+			['id'=>39,'university_id'  => '10', 'departement_name' => 'FARMASI', 'departement_code' =>'23104', 'status' => '1'],
+			['id'=>40,'university_id'  => '10', 'departement_name' => 'MANAJEMEN SUMBER DAYA PERIKANAN', 'departement_code' =>'23105', 'status' => '1'],
+			['id'=>41,'university_id'  => '10', 'departement_name' => 'TEKNOLOGI PENGOLAHAN HASIL PANGAN', 'departement_code' =>'23105', 'status' => '1'],
+			['id'=>42,'university_id'  => '10', 'departement_name' => 'TEKNOLOGI INDUSTRI PERTANIAN', 'departement_code' =>'23106', 'status' => '1'],
+			['id'=>43,'university_id'  => '10', 'departement_name' => 'AKUNTANSI', 'departement_code' =>'23107', 'status' => '1'],
+			['id'=>44,'university_id'  => '10', 'departement_name' => 'ILMU EKONOMI', 'departement_code' =>'23108', 'status' => '1'],
+			['id'=>45,'university_id'  => '10', 'departement_name' => 'PSIKOLOGI', 'departement_code' =>'23109', 'status' => '1'],
+			['id'=>46,'university_id'  => '10', 'departement_name' => 'ILMU KOMUNIKASI', 'departement_code' =>'23110', 'status' => '1'],
 			// ITS			 
-			['id'=>47,'university_id'  => '11', 'departement_name' => 'TEKNIK INFORMATIKA', 'departement_code' =>'', 'status' => '1'],
-			['id'=>48,'university_id'  => '11', 'departement_name' => 'SISTEM INFORMASI', 'departement_code' =>'', 'status' => '1'],
-			['id'=>49,'university_id'  => '11', 'departement_name' => 'TEKNIK ELEKTRO', 'departement_code' =>'', 'status' => '1'],
-			['id'=>50,'university_id'  => '11', 'departement_name' => 'TEKNIK INDUSTRI', 'departement_code' =>'', 'status' => '1'],
-			['id'=>51,'university_id'  => '11', 'departement_name' => 'STATISTIKA', 'departement_code' =>'', 'status' => '1'],
-			['id'=>52,'university_id'  => '11', 'departement_name' => 'MATEMATIKA', 'departement_code' =>'', 'status' => '1'],
+			['id'=>47,'university_id'  => '11', 'departement_name' => 'TEKNIK INFORMATIKA', 'departement_code' =>'24101', 'status' => '1'],
+			['id'=>48,'university_id'  => '11', 'departement_name' => 'SISTEM INFORMASI', 'departement_code' =>'24102', 'status' => '1'],
+			['id'=>49,'university_id'  => '11', 'departement_name' => 'TEKNIK ELEKTRO', 'departement_code' =>'24103', 'status' => '1'],
+			['id'=>50,'university_id'  => '11', 'departement_name' => 'TEKNIK INDUSTRI', 'departement_code' =>'24104', 'status' => '1'],
+			['id'=>51,'university_id'  => '11', 'departement_name' => 'STATISTIKA', 'departement_code' =>'24105', 'status' => '1'],
+			['id'=>52,'university_id'  => '11', 'departement_name' => 'MATEMATIKA', 'departement_code' =>'24106', 'status' => '1'],
 			// unair
-			['id'=>53,'university_id'  => '12', 'departement_name' => 'PENDIDIKAN DOKTER', 'departement_code' =>'', 'status' => '1'],
-			['id'=>54,'university_id'  => '12', 'departement_name' => 'PENDIDIKAN BIDAN', 'departement_code' =>'', 'status' => '1'],
-			['id'=>55,'university_id'  => '12', 'departement_name' => 'PENDIDIKAN DOKTER GIGI', 'departement_code' =>'', 'status' => '1'],
-			['id'=>56,'university_id'  => '12', 'departement_name' => 'PENDIDIKAN APOTEKER', 'departement_code' =>'', 'status' => '1'],
-			['id'=>57,'university_id'  => '12', 'departement_name' => 'PENDIDIKAN KESEHATAN MASYARAKAT', 'departement_code' =>'', 'status' => '1'],
-			['id'=>58,'university_id'  => '12', 'departement_name' => 'ILMU GIZI', 'departement_code' =>'', 'status' => '1'],
-			['id'=>59,'university_id'  => '12', 'departement_name' => 'PENDIDIKAN ILMU KEPERAWATAN', 'departement_code' =>'', 'status' => '1'],
+			['id'=>53,'university_id'  => '12', 'departement_name' => 'PENDIDIKAN DOKTER', 'departement_code' =>'25101', 'status' => '1'],
+			['id'=>54,'university_id'  => '12', 'departement_name' => 'PENDIDIKAN BIDAN', 'departement_code' =>'25102', 'status' => '1'],
+			['id'=>55,'university_id'  => '12', 'departement_name' => 'PENDIDIKAN DOKTER GIGI', 'departement_code' =>'25103', 'status' => '1'],
+			['id'=>56,'university_id'  => '12', 'departement_name' => 'PENDIDIKAN APOTEKER', 'departement_code' =>'25104', 'status' => '1'],
+			['id'=>57,'university_id'  => '12', 'departement_name' => 'PENDIDIKAN KESEHATAN MASYARAKAT', 'departement_code' =>'25105', 'status' => '1'],
+			['id'=>58,'university_id'  => '12', 'departement_name' => 'ILMU GIZI', 'departement_code' =>'25106', 'status' => '1'],
+			['id'=>59,'university_id'  => '12', 'departement_name' => 'PENDIDIKAN ILMU KEPERAWATAN', 'departement_code' =>'25107', 'status' => '1'],
 			// uncen
-			['id'=>60,'university_id'  => '13', 'departement_name' => 'PENDIDIKAN DOKTER', 'departement_code' =>'', 'status' => '1'],
-			['id'=>61,'university_id'  => '13', 'departement_name' => 'TEKNIK SIPIL', 'departement_code' =>'', 'status' => '1']			
+			['id'=>60,'university_id'  => '13', 'departement_name' => 'PENDIDIKAN DOKTER', 'departement_code' =>'26101', 'status' => '1'],
+			['id'=>61,'university_id'  => '13', 'departement_name' => 'TEKNIK SIPIL', 'departement_code' =>'26102', 'status' => '1']			
 		];
 		Departement::insert($departements);
 	}
 }
-
 
 class departementProgramStudies extends Seeder{
 	public function run()

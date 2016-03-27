@@ -4,7 +4,7 @@
 		{!! Form::label('pesantren_name', 'Nama Pesantren') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::text('pesantren_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Pesantren']) !!}
+		{!! Form::text('pesantren_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Pesantren', 'disabled' => 'disabled']) !!}
 		</div>
 		@if( $errors->first('pesantren_name') )
 			<span class="help-block text-danger">{{ $errors->first('pesantren_name') }}</span>
@@ -17,7 +17,7 @@
 		{!! Form::label('kiai_name', 'Nama Pimpinan') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::text('kiai_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Kiyai']) !!}
+		{!! Form::text('kiai_name',null ,['class' => 'form-control', 'placeholder' => 'Nama Kiyai', 'disabled' => 'disabled']) !!}
 		</div>
 		@if( $errors->first('kiai_name') )
 			<span class="help-block text-danger">{{ $errors->first('kiai_name') }}</span>
@@ -30,7 +30,7 @@
 		{!! Form::label('nspp', 'NSPP') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::text('nspp', null,['class' => 'form-control', 'placeholder' => 'Nomor Statistik Pondok Pesantren']) !!}
+		{!! Form::text('nspp', null,['class' => 'form-control', 'placeholder' => 'Nomor Statistik Pondok Pesantren', 'disabled' => 'disabled']) !!}
 		</div>
 		@if( $errors->first('nspp') )
 			<span class="help-block text-danger">{{ $errors->first('nspp') }}</span>
@@ -44,7 +44,7 @@
 		</div>
 		<div class="col-md-4">
 		<!-- {!! Form::text('"agung"', null,['class' => 'form-control', 'placeholder' => '']) !!} -->
-		{!! Form::select('pesantren_type', $pes_type,$pes->pesantren_type,['class' => 'form-control']) !!}
+		{!! Form::select('pesantren_type', $pes_type,$pes->pesantren_type,['class' => 'form-control', 'disabled' => 'disabled']) !!}
 		</div>
 	</div>
 </div>
@@ -54,7 +54,7 @@
 		{!! Form::label('no_telp', 'No. Telp Pesantren') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::text('no_telp', null,['class' => 'form-control', 'placeholder' => '021234556 (Tanpa tanda strip ("-"))']) !!}
+		{!! Form::text('no_telp', null,['class' => 'form-control', 'placeholder' => '021234556 (Tanpa tanda strip ("-"))', 'disabled' => 'disabled']) !!}
 		</div>
 		@if( $errors->first('no_telp') )
 			<span class="help-block text-danger">{{ $errors->first('no_telp') }}</span>
@@ -67,7 +67,7 @@
 		{!! Form::label('pesantren_address', 'Alamat Pesantren') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::textarea('pesantren_address', null, ['class' => 'form-control', 'placeholder' => 'Contoh: Jl. Lap Banteng No. 05 RT:1/RW:3','cols' => '50', 'rows' => '2']) !!}
+		{!! Form::textarea('pesantren_address', null, ['class' => 'form-control', 'placeholder' => 'Contoh: Jl. Lap Banteng No. 05 RT:1/RW:3','cols' => '50', 'rows' => '2', 'disabled' => 'disabled']) !!}
 		<!-- {!! Form::textarea('pesantren_address', null,['class' => 'form-control', 'placeholder' => 'Jl. Keramat Jati, No. 5, RT/RW 05/05, Kel. Sukajadi', 'cols' => '50', 'rows' => '1']) !!} -->
 		</div>
 		@if( $errors->first('pesantren_address') )
@@ -81,7 +81,7 @@
 		{!! Form::label('Kelurahan', 'Desa/Kelurahan') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::text('kelurahan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kelurahan']) !!}
+		{!! Form::text('kelurahan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kelurahan', 'disabled' => 'disabled']) !!}
 		</div>
 		@if( $errors->first('kelurahan') )
 			<span class="help-block text-danger">{{ $errors->first('kelurahan') }}</span>
@@ -94,7 +94,7 @@
 		{!! Form::label('kecamatan', 'Kecamatan') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::text('kecamatan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kecamatan']) !!}
+		{!! Form::text('kecamatan', null, ['class' => 'form-control', 'placeholder' => 'Nama Kecamatan', 'disabled' => 'disabled']) !!}
 		</div>
 		@if( $errors->first('kecamatan') )
 			<span class="help-block text-danger">{{ $errors->first('kecamatan') }}</span>
@@ -107,7 +107,7 @@
 		{!! Form::label('kabupaten', 'Kabupaten/Kota') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::text('kabupaten', null, ['class' => 'form-control', 'placeholder' => 'Nama Kabupaten']) !!}
+		{!! Form::text('kabupaten', null, ['class' => 'form-control', 'placeholder' => 'Nama Kabupaten', 'disabled' => 'disabled']) !!}
 		</div>
 		@if( $errors->first('kabupaten') )
 			<span class="help-block text-danger">{{ $errors->first('kabupaten') }}</span>
@@ -120,7 +120,7 @@
 		{!! Form::label('province_id', 'Provinsi') !!}
 		</div>
 		<div class="col-md-4">
-		{!! Form::select('province_id', $prov, $pes->province_id,['class' => 'form-control']) !!}
+		{!! Form::select('province_id', $prov, $pes->province_id,['class' => 'form-control', 'disabled' => 'disabled']) !!}
 		</div>
 	</div>
 </div>

@@ -176,6 +176,9 @@
                             <div id='myform_username_errorloc' class="error_strings">
                               @if($errors->any())
                                 <ul class="alert alert-danger">
+                                @if ($errors->first('nspp'))
+                                    <li>{{ $errors->first('nspp') }}</li>
+                                @endif
                                 @if ($errors->first('jenis_school'))
                                     <li>{{ $errors->first('jenis_school') }}</li>
                                 @endif
@@ -212,7 +215,7 @@
 					            <table align="center">
                         <tr>
                           <td>
-                            <input class="form-control" size="40" placeholder="Masukkan NSPP pesantren Anda!" name="username" id="username">
+                            <input class="form-control" size="40" placeholder="Masukkan NSPP pesantren Anda!" name="nspp" id="nspp">
                           </td>
                         </tr>
                       </table>
@@ -228,7 +231,7 @@
                       <table align="center">
                         <tr>
                           <td>
-                            <input class="form-control" size="40" placeholder="Masukkan Nama Lengkap Anda!" name="full_name" id="full_name">
+                            <input class="form-control" size="40" placeholder="Masukkan Nama Lengkap Anda!" name="full_name" id="full_name" >
                           </td>
                         </tr>
                       </table>
@@ -236,7 +239,7 @@
                       <table align="center">
                           <tr>
                             <td>
-                              <input class="form-control" size="40" placeholder="Masukkan Email Anda!" name="email" id="email">
+                              <input class="form-control" size="40" placeholder="Masukkan Email Anda!" name="email" id="email" >
                             </td>
                           </tr>
                         </table>
@@ -244,7 +247,7 @@
                       <table align="center">
                         <tr>
                           <td>
-                            <input class="form-control" size="40" type="password" placeholder="Masukkan Password Anda!" name="password">
+                            <input class="form-control" size="40" type="password" placeholder="Masukkan Password Anda!" name="password" >
                           </td>
                         </tr>
                       </table>
@@ -252,7 +255,7 @@
                       <table align="center">
                         <tr>
                           <td>
-                            <input class="form-control" size="40"  type="password" placeholder="Masukkan Konfirmasi Password Anda!" name="password_confirmation">
+                            <input class="form-control" size="40"  type="password" placeholder="Masukkan Konfirmasi Password Anda!" name="password_confirmation" >
                           </td>
                         </tr>
                       </table>
@@ -280,6 +283,80 @@
 
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
+                        <img src="logo/kampus/jakarta.png" alt="" />
+                        <p class="text-muted"><a href="http://uinjkt.ac.id">UIN Syarif Hidayatullah</a></p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="logo/kampus/gunungJati.png" alt="" />
+                        <p class="text-muted"><a href="http://its.ac.id">UIN Sunan Gunung Djati</a></p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="logo/kampus/semarang.png" alt="" />
+                        <p class="text-muted"><a href="http://its.ac.id">UIN Wali Songo Semarang</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="logo/kampus/jogja.png" alt="" />
+                        <p class="text-muted"><a href="http://its.ac.id">UIN Sunan Kalijaga Yogyakarta</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="logo/kampus/ampel.png" alt="" />
+                        <p class="text-muted"><a href="http://its.ac.id">UIN Sunan Ampel Surabaya</a></p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="logo/kampus/uinmalang.png" alt="" />
+                        <p class="text-muted"><a href="http://uin-malang.ac.id">UIN Maulana Malik Ibrahim</a></p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="logo/kampus/uinalaudin.png" alt="" />
+                        <p class="text-muted"><a href="http://www.uin-alauddin.ac.id">UIN Alauddin Makassar </a></p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="logo/kampus/ipb.png" alt="" />
+                        <p class="text-muted"><a href="http://ipb.ac.id">Institut Pertanian Bogor</a></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="logo/kampus/upi.png" alt="" />
+                        <p class="text-muted"><a href="http://upi.edu">Universitas Pendidikan Indonesia</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="logo/kampus/ugm.png" alt="" />
+                        <p class="text-muted"><a href="http://www.ugm.ac.id/">Universitas Gadjah Mada</a></p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
                         <img src="logo/kampus/its.png" alt="" />
                         <p class="text-muted"><a href="http://its.ac.id">Institut Teknologi Sepuluh Nopember</a></p>
                     </div>
@@ -294,49 +371,11 @@
 
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <img src="logo/kampus/ugm.png" alt="" />
-                        <p class="text-muted"><a href="http://www.ugm.ac.id/">Universitas Gadjah Mada</a></p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <img src="logo/kampus/uinmalang.png" alt="" />
-                        <p class="text-muted"><a href="http://uin-malang.ac.id">UIN Maulana Malik Ibrahim</a></p>
+                        <img src="logo/kampus/cendrawasih.png" alt="" />
+                        <p class="text-muted"><a href="http://unair.ac.id">Universitas Cendrawasih</a></p>
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <img src="logo/kampus/jakarta.png" alt="" />
-                        <p class="text-muted"><a href="http://uinjkt.ac.id">UIN Syarif Hidayatullah</a></p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <img src="logo/kampus/ipb.png" alt="" />
-                        <p class="text-muted"><a href="http://ipb.ac.id">Institut Pertanian Bogor</a></p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <img src="logo/kampus/uinmakasar.png" alt="" />
-                        <p class="text-muted"><a href="http://www.uin-alauddin.ac.id">UIN Alauddin Makassar </a></p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <img src="logo/kampus/upi.png" alt="" />
-                        <p class="text-muted"><a href="http://upi.edu">Universitas Pendidikan Indonesia</a></p>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 

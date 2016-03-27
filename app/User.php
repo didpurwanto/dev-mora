@@ -50,10 +50,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return $this->hasOne('App\Family');
 	}
 
-	public function pesantren()
-	{
-		return $this->hasOne('App\Pesantren');
-	}
+	// public function pesantren()
+	// {
+	// 	return $this->hasOne('App\Pesantren');
+	// }
 
 	public function school()
 	{
@@ -90,13 +90,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	{
 		$applicant = Applicant::where('user_id', $this->id)->pluck('finish');
 		$family = Family::where('user_id', $this->id)->pluck('finish');
-		$pesantren = Pesantren::where('user_id', $this->id)->pluck('finish');
+		// $pesantren = Pesantren::where('user_id', $this->id)->pluck('finish');
 		//school
 		$school = $this->isSchoolFinish();
 		$raport = Raport::where('user_id', $this->id)->pluck('finish');
 		$application = Application::where('user_id', $this->id)->pluck('finish');
 
-		return ($applicant == 1 && $family == 1 && $pesantren == 1 && $school && $raport == 1 && $application == 1);
+		return ($applicant == 1 && $family == 1 && $school && $raport == 1 && $application == 1);
 	}
 
 	public function isFinish()

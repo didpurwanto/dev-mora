@@ -221,19 +221,22 @@ class ApplicantsController extends Controller {
 
 	public function updatelokasi(Request $request)
 	{
+
 		//$appl = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
 		//Save record to the database
 		//$form = $appl->update($request->loca());
 
 		$registrasi = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
-		// dd($registrasi);
-	  $registrasi->test_location_id = $request->location_name;
-		//dd($request->location_name);
-    $registrasi->save();
+		// dd($registrasi->test_location_id);
+		if ($registrasi->test_location_id == "0")
+		{
+			//update number registration if only the first time executed, else updat ethe location only
+			$registrasi2 = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
+			DB::table('test_locations')->where('id', '=', $registrasi2->test_location_id)->increment('counter');			
+		}
+	  	$registrasi->test_location_id = $request->location_name;
+	    $registrasi->save();
 
-		//update number registration
-		$registrasi2 = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
-		DB::table('test_locations')->where('id', '=', $registrasi2->test_location_id)->increment('counter');
 
 		//Return
 		return redirect('summary');

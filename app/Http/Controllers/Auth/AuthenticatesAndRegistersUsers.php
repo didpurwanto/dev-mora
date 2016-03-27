@@ -54,7 +54,11 @@ trait AuthenticatesAndRegistersUsers {
 		}
 		$this->auth->login($this->registrar->create($request->all()));
 
-		DB::table('applicants')->insert(array('user_id' => Auth::user()->id, 'full_name' => $request->full_name));
+		$pesantren_id = DB::table('pesantrens')->where('nspp', '=' , $request->nspp)->pluck('id');
+		// dd($pesantren_id);
+		// 510011060003
+
+		DB::table('applicants')->insert(array('user_id' => Auth::user()->id, 'full_name' => $request->full_name, 'pesantren_id' => $pesantren_id));
 		//DB::table('applicants')->where('user_id', Auth::user()->id)->update(array('full_name' => ));
 		//DB::table('applicants')->insert(array('full_name' => $request->nama_lengkap));
 		DB::table('families')->insert(array('user_id' => Auth::user()->id));
