@@ -17,6 +17,7 @@ use App\University;
 use App\Departement;
 use App\Pesantren;
 use App\TestLocation;
+use App\DepartementProgramStudy;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
@@ -46,6 +47,7 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('PesantrenSeeder');
 		$this->call('testLocations');
+		$this->call('departementProgramStudies');
 
 
 	}
@@ -345,6 +347,8 @@ class departementProgramStudies extends Seeder{
 			['departement_id' =>61 , 'program_study_id' => 1],
 
 		];
+
+		DepartementProgramStudy::insert($dep_prodi);
 	}
 }
 
