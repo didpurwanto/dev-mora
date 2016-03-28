@@ -8,6 +8,7 @@
 		</div>
 	</div>
 </div>
+<!--
 <div class="form-group">
 	<div class="row">
 		<div class="col-md-3">
@@ -18,6 +19,7 @@
 		</div>
 	</div>
 </div>
+-->
 <br />
 <div class="form-group">
 	{!! Form::submit($text, ['class' => 'btn btn-primary btn-large form-button']) !!}

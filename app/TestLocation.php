@@ -12,7 +12,12 @@ class TestLocation extends Model {
 
 	public function province()
 	{
-		return $this->belongsTo('App\Province');
+		return $this->belongsTo('App\Province','province_id');
+	}
+
+	public function province2()
+	{
+		return $this->belongsTo('App\Province','location_name');
 	}
 
 	public function applications()

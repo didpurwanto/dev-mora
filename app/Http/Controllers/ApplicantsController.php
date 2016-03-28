@@ -234,7 +234,7 @@ class ApplicantsController extends Controller {
 			$registrasi2 = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
 			DB::table('test_locations')->where('id', '=', $registrasi2->test_location_id)->increment('counter');			
 		}
-	  	$registrasi->test_location_id = $request->location_name;
+	  	$registrasi->test_location_id = $request->province_id;
 	    $registrasi->save();
 
 

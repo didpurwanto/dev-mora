@@ -3,8 +3,9 @@
 @section('content')
 	<h2>Pilihan Lokasi Tes</h2>
 	<hr />
+	<!-- untuk info bahwa lokasi tes hanya bisa dipilih satu kali
 	<h4 style="color:red" >Anda hanya di perbolehkan untuk memilih lokasi ujian satu kali (tidak bisa mengedit)</h4>
-	<br />
+	<br /> -->
 	{!! Form::model($application,['method' => 'PATCH','url' => ['/locationtests']]) !!}
 		@include ('locationtest.form', ['text' => 'Selanjutnya'])
 	{!! Form::close() !!}

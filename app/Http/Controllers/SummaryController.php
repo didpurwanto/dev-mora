@@ -134,6 +134,9 @@ class SummaryController extends Controller {
 	{
 		$user = User::where('id', '=', Auth::user()->id)->firstOrFail();
 
+		$pesantren_id = Applicant::where('user_id', '=', Auth::user()->id)->pluck('pesantren_id');
+		$pesantren = Pesantren::where('id', '=', $pesantren_id)->firstOrFail();
+
 		//$fam = Family::where('applicant_id',$id)->get();
 		$date_birth = explode("-",$user->applicant->date_birth);
 		$date_birth = $date_birth[2].'-'.$date_birth[1].'-'.$date_birth[0];
@@ -142,7 +145,7 @@ class SummaryController extends Controller {
 		$test_number = Application::where('user_id','=',Auth::user()->id)->pluck('test_number');
 		$test_num = str_split($test_number);
 		// dd($test_num);
-		$pdf = PDF::loadView('kartu',compact('user','date_birth', 'test_num', 'registration_number'))->setPaper('legal');
+		$pdf = PDF::loadView('kartu',compact('user','date_birth', 'test_num', 'registration_number','pesantren'))->setPaper('legal');
 
 		//Make user logout after prints
 		// Auth::logout();

@@ -51,7 +51,7 @@
 														{{ $location->province->province_name }}
 													</td>
 													<td>
-														{{ $location->location_name }}
+														{{ $location->province2->province_name }}
 													</td>
 													<td>
 														{{ $location->quota }}
