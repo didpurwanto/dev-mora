@@ -16,7 +16,7 @@ class CreateTestLocations extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('province_id');
-			$table->string('location_name')->unique();
+			$table->string('location_name');
 			$table->timestamps();
 		});
 	}

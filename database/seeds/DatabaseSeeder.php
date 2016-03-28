@@ -16,6 +16,7 @@ use App\Setting;
 use App\University;
 use App\Departement;
 use App\Pesantren;
+use App\TestLocation;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
@@ -44,6 +45,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('DepartementSeeder');
 
 		$this->call('PesantrenSeeder');
+		$this->call('testLocations');
 
 
 	}
@@ -206,7 +208,7 @@ class DepartementSeeder extends Seeder{
 			['id'=>44,'university_id'  => '10', 'departement_name' => 'ILMU EKONOMI', 'departement_code' =>'23108', 'status' => '1'],
 			['id'=>45,'university_id'  => '10', 'departement_name' => 'PSIKOLOGI', 'departement_code' =>'23109', 'status' => '1'],
 			['id'=>46,'university_id'  => '10', 'departement_name' => 'ILMU KOMUNIKASI', 'departement_code' =>'23110', 'status' => '1'],
-			// ITS			 
+			// ITS
 			['id'=>47,'university_id'  => '11', 'departement_name' => 'TEKNIK INFORMATIKA', 'departement_code' =>'24101', 'status' => '1'],
 			['id'=>48,'university_id'  => '11', 'departement_name' => 'SISTEM INFORMASI', 'departement_code' =>'24102', 'status' => '1'],
 			['id'=>49,'university_id'  => '11', 'departement_name' => 'TEKNIK ELEKTRO', 'departement_code' =>'24103', 'status' => '1'],
@@ -223,7 +225,7 @@ class DepartementSeeder extends Seeder{
 			['id'=>59,'university_id'  => '12', 'departement_name' => 'PENDIDIKAN ILMU KEPERAWATAN', 'departement_code' =>'25107', 'status' => '1'],
 			// uncen
 			['id'=>60,'university_id'  => '13', 'departement_name' => 'PENDIDIKAN DOKTER', 'departement_code' =>'26101', 'status' => '1'],
-			['id'=>61,'university_id'  => '13', 'departement_name' => 'TEKNIK SIPIL', 'departement_code' =>'26102', 'status' => '1']			
+			['id'=>61,'university_id'  => '13', 'departement_name' => 'TEKNIK SIPIL', 'departement_code' =>'26102', 'status' => '1']
 		];
 		Departement::insert($departements);
 	}
@@ -476,6 +478,52 @@ class ProvinceSeeder extends Seeder {
 		];
 
 		Province::insert($prov);
+	}
+}
+
+class testLocations extends Seeder {
+	public function run()
+	{
+		DB::table('test_locations')->delete();
+
+		$testlocation = [
+			['id'=>1, 'province_id' => 1, 'location_name' => '1','quota' => 6000, 'counter' => 0],
+			['id'=>2, 'province_id' => 2, 'location_name' => '2','quota' => 6000, 'counter' => 0],
+			['id'=>3, 'province_id' => 3, 'location_name' => '3','quota' => 6000, 'counter' => 0],
+			['id'=>4, 'province_id' => 4, 'location_name' => '4','quota' => 6000, 'counter' => 0],
+			['id'=>5, 'province_id' => 5, 'location_name' => '5','quota' => 6000, 'counter' => 0],
+			['id'=>6, 'province_id' => 6, 'location_name' => '6','quota' => 6000, 'counter' => 0],
+			['id'=>7, 'province_id' => 7, 'location_name' => '7','quota' => 6000, 'counter' => 0],
+			['id'=>8, 'province_id' => 8, 'location_name' => '8','quota' => 6000, 'counter' => 0],
+			['id'=>9, 'province_id' => 9, 'location_name' => '9','quota' => 6000, 'counter' => 0],
+			['id'=>10, 'province_id' => 10, 'location_name' => '10','quota' => 6000, 'counter' => 0],
+			['id'=>11, 'province_id' => 11, 'location_name' => '11','quota' => 6000, 'counter' => 0],
+			['id'=>12, 'province_id' => 12, 'location_name' => '12','quota' => 6000, 'counter' => 0],
+			['id'=>13, 'province_id' => 13, 'location_name' => '13','quota' => 6000, 'counter' => 0],
+			['id'=>14, 'province_id' => 14, 'location_name' => '14','quota' => 6000, 'counter' => 0],
+			['id'=>15, 'province_id' => 15, 'location_name' => '15','quota' => 6000, 'counter' => 0],
+			['id'=>16, 'province_id' => 16, 'location_name' => '16','quota' => 6000, 'counter' => 0],
+			['id'=>17, 'province_id' => 17, 'location_name' => '17','quota' => 6000, 'counter' => 0],
+			['id'=>18, 'province_id' => 18, 'location_name' => '18','quota' => 6000, 'counter' => 0],
+			['id'=>19, 'province_id' => 19, 'location_name' => '19','quota' => 6000, 'counter' => 0],
+			['id'=>20, 'province_id' => 20, 'location_name' => '20','quota' => 6000, 'counter' => 0],
+			['id'=>21, 'province_id' => 21, 'location_name' => '21','quota' => 6000, 'counter' => 0],
+			['id'=>22, 'province_id' => 22, 'location_name' => '22','quota' => 6000, 'counter' => 0],
+			['id'=>23, 'province_id' => 23, 'location_name' => '23','quota' => 6000, 'counter' => 0],
+			['id'=>24, 'province_id' => 24, 'location_name' => '24','quota' => 6000, 'counter' => 0],
+			['id'=>25, 'province_id' => 25, 'location_name' => '25','quota' => 6000, 'counter' => 0],
+			['id'=>26, 'province_id' => 26, 'location_name' => '26','quota' => 6000, 'counter' => 0],
+			['id'=>27, 'province_id' => 27, 'location_name' => '27','quota' => 6000, 'counter' => 0],
+			['id'=>28, 'province_id' => 28, 'location_name' => '28','quota' => 6000, 'counter' => 0],
+			['id'=>29, 'province_id' => 29, 'location_name' => '29','quota' => 6000, 'counter' => 0],
+			['id'=>30, 'province_id' => 30, 'location_name' => '30','quota' => 6000, 'counter' => 0],
+			['id'=>31, 'province_id' => 31, 'location_name' => '31','quota' => 6000, 'counter' => 0],
+			['id'=>32, 'province_id' => 32, 'location_name' => '32','quota' => 6000, 'counter' => 0],
+			['id'=>33, 'province_id' => 33, 'location_name' => '33','quota' => 6000, 'counter' => 0],
+			['id'=>34, 'province_id' => 34, 'location_name' => '34','quota' => 6000, 'counter' => 0],
+		];
+
+		TestLocation::insert($testlocation);
 	}
 }
 
