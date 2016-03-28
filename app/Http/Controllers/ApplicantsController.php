@@ -230,7 +230,7 @@ class ApplicantsController extends Controller {
 		// dd($registrasi->test_location_id);
 		if ($registrasi->test_location_id == "0")
 		{
-			//update number registration if only the first time executed, else updat ethe location only
+			//update number registration if only the first time executed, else update the location only
 			$registrasi2 = Application::where('user_id', '=', Auth::user()->id)->firstOrFail();
 			DB::table('test_locations')->where('id', '=', $registrasi2->test_location_id)->increment('counter');			
 		}
