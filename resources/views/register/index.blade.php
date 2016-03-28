@@ -88,7 +88,7 @@
                         <a href="{!! URL::to('/applications') !!}"><i class="fa fa-fw fa-graduation-cap icon-green"></i> Pilihan Jurusan</a>
                     </li>
                     <li class="{!! Request::is('locationtests') ? 'active' : '' !!}">
-                        <a href="{!! URL::to('/locationtests') !!}"><i class="fa fa-fw fa-graduation-cap icon-green"></i> Pilihan Lokasi Tes</a>
+                        <a href="{!! URL::to('/locationtests') !!}"><i class="fa fa-fw fa-map-marker icon-green"></i> Pilihan Lokasi Tes</a>
                     </li>
                     <li class="{!! Request::is('summary') ? 'active' : '' !!}">
                         <a href="{!! URL::to('/summary') !!}"><i class="fa fa-fw fa-desktop icon-green"></i> Rangkuman Data</a>
