@@ -376,11 +376,11 @@ class PesantrenSeeder extends Seeder {
 		DB::table('pesantrens')->delete();
 
 		$pesantrens = [
-			['nspp' => 510011060003,'pesantren_name' => 'Ulee Titi', 'kiai_name' => 'Tgk. H. Abu Athaillah Ishaq.', 'pesantren_address' => 'Desa Siron', 'no_telp' =>85362737535, 'kabupaten' =>'Aceh Besar', 'kecamatan' => 'Ingin Jaya', 'province_id' => 1],
-			['nspp' => 510012760001,'pesantren_name' => 'Al Hasyimiyah', 'kiai_name' => 'Tagor Mulia, S.Sos I', 'pesantren_address' => 'Jln.Danau Singkarak Lk.03 Kel.Padang Merbau', 'no_telp' =>062124409, 'kabupaten' =>'Tebing Tinggi', 'kecamatan' => 'Padang Hulu', 'province_id' => 1],
-			['nspp' => 512013710003,'pesantren_name' => 'Thawalib', 'kiai_name' => 'H. M. Nur Ilyas, M. Ag', 'pesantren_address' => 'Jln. Cubadak Air No. 28 RT 02 RW IV', 'no_telp' =>07517056468, 'kabupaten' =>'Kota Padang', 'kecamatan' => 'Kuranji','province_id' => 1 ],
-			['nspp' => 510014710007,'pesantren_name' => 'Pesantren Teknologi Riau', 'kiai_name' => 'Azni Alhudri, M.A', 'pesantren_address' => 'Jl. Lintas Timur KM.22 Pekanbaru', 'no_telp' =>07617770103, 'kabupaten' =>'Pekanbaru', 'kecamatan' => 'Tenayan Raya', 'province_id' => 1],
-			['nspp' => 512150402015,'pesantren_name' => 'Al-Munawwaroh', 'kiai_name' => 'H. Sofwan, S.Ag, M.Pd', 'pesantren_address' => '(1) Kampus Putra Jl. Sultan Thaha Sei. Misang Kel. Dusun Bangko, (2) Kampus Putri Jl. Lintas Sumatera Km. 03 Kel Dusun Bangko', 'no_telp' =>0746322851, 'kabupaten' =>'Merangin', 'kecamatan' => 'Bangko', 'province_id' => 1]
+			['nspp' => 510011060003,'pesantren_name' => 'Ulee Titi', 'kiai_name' => 'Tgk. H. Abu Athaillah Ishaq.', 'pesantren_address' => 'Desa Siron', 'no_telp' =>85362737535, 'kabupaten' =>'Aceh Besar', 'kecamatan' => 'Ingin Jaya', 'province_id' => 1, 'kelurahan' => '-'],
+			['nspp' => 510012760001,'pesantren_name' => 'Al Hasyimiyah', 'kiai_name' => 'Tagor Mulia, S.Sos I', 'pesantren_address' => 'Jln.Danau Singkarak Lk.03 Kel.Padang Merbau', 'no_telp' =>062124409, 'kabupaten' =>'Tebing Tinggi', 'kecamatan' => 'Padang Hulu', 'province_id' => 1, 'kelurahan' => '-'],
+			['nspp' => 512013710003,'pesantren_name' => 'Thawalib', 'kiai_name' => 'H. M. Nur Ilyas, M. Ag', 'pesantren_address' => 'Jln. Cubadak Air No. 28 RT 02 RW IV', 'no_telp' =>07517056468, 'kabupaten' =>'Kota Padang', 'kecamatan' => 'Kuranji','province_id' => 1, 'kelurahan' => '-' ],
+			['nspp' => 510014710007,'pesantren_name' => 'Pesantren Teknologi Riau', 'kiai_name' => 'Azni Alhudri, M.A', 'pesantren_address' => 'Jl. Lintas Timur KM.22 Pekanbaru', 'no_telp' =>07617770103, 'kabupaten' =>'Pekanbaru', 'kecamatan' => 'Tenayan Raya', 'province_id' => 1, 'kelurahan' => '-'],
+			['nspp' => 512150402015,'pesantren_name' => 'Al-Munawwaroh', 'kiai_name' => 'H. Sofwan, S.Ag, M.Pd', 'pesantren_address' => '(1) Kampus Putra Jl. Sultan Thaha Sei. Misang Kel. Dusun Bangko, (2) Kampus Putri Jl. Lintas Sumatera Km. 03 Kel Dusun Bangko', 'no_telp' =>0746322851, 'kabupaten' =>'Merangin', 'kecamatan' => 'Bangko', 'province_id' => 1, 'kelurahan' => '-']
 		];
 		Pesantren::insert($pesantrens);
 	}
