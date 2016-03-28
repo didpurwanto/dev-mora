@@ -395,7 +395,7 @@
                 </div>
                 <div class="col-lg-4 col-lg-offset-2 text-center">
                     <i class="fa fa-phone fa-3x wow bounceIn"></i>
-                    <p>0812-1061-3961(Pak Ilham) <br>0896-5250-4890(Agung) <br> 0856-4444-0001(Taupik)</p> 
+                    <p>0812-1061-3961(Pak Ilham) <br> 0852-22444936(Pak Taupik)<br>0896-5250-4890(Pak Agung)</p> 
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>

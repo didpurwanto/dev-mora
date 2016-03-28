@@ -57,6 +57,7 @@ class ApplicationsController extends Controller {
 		}
 		#todo: later only show universities which have departement
 
+		// dd($univ);
 		//univ id
 		$already_select_university= Application::where('user_id',Auth::user()->id)->pluck('university_id');
 		// dd($already_select_university);
