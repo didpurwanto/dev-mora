@@ -34,7 +34,7 @@ class SummaryController extends Controller {
 
 		$pesantren_id = Applicant::where('user_id', '=', Auth::user()->id)->pluck('pesantren_id');
 		$pesantren = Pesantren::where('id', '=', $pesantren_id)->firstOrFail();
-		dd($pesantren);
+		// dd($pesantren);
 		//$fam = Family::where('applicant_id',$id)->get();
 		$date_birth = explode("-",$user->applicant->date_birth);
 		$date_birth = $date_birth[2].'-'.$date_birth[1].'-'.$date_birth[0];

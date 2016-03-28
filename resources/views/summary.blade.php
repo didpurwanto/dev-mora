@@ -16,7 +16,7 @@
 <hr>
 <table>
 	<tr>
-		<td width="400px">
+		<td width="600px">
 			<font size="4 px">Nama : <b>{!! $user->applicant->full_name !!}</b></font> </br>
 			Jenis Kelamin : <b>{!! ($user->applicant->gender == 1) ? 'Laki-laki' : 'Perempuan' !!}</b> </br>
 			Tempat/Tanggal Lahir : <b>{!! $user->applicant->place_birth !!} / {!! $date_birth  !!}</b> </br>
@@ -33,7 +33,7 @@
 
 		</td>
 		<td>
-			<img src="{!! $user->applicant->profile_photo !!}" width="114px" height="150px">
+			<img src="{!! $user->applicant->profile_photo !!}" width="170px" height="200px">
 		</td>
 
 	</tr>
