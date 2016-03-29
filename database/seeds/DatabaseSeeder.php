@@ -76,7 +76,7 @@ class UserSeeder extends Seeder {
 
 		$users = [
 			['id'=>1, 'username' => 'mahasantri', 'email' => 'mahasantri@gmail.com', 'password' => '$2y$10$FvCQF4.RhYvmCOtscWHLauD4ugpCeelWfphaVRp20R4vz8huE/Mba', 'role' => '255'],
-			['id'=>2, 'username' => 'santricerdas', 'email' => 'agung.smarts@gmail.com', 'password' => '$2y$10$//GQ5CINIAXyrhKWk8nWlu2vzZ1ZvQiQL8M1KbhoS5F3mUuHGxmlm', 'role' => '255']
+			['id'=>2, 'username' => 'santricerdas', 'email' => 'agung.smarts@gmail.com', 'password' => '$2y$10$AqGFilRS5g9hDbncH66Pf.XQZEecB.tDP4g4C69mOhQuYO0yEGS9S', 'role' => '255'] //Admin@123
 		];
 
 		User::insert($users);

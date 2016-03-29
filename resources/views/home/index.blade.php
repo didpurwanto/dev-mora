@@ -294,30 +294,31 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="logo/kampus/gunungJati.png" alt="" />
-                        <p class="text-muted"><a href="http://its.ac.id">UIN Sunan Gunung Djati</a></p>
+                        <p class="text-muted"><a href="http://www.uinsgd.ac.id/">UIN Sunan Gunung Djati</a></p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="logo/kampus/semarang.png" alt="" />
-                        <p class="text-muted"><a href="http://its.ac.id">UIN Wali Songo Semarang</a></p>
+                        <p class="text-muted"><a href="http://https://http://www.walisongo.ac.id/">UIN Wali Songo Semarang</a></p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="logo/kampus/jogja.png" alt="" />
-                        <p class="text-muted"><a href="http://its.ac.id">UIN Sunan Kalijaga Yogyakarta</a></p>
+                        <p class="text-muted"><a href="http://http://uin-suka.ac.id/">UIN Sunan Kalijaga Yogyakarta</a></p>
                     </div>
                 </div>
             </div>
+
 
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <img src="logo/kampus/ampel.png" alt="" />
-                        <p class="text-muted"><a href="http://its.ac.id">UIN Sunan Ampel Surabaya</a></p>
+                        <p class="text-muted"><a href="http://www.uinsby.ac.id/">UIN Sunan Ampel Surabaya</a></p>
                     </div>
                 </div>
 
@@ -371,6 +372,14 @@
                         <p class="text-muted"><a href="http://unair.ac.id">Universitas Airlangga</a></p>
                     </div>
                 </div>
+
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src="" alt="" />
+                        <p class="text-muted"><a href="http://unair.ac.id"></a></p>
+                    </div>
+                </div>
+
 
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
