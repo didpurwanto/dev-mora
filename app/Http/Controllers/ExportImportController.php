@@ -215,7 +215,7 @@ class ExportImportController extends Controller {
 
 	 			$appl = DB::table('applicants AS a')
 	 						->join('families AS f', 'f.user_id', '=', 'a.user_id')
-	 						->join('pesantrens AS p', 'p.user_id', '=', 'a.user_id')
+	 						->join('pesantrens AS p', 'p.id', '=', 'a.pesantren_id')
 	 						->join('schools AS s', 's.user_id', '=', 'a.user_id')
 	 						->join('applications AS ap', 'ap.user_id', '=', 'a.user_id' )
 	 						->join('provinces', 'provinces.id', '=', 'a.province_id')

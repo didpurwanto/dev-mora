@@ -44,10 +44,9 @@ class DatabaseSeeder extends Seeder {
 		$this->call('SettingSeeder');
 		$this->call('UniversitySeeder');
 		$this->call('DepartementSeeder');
-
-		$this->call('PesantrenSeeder');
 		$this->call('testLocations');
 		$this->call('departementProgramStudies');
+		// $this->call('PesantrenSeeder');
 
 
 	}
@@ -427,10 +426,10 @@ class SchoolTypeSeeder extends Seeder {
 		DB::table('school_types')->delete();
 
 		$types = [
-			['id'=>1, 'type_code'=>'1', 'type_name' => 'Madrasah Aliyah(MA)', 'max_age' => 19, 'max_graduate'=> 2016],
+			['id'=>1, 'type_code'=>'1', 'type_name' => 'Madrasah Aliyah(MA)', 'max_age' => 25, 'max_graduate'=> 2015],
 			// ['id'=>2, 'type_code'=>'2', 'type_name' => 'Sekolah mengenah Atas(SMA)', 'max_age' => 19, 'max_graduate'=> 2016],
 			// ['id'=>3, 'type_code'=>'3','type_name' => 'Sekolah Menengah Kejujuran(SMK)', 'max_age' => 19, 'max_graduate'=> 2016],
-			['id'=>4, 'type_code'=>'4', 'type_name' => 'Pondok Pesantren Muadalah(PPM)', 'max_age' => 19, 'max_graduate'=> 2015],
+			['id'=>4, 'type_code'=>'4', 'type_name' => 'Pondok Pesantren Muadalah(PPM)', 'max_age' => 25, 'max_graduate'=> 2015],
 			['id'=>5, 'type_code'=>'5', 'type_name' => 'pondok pesantren salafiyah(PPS)/Paket C', 'max_age' => 19, 'max_graduate'=> 2015]
 			// ['id'=>6, 'type_name' => 'Lain-lain']
 		];
