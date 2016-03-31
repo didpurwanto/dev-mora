@@ -9,10 +9,12 @@ class SchoolType extends Model {
 	public $timestamps = false;
 
 	protected $fillable = [
-		'id',
-		'type_name'
+		'type_code',
+		'type_name',
+		'max_age',
+		'max_graduate'
 	];
-	
+
 	public function schools()
 	{
 		return $this->hasMany('App\School');

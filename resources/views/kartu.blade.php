@@ -326,7 +326,7 @@ td .content {
 				</tbody>
 			</table>
 			<i><small>(Diberikan oleh panitia seleksi)</small></i><br /><br />
-			<img src="images/foto.jpg" width="114px" height="150px">
+			<img src="{!! $user->applicant->profile_photo !!}" width="114px" height="150px">
 		</td>
 	</tr>
 </table>

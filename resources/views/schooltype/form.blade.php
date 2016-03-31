@@ -1,8 +1,4 @@
 <div class="form-group">
-	{!! Form::label('id', 'No') !!}
-	{!! Form::text('id',null, ['class' => 'form-control']) !!}
-</div>
-<div class="form-group">
 	{!! Form::label('type_code', 'Kode :') !!}
 	{!! Form::text('type_code',null, ['class' => 'form-control']) !!}
 </div>

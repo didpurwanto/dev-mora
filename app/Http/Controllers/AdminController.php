@@ -168,7 +168,7 @@ class AdminController extends Controller {
 	public function pesantren()
 	{
 		$pesantren = DB::table('pesantrens')
-			->join('pesantren_types', 'pesantren_types.id', '=', 'pesantrens.pesantren_type')
+			//->join('pesantren_types', 'pesantren_types.id', '=', 'pesantrens.pesantren_type')
 			->join('provinces', 'provinces.id', '=', 'pesantrens.province_id')
 			->get();
 		$counter = 0;

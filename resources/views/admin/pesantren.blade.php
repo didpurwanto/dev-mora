@@ -33,9 +33,9 @@
 									<thead>
 										<tr>
 											<th>No</th>
-											<th>Nama Pesantren</th>											
+											<th>Nama Pesantren</th>
 											<th>Nama Kiai</th>
-											<th>Tipe pesantren</th>
+											<th>NSPP</th>
 											<th>Provinsi</th>
 										</tr>
 									</thead>
@@ -52,7 +52,7 @@
 												{{ $ponpes->kiai_name }}
 											</td>
 											<td class="center col-md-2">
-												{{ $ponpes->type_name }}													
+												{{ $ponpes->nspp }}													
 											</td>
 											<td class="center col-md-3">
 												{{ $ponpes->province_name }}

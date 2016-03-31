@@ -61,7 +61,7 @@
 		</td>
 		<td><b>{!!($user->family->father_deceased == 1) ? 'Alm. ' : ''!!}{!!$user->family->father_name !!}</b>
 		</td>
-		<td >Umur <b>{!!$user->family->father_age!!} </b> Tahun
+		<td >Umur <b>{!!($user->family->father_deceased == 1) ? '-' : $user->family->father_age!!} </b> Tahun
 		</td>
 		<td >Pekerjaan : <b>{!!$user->family->jobType->job_name!!}</b> </br>
 		Pendidikan Terakhir : <b>{!!$user->family->educationLevel->level_name!!}</b> </br>
@@ -75,7 +75,7 @@
 		</td>
 		<td><b>{!!($user->family->mother_deceased == 1) ? 'Almh. ' : ''!!}{!!$user->family->mother_name !!}</b>
 		</td>
-		<td >Umur <b>{!!$user->family->mother_age!!}</b> Tahun
+		<td >Umur <b>{!!($user->family->mother_deceased == 1) ? '-' : $user->family->mother_age!!}</b> Tahun
 		</td>
 		<td >Pekerjaan : <b>{!!$user->family->jobTypeIbu->job_name!!}</b> </br>
 		Pendidikan Terakhir : <b>{!!$user->family->educationLevelIbu->level_name!!}</b> </br>
