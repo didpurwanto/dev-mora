@@ -22,14 +22,18 @@ class SchoolTypeRequest extends Request {
 	public function rules()
 	{
 		return [
-			'type_name' => 'required'
+			'type_name' => 'required',
+			'max_age' => 'required',
+			'max_graduate' => 'required',
 		];
 	}
 
 	public function messages()
 	{
 		return [
-			'type_name.required'  => 'Kolom Tipe sekolah harus diisi'
+			'type_name.required'  => 'Kolom Tipe sekolah harus diisi',
+			'max_age.required'  => 'Kolom batasan umur harus diisi',
+			'max_graduate.required'  => 'Kolom tahun kelulusan harus diisi'
 		];
 	}
 

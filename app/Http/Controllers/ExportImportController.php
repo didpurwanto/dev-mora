@@ -52,7 +52,8 @@ class ExportImportController extends Controller {
 			Excel::load(Input::file('file'), function($reader) {
 	        foreach ($reader->toObject() as $row)
 	        {
-				dd($row->nomor_registrasi);
+
+				// dd(round($row->nomor_registrasi));;
 
 	        	//generate kode pt
 	        	$code_list = DB::table('departements')
@@ -60,7 +61,7 @@ class ExportImportController extends Controller {
 	        		->join('applications', 'applications.major_1_id', '=', 'departements.id')
 	        		->join('applicants', 'applicants.user_id', '=', 'applications.user_id')
 
-	        		->join('pesantrens', 'applicants.user_id', '=', 'pesantrens.user_id')
+	        		->join('pesantrens', 'applicants.pesantren_id', '=', 'pesantrens.id')
 	        		->join('provinces', 'provinces.id', '=', 'pesantrens.province_id')
 
 	        		->join('schools', 'applicants.user_id', '=', 'schools.user_id')
@@ -117,7 +118,7 @@ class ExportImportController extends Controller {
 	        	}
 	        	$test_number.= $prodi;
 	        	
-	        	dd($test_number);
+	        	// dd($test_number);
 	        	//save to db
 	        	DB::table('applications')
 	        	->join('applicants', 'applicants.user_id', '=', 'applications.user_id')
