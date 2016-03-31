@@ -50,9 +50,9 @@ class ExportImportController extends Controller {
 	     	$array = array();
 	     	// $file = Input::file('file');
 			Excel::load(Input::file('file'), function($reader) {
-			//dd($reader);
 	        foreach ($reader->toObject() as $row)
 	        {
+				dd($row->nomor_registrasi);
 
 	        	//generate kode pt
 	        	$code_list = DB::table('departements')
@@ -117,7 +117,7 @@ class ExportImportController extends Controller {
 	        	}
 	        	$test_number.= $prodi;
 	        	
-	        	// dd($test_number);
+	        	dd($test_number);
 	        	//save to db
 	        	DB::table('applications')
 	        	->join('applicants', 'applicants.user_id', '=', 'applications.user_id')
@@ -215,7 +215,7 @@ class ExportImportController extends Controller {
 
 	 			$appl = DB::table('applicants AS a')
 	 						->join('families AS f', 'f.user_id', '=', 'a.user_id')
-	 						->join('pesantrens AS p', 'p.user_id', '=', 'a.user_id')
+	 						->join('pesantrens AS p', 'p.id', '=', 'a.pesantren_id')
 	 						->join('schools AS s', 's.user_id', '=', 'a.user_id')
 	 						->join('applications AS ap', 'ap.user_id', '=', 'a.user_id' )
 	 						->join('provinces', 'provinces.id', '=', 'a.province_id')

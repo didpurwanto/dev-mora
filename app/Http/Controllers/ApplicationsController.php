@@ -47,13 +47,34 @@ class ApplicationsController extends Controller {
 		#hidden university with university_code = 17
 		if( empty( $fromEastIndo ) )
 		{
-			$univ = University::where('status', 1)
-				->where('university_code', '!=', 17)
-				->lists('university_name','id');
+			// $univ = University::where('status', 1)
+			// 	->where('university_code', '!=', 17)
+			// 	->lists('university_name','id');
+
+			$univ = DB::table('universities')
+			->Join('departements', 'departements.university_id', '=', 'universities.id')
+			->Join('departements_program_studies', 'departements_program_studies.departement_id', '=', 'departements.id')
+			->where('universities.university_code', '!=', 17)
+			->where('universities.university_code', '!=', 26)
+			->where('departements_program_studies.program_study_id', '=', $program_study_id)
+			->groupBy('universities.university_name')
+			->select('universities.university_name' , 'universities.id' )
+			->lists('universities.university_name' , 'universities.id' );
+
+			// dd($univ);
 		}
 		else
 		{
-			$univ = University::where('status', 1)->lists('university_name','id');
+			// $univ = University::where('status', 1)->lists('university_name','id');
+			$univ = DB::table('universities')
+			->leftJoin('departements', 'departements.university_id', '=', 'universities.id')
+			->leftJoin('departements_program_studies', 'departements_program_studies.departement_id', '=', 'departements.id')
+			->where('departements_program_studies.program_study_id', '=', $program_study_id)
+			->groupBy('universities.university_name')
+			->select('universities.university_name' , 'universities.id' )
+			->lists('universities.university_name' , 'universities.id' );
+			
+
 		}
 		#todo: later only show universities which have departement
 
