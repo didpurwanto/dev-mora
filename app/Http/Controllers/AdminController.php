@@ -123,22 +123,36 @@ class AdminController extends Controller {
 		$univ_list = University::all();//lists('university_name','id');
 		// $data= array();
 
+		$prov = DB::table('provinces')
+			->select('id','province_name')
+			->get();
+
 		$prov_list = DB::table('provinces')
 			->select(['provinces.province_name', DB::raw('count(applicants.id) as total'), 'provinces.id'])
 			->leftJoin('applicants', 'provinces.id','=', 'applicants.province_id' )
+			// ->where('registration_number', '<>', "")
 			// ->where('university_id',$id)
 			->groupBy('provinces.id')
 			->get();
 
-
+		foreach ($prov_list as $index => $value) {
+			if ((int)$value->total > 0)
+			{
+				$newTotal = DB::table('provinces')
+							->select(DB::raw('count(applicants.id) as total'))
+							->leftJoin('applicants', 'provinces.id','=', 'applicants.province_id' )
+							->where('registration_number', '<>', "")
+							->where('applicants.province_id', '=', $value->id)
+							->get();
+				$prov_list[$index]->total = $newTotal[0]->total;
+			}
+		}
+		// dd($prov_list);
 		$data = array();
 		$univ = DB::table('universities')
 			->select('id', 'university_name','university_code')
 			->get();
 
-		$prov = DB::table('provinces')
-			->select('id','province_name')
-			->get();
 		$value = 0;
 		foreach ($prov as $province) {
 			foreach ($univ as $university) {
@@ -148,6 +162,7 @@ class AdminController extends Controller {
 					->leftJoin('applications','applicants.user_id','=', 'applications.user_id')
 					->where('applications.university_id',$university->id)
 					->where('applicants.province_id', $province->id)
+					->where('registration_number', '<>', "")
 					->get();
 				if (count($val)) {
 					$value =  count($val);
@@ -170,6 +185,7 @@ class AdminController extends Controller {
 		$pesantren = DB::table('pesantrens')
 			//->join('pesantren_types', 'pesantren_types.id', '=', 'pesantrens.pesantren_type')
 			->join('provinces', 'provinces.id', '=', 'pesantrens.province_id')
+			->join('applicants')
 			->get();
 		$counter = 0;
 		return view('admin.pesantren', compact('pesantren', 'counter'));

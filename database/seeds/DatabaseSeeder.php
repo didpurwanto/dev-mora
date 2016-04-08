@@ -359,8 +359,8 @@ class PesantrenTypeSeeder extends Seeder {
 		$types = [
 			['id'=>1,'type_name' => 'Muadalah'],
 			['id'=>2,'type_name' => 'Salafiyah Muadalah'],
-			['id'=>3,'type_name' => 'Kombinasi'],
-			['id'=>4,'type_name' => 'Lain-lain']
+			['id'=>3,'type_name' => 'Kombinasi']
+			// ['id'=>4,'type_name' => 'Lain-lain']
 		];
 
 
@@ -392,11 +392,11 @@ class ProgramStudySeeder extends Seeder {
 		DB::table('program_studies')->delete();
 
 		$programs = [
-			['id'=>1, 'program_name' => 'IPA', 		'prodi_code'=> '1', 	'list_subject'	=>  'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
-			['id'=>2, 'program_name' => 'IPS', 		'prodi_code'=> '2', 	'list_subject'	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
-			['id'=>3, 'program_name' => 'BAHASA', 	'prodi_code'=> '3', 	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
-			['id'=>4, 'program_name' => 'AGAMA', 	'prodi_code'=> '4', 	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking'],
-			['id'=>5,'program_name'  => 'DLL', 		'prodi_code'=> '9',	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking']
+			['id'=>1, 'program_name' => 'IPA', 		'prodi_code'=> '1', 	'list_subject'	=> 'Matematika; Kimia; Fisika; Biologi; Bahasa Inggris; Ranking'],
+			['id'=>2, 'program_name' => 'IPS', 		'prodi_code'=> '2', 	'list_subject'	=> 'Matematika; Ekonomi; Sosiologi; Geografi; Bahasa Inggris; Ranking'],
+			['id'=>3, 'program_name' => 'BAHASA', 	'prodi_code'=> '3', 	'list_subject' 	=> 'Bahasa Indonesia; Bahasa Inggris; Matematika; Sastra Indonesia; Sejarah/Budaya; Bahasa Asing; Ranking'],
+			['id'=>4, 'program_name' => 'AGAMA', 	'prodi_code'=> '4', 	'list_subject' 	=> 'Bahasa Indonesia; Bahasa Inggris; Matematika; Tafsir; Hadist; Ranking']
+			// ['id'=>5,'program_name'  => 'DLL', 		'prodi_code'=> '9',	'list_subject' 	=> 'Matematika; Bahasa Indonesia; Bahasa Inggris; Pendidikan Kewarganegaraan; Pendidikan Agama; Ranking']
 		];
 
 		ProgramStudy::insert($programs);
