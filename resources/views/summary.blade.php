@@ -29,7 +29,7 @@
 			Hafalan Al-Qurran : <b>{!! $user->applicant->recitation !!}</b> Juz </br>
 			No Telp yang Bisa Dihubungi : <b>{!! $user->applicant->contact !!}</b> </br>
 			<br />
-			Lokasi Tes CBT : = <b>Provinsi {!! $user->application->test_location->province2->province_name !!}</b>
+			Lokasi Tes CBT : <b>Provinsi {!! $user->application->test_location->province2->province_name !!}</b>
 
 		</td>
 		<td>
