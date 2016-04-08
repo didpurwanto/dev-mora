@@ -27,7 +27,7 @@ class RaportRequest extends Request {
 			'p3s1' => 'required|integer|min:0|max:100','p3s2' => 'required|integer|min:0|max:100','p3s3' => 'required|integer|min:0|max:100','p3s4' => 'required|integer|min:0|max:100','p3s5' => 'required|integer|min:0|max:100','p3s6' => 'required|integer|min:0|max:100',
 			'p4s1' => 'required|integer|min:0|max:100','p4s2' => 'required|integer|min:0|max:100','p4s3' => 'required|integer|min:0|max:100','p4s4' => 'required|integer|min:0|max:100','p4s5' => 'required|integer|min:0|max:100','p4s6' => 'required|integer|min:0|max:100',
 			'p5s1' => 'required|integer|min:0|max:100','p5s2' => 'required|integer|min:0|max:100','p5s3' => 'required|integer|min:0|max:100','p5s4' => 'required|integer|min:0|max:100','p5s5' => 'required|integer|min:0|max:100','p5s6' => 'required|integer|min:0|max:100',
-			'r1' => 'required|integer|min:1|max:50','r2' => 'required|integer|min:1|max:50','r3' => 'required|integer|min:1|max:50','r4' => 'required|integer|min:1|max:50','r5' => 'required|integer|min:1|max:50','r6' => 'required|integer|min:1|max:50'
+			'r1' => 'required|integer|min:1|max:50','r2' => 'required|integer|min:1|max:50','r3' => 'required|integer|min:1|max:50','r4' => 'required|integer|min:1|max:50','r5' => 'required|integer|min:1|max:50','r6' => 'required|integer|min:0|max:50'
 		];
 	}
 
