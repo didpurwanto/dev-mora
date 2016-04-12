@@ -1,4 +1,5 @@
 <?php namespace App\Http\Controllers;
+use DB;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -22,8 +23,20 @@ class TestLocationsController extends Controller {
 	 */
 	public function index()
 	{
-		$locations = TestLocation::all();
+		$test_locations = TestLocation::all();
 
+		$locations = DB::table('applications')
+			->join('provinces', 'provinces.id' , '=', 'applications.test_location_id')
+			->join('applicants', 'applicants.user_id', '=', 'applications.user_id')
+			->join('test_locations', 'test_locations.province_id', '=', 'provinces.id')
+			->where('applicants.registration_number', '<>', '')
+			->groupBy('province_name')
+			->select(['provinces.id','province_name', 'quota' ,DB::raw('count(applicants.id) as total')])
+			->get();
+
+		#todo: select all test location, eventhough there's no pendaftar on that location
+
+		// dd($locations);
 		return view('testlocation.index', compact('locations'));
 	}
 

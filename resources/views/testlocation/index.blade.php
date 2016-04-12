@@ -45,19 +45,19 @@
 												@foreach ($locations as $location)
 												<tr>
 													<td class="center col-md-1">
-														{{ $location->id, ['size' => 5] }}
+														{{ 1, ['size' => 5] }}
 												  </td>
 													<td>
-														{{ $location->province->province_name }}
+														{{ $location->province_name }}
 													</td>
 													<td>
-														{{ $location->province2->province_name }}
+														{{ $location->province_name }}
 													</td>
 													<td>
 														{{ $location->quota }}
 													</td>
 													<td>
-														{{ $location->counter }}
+														{{ $location->total }}
 													</td>
 													<td class="center col-md-2">
 															<a class="btn btn-xs btn-success" href="{!! URL::to('admin/testlocations/'.$location->id.'/edit') !!}"><i class="fa fa-edit fa-fw"></i> Edit</a>

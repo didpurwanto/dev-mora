@@ -16,14 +16,14 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-comments fa-5x"></i>
+                        <i class="fa fa-user fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge">{!!  $total_pendaftar !!}</div>
                         <div> membuat akun!</div>
                     </div>
                 </div>
-            </div>
+            </div>            
             <a href={!! URL::to('admin/listprovinces/') !!}>
                 <div class="panel-footer">
                     <span class="pull-left">Rekap Provinsi</span>

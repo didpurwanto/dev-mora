@@ -37,17 +37,19 @@
 		@endif
 	</div>
 </div>
+<!--
 <div class="form-group {{ ! $errors->first('pesantren_type') ? '': 'has-error' }}">
 	<div class="row">
 		<div class="col-md-3">
 		{!! Form::label('pesantren_type', 'Jenis Pesantren') !!}
 		</div>
 		<div class="col-md-4">
-		<!-- {!! Form::text('"agung"', null,['class' => 'form-control', 'placeholder' => '']) !!} -->
+		 {!! Form::text('"agung"', null,['class' => 'form-control', 'placeholder' => '']) !!}
 		{!! Form::select('pesantren_type', $pes_type,$pes->pesantren_type,['class' => 'form-control', 'disabled' => 'disabled']) !!}
 		</div>
 	</div>
 </div>
+-->
 <div class="form-group {{ ! $errors->first('no_telp') ? '': 'has-error' }}">
 	<div class="row">
 		<div class="col-md-3">

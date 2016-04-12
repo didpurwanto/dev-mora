@@ -32,7 +32,7 @@ class AdminController extends Controller {
 	public function index()
 	{
 		// echo "index admin";
-		$total_pendaftar = DB::table('applications')->count();
+		$total_pendaftar = DB::table('applicants')->count();
 		$total_univ = DB::table('universities')->count();
 		// $total_dept = DB::table('departements')->count();
 		$total_pesantren = DB::table('applicants')
@@ -43,8 +43,12 @@ class AdminController extends Controller {
 			->where('registration_number', '<>', '')
 			->count();
 
+		// pendaftar dan pendaftar perifikasi
+		$pendaftar_validasi = DB::table('applicants')->where('registration_number', '<>', '')->count();
+
 		// return view('admin.beranda')->with('total_pendaftar','$total_pendaftar');
 		return view('admin.beranda', compact('total_pendaftar', 'total_submitter', 'total_univ', 'total_dept', 'total_pesantren'));
+		// return view('admin.beranda', compact('total_pendaftar', 'total_univ', 'total_dept', 'total_pesantren','pendaftar_validasi'));
 	}
 
 	public function departementlist()

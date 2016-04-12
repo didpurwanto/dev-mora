@@ -62,7 +62,7 @@ class ExportImportController extends Controller {
 	        	// dd($code_list);
 	        	// kd pt =3, kd prov=2, kd prodi=2 .. make it united
 	        	$test_number = "";
-	        	
+
 	        	//kode PT
 	        	if (strlen($code_list[0]->university_code) == 2){
 	        		$ptcode	= $code_list[0]->university_code;
@@ -87,7 +87,7 @@ class ExportImportController extends Controller {
 	        	}
 	        	else
 	        	{
-	        		$school_type_code = "0";	
+	        		$school_type_code = "0";
 	        	}
 	        	$test_number.= $school_type_code;
 	        	//prodi
@@ -99,7 +99,7 @@ class ExportImportController extends Controller {
 	        		$prodi = "0";
 	        	}
 	        	$test_number.= $prodi;
-	        	
+
 	        	// dd($test_number);
 	        	//save to db
 	        	DB::table('applications')
@@ -186,7 +186,9 @@ class ExportImportController extends Controller {
 	            	'Nilai  Subjek 3',
 	            	'Nilai  Subjek 4',
 	            	'Nilai  Subjek 5',
-	            	'Ranking'
+	            	'Ranking',
+								'Path Pas Photo',
+								'Lokasi Tes'
 	            	);
 	            $sheet->appendRow($column);
 	 			$appl = DB::table('applicants AS a')
@@ -255,6 +257,11 @@ class ExportImportController extends Controller {
 	 				}else {
 	 					$applicant->aggree_to_auto_move = 'Tidak';
 	 				}
+
+					//for location test
+					$applicant->locationtest = DB::table('provinces')->where('id', $applicant->test_location_id)->pluck('provinces.province_name');
+					//for email get from user table
+					$applicant->email = DB::table('users')->where('id', $applicant->user_id)->pluck('users.email');
 	 			}
 	 			// dd($appl);
 	            // getting last row number (the one we already filled and setting it to bold
@@ -265,7 +272,7 @@ class ExportImportController extends Controller {
 	            foreach ($appl as $applicant) {
 	                $sheet->appendRow(array(
 	                	$applicant->registration_number,
-						$applicant->test_number,
+										$applicant->test_number,
 	                	$applicant->full_name,
 	                	$applicant->email,
 	                	$applicant->gender,
@@ -321,6 +328,8 @@ class ExportImportController extends Controller {
 						$applicant->subject_4,
 						$applicant->subject_5,
 						$applicant->ranking,
+						$applicant->profile_photo,
+						$applicant->locationtest,
 	                	));
 	            }
 	          });
