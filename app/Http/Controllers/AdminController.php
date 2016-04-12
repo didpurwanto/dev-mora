@@ -34,12 +34,17 @@ class AdminController extends Controller {
 		// echo "index admin";
 		$total_pendaftar = DB::table('applications')->count();
 		$total_univ = DB::table('universities')->count();
-		$total_dept = DB::table('departements')->count();
-		$total_pesantren = DB::table('pesantrens')->count(DB::raw('DISTINCT pesantren_name'));
+		// $total_dept = DB::table('departements')->count();
+		$total_pesantren = DB::table('applicants')
+			->where('registration_number', '<>', '')
+			->count(DB::raw('DISTINCT pesantren_id'));
          // dd($total_pesantren);
+		$total_submitter = DB::table('applicants')
+			->where('registration_number', '<>', '')
+			->count();
 
 		// return view('admin.beranda')->with('total_pendaftar','$total_pendaftar');
-		return view('admin.beranda', compact('total_pendaftar', 'total_univ', 'total_dept', 'total_pesantren'));
+		return view('admin.beranda', compact('total_pendaftar', 'total_submitter', 'total_univ', 'total_dept', 'total_pesantren'));
 	}
 
 	public function departementlist()
@@ -182,12 +187,20 @@ class AdminController extends Controller {
 
 	public function pesantren()
 	{
-		$pesantren = DB::table('pesantrens')
-			//->join('pesantren_types', 'pesantren_types.id', '=', 'pesantrens.pesantren_type')
-			->join('provinces', 'provinces.id', '=', 'pesantrens.province_id')
-			->join('applicants')
-			->get();
+		// $pesantren = DB::table('pesantrens')
+		// 	//->join('pesantren_types', 'pesantren_types.id', '=', 'pesantrens.pesantren_type')
+		// 	->join('provinces', 'provinces.id', '=', 'pesantrens.province_id')
+		// 	->get();
 		$counter = 0;
+	
+		$pesantren = DB::table('pesantrens')
+			->select(['pesantrens.pesantren_name','pesantrens.nspp' , 'provinces.province_name', DB::raw('count(applicants.pesantren_id) as total')])
+			->join('provinces', 'provinces.id', '=', 'pesantrens.province_id')
+			->join('applicants', 'applicants.pesantren_id', '=', 'pesantrens.id')
+			->where('registration_number', '<>', "")
+			->groupBy('pesantrens.id')
+			->get();
+
 		return view('admin.pesantren', compact('pesantren', 'counter'));
 	}
 
@@ -300,23 +313,24 @@ class AdminController extends Controller {
 	        $excel->setTitle('Rekapitulasi Biodata Pesantren');
 	        $excel->setCreator('Agung Laksono')->setCompany('Kemenag');
 	        $excel->sheet('Daftar Pesantren', function ($sheet){
-    			$pesantren = DB::table('pesantrens')
-					->join('pesantren_types', 'pesantren_types.id', '=', 'pesantrens.pesantren_type')
+		  		$pesantren = DB::table('pesantrens')
+					->select(['pesantrens.pesantren_name','pesantrens.nspp' , 'pesantren_address' ,'provinces.province_name', 
+							'applicants.kabupaten' , DB::raw('count(applicants.pesantren_id) as total')])
 					->join('provinces', 'provinces.id', '=', 'pesantrens.province_id')
+					->join('applicants', 'applicants.pesantren_id', '=', 'pesantrens.id')
+					->where('registration_number', '<>', "")
+					->groupBy('pesantrens.id')
 					->get();
+
 
 				// dd($pesantren);
 				$column = array(
 					'Nama Pesantren',
-					'Nama Pimpinan',
 					'NSPP',
-					'Tipe Pesantren',
 					'Alamat Pesantren',
-					'Tlp Pesantren',
 					'Provinsi',
 					'Kabupaten',
-					'Kecamatan',
-					'Kelurahan'
+					'Total Pendaftar'
 					);
 
 	            $sheet->appendRow($column);
@@ -327,15 +341,11 @@ class AdminController extends Controller {
 	            foreach ($pesantren as $p) {
 	            	$row = array(
 	            		$p->pesantren_name,
-	            		$p->kiai_name,
 	            		$p->nspp,
-	            		$p->type_name,
 	            		$p->pesantren_address,
-	            		$p->no_telp,
 	            		$p->province_name,
 	            		$p->kabupaten,
-	            		$p->kecamatan,
-	            		$p->kelurahan
+	            		$p->total
 	            		);
    		            $sheet->appendRow($row);
 	            }

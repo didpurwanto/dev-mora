@@ -33,10 +33,11 @@
 									<thead>
 										<tr>
 											<th>No</th>
-											<th>Nama Pesantren</th>
-											<th>Nama Kiai</th>
 											<th>NSPP</th>
+											<th>Nama Pesantren</th>
+											<!-- <th>Nama Kiai</th> -->
 											<th>Provinsi</th>
+											<th> Total Pendaftar</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -45,17 +46,17 @@
 											<td class="center col-md-1">
 												{{ $counter = $counter+1, ['size' => 3] }}
 										    </td>
-											<td class="center col-md-3">
-												{{ $ponpes->pesantren_name }}
-											</td>
-											<td class="center col-md-3">
-												{{ $ponpes->kiai_name }}
-											</td>
 											<td class="center col-md-2">
 												{{ $ponpes->nspp }}													
 											</td>
 											<td class="center col-md-3">
+												{{ $ponpes->pesantren_name }}
+											</td>
+											<td class="center col-md-3">
 												{{ $ponpes->province_name }}
+											</td>
+											<td class="center col-md-2">
+												{{ $ponpes->total }}
 											</td>
 										</tr>
 											@endforeach
