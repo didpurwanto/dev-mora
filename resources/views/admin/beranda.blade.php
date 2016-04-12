@@ -16,11 +16,22 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-comments fa-5x"></i>
+                        <i class="fa fa-user fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge">{!!  $total_pendaftar !!}</div>
-                        <div> total Pendaftar!</div>
+                        <div> Total Pendaftar Akun!</div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-users fa-5x "></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">{!!  $pendaftar_validasi !!}</div>
+                        <div> Total Pendaftar Verifikasi!</div>
                     </div>
                 </div>
             </div>
@@ -38,11 +49,11 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-tasks fa-5x"></i>
+                        <i class="fa fa-building fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge">{!! $total_pesantren !!}</div>
-                        <div> total pesantren!</div>
+                        <div> Total Pesantren!</div>
                     </div>
                 </div>
             </div>
@@ -60,11 +71,11 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-shopping-cart fa-5x"></i>
+                        <i class="fa fa-university fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge">{!!  $total_univ !!}</div>
-                        <div>total Universitas!</div>
+                        <div>Total Universitas!</div>
                     </div>
                 </div>
             </div>
@@ -82,11 +93,11 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-support fa-5x"></i>
+                        <i class="fa fa-graduation-cap fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge">{!!  $total_dept !!}</div>
-                        <div>total Jurusan</div>
+                        <div>Total Jurusan</div>
                     </div>
                 </div>
             </div>
