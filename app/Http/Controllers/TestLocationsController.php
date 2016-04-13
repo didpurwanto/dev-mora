@@ -23,21 +23,18 @@ class TestLocationsController extends Controller {
 	 */
 	public function index()
 	{
-		$test_locations = TestLocation::all();
+		$locations = TestLocation::all();
 
-		$locations = DB::table('applications')
-			->join('provinces', 'provinces.id' , '=', 'applications.test_location_id')
-			->join('applicants', 'applicants.user_id', '=', 'applications.user_id')
-			->join('test_locations', 'test_locations.province_id', '=', 'provinces.id')
-			->where('applicants.registration_number', '<>', '')
-			->groupBy('province_name')
-			->select(['provinces.id','province_name', 'quota' ,DB::raw('count(applicants.id) as total')])
-			->get();
-
-		#todo: select all test location, eventhough there's no pendaftar on that location
-
-		// dd($locations);
-		return view('testlocation.index', compact('locations'));
+		foreach ($locations as $index => $value) {
+			$select_location= DB::table('applications')
+				->join('applicants', 'applicants.user_id', '=', 'applications.user_id')
+				->where('applicants.registration_number', '<>', '')
+				->where('applications.test_location_id', '=', $value->province_id)
+				->count();
+			$locations[$index]['total']=$select_location;
+			$counter=0;
+		}
+		return view('testlocation.index', compact('locations','counter'));
 	}
 
 	/**
