@@ -181,15 +181,7 @@ td .content {
 			Provinsi  : <b>{!!$pesantren->province->province_name!!}</b>
 		</td>
 	</tr>
-	<tr>
-		<td>
-			Nama Pimpinan PP
-		</td>
-		<td>:
-		</td>
-		<td><b>{!! $pesantren->kiai_name!!}</b> <br />
-		</td>
-	</tr>
+
 	<tr>
 		<td>
 			No Telp PP
@@ -362,15 +354,7 @@ td .content {
 			Provinsi  : <b>{!!$pesantren->province->province_name!!}</b>
 		</td>
 	</tr>
-	<tr>
-		<td>
-			Nama Pimpinan PP
-		</td>
-		<td>:
-		</td>
-		<td><b>{!!$pesantren->kiai_name!!}</b> <br />
-		</td>
-	</tr>
+	
 	<tr>
 		<td>
 			No Telp PP
