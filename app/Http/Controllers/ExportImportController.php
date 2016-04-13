@@ -198,6 +198,7 @@ class ExportImportController extends Controller {
 	 						->join('applications AS ap', 'ap.user_id', '=', 'a.user_id' )
 	 						->join('provinces', 'provinces.id', '=', 'a.province_id')
 	 						->join('raports', 'raports.user_id', '=', 'a.user_id')
+							->where('registration_number', '<>', '')
 	 						->get();
 	 			foreach ($appl as $applicant) {
 	 				if ($applicant->color_blind == "1" ){
