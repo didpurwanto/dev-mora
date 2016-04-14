@@ -11,15 +11,18 @@
 		<br />
 	    @if ($pass == 1)
 	        <br />
-			<div class="col-md-5 col-md-offset-1 column" >
+			<div class="col-sm-3 column" >
 				{!! Form::open(['method' => 'GET', 'url' => '/cetakformulir']) !!}
 	    			{!! Form::submit('Cetak Formulir Registrasi', ['class' => 'btn btn-primary form-button btn-lg']) !!}
 				{!! Form::close() !!}
 			</div>
-			<div class="col-md-5 col-md-offset-1 column">
+			<div class="col-sm-3 col-sm-offset-1 column">
 				{!! Form::open(['method' => 'GET', 'url' => '/cetakkartu']) !!}
 	    			{!! Form::submit('Cetak Kartu Peserta', ['class' => 'btn btn-primary form-button btn-lg']) !!}
 				{!! Form::close() !!}
+			</div>
+			<div class="col-sm-3 col-sm-offset-1 column">
+					<a class="btn btn-primary btn-lg" target="_blank" href="https://drive.google.com/file/d/0BzMpOKBGU7lWQXgxd2hQbmVmLTRjZFk0T21uRkh1VkJyNU9n" role="button">Download Surat Pernyataan</a>
 			</div>
 	    @endif
 	    @if ($pass == 0)
