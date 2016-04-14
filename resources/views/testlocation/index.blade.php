@@ -35,7 +35,7 @@
 												<tr>
 													<th>No</th>
 													<th>Provinsi</th>
-													<th>Nama Lokasi</th>
+													<!-- <th>Nama Lokasi</th> -->
 													<th>Kuota</th>
 													<th>Counter</th>
 													<th>Aksi</th>
@@ -45,14 +45,14 @@
 												@foreach ($locations as $location)
 												<tr>
 													<td class="center col-md-1">
-														{{ 1, ['size' => 5] }}
+														{{ $counter = $counter+1, ['size' => 3] }}
 												  </td>
 													<td>
-														{{ $location->province_name }}
+														{{ $location->province->province_name }}
 													</td>
-													<td>
+<!-- 													<td>
 														{{ $location->province_name }}
-													</td>
+													</td> -->
 													<td>
 														{{ $location->quota }}
 													</td>
