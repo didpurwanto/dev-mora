@@ -168,6 +168,7 @@ class ExportImportController extends Controller {
 	            	'nspp',
 	            	'tipe pesantren',
 	            	'alamat pesantren',
+								'provinsi pesantren',
 	            	'nama sekolah',
 	            	'nama kepala sekolah',
 	            	'nisn',
@@ -176,6 +177,7 @@ class ExportImportController extends Controller {
 	            	'tipe sekolah',
 	            	'pesantren di dalam pondok',
 	            	'alamat sekolah',
+								'provinsi sekolah',
 	            	'kampus yang dipilih',
 	            	'jurusan 1',
 	            	'jurusan 2',
@@ -263,7 +265,14 @@ class ExportImportController extends Controller {
 					$applicant->locationtest = DB::table('provinces')->where('id', $applicant->test_location_id)->pluck('provinces.province_name');
 					//for email get from user table
 					$applicant->email = DB::table('users')->where('id', $applicant->user_id)->pluck('users.email');
-	 			}
+					// alamat province pesantren
+					$applicant->province_pesantren = DB::table('pesantrens')->where('id', $applicant->pesantren_id)->pluck('province_id');
+					$applicant->province_pesantren = DB::table('provinces')->where('id',$applicant->province_pesantren)->pluck('province_name');
+					// alamat province school
+					$applicant->province_school = DB::table('schools')->where('user_id', $applicant->user_id)->pluck('province_id');
+					$applicant->province_school = DB::table('provinces')->where('id', $applicant->province_school)->pluck('province_name');
+
+				}
 	 			// dd($appl);
 	            // getting last row number (the one we already filled and setting it to bold
 	            $sheet->row($sheet->getHighestRow(), function ($row) {
@@ -310,6 +319,7 @@ class ExportImportController extends Controller {
 	                	$applicant->nspp,
 	                	$applicant->pesantren_type,
 	                	$applicant->pesantren_address,
+										$applicant->province_pesantren,
 	                	$applicant->school_name,
 	                	$applicant->school_principal_name,
 	                	$applicant->nisn,
@@ -318,6 +328,7 @@ class ExportImportController extends Controller {
 	                	$applicant->school_type_id,
 	                	$applicant->inside_pondok,
 	                	$applicant->school_address,
+										$applicant->province_school,
 						$applicant->university_id,
 						$applicant->major_1_id,
 						$applicant->major_2_id,
