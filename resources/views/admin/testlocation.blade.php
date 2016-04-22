@@ -14,7 +14,7 @@
 
 <div class="row">
 		<div class="col-lg-12">
-				<h1 class="page-header">Rekapitulasi Provinsi Lokasi Tes CBT</h1>
+				<h1 class="page-header">Rekap Pendaftar per Provinsi</h1>
 		</div>
 		<!-- /.col-lg-12 -->
 </div>
@@ -31,23 +31,20 @@
 								<!-- {!! Form::label('university_name', 'Pilih Provinsi :') !!} -->
 								{!! Form::select('province_id', array_merge(['0' => 'Pilih Provinsi'], $prov_list), 0,['class' => 'form-control']) !!}
 								<br>
-								{!! Form::submit('Tampilkan data', ['class' => 'btn btn-primary form-control']) !!}
+								{!! Form::submit('Buat excel', ['class' => 'btn btn-primary form-control']) !!}
 <!-- 								<div class="col-md-2 col-md-offset-2">
 								<br>
 									<a class="btn btn-success" href="{!! URL::to('admin/DonwloadDepartement') !!}"><i class="glyphicon glyphicon-download-alt"></i> Download in excel</a>
 								</div> -->
 
 								{!! Form::close() !!}
-								 <br>
+<!-- 								 <br>
 								<p class="navbar-text" align="center" style="font-size:14px"><b>Provinsi : {!! $prov !!}</b></p>
 							<br>
-							</div>
+							</div> -->
 
-
+<!-- 
 								<div class="dataTable_wrapper">
-<!-- 									<div class="col-md-2 col-md-offset-5">
-										<a class="btn btn-success" href="{!! URL::to('admin/DonwloadDepartement') !!}"><i class="glyphicon glyphicon-download-alt"></i> Download in excel</a>
-									</div> -->
 										<table class="table table-striped table-bordered table-hover" id="tabel-provinsi">
 											<thead>
 												<tr>
@@ -81,7 +78,7 @@
 
 											</tbody>
 								   </table>
-						 </div>
+						 		</div> -->
 					 </div>
  					<!-- /.panel-body -->
  			</div>

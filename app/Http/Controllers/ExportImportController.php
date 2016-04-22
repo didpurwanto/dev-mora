@@ -9,7 +9,7 @@ use App\Applicant;
 use App\Application;
 use App\Unviersity;
 use App\Pesantren;
-use App\province;
+use App\Province;
 use Input;
 use Session;
 class ExportImportController extends Controller {
@@ -380,46 +380,242 @@ class ExportImportController extends Controller {
 	{
 
 		// $id = 1;
-		$id = Input::get('province_id');
 		// dd($id);
 		$prov_list= Province::lists('province_name','id');
 
-		if($id == "0"){
-			// dd($id);
-			$dept = DB::table('departements')
-				->select(['departements.departement_name', 'universities.university_name', 'departements.departement_code' ,DB::raw('count(applications.major_1_id) as total'), 'departements.id'
-					])
-	            ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
-	            ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
-	            ->groupBy('departements.id')
-	            ->get();
+		Excel::create('biodata pendaftar', function($excel) {
+			  // dd($id_prov);
+	          // Set the title
+	          $excel->setTitle('List Pendaftar PBSB');
+	          // Chain the setters
+	          $excel->setCreator('Agung Laksono')
+	                ->setCompany('Kemenag');
+	          $excel->sheet('biodata pendaftar', function ($sheet) {
+				$id_prov = Input::get('province_id');
+	            // $appl = Applicant::all();
+	 			// dd($tab);
+	            $column = array(
+	            	'No Registrasi',
+	            	'nomor tes',
+	            	'Nama',
+	            	'Email',
+	            	'jenis_kelamin',
+	            	'tempat lahir',
+	            	'tanggal lahir',
+	            	'jumlah hafalan',
+	            	'buta warna',
+	            	'gangguan mental',
+	            	'riwayat penyakit',
+	            	'gol darah',
+	            	'berat badan',
+	            	'tinggi bagan',
+	            	'kontak',
+	            	'status menikah',
+	            	'alamat pendaftar',
+	            	'provinsi',
+	            	'kabupaten',
+	            	'nama ayah',
+	            	'umur ayah',
+	            	'ayah almarhum',
+	            	'pendidikan ayah',
+	            	'ID pekerjaan ayah',
+	            	'ID rank gaji ayah',
+	            	'no tpl ayah',
+	            	'nama ibu',
+	            	'umur ibu',
+	            	'ibu almarhum',
+	            	'pendidikan ibu',
+	            	'pekerjaan ibu',
+	            	'penghasilan ibu',
+	            	'no tlp ibu',
+	            	'nama pesantren',
+	            	'nama kiai',
+	            	'nspp',
+	            	'tipe pesantren',
+	            	'alamat pesantren',
+								'provinsi pesantren',
+	            	'nama sekolah',
+	            	'nama kepala sekolah',
+	            	'nisn',
+	            	'status sekolah',
+	            	'tahun lulus',
+	            	'tipe sekolah',
+	            	'pesantren di dalam pondok',
+	            	'alamat sekolah',
+								'provinsi sekolah',
+	            	'kampus yang dipilih',
+	            	'jurusan 1',
+	            	'jurusan 2',
+	            	'bersedia dipindahkan',
+	            	'program studi',
+	            	'Nilai  Sujek 1',
+	            	'Nilai  Subjek 2',
+	            	'Nilai  Subjek 3',
+	            	'Nilai  Subjek 4',
+	            	'Nilai  Subjek 5',
+	            	'Ranking',
+								'Path Pas Photo',
+								'Lokasi Tes'
+	            	);
+	            $sheet->appendRow($column);
+	 			// dd($id_prov);
+	 			$appl = DB::table('applicants AS a')
+	 						->join('families AS f', 'f.user_id', '=', 'a.user_id')
+	 						->join('pesantrens AS p', 'p.id', '=', 'a.pesantren_id')
+	 						->join('schools AS s', 's.user_id', '=', 'a.user_id')
+	 						->join('applications AS ap', 'ap.user_id', '=', 'a.user_id' )
+	 						->join('provinces', 'provinces.id', '=', 'a.province_id')
+	 						->join('raports', 'raports.user_id', '=', 'a.user_id')
+							->where('p.province_id', '=', $id_prov)
+							->where('registration_number', '<>', '')
+	 						->get();
+				// dd($appl);	 						
+	 			foreach ($appl as $applicant) {
+	 				if ($applicant->color_blind == "1" ){
+	 					$applicant->color_blind = 'Ya';
+	 				}else {
+	 					$applicant->color_blind = 'Tidak';
+	 				}
+	 				if ($applicant->mental_disorder == "1" ){
+	 					$applicant->mental_disorder = 'Ya';
+	 				}else {
+	 					$applicant->mental_disorder = 'Tidak';
+	 				}
+	 				if ($applicant->gender == "1" ){
+	 					$applicant->gender = 'Laki-Laki';
+	 				}else {
+	 					$applicant->gender = 'perempuan';
+	 				}
+	 				if ($applicant->marriage_status == "1" ){
+	 					$applicant->marriage_status = 'Sudah';
+	 				}else {
+	 					$applicant->marriage_status = 'Belum';
+	 				}
+	 				if ($applicant->father_deceased == "1" ){
+	 					$applicant->father_deceased = 'Meninggal';
+	 				}else {
+	 					$applicant->father_deceased = 'Hidup';
+	 				}
+                	$applicant->father_education = DB::table('education_levels')->where('id', $applicant->father_education)->pluck('education_levels.level_name');
+		 			$applicant->father_job_id = DB::table('job_types')->where('id', $applicant->father_job_id)->pluck('job_types.job_name');
+		 			$applicant->father_salary_id = DB::table('range_salaries')->where('id', $applicant->father_salary_id)->pluck('range_salaries.range_name');
+	 				if ($applicant->mother_deceased == "1" ){
+	 					$applicant->mother_deceased = 'Meninggal';
+	 				}else {
+	 					$applicant->mother_deceased = 'Hidup';
+	 				}
+                	$applicant->mother_education = DB::table('education_levels')->where('id', $applicant->mother_education)->pluck('education_levels.level_name');
+                	$applicant->mother_job_id = DB::table('job_types')->where('id', $applicant->mother_job_id)->pluck('job_types.job_name');
+                	$applicant->mother_income_id = DB::table('range_salaries')->where('id', $applicant->mother_salary_id)->pluck('range_salaries.range_name');
+                	$applicant->pesantren_type = DB::table('pesantren_types')->where('id', $applicant->pesantren_type)->pluck('pesantren_types.type_name');
+                	$applicant->school_type_id = DB::table('school_types')->where('id', $applicant->school_type_id)->pluck('school_types.type_name');
+                	$applicant->program_study_id = DB::table('program_studies')->where('id', $applicant->program_study_id)->pluck('program_studies.program_name');
+	 				if ($applicant->inside_pondok == "1" ){
+	 					$applicant->inside_pondok = 'Ya';
+	 				}else {
+	 					$applicant->inside_pondok = 'Tidak';
+	 				}
+	 				if ($applicant->school_status == "1" ){
+	 					$applicant->school_status = 'Negeri';
+	 				}else {
+	 					$applicant->school_status = 'Swasta';
+	 				}
+					$applicant->university_id = DB::table('universities')->where('id', $applicant->university_id)->pluck('universities.university_name');
+					$applicant->major_1_id  = DB::table('departements')->where('id', $applicant->major_1_id)->pluck('departements.departement_name');
+					$applicant->major_2_id  = DB::table('departements')->where('id', $applicant->major_2_id)->pluck('departements.departement_name');
+	 				if ($applicant->aggree_to_auto_move == "1" ){
+	 					$applicant->aggree_to_auto_move = 'Ya';
+	 				}else {
+	 					$applicant->aggree_to_auto_move = 'Tidak';
+	 				}
 
-		        $prov = "Semua";
-		      //  $totalAktif= Departement::where('status', '=', 1)->count();
-		      //  $totalNonAktif= Departement::where('status', '=', '')->count();
-		}
-		else{
-			$dept = DB::table('departements')
-				->select(['departements.departement_name', 'universities.university_name', 'departements.departement_code' ,DB::raw('count(applications.major_1_id) as total'), 'departements.id'
-					])
-	            ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
-	            ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
-	            ->where('departements.university_id', $id)
-	            ->where('departements.status', 1)
-	            ->groupBy('departements.id')
-	            ->get();
+					//for location test
+					$applicant->locationtest = DB::table('provinces')->where('id', $applicant->test_location_id)->pluck('provinces.province_name');
+					//for email get from user table
+					$applicant->email = DB::table('users')->where('id', $applicant->user_id)->pluck('users.email');
+					// dd($applicant);
+					// alamat province pesantren
+					$applicant->province_pesantren = DB::table('pesantrens')->where('id', $applicant->pesantren_id)->pluck('province_id');
+					$applicant->province_pesantren = DB::table('provinces')->where('id',$applicant->province_pesantren)->pluck('province_name');
+					// alamat province school
+					$applicant->province_school = DB::table('schools')->where('user_id', $applicant->user_id)->pluck('province_id');
+					$applicant->province_school = DB::table('provinces')->where('id', $applicant->province_school)->pluck('province_name');
 
-				$prov = DB::table('universities')
-	            	->where('id', '=', $id)
-	            	->pluck('university_name');
-
-		        //$totalAktif= Departement::where('status', '=', 1)
-		        //	->where('departements.university_id', '=', $id)->count();
-
-		        //$totalNonAktif= Departement::where('status', '=', '')
-		        //	->where('departements.university_id', '=', $id)->count();
-		        // dd($univ);
-		}
+				}
+	 			// dd($appl);
+	            // getting last row number (the one we already filled and setting it to bold
+	            $sheet->row($sheet->getHighestRow(), function ($row) {
+	                $row->setFontWeight('bold');
+	            });
+	            // putting customers data as next rows
+	            foreach ($appl as $applicant) {
+	                $sheet->appendRow(array(
+	                	$applicant->registration_number,
+										$applicant->test_number,
+	                	$applicant->full_name,
+	                	$applicant->email,
+	                	$applicant->gender,
+	                	$applicant->place_birth,
+	                	$applicant->date_birth,
+	                	$applicant->recitation,
+	                	$applicant->color_blind,
+	                	$applicant->mental_disorder,
+	                	$applicant->illness,
+	                	$applicant->blood_type,
+	                	$applicant->weight,
+	                	$applicant->height,
+	                	$applicant->contact,
+	                	$applicant->marriage_status,
+	                	$applicant->address,
+	                	$applicant->province_name,
+	                	$applicant->kabupaten,
+	                	$applicant->father_name,
+	                	$applicant->father_age,
+	                	$applicant->father_deceased,
+	                	$applicant->father_education,
+	                	$applicant->father_job_id,
+	                	$applicant->father_salary_id,
+	                	$applicant->father_contact,
+	                	$applicant->mother_name,
+	                	$applicant->mother_age,
+	                	$applicant->mother_deceased,
+	                	$applicant->mother_education,
+	                	$applicant->mother_job_id,
+	                	$applicant->mother_income_id,
+	                	$applicant->mother_contact,
+	                	$applicant->pesantren_name,
+	                	$applicant->kiai_name,
+	                	$applicant->nspp,
+	                	$applicant->pesantren_type,
+	                	$applicant->pesantren_address,
+										$applicant->province_pesantren,
+	                	$applicant->school_name,
+	                	$applicant->school_principal_name,
+	                	$applicant->nisn,
+	                	$applicant->school_status,
+	                	$applicant->graduate_year,
+	                	$applicant->school_type_id,
+	                	$applicant->inside_pondok,
+	                	$applicant->school_address,
+										$applicant->province_school,
+						$applicant->university_id,
+						$applicant->major_1_id,
+						$applicant->major_2_id,
+						$applicant->aggree_to_auto_move,
+	                	$applicant->program_study_id,
+						$applicant->subject_1,
+						$applicant->subject_2,
+						$applicant->subject_3,
+						$applicant->subject_4,
+						$applicant->subject_5,
+						$applicant->ranking,
+						$applicant->profile_photo,
+						$applicant->locationtest,
+	                	));
+	            }
+	          });
+	        })->export('xls');
+		 Session::flash('message', 'Customer uploaded successfully.');		
 	 		$counter = 0;
 
       return view('admin.testlocation', compact('dept', 'prov_list', 'prov', 'totalAktif', 'totalNonAktif', 'counter'));

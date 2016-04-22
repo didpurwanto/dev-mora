@@ -110,11 +110,11 @@
                                 </li>
                                 <li>
 
-                                    <a href="{!! URL::to('admin/export/') !!}">Download Data Pendaftar</a>
+                                    <a href="{!! URL::to('admin/export/') !!}">Download Seluruh Pendaftar</a>
                                 </li>
                                 <li>
 
-                                    <a href="{!! URL::to('admin/testlocationlist/') !!}">Download Lokasi Tes CBT</a>
+                                    <a href="{!! URL::to('admin/testlocationlist/') !!}">Pendaftar perprovinsi</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
