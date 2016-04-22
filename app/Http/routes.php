@@ -170,3 +170,6 @@ Route::get('admin/departementlist','AdminController@departementlist');
 Route::get('admin/DownloadProvince','AdminController@list_provinces_excel');
 Route::get('admin/DonwloadPesantren','AdminController@list_pesantren_excel');
 Route::post('admin/DonwloadDepartement','AdminController@list_departement_excel');
+
+Route::post('admin/listtestlocation','ExportImportController@listtestlocation');
+Route::get('admin/testlocationlist/','ExportImportController@testlocationlist');
