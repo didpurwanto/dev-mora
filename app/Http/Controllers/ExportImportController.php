@@ -9,6 +9,7 @@ use App\Applicant;
 use App\Application;
 use App\Unviersity;
 use App\Pesantren;
+use App\province;
 use Input;
 use Session;
 class ExportImportController extends Controller {
@@ -347,5 +348,78 @@ class ExportImportController extends Controller {
 	          });
 	        })->export('xls');
 		 Session::flash('message', 'Customer uploaded successfully.');
+	}
+
+	public function testlocationlist()
+	{
+
+		$prov_list= Province::lists('province_name','id');
+
+		// $id =1;
+		$dept = DB::table('departements')
+			->select(['departements.departement_name', 'universities.university_name', 'departements.departement_code' ,DB::raw('count(applications.major_1_id) as total'), 'departements.id'
+				])
+            ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
+            ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
+            ->groupBy('departements.id')
+            ->get();
+        $prov = "Semua Provinsi";
+        //$totalAktif= Departement::where('status', '=', 1)->count();
+        //$totalNonAktif= Departement::where('status', '=', '')->count();
+        // $count = User::where('votes', '>', 100)->count();
+         // dd($totalNonAktif);
+		// dd($dept);
+ 		$counter = 0;
+
+    return view('admin.testlocation', compact('dept', 'prov_list', 'prov', 'totalAktif', 'totalNonAktif', 'counter'));
+	}
+
+	public function listtestlocation()
+	{
+
+		// $id = 1;
+		$id = Input::get('province_id');
+		// dd($id);
+		$prov_list= Province::lists('province_name','id');
+
+		if($id == "0"){
+			// dd($id);
+			$dept = DB::table('departements')
+				->select(['departements.departement_name', 'universities.university_name', 'departements.departement_code' ,DB::raw('count(applications.major_1_id) as total'), 'departements.id'
+					])
+	            ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
+	            ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
+	            ->groupBy('departements.id')
+	            ->get();
+
+		        $prov = "Semua";
+		      //  $totalAktif= Departement::where('status', '=', 1)->count();
+		      //  $totalNonAktif= Departement::where('status', '=', '')->count();
+		}
+		else{
+			$dept = DB::table('departements')
+				->select(['departements.departement_name', 'universities.university_name', 'departements.departement_code' ,DB::raw('count(applications.major_1_id) as total'), 'departements.id'
+					])
+	            ->leftJoin('applications', 'departements.id', '=', 'applications.major_1_id')
+	            ->leftJoin('universities', 'departements.university_id', '=', 'universities.id')
+	            ->where('departements.university_id', $id)
+	            ->where('departements.status', 1)
+	            ->groupBy('departements.id')
+	            ->get();
+
+				$prov = DB::table('universities')
+	            	->where('id', '=', $id)
+	            	->pluck('university_name');
+
+		        //$totalAktif= Departement::where('status', '=', 1)
+		        //	->where('departements.university_id', '=', $id)->count();
+
+		        //$totalNonAktif= Departement::where('status', '=', '')
+		        //	->where('departements.university_id', '=', $id)->count();
+		        // dd($univ);
+		}
+	 		$counter = 0;
+
+      return view('admin.testlocation', compact('dept', 'prov_list', 'prov', 'totalAktif', 'totalNonAktif', 'counter'));
 	}
 }
