@@ -202,6 +202,7 @@ class ExportImportController extends Controller {
 	 						->join('raports', 'raports.user_id', '=', 'a.user_id')
 							->where('registration_number', '<>', '')
 	 						->get();
+				// dd($appl);	 						
 	 			foreach ($appl as $applicant) {
 	 				if ($applicant->color_blind == "1" ){
 	 					$applicant->color_blind = 'Ya';
@@ -265,6 +266,7 @@ class ExportImportController extends Controller {
 					$applicant->locationtest = DB::table('provinces')->where('id', $applicant->test_location_id)->pluck('provinces.province_name');
 					//for email get from user table
 					$applicant->email = DB::table('users')->where('id', $applicant->user_id)->pluck('users.email');
+					// dd($applicant);
 					// alamat province pesantren
 					$applicant->province_pesantren = DB::table('pesantrens')->where('id', $applicant->pesantren_id)->pluck('province_id');
 					$applicant->province_pesantren = DB::table('provinces')->where('id',$applicant->province_pesantren)->pluck('province_name');
